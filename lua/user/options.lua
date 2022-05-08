@@ -48,7 +48,7 @@ vim.cmd([[
 ]])
 
 -- Windows-specific
-if vim.fn.has("win32") then
+if vim.fn.has("win32") == 1 then
   vim.cmd([[
     set shell=pwsh\ -NoLogo
     set shellcmdflag=-Command
