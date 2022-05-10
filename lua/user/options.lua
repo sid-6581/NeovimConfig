@@ -61,4 +61,7 @@ vim.g.neovide_cursor_vfx_mode = "railgun"
 
 vim.g.argtextobj_pairs = "[:],(:),{:},<:>"
 
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+
 vim.cmd "cd ~"
