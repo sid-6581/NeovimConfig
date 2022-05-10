@@ -52,7 +52,7 @@ vim.g.indent_blankline_context_patterns = {
 -- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
-vim.opt.listchars:append "tab:»»"
+vim.opt.listchars:append "tab:» "
 -- vim.opt.listchars:append "space:"
 -- vim.opt.listchars:append "eol:↴"
 
