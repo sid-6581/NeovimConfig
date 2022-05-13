@@ -20,6 +20,7 @@ local options = {
   fileencoding = "utf-8",                   -- The encoding written to a file
   guifont = "MesloLGS NF:h10",              -- The font used in graphical neovim applications
   ignorecase = true,                        -- Ignore case in search patterns
+  laststatus = 2,                           -- Global statusline
   mouse = "a",                              -- Allow the mouse to be used in neovim
   number = true,                            -- Set numbered lines
   numberwidth = 4,                          -- Set number column width
