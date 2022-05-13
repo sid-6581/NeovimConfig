@@ -1,10 +1,10 @@
 -- Windows-specific
 if vim.fn.has("win32") == 1 then
   vim.cmd([[
-    set shell=pwsh\ -NoLogo
-    set shellcmdflag=-Command
-    set shellquote=\"
-    set shellxquote=
+    " set shell=pwsh\ -NoLogo\ -NoProfile
+    " set shellcmdflag=-Command
+    " set shellquote=\"
+    " set shellxquote=
     source $VIMRUNTIME/mswin.vim
   ]])
 end
