@@ -205,6 +205,7 @@ which_key.register({
   ["<A-j>"] = { "<Esc><cmd>m .+1<CR>==", "Move line down" },
   ["<A-k>"] = { "<Esc><cmd>m .-2<CR>==", "Move line up" },
 
+  ["\\\\"] = { "<cmd>HopChar2<CR>", "Hop 2 chars" },
   ["\\s"] = { "<cmd>HopChar2<CR>", "Hop 2 chars" },
   ["\\w"] = { "<cmd>HopWord<CR>", "Hop word" },
   ["\\f"] = { "<cmd>HopChar1CurrentLineAC<CR>", "Hop 1 char right" },
