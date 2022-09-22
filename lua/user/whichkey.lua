@@ -6,7 +6,7 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local setup = {
+which_key.setup({
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -33,7 +33,7 @@ local setup = {
     -- override the label used to display some keys. It doesn't effect WK in any other way.
     -- For example:
     -- ["<space>"] = "SPC",
-    -- ["<cr>"] = "RET",
+    -- ["<CR>"] = "RET",
     -- ["<tab>"] = "TAB",
   },
   icons = {
@@ -42,14 +42,14 @@ local setup = {
     group = "+", -- symbol prepended to a group
   },
   popup_mappings = {
-    scroll_down = "<c-d>", -- binding to scroll down inside the popup
-    scroll_up = "<c-u>", -- binding to scroll up inside the popup
+    scroll_down = "<C-j>", -- binding to scroll down inside the popup
+    scroll_up = "<C-k>", -- binding to scroll up inside the popup
   },
   window = {
-    border = "rounded", -- none, single, double, shadow
+    border = "none", -- none, single, double, shadow
     position = "bottom", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+    padding = { 1, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
     winblend = 0,
   },
   layout = {
@@ -70,125 +70,100 @@ local setup = {
     i = { "j", "k" },
     v = { "j", "k" },
   },
-}
+})
 
-which_key.setup(setup)
+local r = which_key.register
 
 -- Space keybindings
-which_key.register({
-  a = { "<cmd>Alpha<cr>", "Alpha" },
+r({
+  a = { "<cmd>Alpha<CR>", "Alpha" },
   b = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>",
     "Buffers",
   },
-  e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  n = { "<cmd>NvimTreeFindFile<cr>", "Find File in Explorer" },
+  e = { "<cmd>Neotree toggle<CR>", "File Explorer" },
+  n = { "<cmd>Neotree reveal<CR>", "Find File in Explorer" },
   w = { "<cmd>w!<CR>", "Save" },
   q = { "<cmd>q!<CR>", "Quit" },
   c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   f = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
     "Find Files",
   },
-  F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-  P = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  F = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
+  P = { "<cmd>lua require('telescope').extensions.projects.projects()<CR>", "Projects" },
 
   p = {
     name = "Packer",
-    c = { "<cmd>PackerCompile<cr>", "Compile" },
-    i = { "<cmd>PackerInstall<cr>", "Install" },
-    s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
-    u = { "<cmd>PackerUpdate<cr>", "Update" },
+    c = { "<cmd>PackerCompile<CR>", "Compile" },
+    i = { "<cmd>PackerInstall<CR>", "Install" },
+    s = { "<cmd>PackerSync<CR>", "Sync" },
+    S = { "<cmd>PackerStatus<CR>", "Status" },
+    u = { "<cmd>PackerUpdate<CR>", "Update" },
   },
 
   g = {
     name = "Git",
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    u = {
-      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-      "Undo Stage Hunk",
-    },
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-    d = {
-      "<cmd>Gitsigns diffthis HEAD<cr>",
-      "Diff",
-    },
+    j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
+    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
+    l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
+    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
+    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
+    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
+    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", "Stage Hunk" },
+    u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>", "Undo Stage Hunk" },
+    o = { "<cmd>Telescope git_status<CR>", "Open changed file" },
+    b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
+    c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
+    d = { "<cmd>Gitsigns diffthis HEAD<CR>", "Diff" },
   },
 
   l = {
     name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    d = {
-      "<cmd>Telescope diagnostics bufnr=0<cr>",
-      "Document Diagnostics",
-    },
-    w = {
-      "<cmd>Telescope diagnostics<cr>",
-      "Workspace Diagnostics",
-    },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-    i = { "<cmd>LspInfo<cr>", "Info" },
-    I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-    j = {
-      "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-      "Next Diagnostic",
-    },
-    k = {
-      "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-      "Prev Diagnostic",
-    },
-    l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-    S = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Workspace Symbols",
-    },
+    a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+    d = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Document Diagnostics" },
+    w = { "<cmd>Telescope diagnostics<CR>", "Workspace Diagnostics" },
+    f = { "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
+    i = { "<cmd>LspInfo<CR>", "Info" },
+    I = { "<cmd>Mason<CR>", "Mason Installer Info" },
+    j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+    k = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Prev Diagnostic" },
+    l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
+    q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
+    r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    s = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
+    S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace Symbols" },
   },
   s = {
     name = "Search",
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    R = { "<cmd>Telescope registers<cr>", "Registers" },
-    k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
+    b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
+    c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
+    h = { "<cmd>Telescope help_tags<CR>", "Find Help" },
+    M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
+    r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
+    R = { "<cmd>Telescope registers<CR>", "Registers" },
+    k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
+    C = { "<cmd>Telescope commands<CR>", "Commands" },
   },
 
   t = {
     name = "Terminal",
-    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    n = { "<cmd>lua _NODE_TOGGLE()<CR>", "Node" },
+    u = { "<cmd>lua _NCDU_TOGGLE()<CR>", "NCDU" },
+    t = { "<cmd>lua _HTOP_TOGGLE()<CR>", "Htop" },
+    p = { "<cmd>lua _PYTHON_TOGGLE()<CR>", "Python" },
+    f = { "<cmd>ToggleTerm direction=float<CR>", "Float" },
+    h = { "<cmd>ToggleTerm size=10 direction=horizontal<CR>", "Horizontal" },
+    v = { "<cmd>ToggleTerm size=80 direction=vertical<CR>", "Vertical" },
   },
 }, {
   mode = "n",
   prefix = "<leader>",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = true,
 })
 
 -- Normal mode
-which_key.register({
+r({
   ["<C-Up>"] = { "<cmd>resize -2<CR>", "Resize window -2" },
   ["<C-Down>"] = { "<cmd>resize +2<CR>", "Resize window +2" },
   ["<C-Left>"] = { "<cmd>vertical resize -2<CR>", "Vertical resize window -2" },
@@ -205,16 +180,10 @@ which_key.register({
   ["<A-j>"] = { "<Esc><cmd>m .+1<CR>==", "Move line down" },
   ["<A-k>"] = { "<Esc><cmd>m .-2<CR>==", "Move line up" },
 
-  ["\\\\"] = { "<cmd>HopChar2<CR>", "Hop 2 chars" },
-  ["\\s"] = { "<cmd>HopChar2<CR>", "Hop 2 chars" },
-  ["\\w"] = { "<cmd>HopWord<CR>", "Hop word" },
-  ["\\f"] = { "<cmd>HopChar1CurrentLineAC<CR>", "Hop 1 char right" },
-  ["\\F"] = { "<cmd>HopChar1CurrentLineBC<CR>", "Hop 1 char left" },
-
   ["Y"] = { "y$", "Yank to the end of the line" },
-  ["`"] = { "<cmd>exe \"normal i\" . nr2char(getchar())<CR>", "Insert one character" },
+  ["`"] = { '<cmd>exe "normal i" . nr2char(getchar())<CR>', "Insert one character" },
   ["<bs>"] = { "<cmd>noh<return>", "Clear search highlighting" },
-  [",o"] = { "<cmd>exe \"normal O\"<CR>", "Insert empty line above" },
+  [",o"] = { '<cmd>exe "normal O"<CR>', "Insert empty line above" },
   [",r"] = { "<C-R>", "Redo last change" },
   [",vb"] = { "<C-V>", "Visual block mode" },
 
@@ -251,67 +220,64 @@ which_key.register({
   [",wp"] = { "<C-W>W", "Previous window" },
   [",wr"] = { "<C-W>r", "Rotate windows downwards/rightwards" },
   [",wx"] = { "<C-W>x", "Exchange current window with next" },
-}, {
-  mode = "n",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = true,
-})
+  [",x12"] = { ":%s/\\n//g<CR>:%s/\\~/\\~\\r/g<CR>gg:nohlsearch<CR>", "Format X12 file" },
+  [",cd"] = { ":cd %:h<CR>", "Change current working directory to current file directory" },
+
+  [",xx"] = { "<cmd>TroubleToggle<CR>", "Toggle trouble" },
+  [",xw"] = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Toggle workspace diagnostics" },
+  [",xd"] = { "<cmd>TroubleToggle document_diagnostics<CR>", "Toggle document diagnostics" },
+  [",xl"] = { "<cmd>TroubleToggle loclist<CR>", "Toggle loc list" },
+  [",xq"] = { "<cmd>TroubleToggle quickfix<CR>", "Toggle quickfix" },
+  ["gR"] = { "<cmd>TroubleToggle lsp_references<CR>" },
+
+  ["<A-1>"] = { "<cmd>Neotree toggle<CR>", "File Explorer" },
+}, { mode = "n" })
 
 -- Visual and select mode
-which_key.register({
+r({
   ["<lt>"] = { "<lt>gv", "Decrease indent" },
   [">"] = { ">gv", "Increase indent" },
   ["al"] = { ":<C-u>norm!0v$<CR>", "Yank a line" },
   ["il"] = { ":<C-u>norm!^vg_<CR>", "Yank inner line" },
-  -- ["<A-j>"] = { ":m .+1<CR>==", "Move block down" },
-  -- ["<A-k>"] = { ":m .-2<CR>==", "Move block up" },
+  ["<A-j>"] = { ":m .+1<CR>==", "Move block down" },
+  ["<A-k>"] = { ":m .-2<CR>==", "Move block up" },
   ["p"] = { '"_dP', "Paste" },
-}, {
-  mode = "v",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = true,
-})
+}, { mode = "v" })
 
 -- Operator pending mode
-which_key.register({
+r({
   ["al"] = { "<cmd>norm val<CR>", "a line" },
   ["il"] = { "<cmd>norm vil<CR>", "inner line" },
-}, {
-  mode = "o",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = true,
-})
+}, { mode = "o" })
 
 -- Terminal mode
-which_key.register({
+r({
   ["<C-h>"] = { "<C-\\><C-N><C-w>h", "Left" },
   ["<C-j>"] = { "<C-\\><C-N><C-w>j", "Down" },
-  ["<C-k>"] = { "<C-\\><C-N><C-w>k", "Up" },
   ["<C-l>"] = { "<C-\\><C-N><C-w>l", "Right" },
-}, {
-  mode = "t",
-  buffer = nil,
-  silent = true,
-  noremap = false,
-  nowait = true,
-})
+  ["<C-k>"] = { "<C-\\><C-N><C-w>k", "Up" },
+}, { mode = "t" })
 
 -- Visual mode
-which_key.register({
+r({
+  [",."] = { "<C-U>", "Scroll up" },
+  [",/"] = { "<C-D>", "Scroll down" },
   ["J"] = { ":m '>+1<CR>gv-gv", "Move down" },
   ["K"] = { ":m '<-2<CR>gv-gv", "Move up" },
   ["<A-j>"] = { ":m '>+1<CR>gv-gv", "Move down" },
   ["<A-k>"] = { ":m '<-2<CR>gv-gv", "Move up" },
-}, {
-  mode = "x",
-  buffer = nil,
-  silent = true,
-  noremap = true,
-  nowait = true,
-})
+}, { mode = "x" })
+
+-- Sideways plugin mappings
+r({
+  ["<A-h>"] = { "<cmd>SidewaysLeft<CR>", "Move argument left" },
+  ["<A-l>"] = { "<cmd>SidewaysRight<CR>", "Move argument right" },
+}, { mode = "n" })
+r({
+  ["aa"] = { "<Plug>SidewaysArgumentTextobjA", "an argument" },
+  ["ia"] = { "<Plug>SidewaysArgumentTextobjI", "inner argument" },
+}, { mode = "o" })
+r({
+  ["aa"] = { "<Plug>SidewaysArgumentTextobjA", "an argument" },
+  ["ia"] = { "<Plug>SidewaysArgumentTextobjI", "inner argument" },
+}, { mode = "x" })
