@@ -6,7 +6,7 @@ end
 project.setup({
   on_config_done = nil,
   manual_mode = false,
-  detection_methods = { "pattern", "lsp" },
+  detection_methods = { "lsp", "pattern" },
   patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".gitignore" },
   show_hidden = true,
   silent_chdir = true,
