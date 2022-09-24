@@ -66,7 +66,12 @@ return packer.startup(function(use)
       require("guess-indent").setup({})
     end,
   })
-  use("numToStr/Comment.nvim")
+  use({
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+  })
   use("mechatroner/rainbow_csv")
   use("tommcdo/vim-exchange")
   use("vim-scripts/ReplaceWithRegister")
@@ -99,7 +104,6 @@ return packer.startup(function(use)
       require("nvim-treesitter.install").update({ with_sync = true })
     end,
   })
-  use("JoosepAlviste/nvim-ts-context-commentstring")
 
   if packer_bootstrap then
     require("packer").sync()
