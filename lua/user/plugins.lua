@@ -22,10 +22,16 @@ if not status_ok then
   return
 end
 
+local util_status_ok, packer_util = pcall(require, "packer.util")
+if not util_status_ok then
+  return
+end
+
 packer.init({
+  compile_path = packer_util.join_paths(vim.fn.stdpath("data"), "packer_compiled.lua"),
   display = {
     open_fn = function()
-      return require("packer.util").float({ border = "rounded" })
+      return packer_util.float({ border = "none" })
     end,
   },
 })
