@@ -14,6 +14,7 @@ o.expandtab = true
 o.ffs = { "unix", "dos" }
 o.fileencoding = "utf-8"
 o.fileformat = "unix"
+o.foldlevel = 99
 o.formatoptions:remove({ "c", "r", "o" })
 o.guifont = "MesloLGS NF:h10"
 o.ignorecase = true
