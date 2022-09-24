@@ -7,7 +7,7 @@ vim.cmd("let g:neo_tree_remove_legacy_commands = 1")
 
 neo_tree.setup({
   close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
-  popup_border_style = "rounded",
+  popup_border_style = "single",
   default_component_configs = {
     git_status = {
       symbols = {

@@ -6,6 +6,8 @@ if vim.fn.has("win32") == 1 then
   vim.cmd("source $VIMRUNTIME/mswin.vim")
 end
 
+vim.cmd("highlight link FloatBorder NormalFloat")
+
 o.clipboard = "unnamedplus"
 o.cmdheight = 1
 o.completeopt = { "menuone", "noselect" }
@@ -43,6 +45,7 @@ o.termguicolors = true
 o.timeoutlen = 400
 o.updatetime = 300
 o.virtualedit:append("block")
+o.winblend = 10
 o.wrap = false
 o.writebackup = false
 

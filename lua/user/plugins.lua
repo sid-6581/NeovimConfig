@@ -31,7 +31,7 @@ packer.init({
   compile_path = packer_util.join_paths(vim.fn.stdpath("data"), "packer_compiled.lua"),
   display = {
     open_fn = function()
-      return packer_util.float({ border = "none" })
+      return packer_util.float({ border = "single" })
     end,
   },
 })

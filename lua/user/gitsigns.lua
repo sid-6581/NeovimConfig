@@ -12,6 +12,6 @@ gitsigns.setup({
     changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
   },
   preview_config = {
-    border = "none",
+    border = "single",
   },
 })
