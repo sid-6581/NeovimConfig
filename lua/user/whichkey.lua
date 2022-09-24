@@ -135,6 +135,7 @@ r({
     s = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
     S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace Symbols" },
   },
+
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },

@@ -34,6 +34,8 @@ packer.init({
       return packer_util.float({ border = "single" })
     end,
   },
+  prompt_border = "single",
+  autoremove = true,
 })
 
 return packer.startup(function(use)
@@ -69,7 +71,7 @@ return packer.startup(function(use)
   use({
     "numToStr/Comment.nvim",
     config = function()
-      require("Comment").setup()
+      require("Comment").setup({})
     end,
   })
   use("mechatroner/rainbow_csv")
@@ -97,7 +99,6 @@ return packer.startup(function(use)
   use("hrsh7th/cmp-cmdline")
   use("hrsh7th/cmp-nvim-lua")
   use("hrsh7th/nvim-cmp")
-
   use({
     "nvim-treesitter/nvim-treesitter",
     run = function()
