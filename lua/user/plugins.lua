@@ -60,7 +60,15 @@ return packer.startup(function(use)
   use("ahmedkhalf/project.nvim")
   use("moll/vim-bbye")
   use("lewis6991/gitsigns.nvim")
-  use("ellisonleao/gruvbox.nvim")
+  use({
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      require("gruvbox").setup({
+        contrast = "hard",
+      })
+      vim.cmd("colorscheme gruvbox")
+    end,
+  })
   use("gpanders/editorconfig.nvim")
   use({
     "nmac427/guess-indent.nvim",

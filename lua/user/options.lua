@@ -50,7 +50,8 @@ o.wrap = false
 o.writebackup = false
 
 g.neovide_refresh_rate = 120
-g.neovide_cursor_vfx_mode = "railgun"
+g.neovide_cursor_vfx_mode = "pixiedust"
+g.neovide_remember_window_size = true
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.cursorhold_updatetime = 100
