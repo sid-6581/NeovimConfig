@@ -45,7 +45,6 @@ return packer.startup(function(use)
   use("nvim-telescope/telescope.nvim")
   use("kyazdani42/nvim-web-devicons")
   use("nvim-lua/plenary.nvim")
-  use("nvim-lua/popup.nvim")
   use("stevearc/dressing.nvim")
   use("nvim-lualine/lualine.nvim")
   use("goolord/alpha-nvim")
@@ -83,7 +82,12 @@ return packer.startup(function(use)
     end,
   })
   use("mechatroner/rainbow_csv")
-  use("tommcdo/vim-exchange")
+  use({
+    "gbprod/substitute.nvim",
+    config = function()
+      require("substitute").setup({})
+    end,
+  })
   use("vim-scripts/ReplaceWithRegister")
   use({
     "kylechui/nvim-surround",

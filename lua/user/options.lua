@@ -8,7 +8,6 @@ end
 
 vim.cmd("highlight link FloatBorder NormalFloat")
 
-o.clipboard = "unnamedplus"
 o.cmdheight = 1
 o.completeopt = { "menuone", "noselect" }
 o.cursorline = true

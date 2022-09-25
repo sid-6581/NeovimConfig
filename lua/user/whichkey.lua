@@ -282,3 +282,13 @@ r({
   ["aa"] = { "<Plug>SidewaysArgumentTextobjA", "an argument" },
   ["ia"] = { "<Plug>SidewaysArgumentTextobjI", "inner argument" },
 }, { mode = "x" })
+
+-- Substitute plugin mappings
+r({
+  ["cx"] = { "<cmd>lua require('substitute.exchange').operator()<CR>", "Exchange" },
+  ["cxx"] = { "<cmd>lua require('substitute.exchange').line()<CR>", "Exchange line" },
+  ["cxc"] = { "<cmd>lua require('substitute.exchange').cancel()<CR>", "Cancel exchange" },
+}, { mode = "n" })
+r({
+  ["X"] = { "<cmd>lua require('substitute.exchange').visual()<CR>", "Cancel exchange" },
+}, { mode = "x" })
