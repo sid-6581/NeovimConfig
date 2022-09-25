@@ -28,7 +28,7 @@ if not util_status_ok then
 end
 
 packer.init({
-  compile_path = packer_util.join_paths(vim.fn.stdpath("data"), "packer_compiled.lua"),
+  compile_path = packer_util.join_paths(vim.fn.stdpath("data"), "site", "plugin", "packer_compiled.lua"),
   display = {
     open_fn = function()
       return packer_util.float({ border = "single" })
