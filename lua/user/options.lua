@@ -50,7 +50,8 @@ o.wrap = false
 o.writebackup = false
 
 g.neovide_refresh_rate = 120
-g.neovide_cursor_vfx_mode = "pixiedust"
+g.neovide_cursor_vfx_mode = ""
+g.neovide_cursor_animation_length = 0
 g.neovide_remember_window_size = true
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
@@ -63,3 +64,14 @@ end, { expr = true })
 map("c", "<C-k>", function()
   return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k"
 end, { expr = true })
+
+vim.cmd([[
+  augroup _general_settings
+    autocmd!
+    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank({ higroup = 'Visual', timeout = 200 }) 
+    autocmd BufWinEnter * :set formatoptions-=cro
+    autocmd FileType qf set nobuflisted
+    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+  augroup end
+]])

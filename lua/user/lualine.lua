@@ -3,25 +3,20 @@ if not status_ok then
   return
 end
 
-local hide_in_width = function()
-  return vim.fn.winwidth(0) > 80
-end
-
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic", "nvim_lsp" },
   sections = { "error", "warn", "info", "hint" },
   symbols = { error = " ", warn = " ", info = " ", hint = " " },
-  colored = false,
+  colored = true,
   update_in_insert = true,
-  always_visible = true,
+  always_visible = false,
 }
 
 local diff = {
   "diff",
-  colored = false,
+  colored = true,
   symbols = { added = " ", modified = " ", removed = " " },
-  cond = hide_in_width,
 }
 
 local branch = {
@@ -66,30 +61,30 @@ lualine.setup({
   options = {
     icons_enabled = true,
     theme = "auto",
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard", "neo-tree", "neo-tree-popup", "Outline" },
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = { branch, diagnostics },
+    lualine_a = { branch },
     lualine_b = { "filename" },
-    lualine_c = {},
-    lualine_x = { lsp, diff, spaces, "encoding", fileformat, "filetype" },
+    lualine_c = { diff },
+    lualine_x = { diagnostics, lsp, spaces, "encoding", fileformat, "filetype" },
     lualine_y = { "location" },
     lualine_z = { "progress" },
   },
   inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = { "filename" },
-    lualine_x = { "location" },
-    lualine_y = {},
-    lualine_z = {},
+    lualine_a = { branch },
+    lualine_b = { "filename" },
+    lualine_c = { diff },
+    lualine_x = { diagnostics, lsp, spaces, "encoding", fileformat, "filetype" },
+    lualine_y = { "location" },
+    lualine_z = { "progress" },
   },
   tabline = {
-    lualine_a = { { "tabs", separator = "|" }, { "buffers", filetype_names = { ["neo-tree"] = "" } } },
-    lualine_b = {},
+    lualine_a = { "tabs" },
+    lualine_b = { { "buffers", filetype_names = { ["neo-tree"] = "", ["alpha"] = "" } } },
     lualine_c = {},
     lualine_x = {},
     lualine_y = { "hostname" },
