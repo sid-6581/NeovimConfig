@@ -9,6 +9,7 @@ toggleterm.setup({
   size = 20,
   open_mapping = "<C-\\><C-\\>",
   shading_factor = 2,
+  dir = vim.fn.getcwd(),
   direction = "float",
   shell = shell,
   float_opts = {
