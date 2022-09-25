@@ -1,9 +1,8 @@
 local status_ok, cmp = pcall(require, "cmp")
-if not status_ok then
+if not status_ok or not cmp then
   return
 end
 
---   פּ ﯟ   some other good icons
 local kind_icons = {
   Text = "",
   Method = "m",
@@ -31,7 +30,6 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup({
   snippet = {
