@@ -42,6 +42,7 @@ o.swapfile = false
 o.tabstop = 2
 o.termguicolors = true
 o.timeoutlen = 400
+o.title = true
 o.updatetime = 300
 o.virtualedit:append("block")
 o.winblend = 10
