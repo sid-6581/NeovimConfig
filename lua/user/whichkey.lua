@@ -59,7 +59,7 @@ which_key.setup({
     align = "left", -- align columns left, center or right
   },
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-  hidden = { "<silent>", "<cmd>", "<cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+  hidden = { "<silent>", "<CMD>", "<CMD>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
   show_help = true, -- show help message on the command line when the popup is visible
   triggers = "auto", -- automatically setup triggers
   -- triggers = {"<leader>"} -- or specify a list manually
@@ -76,88 +76,81 @@ local r = which_key.register
 
 -- Space keybindings
 r({
-  a = { "<cmd>Alpha<CR>", "Alpha" },
-  b = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>",
-    "Buffers",
-  },
-  e = { "<cmd>Neotree toggle<CR>", "File Explorer" },
-  n = { "<cmd>Neotree reveal<CR>", "Find File in Explorer" },
-  w = { "<cmd>w!<CR>", "Save" },
-  q = { "<cmd>q<CR>", "Quit" },
-  Q = { "<cmd>q!<CR>", "Quit Without Saving" },
-  c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  f = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
-    "Find Files",
-  },
-  F = { "<cmd>Telescope live_grep theme=ivy<CR>", "Find Text" },
-  P = { "<cmd>lua require('telescope').extensions.projects.projects()<CR>", "Projects" },
+  a = { "<CMD>Alpha<CR>", "Alpha" },
+  c = { "<CMD>Bdelete!<CR>", "Close buffer" },
+  e = { "<CMD>Neotree toggle<CR>", "File explorer" },
+  n = { "<CMD>Neotree reveal<CR>", "Find file in explorer" },
+  q = { "<CMD>q<CR>", "Quit" },
+  Q = { "<CMD>q!<CR>", "Quit without saving" },
+  w = { "<CMD>w!<CR>", "Save" },
 
   p = {
     name = "Packer",
-    c = { "<cmd>PackerCompile<CR>", "Compile" },
-    i = { "<cmd>PackerInstall<CR>", "Install" },
-    s = { "<cmd>PackerSync<CR>", "Sync" },
-    S = { "<cmd>PackerStatus<CR>", "Status" },
-    u = { "<cmd>PackerUpdate<CR>", "Update" },
+    c = { "<CMD>PackerCompile<CR>", "Compile" },
+    i = { "<CMD>PackerInstall<CR>", "Install" },
+    s = { "<CMD>PackerSync<CR>", "Sync" },
+    S = { "<CMD>PackerStatus<CR>", "Status" },
+    u = { "<CMD>PackerUpdate<CR>", "Update" },
   },
 
   g = {
     name = "Git",
-    g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-    j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
-    l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
-    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
-    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
-    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
-    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", "Stage Hunk" },
-    u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>", "Undo Stage Hunk" },
-    o = { "<cmd>Telescope git_status<CR>", "Open changed file" },
-    b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
-    d = { "<cmd>Gitsigns diffthis HEAD<CR>", "Diff" },
+    g = { "<CMD>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+    j = { "<CMD>lua require('gitsigns').next_hunk()<CR>", "Next hunk" },
+    k = { "<CMD>lua require('gitsigns').prev_hunk()<CR>", "Prev hunk" },
+    l = { "<CMD>lua require('gitsigns').blame_line()<CR>", "Blame" },
+    p = { "<CMD>lua require('gitsigns').preview_hunk()<CR>", "Preview hunk" },
+    r = { "<CMD>lua require('gitsigns').reset_hunk()<CR>", "Reset hunk" },
+    R = { "<CMD>lua require('gitsigns').reset_buffer()<CR>", "Reset buffer" },
+    s = { "<CMD>lua require('gitsigns').stage_hunk()<CR>", "Stage hunk" },
+    u = { "<CMD>lua require('gitsigns').undo_stage_hunk()<CR>", "Undo stage hunk" },
+    o = { "<CMD>Telescope git_status<CR>", "Open changed file" },
+    b = { "<CMD>Telescope git_branches<CR>", "Checkout branch" },
+    c = { "<CMD>Telescope git_commits<CR>", "Checkout commit" },
+    d = { "<CMD>Gitsigns diffthis HEAD<CR>", "Diff" },
   },
 
   l = {
     name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
-    d = { "<cmd>Telescope diagnostics bufnr=0<CR>", "Document Diagnostics" },
-    w = { "<cmd>Telescope diagnostics<CR>", "Workspace Diagnostics" },
-    f = { "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
-    i = { "<cmd>LspInfo<CR>", "Info" },
-    I = { "<cmd>Mason<CR>", "Mason Installer Info" },
-    j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
-    k = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Prev Diagnostic" },
-    l = { "<cmd>lua vim.lsp.codelens.run()<CR>", "CodeLens Action" },
-    q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-    s = { "<cmd>Telescope lsp_document_symbols<CR>", "Document Symbols" },
-    S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace Symbols" },
+    a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action" },
+    d = { "<CMD>Telescope diagnostics bufnr=0<CR>", "Document diagnostics" },
+    w = { "<CMD>Telescope diagnostics<CR>", "Workspace diagnostics" },
+    f = { "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
+    i = { "<CMD>LspInfo<CR>", "Info" },
+    I = { "<CMD>Mason<CR>", "Mason installer info" },
+    j = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic" },
+    k = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Prev diagnostic" },
+    l = { "<CMD>lua vim.lsp.codelens.run()<CR>", "Codelens action" },
+    q = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
+    r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    s = { "<CMD>Telescope lsp_document_symbols<CR>", "Document symbols" },
+    S = { "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace symbols" },
   },
 
-  s = {
-    name = "Search",
-    b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
-    c = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
-    h = { "<cmd>Telescope help_tags<CR>", "Find Help" },
-    M = { "<cmd>Telescope man_pages<CR>", "Man Pages" },
-    r = { "<cmd>Telescope oldfiles<CR>", "Open Recent File" },
-    R = { "<cmd>Telescope registers<CR>", "Registers" },
-    k = { "<cmd>Telescope keymaps<CR>", "Keymaps" },
-    C = { "<cmd>Telescope commands<CR>", "Commands" },
+  f = {
+    name = "Find",
+    b = { "<CMD>Telescope buffers<CR>", "Buffers" },
+    c = { "<CMD>Telescope commands<CR>", "Commands" },
+    h = { "<CMD>Telescope help_tags<CR>", "Help" },
+    f = { "<CMD>Telescope find_files<CR>", "Files" },
+    g = { "<CMD>Telescope git_branches<CR>", "Git branches" },
+    k = { "<CMD>Telescope keymaps<CR>", "Keymaps" },
+    M = { "<CMD>Telescope man_pages<CR>", "Man pages" },
+    P = { "<CMD>Telescope projects<CR>", "Projects" },
+    r = { "<CMD>Telescope oldfiles<CR>", "Recent files" },
+    R = { "<CMD>Telescope registers<CR>", "Registers" },
+    t = { "<CMD>Telescope live_grep<CR>", "Text" },
   },
 
   t = {
     name = "Terminal",
-    n = { "<cmd>lua _NODE_TOGGLE()<CR>", "Node" },
-    u = { "<cmd>lua _NCDU_TOGGLE()<CR>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<CR>", "Htop" },
-    p = { "<cmd>lua _PYTHON_TOGGLE()<CR>", "Python" },
-    f = { "<cmd>ToggleTerm direction=float<CR>", "Float" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<CR>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<CR>", "Vertical" },
+    n = { "<CMD>lua _NODE_TOGGLE()<CR>", "Node" },
+    u = { "<CMD>lua _NCDU_TOGGLE()<CR>", "NCDU" },
+    t = { "<CMD>lua _HTOP_TOGGLE()<CR>", "Htop" },
+    p = { "<CMD>lua _PYTHON_TOGGLE()<CR>", "Python" },
+    f = { "<CMD>ToggleTerm direction=float<CR>", "Float" },
+    h = { "<CMD>ToggleTerm size=10 direction=horizontal<CR>", "Horizontal" },
+    v = { "<CMD>ToggleTerm size=80 direction=vertical<CR>", "Vertical" },
   },
 }, {
   mode = "n",
@@ -166,26 +159,26 @@ r({
 
 -- Normal mode
 r({
-  ["<C-Up>"] = { "<cmd>resize -2<CR>", "Resize window -2" },
-  ["<C-Down>"] = { "<cmd>resize +2<CR>", "Resize window +2" },
-  ["<C-Left>"] = { "<cmd>vertical resize -2<CR>", "Vertical resize window -2" },
-  ["<C-Right>"] = { "<cmd>vertical resize +2<CR>", "Vertical resize window +2" },
+  ["<C-Up>"] = { "<CMD>resize -2<CR>", "Resize window -2" },
+  ["<C-Down>"] = { "<CMD>resize +2<CR>", "Resize window +2" },
+  ["<C-Left>"] = { "<CMD>vertical resize -2<CR>", "Vertical resize window -2" },
+  ["<C-Right>"] = { "<CMD>vertical resize +2<CR>", "Vertical resize window +2" },
 
   ["<C-h>"] = { "<C-W>h", "Left one window" },
   ["<C-j>"] = { "<C-W>j", "Up one window" },
   ["<C-k>"] = { "<C-W>k", "Down one window" },
   ["<C-l>"] = { "<C-W>l", "Right one window" },
 
-  ["<S-l>"] = { "<cmd>bnext<CR>", "Next buffer" },
-  ["<S-h>"] = { "<cmd>bprevious<CR>", "Previous buffer" },
+  ["<S-l>"] = { "<CMD>bnext<CR>", "Next buffer" },
+  ["<S-h>"] = { "<CMD>bprevious<CR>", "Previous buffer" },
 
-  ["<A-j>"] = { "<Esc><cmd>m .+1<CR>==", "Move line down" },
-  ["<A-k>"] = { "<Esc><cmd>m .-2<CR>==", "Move line up" },
+  ["<A-j>"] = { "<Esc><CMD>m .+1<CR>==", "Move line down" },
+  ["<A-k>"] = { "<Esc><CMD>m .-2<CR>==", "Move line up" },
 
   ["Y"] = { "y$", "Yank to the end of the line" },
-  ["`"] = { '<cmd>exe "normal i" . nr2char(getchar())<CR>', "Insert one character" },
-  ["<bs>"] = { "<cmd>noh<return>", "Clear search highlighting" },
-  [",o"] = { '<cmd>exe "normal O"<CR>', "Insert empty line above" },
+  ["`"] = { '<CMD>exe "normal i" . nr2char(getchar())<CR>', "Insert one character" },
+  ["<bs>"] = { "<CMD>noh<return>", "Clear search highlighting" },
+  [",o"] = { '<CMD>exe "normal O"<CR>', "Insert empty line above" },
   [",r"] = { "<C-R>", "Redo last change" },
   [",vb"] = { "<C-V>", "Visual block mode" },
 
@@ -225,14 +218,14 @@ r({
   [",x12"] = { ":%s/\\n//g<CR>:%s/\\~/\\~\\r/g<CR>gg:nohlsearch<CR>", "Format X12 file" },
   [",cd"] = { ":cd %:h<CR>", "Change current working directory to current file directory" },
 
-  [",xx"] = { "<cmd>TroubleToggle<CR>", "Toggle trouble" },
-  [",xw"] = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "Toggle workspace diagnostics" },
-  [",xd"] = { "<cmd>TroubleToggle document_diagnostics<CR>", "Toggle document diagnostics" },
-  [",xl"] = { "<cmd>TroubleToggle loclist<CR>", "Toggle loc list" },
-  [",xq"] = { "<cmd>TroubleToggle quickfix<CR>", "Toggle quickfix" },
-  ["gR"] = { "<cmd>TroubleToggle lsp_references<CR>" },
+  [",xx"] = { "<CMD>TroubleToggle<CR>", "Toggle trouble" },
+  [",xw"] = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Toggle workspace diagnostics" },
+  [",xd"] = { "<CMD>TroubleToggle document_diagnostics<CR>", "Toggle document diagnostics" },
+  [",xl"] = { "<CMD>TroubleToggle loclist<CR>", "Toggle loc list" },
+  [",xq"] = { "<CMD>TroubleToggle quickfix<CR>", "Toggle quickfix" },
+  ["gR"] = { "<CMD>TroubleToggle lsp_references<CR>" },
 
-  ["<A-1>"] = { "<cmd>Neotree toggle<CR>", "File Explorer" },
+  ["<A-1>"] = { "<CMD>Neotree toggle<CR>", "File Explorer" },
 }, { mode = "n" })
 
 -- Visual and select mode
@@ -248,8 +241,8 @@ r({
 
 -- Operator pending mode
 r({
-  ["al"] = { "<cmd>norm val<CR>", "a line" },
-  ["il"] = { "<cmd>norm vil<CR>", "inner line" },
+  ["al"] = { "<CMD>norm val<CR>", "a line" },
+  ["il"] = { "<CMD>norm vil<CR>", "inner line" },
 }, { mode = "o" })
 
 -- Terminal mode
@@ -272,8 +265,8 @@ r({
 
 -- Sideways plugin mappings
 r({
-  ["<A-h>"] = { "<cmd>SidewaysLeft<CR>", "Move argument left" },
-  ["<A-l>"] = { "<cmd>SidewaysRight<CR>", "Move argument right" },
+  ["<A-h>"] = { "<CMD>SidewaysLeft<CR>", "Move argument left" },
+  ["<A-l>"] = { "<CMD>SidewaysRight<CR>", "Move argument right" },
 }, { mode = "n" })
 r({
   ["aa"] = { "<Plug>SidewaysArgumentTextobjA", "an argument" },
@@ -286,10 +279,10 @@ r({
 
 -- Substitute plugin mappings
 r({
-  ["cx"] = { "<cmd>lua require('substitute.exchange').operator()<CR>", "Exchange" },
-  ["cxx"] = { "<cmd>lua require('substitute.exchange').line()<CR>", "Exchange line" },
-  ["cxc"] = { "<cmd>lua require('substitute.exchange').cancel()<CR>", "Cancel exchange" },
+  ["cx"] = { "<CMD>lua require('substitute.exchange').operator()<CR>", "Exchange" },
+  ["cxx"] = { "<CMD>lua require('substitute.exchange').line()<CR>", "Exchange line" },
+  ["cxc"] = { "<CMD>lua require('substitute.exchange').cancel()<CR>", "Cancel exchange" },
 }, { mode = "n" })
 r({
-  ["X"] = { "<cmd>lua require('substitute.exchange').visual()<CR>", "Cancel exchange" },
+  ["X"] = { "<CMD>lua require('substitute.exchange').visual()<CR>", "Cancel exchange" },
 }, { mode = "x" })
