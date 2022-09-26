@@ -37,26 +37,33 @@ mason.setup({
 
 mason_lspconfig.setup({})
 
+local tools = {
+  "ansible-language-server",
+  "bash-language-server",
+  "black",
+  "clangd",
+  "css-lsp",
+  "flake8",
+  "html-lsp",
+  "json-lsp",
+  "lemminx",
+  "lua-language-server",
+  "pyright",
+  "rust-analyzer",
+  "shellcheck",
+  "stylua",
+  "taplo",
+  "vim-language-server",
+  "yaml-language-server",
+}
+
+if vim.fn.has("win32") == 1 then
+  table.insert(tools, "powershell-editor-services")
+  table.insert(tools, "omnisharp")
+end
+
 mason_tool_installer.setup({
-  ensure_installed = {
-    "ansible-language-server",
-    "bash-language-server",
-    "black",
-    "clangd",
-    "css-lsp",
-    "flake8",
-    "html-lsp",
-    "json-lsp",
-    "lemminx",
-    "lua-language-server",
-    "pyright",
-    "rust-analyzer",
-    "shellcheck",
-    "stylua",
-    "taplo",
-    "vim-language-server",
-    "yaml-language-server",
-  },
+  ensure_installed = tools,
   auto_update = true,
   run_on_start = true,
   start_delay = 3000,
