@@ -95,19 +95,19 @@ r({
 
   g = {
     name = "Git",
+    b = { "<CMD>Telescope git_branches<CR>", "Checkout branch" },
+    c = { "<CMD>Telescope git_commits<CR>", "Checkout commit" },
+    d = { "<CMD>Gitsigns diffthis HEAD<CR>", "Diff" },
     g = { "<CMD>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     j = { "<CMD>lua require('gitsigns').next_hunk()<CR>", "Next hunk" },
     k = { "<CMD>lua require('gitsigns').prev_hunk()<CR>", "Prev hunk" },
     l = { "<CMD>lua require('gitsigns').blame_line()<CR>", "Blame" },
+    o = { "<CMD>Telescope git_status<CR>", "Open changed file" },
     p = { "<CMD>lua require('gitsigns').preview_hunk()<CR>", "Preview hunk" },
     r = { "<CMD>lua require('gitsigns').reset_hunk()<CR>", "Reset hunk" },
     R = { "<CMD>lua require('gitsigns').reset_buffer()<CR>", "Reset buffer" },
     s = { "<CMD>lua require('gitsigns').stage_hunk()<CR>", "Stage hunk" },
     u = { "<CMD>lua require('gitsigns').undo_stage_hunk()<CR>", "Undo stage hunk" },
-    o = { "<CMD>Telescope git_status<CR>", "Open changed file" },
-    b = { "<CMD>Telescope git_branches<CR>", "Checkout branch" },
-    c = { "<CMD>Telescope git_commits<CR>", "Checkout commit" },
-    d = { "<CMD>Gitsigns diffthis HEAD<CR>", "Diff" },
   },
 
   l = {
