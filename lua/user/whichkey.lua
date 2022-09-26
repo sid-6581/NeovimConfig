@@ -84,7 +84,8 @@ r({
   e = { "<cmd>Neotree toggle<CR>", "File Explorer" },
   n = { "<cmd>Neotree reveal<CR>", "Find File in Explorer" },
   w = { "<cmd>w!<CR>", "Save" },
-  q = { "<cmd>q!<CR>", "Quit" },
+  q = { "<cmd>q<CR>", "Quit" },
+  Q = { "<cmd>q!<CR>", "Quit Without Saving" },
   c = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   f = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>",
