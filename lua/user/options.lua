@@ -6,7 +6,8 @@ if vim.fn.has("win32") == 1 then
   vim.cmd("source $VIMRUNTIME/mswin.vim")
 end
 
-vim.cmd("highlight link FloatBorder NormalFloat")
+vim.cmd("highlight link FloatBorder Normal")
+vim.cmd("highlight link NormalFloat Normal")
 
 o.cmdheight = 1
 o.completeopt = { "menuone", "noselect" }
