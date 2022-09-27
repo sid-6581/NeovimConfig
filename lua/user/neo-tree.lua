@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-vim.cmd("let g:neo_tree_remove_legacy_commands = 1")
+vim.g.neo_tree_remove_legacy_commands = 1
 
 vim.cmd([[
   highlight link NeoTreeFloatBorder WinSeparator

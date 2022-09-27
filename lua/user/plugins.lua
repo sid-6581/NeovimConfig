@@ -73,7 +73,6 @@ return packer.startup(function(use)
       require("gruvbox").setup({
         contrast = "hard",
       })
-      vim.cmd("colorscheme gruvbox")
     end,
   })
   use("gpanders/editorconfig.nvim")
@@ -127,6 +126,7 @@ return packer.startup(function(use)
   })
 
   if packer_bootstrap then
+    vim.cmd("autocmd User PackerComplete quitall")
     require("packer").sync()
   end
 end)
