@@ -116,19 +116,21 @@ r({
     d = { "<CMD>Telescope diagnostics bufnr=0<CR>", "Document diagnostics" },
     w = { "<CMD>Telescope diagnostics<CR>", "Workspace diagnostics" },
     f = { "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
-    i = { "<CMD>LspInfo<CR>", "Info" },
+    i = { "<CMD>LspInfo<CR>", "LSP info" },
     I = { "<CMD>Mason<CR>", "Mason installer info" },
     j = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic" },
     k = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Prev diagnostic" },
     l = { "<CMD>lua vim.lsp.codelens.run()<CR>", "Codelens action" },
     q = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
     r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
+    R = { "<CMD>lua vim.lsp.buf.references()<CR>", "References" },
     s = { "<CMD>Telescope lsp_document_symbols<CR>", "Document symbols" },
     S = { "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace symbols" },
   },
 
   f = {
     name = "Find",
+    a = { "<CMD>Telescope<CR>", "All" },
     b = { "<CMD>Telescope buffers<CR>", "Buffers" },
     c = { "<CMD>Telescope commands<CR>", "Commands" },
     h = { "<CMD>Telescope help_tags<CR>", "Help" },
@@ -286,3 +288,15 @@ r({
 r({
   ["X"] = { "<CMD>lua require('substitute.exchange').visual()<CR>", "Cancel exchange" },
 }, { mode = "x" })
+
+-- LSP mappings
+r({
+  ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
+  ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
+  ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show information" },
+  ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "List all implementations" },
+  ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
+  ["gl"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", "" },
+  ["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
+  ["<A-Enter>"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
+}, { mode = "n" })
