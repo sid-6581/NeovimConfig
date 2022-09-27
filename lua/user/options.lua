@@ -1,8 +1,6 @@
 local o = vim.opt
 local g = vim.g
 
-pcall(vim.cmd.colorscheme, "gruvbox")
-
 g.neovide_refresh_rate = 120
 g.neovide_cursor_vfx_mode = ""
 g.neovide_cursor_animation_length = 0

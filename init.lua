@@ -18,3 +18,12 @@ require("user.indentline")
 require("user.trouble")
 require("user.whichkey")
 require("user.alpha")
+
+local gruvbox_status_ok, gruvbox = pcall(require, "gruvbox")
+if gruvbox_status_ok then
+  gruvbox.setup({
+    contrast = "hard",
+  })
+  pcall(vim.cmd.colorscheme, "gruvbox")
+end
+

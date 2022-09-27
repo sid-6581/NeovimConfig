@@ -10,15 +10,8 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
+local packer_status_ok, packer = pcall(require, "packer")
+if not packer_status_ok then
   return
 end
 
@@ -26,6 +19,13 @@ local util_status_ok, packer_util = pcall(require, "packer.util")
 if not util_status_ok then
   return
 end
+
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]])
 
 packer.init({
   compile_path = packer_util.join_paths(vim.fn.stdpath("data"), "site", "plugin", "packer_compiled.lua"),
@@ -38,86 +38,18 @@ packer.init({
   autoremove = true,
 })
 
-return packer.startup(function(use)
+packer.startup(function(use)
+  -- Plugins that other things are more likely to depend on
   use("wbthomason/packer.nvim")
   use("lewis6991/impatient.nvim")
-  use("rcarriga/nvim-notify")
-  use("nvim-telescope/telescope.nvim")
-  use("kyazdani42/nvim-web-devicons")
   use("nvim-lua/plenary.nvim")
   use("stevearc/dressing.nvim")
-  use("nvim-lualine/lualine.nvim")
-  use("goolord/alpha-nvim")
-  use("folke/which-key.nvim")
-  use("folke/trouble.nvim")
-  use("s1n7ax/nvim-window-picker")
   use("MunifTanjim/nui.nvim")
-  use({ "nvim-neo-tree/neo-tree.nvim", branch = "main" })
-  use("akinsho/toggleterm.nvim")
-  use({
-    "phaazon/hop.nvim",
-    config = function()
-      require("hop").setup({})
-      vim.cmd("highlight! link HopNextKey Normal")
-      vim.cmd("highlight! link HopNextKey1 Normal")
-      vim.cmd("highlight! link HopNextKey2 Normal")
-    end,
-  })
-  use("lukas-reineke/indent-blankline.nvim")
-  use("ahmedkhalf/project.nvim")
-  use("moll/vim-bbye")
-  use("lewis6991/gitsigns.nvim")
-  use({
-    "ellisonleao/gruvbox.nvim",
-    config = function()
-      require("gruvbox").setup({
-        contrast = "hard",
-      })
-    end,
-  })
-  use("gpanders/editorconfig.nvim")
-  use({
-    "nmac427/guess-indent.nvim",
-    config = function()
-      require("guess-indent").setup({})
-    end,
-  })
-  use({
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup({})
-    end,
-  })
-  use("mechatroner/rainbow_csv")
-  use({
-    "gbprod/substitute.nvim",
-    config = function()
-      require("substitute").setup({})
-    end,
-  })
-  use("vim-scripts/ReplaceWithRegister")
-  use({
-    "kylechui/nvim-surround",
-    config = function()
-      require("nvim-surround").setup({})
-    end,
-  })
-  use("mg979/vim-visual-multi")
-  use("AndrewRadev/sideways.vim")
-  use("williamboman/mason.nvim")
-  use("williamboman/mason-lspconfig.nvim")
-  use("WhoIsSethDaniel/mason-tool-installer.nvim")
-  use("neovim/nvim-lspconfig")
-  use("L3MON4D3/LuaSnip")
-  use("simrat39/rust-tools.nvim")
-  use("mfussenegger/nvim-dap")
-  use("jose-elias-alvarez/null-ls.nvim")
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-cmdline")
-  use("hrsh7th/cmp-nvim-lua")
-  use("hrsh7th/nvim-cmp")
+  use("kyazdani42/nvim-web-devicons")
+  use("rcarriga/nvim-notify")
+  use("s1n7ax/nvim-window-picker")
+  use("nvim-telescope/telescope.nvim")
+
   use({
     "nvim-treesitter/nvim-treesitter",
     run = function()
@@ -125,8 +57,66 @@ return packer.startup(function(use)
     end,
   })
 
+  use("AndrewRadev/sideways.vim")
+  use("L3MON4D3/LuaSnip")
+  use("WhoIsSethDaniel/mason-tool-installer.nvim")
+  use("ahmedkhalf/project.nvim")
+  use("akinsho/toggleterm.nvim")
+  use("ellisonleao/gruvbox.nvim")
+  use("folke/trouble.nvim")
+  use("folke/which-key.nvim")
+  use("gbprod/substitute.nvim")
+  use("goolord/alpha-nvim")
+  use("gpanders/editorconfig.nvim")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-cmdline")
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-nvim-lua")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/nvim-cmp")
+  use("jose-elias-alvarez/null-ls.nvim")
+  use("kylechui/nvim-surround")
+  use("lewis6991/gitsigns.nvim")
+  use("lukas-reineke/indent-blankline.nvim")
+  use("mechatroner/rainbow_csv")
+  use("mfussenegger/nvim-dap")
+  use("mg979/vim-visual-multi")
+  use("moll/vim-bbye")
+  use("neovim/nvim-lspconfig")
+  use("nmac427/guess-indent.nvim")
+  use("numToStr/Comment.nvim")
+  use("nvim-lualine/lualine.nvim")
+  use("phaazon/hop.nvim")
+  use("simrat39/rust-tools.nvim")
+  use("vim-scripts/ReplaceWithRegister")
+  use("williamboman/mason-lspconfig.nvim")
+  use("williamboman/mason.nvim")
+  use({ "nvim-neo-tree/neo-tree.nvim", branch = "main" })
+
   if packer_bootstrap then
     vim.cmd("autocmd User PackerComplete quitall")
     require("packer").sync()
   end
 end)
+
+-- Plugin setup for simple plugins
+
+local hop_status_ok, hop = pcall(require, "hop")
+if hop_status_ok then
+  hop.setup({})
+  vim.cmd("highlight! link HopNextKey Normal")
+  vim.cmd("highlight! link HopNextKey1 Normal")
+  vim.cmd("highlight! link HopNextKey2 Normal")
+end
+
+local setup = function(name)
+  local status_ok, plugin = pcall(require, name)
+  if status_ok then
+    plugin.setup({})
+  end
+end
+
+setup("guess-indent")
+setup("Comment")
+setup("substitute")
+setup("nvim-surround")
