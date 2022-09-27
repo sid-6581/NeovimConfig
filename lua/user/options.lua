@@ -1,6 +1,14 @@
 local o = vim.opt
 local g = vim.g
-local map = vim.keymap.set
+
+g.neovide_refresh_rate = 120
+g.neovide_cursor_vfx_mode = ""
+g.neovide_cursor_animation_length = 0
+g.neovide_remember_window_size = true
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+g.cursorhold_updatetime = 100
+g.lightspeed_no_default_keymaps = 1
 
 if vim.fn.has("win32") == 1 then
   vim.cmd("source $VIMRUNTIME/mswin.vim")
@@ -50,13 +58,7 @@ o.winblend = 10
 o.wrap = false
 o.writebackup = false
 
-g.neovide_refresh_rate = 120
-g.neovide_cursor_vfx_mode = ""
-g.neovide_cursor_animation_length = 0
-g.neovide_remember_window_size = true
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-g.cursorhold_updatetime = 100
+local map = vim.keymap.set
 
 -- Better wildmenu navigation
 map("c", "<C-j>", function()

@@ -54,7 +54,15 @@ return packer.startup(function(use)
   use("MunifTanjim/nui.nvim")
   use({ "nvim-neo-tree/neo-tree.nvim", branch = "main" })
   use("akinsho/toggleterm.nvim")
-  use("ggandor/lightspeed.nvim")
+  use({
+    "phaazon/hop.nvim",
+    config = function()
+      require("hop").setup({})
+      vim.cmd("highlight! link HopNextKey Normal")
+      vim.cmd("highlight! link HopNextKey1 Normal")
+      vim.cmd("highlight! link HopNextKey2 Normal")
+    end,
+  })
   use("lukas-reineke/indent-blankline.nvim")
   use("ahmedkhalf/project.nvim")
   use("moll/vim-bbye")

@@ -289,14 +289,22 @@ r({
   ["X"] = { "<CMD>lua require('substitute.exchange').visual()<CR>", "Cancel exchange" },
 }, { mode = "x" })
 
+-- Hop plugin mappings
+r({
+  ["<Tab>"] = { "<CMD>HopChar2<CR>", "2 character search" },
+}, { mode = "n" })
+r({
+  ["<Tab>"] = { "<CMD>HopChar2<CR>", "2 character search" },
+}, { mode = "v" })
+
 -- LSP mappings
 r({
-  ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
-  ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
-  ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Show information" },
-  ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "List all implementations" },
-  ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
-  ["gl"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", "" },
-  ["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
-  ["<A-Enter>"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
+  ["gD"] = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
+  ["gd"] = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
+  ["K"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Show information" },
+  ["gi"] = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "List all implementations" },
+  ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
+  ["gl"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "" },
+  ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
+  ["<A-Enter>"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action" },
 }, { mode = "n" })
