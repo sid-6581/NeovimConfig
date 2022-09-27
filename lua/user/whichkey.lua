@@ -179,7 +179,7 @@ r({
 
   ["Y"] = { "y$", "Yank to the end of the line" },
   ["`"] = { '<CMD>exe "normal i" . nr2char(getchar())<CR>', "Insert one character" },
-  ["<bs>"] = { "<CMD>noh<return>", "Clear search highlighting" },
+  ["<BS>"] = { "<CMD>noh<return>", "Clear search highlighting" },
   [",o"] = { '<CMD>exe "normal O"<CR>', "Insert empty line above" },
   [",r"] = { "<C-R>", "Redo last change" },
   [",vb"] = { "<C-V>", "Visual block mode" },
@@ -198,7 +198,7 @@ r({
   [",w."] = { "<C-W>+", "Increase window height" },
   [",w<lt>"] = { "<C-W><lt>", "Decrease window width" },
   [",w>"] = { "<C-W>>", "Increase window width" },
-  [",w<bar>"] = { "<C-W><bar>", "Maximize window width" },
+  [",w<Bar>"] = { "<C-W><bar>", "Maximize window width" },
   [",w="] = { "<C-W>=", "Make windows equally high and wide" },
   [",wH"] = { "<C-W>H", "Move current window to left" },
   [",wJ"] = { "<C-W>J", "Move current window to bottom" },
