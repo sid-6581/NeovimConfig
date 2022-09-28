@@ -171,16 +171,15 @@ r({
   ["<C-k>"] = { "<C-W>k", "Down one window" },
   ["<C-l>"] = { "<C-W>l", "Right one window" },
 
-  ["<S-l>"] = { "<CMD>bnext<CR>", "Next buffer" },
   ["<S-h>"] = { "<CMD>bprevious<CR>", "Previous buffer" },
+  ["<S-l>"] = { "<CMD>bnext<CR>", "Next buffer" },
 
   ["<A-j>"] = { "<Esc><CMD>m .+1<CR>==", "Move line down" },
   ["<A-k>"] = { "<Esc><CMD>m .-2<CR>==", "Move line up" },
 
-  ["Y"] = { "y$", "Yank to the end of the line" },
-  ["`"] = { '<CMD>exe "normal i" . nr2char(getchar())<CR>', "Insert one character" },
+  ["Y"] = { "_y$", "Yank line character-wise without indent" },
+  ["`"] = { 'i <Esc>r', "Insert one character" },
   ["<BS>"] = { "<CMD>noh<return>", "Clear search highlighting" },
-  [",o"] = { '<CMD>exe "normal O"<CR>', "Insert empty line above" },
   [",r"] = { "<C-R>", "Redo last change" },
   [",vb"] = { "<C-V>", "Visual block mode" },
 
@@ -226,6 +225,9 @@ r({
   [",xl"] = { "<CMD>TroubleToggle loclist<CR>", "Toggle loc list" },
   [",xq"] = { "<CMD>TroubleToggle quickfix<CR>", "Toggle quickfix" },
   ["gR"] = { "<CMD>TroubleToggle lsp_references<CR>" },
+
+  ["[<Space>"] = { "O<Esc>j", "Insert empty line above" },
+  ["]<Space>"] = { "o<Esc>k", "Insert empty line below" },
 
   ["<A-1>"] = { "<CMD>Neotree toggle<CR>", "File Explorer" },
 }, { mode = "n" })
