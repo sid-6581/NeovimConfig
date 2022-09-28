@@ -74,5 +74,7 @@ cmp.setup({
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  window = {},
+  window = {
+    documentation = cmp.config.window.bordered(),
+  },
 })
