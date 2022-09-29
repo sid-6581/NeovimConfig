@@ -36,7 +36,7 @@ o.pumheight = 0
 o.scrolloff = 8
 o.selection = "inclusive"
 o.shiftwidth = 2
-o.shortmess:append("c")
+o.shortmess:append("cI")
 o.showmode = false
 o.showtabline = 2
 o.sidescrolloff = 8
