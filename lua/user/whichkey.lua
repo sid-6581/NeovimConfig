@@ -113,6 +113,9 @@ r({
   l = {
     name = "LSP",
     a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action" },
+    ["C1"] = { "<CMD>lua =vim.lsp.get_active_clients()[1].server_capabilities<CR>", "View LSP server 1 capabilities" },
+    ["C2"] = { "<CMD>lua =vim.lsp.get_active_clients()[2].server_capabilities<CR>", "View LSP server 2 capabilities" },
+    ["C3"] = { "<CMD>lua =vim.lsp.get_active_clients()[3].server_capabilities<CR>", "View LSP server 3 capabilities" },
     d = { "<CMD>Telescope diagnostics bufnr=0<CR>", "Document diagnostics" },
     w = { "<CMD>Telescope diagnostics<CR>", "Workspace diagnostics" },
     f = { "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
