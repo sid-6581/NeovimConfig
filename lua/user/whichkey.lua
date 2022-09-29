@@ -76,10 +76,10 @@ local r = which_key.register
 
 -- Space keybindings
 r({
-  a = { "<CMD>Alpha<CR>", "Alpha" },
   c = { "<CMD>Bdelete!<CR>", "Close buffer" },
+  C = { "<CMD>:e ~/.config/nvim/init.lua<CR>", "Edit configuration" },
   e = { "<CMD>Neotree toggle<CR>", "File explorer" },
-  n = { "<CMD>Neotree reveal<CR>", "Find file in explorer" },
+  E = { "<CMD>Neotree reveal<CR>", "Find file in explorer" },
   q = { "<CMD>q<CR>", "Quit" },
   Q = { "<CMD>q!<CR>", "Quit without saving" },
   w = { "<CMD>w!<CR>", "Save" },
