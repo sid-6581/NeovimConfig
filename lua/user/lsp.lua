@@ -1,30 +1,32 @@
-local mason_status_ok, mason = pcall(require, "mason")
-if not mason_status_ok then
+local util = require("user.util")
+
+local mason = util.safe_require("mason")
+if not mason then
   return
 end
 
-local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status_ok then
+local mason_lspconfig = util.safe_require("mason-lspconfig")
+if not mason_lspconfig then
   return
 end
 
-local mason_tool_installer_status_ok, mason_tool_installer = pcall(require, "mason-tool-installer")
-if not mason_tool_installer_status_ok then
+local mason_tool_installer = util.safe_require("mason-tool-installer")
+if not mason_tool_installer then
   return
 end
 
-local lua_dev_status_ok, lua_dev = pcall(require, "lua-dev")
-if not lua_dev_status_ok then
+local lua_dev = util.safe_require("lua-dev")
+if not lua_dev then
   return
 end
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
+local lspconfig = util.safe_require("lspconfig")
+if not lspconfig then
   return
 end
 
-local null_ls_status_ok, null_ls = pcall(require, "null-ls")
-if not null_ls_status_ok then
+local null_ls = util.safe_require("null-ls")
+if not null_ls then
   return
 end
 
@@ -77,10 +79,12 @@ mason_tool_installer.setup({
   start_delay = 3000,
 })
 
+local lsp_handlers = require("user.lsp-handlers")
+
 local opts = {
-  setup = require("user.lsp-handlers").setup,
-  on_attach = require("user.lsp-handlers").on_attach,
-  capabilities = require("user.lsp-handlers").capabilities,
+  setup = lsp_handlers.setup,
+  on_attach = lsp_handlers.on_attach,
+  capabilities = lsp_handlers.capabilities,
 }
 
 opts.setup()
