@@ -57,6 +57,8 @@ packer.startup(function(use)
     end,
   })
 
+  use("michaeljsmith/vim-indent-object")
+  use("tpope/vim-unimpaired")
   use("AndrewRadev/sideways.vim")
   use("L3MON4D3/LuaSnip")
   use("WhoIsSethDaniel/mason-tool-installer.nvim")

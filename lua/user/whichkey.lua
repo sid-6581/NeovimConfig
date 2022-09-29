@@ -226,8 +226,8 @@ r({
   [",xq"] = { "<CMD>TroubleToggle quickfix<CR>", "Toggle quickfix" },
   ["gR"] = { "<CMD>TroubleToggle lsp_references<CR>" },
 
-  ["[<Space>"] = { "O<Esc>j", "Insert empty line above" },
-  ["]<Space>"] = { "o<Esc>k", "Insert empty line below" },
+  -- ["[<Space>"] = { "O<Esc>j", "Insert empty line above" },
+  -- ["]<Space>"] = { "o<Esc>k", "Insert empty line below" },
 
   ["<A-1>"] = { "<CMD>Neotree toggle<CR>", "File Explorer" },
 }, { mode = "n" })
