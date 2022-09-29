@@ -234,6 +234,12 @@ r({
 
 -- Visual and select mode
 r({
+  ["jj"] = { "<Esc>", "Exit insert mode" },
+}, { mode = "i" })
+
+-- Visual and select mode
+r({
+  [";;"] = { "<Esc>", "Exit visual mode" },
   ["<lt>"] = { "<lt>gv", "Decrease indent" },
   [">"] = { ">gv", "Increase indent" },
   ["al"] = { ":<C-u>norm!0v$<CR>", "Yank a line" },
@@ -245,8 +251,28 @@ r({
 
 -- Operator pending mode
 r({
-  ["al"] = { "<CMD>norm val<CR>", "a line" },
   ["il"] = { "<CMD>norm vil<CR>", "inner line" },
+  ["al"] = { "<CMD>norm val<CR>", "a line" },
+  ["i/"] = { "<CMD>norm T/vt/<CR>", "inner /" },
+  ["a/"] = { "<CMD>norm F/vt/<CR>", "a /" },
+  ["i,"] = { "<CMD>norm T,vt,<CR>", "inner ," },
+  ["a,"] = { "<CMD>norm F,vt,<CR>", "a ," },
+  ["i."] = { "<CMD>norm T.vt.<CR>", "inner ." },
+  ["a."] = { "<CMD>norm F.vt.<CR>", "a ." },
+  ["i_"] = { "<CMD>norm T_vt_<CR>", "inner _" },
+  ["a_"] = { "<CMD>norm F_vt_<CR>", "a _" },
+  ["i-"] = { "<CMD>norm T-vt-<CR>", "inner -" },
+  ["a-"] = { "<CMD>norm F-vt-<CR>", "a -" },
+  ["i%"] = { "<CMD>norm T%vt%<CR>", "inner %" },
+  ["a%"] = { "<CMD>norm F%vt%<CR>", "a %" },
+  ["i="] = { "<CMD>norm T=vt=<CR>", "inner =" },
+  ["a="] = { "<CMD>norm F=vt=<CR>", "a =" },
+  ["i?"] = { "<CMD>norm T?vt?<CR>", "inner ?" },
+  ["a?"] = { "<CMD>norm F?vt?<CR>", "a ?" },
+  ["i!"] = { "<CMD>norm T!vt!<CR>", "inner !" },
+  ["a!"] = { "<CMD>norm F!vt!<CR>", "a !" },
+  ["i&"] = { "<CMD>norm T&vt&<CR>", "inner &" },
+  ["a&"] = { "<CMD>norm F&vt&<CR>", "a &" },
 }, { mode = "o" })
 
 -- Terminal mode
