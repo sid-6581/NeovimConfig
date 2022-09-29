@@ -26,4 +26,3 @@ if gruvbox_status_ok then
   })
   pcall(vim.cmd.colorscheme, "gruvbox")
 end
-

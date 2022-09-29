@@ -13,6 +13,11 @@ if not mason_tool_installer_status_ok then
   return
 end
 
+local lua_dev_status_ok, lua_dev = pcall(require, "lua-dev")
+if not lua_dev_status_ok then
+  return
+end
+
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
   return
@@ -22,6 +27,8 @@ local null_ls_status_ok, null_ls = pcall(require, "null-ls")
 if not null_ls_status_ok then
   return
 end
+
+lua_dev.setup({})
 
 mason.setup({
   ui = {
@@ -51,6 +58,7 @@ local tools = {
   "pyright",
   "rust-analyzer",
   "shellcheck",
+  "shellharden",
   "stylua",
   "taplo",
   "vim-language-server",
@@ -91,26 +99,10 @@ mason_lspconfig.setup_handlers({
 
   ["sumneko_lua"] = function()
     lspconfig.sumneko_lua.setup({
-      on_attach = opts.on_attach,
-      capabilities = opts.capabilities,
-
       settings = {
         Lua = {
-          runtime = {
-            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = "LuaJIT",
-          },
-          diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = { "vim" },
-          },
-          workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
-          },
-          -- Do not send telemetry data containing a randomized but unique identifier
-          telemetry = {
-            enable = false,
+          completion = {
+            callSnippet = "Replace",
           },
         },
       },
@@ -327,18 +319,11 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
-  root_dir = function(fname)
-    local root =
-      require("lspconfig.util").root_pattern(unpack({ ".null-ls-root", "Makefile", ".git", ".stylua.toml" }))(fname)
-    if root and root ~= vim.env.HOME then
-      return root
-    end
-    return require("lspconfig.util").find_git_ancestor(fname)
-  end,
   sources = {
-    formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-    formatting.black.with({ extra_args = { "--fast" } }),
+    formatting.prettier,
+    formatting.black,
     formatting.stylua,
+    formatting.shellharden,
     diagnostics.flake8,
   },
 })
