@@ -319,6 +319,7 @@ null_ls.setup({
     formatting.black,
     formatting.stylua,
     formatting.shellharden,
+    diagnostics.ansiblelint,
     diagnostics.flake8,
   },
 })
