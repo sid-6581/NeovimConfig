@@ -1,9 +1,7 @@
 local util = require("user.util")
 
 local which_key = util.safe_require("which-key")
-if not which_key then
-  return
-end
+if not which_key then return end
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -183,7 +181,7 @@ r({
   ["<A-k>"] = { "<Esc><CMD>m .-2<CR>==", "Move line up" },
 
   ["Y"] = { "_y$", "Yank line character-wise without indent" },
-  ["`"] = { 'i <Esc>r', "Insert one character" },
+  ["`"] = { "i <Esc>r", "Insert one character" },
   ["<BS>"] = { "<CMD>noh<return>", "Clear search highlighting" },
   [",r"] = { "<C-R>", "Redo last change" },
   [",vb"] = { "<C-V>", "Visual block mode" },

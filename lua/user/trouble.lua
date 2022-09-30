@@ -1,9 +1,7 @@
 local util = require("user.util")
 
 local trouble = util.safe_require("trouble")
-if not trouble then
-  return
-end
+if not trouble then return end
 
 trouble.setup({
   position = "bottom", -- position of the list can be: bottom, top, left, right

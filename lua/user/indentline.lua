@@ -1,9 +1,7 @@
 local util = require("user.util")
 
 local indent_blankline = util.safe_require("indent_blankline")
-if not indent_blankline then
-  return
-end
+if not indent_blankline then return end
 
 vim.opt.list = true
 vim.opt.listchars:append("space:⋅")

@@ -1,34 +1,22 @@
 local util = require("user.util")
 
 local mason = util.safe_require("mason")
-if not mason then
-  return
-end
+if not mason then return end
 
 local mason_lspconfig = util.safe_require("mason-lspconfig")
-if not mason_lspconfig then
-  return
-end
+if not mason_lspconfig then return end
 
 local mason_tool_installer = util.safe_require("mason-tool-installer")
-if not mason_tool_installer then
-  return
-end
+if not mason_tool_installer then return end
 
 local lua_dev = util.safe_require("lua-dev")
-if not lua_dev then
-  return
-end
+if not lua_dev then return end
 
 local lspconfig = util.safe_require("lspconfig")
-if not lspconfig then
-  return
-end
+if not lspconfig then return end
 
 local null_ls = util.safe_require("null-ls")
-if not null_ls then
-  return
-end
+if not null_ls then return end
 
 require("lspconfig.ui.windows").default_options.border = "rounded"
 vim.cmd("highlight link LspInfoBorder Normal")

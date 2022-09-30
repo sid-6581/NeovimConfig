@@ -20,8 +20,6 @@ require("user.indentline")
 require("user.trouble")
 require("user.whichkey")
 
-local util = require("user.util")
-
 local gruvbox = util.safe_require("gruvbox")
 if gruvbox then
   gruvbox.setup({

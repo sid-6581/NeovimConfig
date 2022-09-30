@@ -1,9 +1,7 @@
 local util = require("user.util")
 
 local dressing = util.safe_require("dressing")
-if not dressing then
-  return
-end
+if not dressing then return end
 
 dressing.setup({
   input = {

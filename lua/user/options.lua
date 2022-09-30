@@ -9,9 +9,7 @@ g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.cursorhold_updatetime = 100
 
-if vim.fn.has("win32") == 1 then
-  vim.cmd("source $VIMRUNTIME/mswin.vim")
-end
+if vim.fn.has("win32") == 1 then vim.cmd("source $VIMRUNTIME/mswin.vim") end
 
 vim.cmd("highlight link FloatBorder Normal")
 vim.cmd("highlight link NormalFloat Normal")

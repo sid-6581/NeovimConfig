@@ -1,9 +1,7 @@
 local util = require("user.util")
 
 local configs = util.safe_require("nvim-treesitter.configs")
-if not configs then
-  return
-end
+if not configs then return end
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
   group = vim.api.nvim_create_augroup("TS_FOLD_WORKAROUND", {}),

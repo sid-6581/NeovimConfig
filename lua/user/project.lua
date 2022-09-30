@@ -1,9 +1,7 @@
 local util = require("user.util")
 
 local project = util.safe_require("project_nvim")
-if not project then
-  return
-end
+if not project then return end
 
 project.setup({
   on_config_done = nil,
@@ -15,8 +13,6 @@ project.setup({
 })
 
 local telescope = util.safe_require("telescope")
-if not telescope then
-  return
-end
+if not telescope then return end
 
 telescope.load_extension("projects")

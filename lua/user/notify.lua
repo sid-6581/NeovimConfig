@@ -1,23 +1,15 @@
 local util = require("user.util")
 
 local notify = util.safe_require("notify")
-if not notify then
-  return
-end
+if not notify then return end
 
 -- Utility functions shared between progress reports for LSP and DAP
 
 local client_notifs = {}
 
 local function get_notif_data(client_id, token)
-  if not client_notifs[client_id] then
-    client_notifs[client_id] = {}
-  end
-
-  if not client_notifs[client_id][token] then
-    client_notifs[client_id][token] = {}
-  end
-
+  if not client_notifs[client_id] then client_notifs[client_id] = {} end
+  if not client_notifs[client_id][token] then client_notifs[client_id][token] = {} end
   return client_notifs[client_id][token]
 end
 
@@ -36,8 +28,10 @@ local function update_spinner(client_id, token)
       replace = notif_data.notification,
     })
 
+    ---@diagnostic disable-next-line: param-type-mismatch
     vim.defer_fn(function()
       update_spinner(client_id, token)
+      ---@diagnostic disable-next-line: param-type-mismatch
     end, 100)
   end
 end
@@ -58,16 +52,14 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
 
   local val = result.value
 
-  if not val.kind then
-    return
-  end
+  if not val.kind then return end
 
   local notif_data = get_notif_data(client_id, result.token)
 
   if val.kind == "begin" then
     local message = format_message(val.message, val.percentage)
 
-    notif_data.notification = vim.notify(message, "info", {
+    notif_data.notification = vim.notify(message, vim.log.levels.INFO, {
       title = format_title(val.title, vim.lsp.get_client_by_id(client_id).name),
       icon = spinner_frames[1],
       timeout = false,
@@ -77,16 +69,17 @@ vim.lsp.handlers["$/progress"] = function(_, result, ctx)
     notif_data.spinner = 1
     update_spinner(client_id, result.token)
   elseif val.kind == "report" and notif_data then
-    notif_data.notification = vim.notify(format_message(val.message, val.percentage), "info", {
+    notif_data.notification = vim.notify(format_message(val.message, val.percentage), vim.log.levels.INFO, {
       replace = notif_data.notification,
       hide_from_history = false,
     })
   elseif val.kind == "end" and notif_data then
-    notif_data.notification = vim.notify(val.message and format_message(val.message) or "Complete", "info", {
-      icon = "",
-      replace = notif_data.notification,
-      timeout = 3000,
-    })
+    notif_data.notification =
+      vim.notify(val.message and format_message(val.message) or "Complete", vim.log.levels.INFO, {
+        icon = "",
+        replace = notif_data.notification,
+        timeout = 3000,
+      })
 
     notif_data.spinner = nil
   end

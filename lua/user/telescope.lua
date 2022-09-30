@@ -1,9 +1,7 @@
 local util = require("user.util")
 
 local telescope = util.safe_require("telescope")
-if not telescope then
-  return
-end
+if not telescope then return end
 
 local actions = require("telescope.actions")
 

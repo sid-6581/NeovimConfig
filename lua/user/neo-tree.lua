@@ -1,9 +1,7 @@
 local util = require("user.util")
 
 local neo_tree = util.safe_require("neo-tree")
-if not neo_tree then
-  return
-end
+if not neo_tree then return end
 
 vim.g.neo_tree_remove_legacy_commands = 1
 

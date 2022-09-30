@@ -1,9 +1,7 @@
 local util = require("user.util")
 
 local toggleterm = util.safe_require("toggleterm")
-if not toggleterm then
-  return
-end
+if not toggleterm then return end
 
 local shell = (vim.fn.has("win32") == 1) and "pwsh -NoLogo" or vim.o.shell
 

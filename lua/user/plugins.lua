@@ -1,9 +1,7 @@
 local ensure_packer = function()
   local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
   ---@diagnostic disable-next-line: missing-parameter
-  if vim.fn.empty(vim.fn.glob(install_path)) == 0 then
-    return false
-  end
+  if vim.fn.empty(vim.fn.glob(install_path)) == 0 then return false end
   vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
   vim.cmd("packadd packer.nvim")
   return true
@@ -14,14 +12,10 @@ local packer_bootstrap = ensure_packer()
 local util = require("user.util")
 
 local packer = util.safe_require("packer")
-if not packer then
-  return
-end
+if not packer then return end
 
 local packer_util = util.safe_require("packer.util")
-if not packer_util then
-  return
-end
+if not packer_util then return end
 
 vim.cmd([[
   augroup packer_user_config
@@ -108,9 +102,7 @@ end)
 
 local setup = function(name)
   local plugin = util.safe_require(name)
-  if plugin then
-    plugin.setup({})
-  end
+  if plugin then plugin.setup({}) end
 end
 
 setup("hop")

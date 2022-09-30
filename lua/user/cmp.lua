@@ -1,9 +1,7 @@
 local util = require("user.util")
 
 local cmp = util.safe_require("cmp")
-if not cmp then
-  return
-end
+if not cmp then return end
 
 local kind_icons = {
   Text = "",
