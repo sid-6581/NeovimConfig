@@ -30,6 +30,9 @@ if not null_ls then
   return
 end
 
+require("lspconfig.ui.windows").default_options.border = "rounded"
+vim.cmd("highlight link LspInfoBorder Normal")
+
 lua_dev.setup({})
 
 mason.setup({

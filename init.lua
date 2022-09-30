@@ -18,8 +18,10 @@ require("user.indentline")
 require("user.trouble")
 require("user.whichkey")
 
-local gruvbox_status_ok, gruvbox = pcall(require, "gruvbox")
-if gruvbox_status_ok then
+local util = require("user.util")
+
+local gruvbox = util.safe_require("gruvbox")
+if gruvbox then
   gruvbox.setup({
     contrast = "hard",
   })
