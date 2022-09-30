@@ -95,10 +95,6 @@ mason_lspconfig.setup_handlers({
     })
   end,
 
-  ["rust_analyzer"] = function()
-    require("rust-tools").setup({})
-  end,
-
   ["sumneko_lua"] = function()
     lspconfig.sumneko_lua.setup({
       settings = {
