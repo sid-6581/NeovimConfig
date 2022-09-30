@@ -235,7 +235,7 @@ r({
   ["<A-1>"] = { "<CMD>Neotree toggle<CR>", "File Explorer" },
 }, { mode = "n" })
 
--- Visual and select mode
+-- Insert mode
 r({
   ["jj"] = { "<Esc>", "Exit insert mode" },
 }, { mode = "i" })
@@ -249,7 +249,10 @@ r({
   ["il"] = { ":<C-u>norm!^vg_<CR>", "Yank inner line" },
   ["<A-j>"] = { ":m .+1<CR>==", "Move block down" },
   ["<A-k>"] = { ":m .-2<CR>==", "Move block up" },
-  ["p"] = { '"_dP', "Paste" },
+  -- ["p"] = { '"_dP', "Paste" },
+  [",sl"] = { ":sort i<CR>", "Sort lines" },
+  [",su"] = { ":sort iu<CR>", "Sort lines unique" },
+  [",sn"] = { ":sort in<CR>", "Sort lines by number" },
 }, { mode = "v" })
 
 -- Operator pending mode

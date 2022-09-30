@@ -25,5 +25,5 @@ if gruvbox then
   gruvbox.setup({
     contrast = "hard",
   })
-  pcall(vim.cmd.colorscheme, "gruvbox")
+  vim.cmd.colorscheme("gruvbox")
 end

@@ -18,9 +18,16 @@ if not lspconfig then return end
 local null_ls = util.safe_require("null-ls")
 if not null_ls then return end
 
+-- Set LSP info border.
 require("lspconfig.ui.windows").default_options.border = "rounded"
 vim.cmd("highlight link LspInfoBorder Normal")
 
+-- Automatically detect ansible yaml files.
+vim.cmd([[
+  autocmd BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
+]])
+
+-- lua-dev needs to be setup before lspconfig.
 lua_dev.setup({})
 
 mason.setup({
@@ -319,7 +326,6 @@ null_ls.setup({
     formatting.black,
     formatting.stylua,
     formatting.shellharden,
-    diagnostics.ansiblelint,
     diagnostics.flake8,
   },
 })

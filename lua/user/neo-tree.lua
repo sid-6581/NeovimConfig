@@ -40,7 +40,7 @@ neo_tree.setup({
       hide_gitignored = false,
       hide_hidden = false, -- only works on Windows for hidden files/directories
     },
-    follow_current_file = false, -- This will find and focus the file in the active buffer every
+    follow_current_file = true, -- This will find and focus the file in the active buffer every
     -- time the current file is changed while the tree is open.
     group_empty_dirs = true, -- when true, empty folders will be grouped together
     hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
