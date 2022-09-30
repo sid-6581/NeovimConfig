@@ -1,5 +1,7 @@
-local status_ok, toggleterm = pcall(require, "toggleterm")
-if not status_ok then
+local util = require("user.util")
+
+local toggleterm = util.safe_require("toggleterm")
+if not toggleterm then
   return
 end
 

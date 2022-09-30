@@ -11,13 +11,15 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-local packer_status_ok, packer = pcall(require, "packer")
-if not packer_status_ok then
+local util = require("user.util")
+
+local packer = util.safe_require("packer")
+if not packer then
   return
 end
 
-local util_status_ok, packer_util = pcall(require, "packer.util")
-if not util_status_ok then
+local packer_util = util.safe_require("packer.util")
+if not packer_util then
   return
 end
 
@@ -104,22 +106,19 @@ end)
 
 -- Plugin setup for simple plugins
 
-local hop_status_ok, hop = pcall(require, "hop")
-if hop_status_ok then
-  hop.setup({})
-  vim.cmd("highlight! link HopNextKey Normal")
-  vim.cmd("highlight! link HopNextKey1 Normal")
-  vim.cmd("highlight! link HopNextKey2 Normal")
-end
-
 local setup = function(name)
-  local status_ok, plugin = pcall(require, name)
-  if status_ok then
+  local plugin = util.safe_require(name)
+  if plugin then
     plugin.setup({})
   end
 end
 
+setup("hop")
 setup("guess-indent")
 setup("Comment")
 setup("substitute")
 setup("nvim-surround")
+
+vim.cmd("highlight! link HopNextKey Normal")
+vim.cmd("highlight! link HopNextKey1 Normal")
+vim.cmd("highlight! link HopNextKey2 Normal")

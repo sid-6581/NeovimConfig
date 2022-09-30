@@ -1,5 +1,7 @@
-local status_ok, notify = pcall(require, "notify")
-if not status_ok then
+local util = require("user.util")
+
+local notify = util.safe_require("notify")
+if not notify then
   return
 end
 

@@ -1,5 +1,7 @@
-local trouble_ok, trouble = pcall(require, "trouble")
-if not trouble_ok then
+local util = require("user.util")
+
+local trouble = util.safe_require("trouble")
+if not trouble then
   return
 end
 

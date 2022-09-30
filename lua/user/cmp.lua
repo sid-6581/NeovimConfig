@@ -1,5 +1,7 @@
-local status_ok, cmp = pcall(require, "cmp")
-if not status_ok or not cmp then
+local util = require("user.util")
+
+local cmp = util.safe_require("cmp")
+if not cmp then
   return
 end
 

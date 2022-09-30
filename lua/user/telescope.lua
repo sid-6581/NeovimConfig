@@ -1,5 +1,7 @@
-local telescope_status_ok, telescope = pcall(require, "telescope")
-if not telescope_status_ok then
+local util = require("user.util")
+
+local telescope = util.safe_require("telescope")
+if not telescope then
   return
 end
 

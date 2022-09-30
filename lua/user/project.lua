@@ -1,5 +1,7 @@
-local status_ok, project = pcall(require, "project_nvim")
-if not status_ok then
+local util = require("user.util")
+
+local project = util.safe_require("project_nvim")
+if not project then
   return
 end
 
@@ -12,8 +14,8 @@ project.setup({
   silent_chdir = true,
 })
 
-local telescope_status_ok, telescope = pcall(require, "telescope")
-if not telescope_status_ok then
+local telescope = util.safe_require("telescope")
+if not telescope then
   return
 end
 

@@ -109,7 +109,7 @@ mason_lspconfig.setup_handlers({
       settings = {
         Lua = {
           completion = {
-            callSnippet = "Replace",
+            callSnippet = "Disable",
           },
         },
       },

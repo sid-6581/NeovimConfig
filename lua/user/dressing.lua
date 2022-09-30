@@ -1,5 +1,7 @@
-local status_ok, dressing = pcall(require, "dressing")
-if not status_ok then
+local util = require("user.util")
+
+local dressing = util.safe_require("dressing")
+if not dressing then
   return
 end
 

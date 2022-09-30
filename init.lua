@@ -1,4 +1,6 @@
-pcall(require, "impatient")
+local util = require("user.util")
+
+util.safe_require("impatient")
 
 require("user.options")
 require("user.plugins")

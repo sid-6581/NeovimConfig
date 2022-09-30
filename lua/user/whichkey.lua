@@ -1,5 +1,7 @@
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
+local util = require("user.util")
+
+local which_key = util.safe_require("which-key")
+if not which_key then
   return
 end
 

@@ -1,5 +1,7 @@
-local status_ok, window_picker = pcall(require, "window-picker")
-if not status_ok then
+local util = require("user.util")
+
+local window_picker = util.safe_require("window-picker")
+if not window_picker then
   return
 end
 
