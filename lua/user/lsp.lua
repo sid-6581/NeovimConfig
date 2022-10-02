@@ -111,12 +111,10 @@ mason_lspconfig.setup_handlers({
     lspconfig.pyright.setup({
       on_attach = opts.on_attach,
       capabilities = opts.capabilities,
-
       settings = {
         python = {
           analysis = {
-            -- Disable strict type checking
-            typeCheckingMode = "off",
+            typeCheckingMode = "strict",
           },
         },
       },
