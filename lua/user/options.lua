@@ -8,7 +8,7 @@ g.neovide_remember_window_size = true
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.cursorhold_updatetime = 100
-g.sort_motion_flags = 'ui'
+g.sort_motion_flags = 'i'
 
 if vim.fn.has("win32") == 1 then vim.cmd("source $VIMRUNTIME/mswin.vim") end
 
