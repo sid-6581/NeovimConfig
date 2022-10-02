@@ -137,15 +137,20 @@ mason_lspconfig.setup_handlers({
   end,
 })
 
+local code_actions = null_ls.builtins.code_actions
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
   sources = {
-    formatting.prettier,
-    formatting.black,
-    formatting.stylua,
-    formatting.shellharden,
+    code_actions.eslint,
+    code_actions.shellcheck,
+    diagnostics.eslint,
     diagnostics.flake8,
+    formatting.black,
+    formatting.eslint,
+    -- formatting.prettier,
+    formatting.shellharden,
+    formatting.stylua,
   },
 })

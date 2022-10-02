@@ -70,6 +70,7 @@ packer.startup(function(use)
   use("hrsh7th/cmp-nvim-lua")
   use("hrsh7th/cmp-path")
   use("hrsh7th/nvim-cmp")
+  use("j-hui/fidget.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
   use("kylechui/nvim-surround")
   use("L3MON4D3/LuaSnip")
@@ -105,12 +106,14 @@ local setup = function(name)
   if plugin then plugin.setup({}) end
 end
 
-setup("hop")
 setup("guess-indent")
 setup("Comment")
 setup("substitute")
 setup("nvim-surround")
+setup("fidget")
 
+setup("hop")
 vim.cmd("highlight! link HopNextKey Normal")
 vim.cmd("highlight! link HopNextKey1 Normal")
 vim.cmd("highlight! link HopNextKey2 Normal")
+
