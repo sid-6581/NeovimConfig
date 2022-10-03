@@ -73,6 +73,7 @@ packer.startup(function(use)
   use("hrsh7th/nvim-cmp")
   use("j-hui/fidget.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
+  use("kosayoda/nvim-lightbulb")
   use("kylechui/nvim-surround")
   use("L3MON4D3/LuaSnip")
   use("lewis6991/gitsigns.nvim")
@@ -92,7 +93,6 @@ packer.startup(function(use)
   use("WhoIsSethDaniel/mason-tool-installer.nvim")
   use("williamboman/mason-lspconfig.nvim")
   use("williamboman/mason.nvim")
-  use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim", as = "lsp_lines" })
   use({ "nvim-neo-tree/neo-tree.nvim", branch = "main" })
 
   if packer_bootstrap then
@@ -113,9 +113,11 @@ setup("Comment")
 setup("substitute")
 setup("nvim-surround")
 setup("fidget")
-setup("lsp_lines")
 
 setup("hop")
 vim.cmd("highlight! link HopNextKey Normal")
 vim.cmd("highlight! link HopNextKey1 Normal")
 vim.cmd("highlight! link HopNextKey2 Normal")
+
+local lightbulb = util.safe_require("nvim-lightbulb")
+if lightbulb then lightbulb.setup({ autocmd = { enabled = true } }) end
