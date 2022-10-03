@@ -24,7 +24,7 @@ o.fileencoding = "utf-8"
 o.fileformat = "unix"
 o.foldlevel = 99
 o.formatoptions:remove({ "c", "r", "o" })
-o.guifont = "JetBrainsMono NFM:h9.5"
+o.guifont = "JetBrainsMono Nerd Font Mono:h9.5"
 o.ignorecase = true
 o.iskeyword:append("-")
 o.laststatus = 2
