@@ -74,12 +74,10 @@ which_key.setup({
 
 local r = which_key.register
 
-local config_file = (vim.fn.has("win32") == 1) and "$XDG_CONFIG_HOME/nvim/init.lua" or "~/.config/nvim/init.lua"
-
 -- Space keybindings
 r({
   c = { "<CMD>Bdelete!<CR>", "Close buffer" },
-  C = { "<CMD>:e " .. config_file .. "<CR>", "Edit configuration" },
+  C = { "<CMD>:e " .. vim.fn.stdpath("config") .. "/init.lua<CR>", "Edit configuration" },
   e = { "<CMD>Neotree toggle<CR>", "File explorer" },
   E = { "<CMD>Neotree reveal<CR>", "Find file in explorer" },
   q = { "<CMD>q<CR>", "Quit" },
