@@ -107,6 +107,26 @@ mason_lspconfig.setup_handlers({
     })
   end,
 
+  ["powershell_es"] = function()
+    lspconfig.powershell_es.setup({
+      on_attach = opts.on_attach,
+      capabilities = opts.capabilities,
+      settings = {
+        powershell = {
+          codeFormatting = {
+            autoCorrectAliases = true,
+            avoidSemicolonsAsLineTerminators = true,
+            preset = "OTBS",
+            trimWhitespaceAroundPipe = true,
+            useConstantStrings = true,
+            useCorrectCasing = true,
+            whitespaceBetweenParameters = true,
+          },
+        },
+      },
+    })
+  end,
+
   ["pyright"] = function()
     lspconfig.pyright.setup({
       on_attach = opts.on_attach,
