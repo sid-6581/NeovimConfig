@@ -158,6 +158,20 @@ mason_lspconfig.setup_handlers({
       },
     })
   end,
+  ["yamlls"] = function()
+    lspconfig.yamlls.setup({
+      on_attach = opts.on_attach,
+      capabilities = opts.capabilities,
+      settings = {
+        yaml = {
+          schemaStore = {
+            url = "https://www.schemastore.org/api/json/catalog.json",
+            enable = true,
+          },
+        },
+      },
+    })
+  end,
 })
 
 local code_actions = null_ls.builtins.code_actions
