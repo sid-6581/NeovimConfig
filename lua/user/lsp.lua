@@ -9,9 +9,6 @@ if not mason_lspconfig then return end
 local mason_tool_installer = util.safe_require("mason-tool-installer")
 if not mason_tool_installer then return end
 
-local lua_dev = util.safe_require("lua-dev")
-if not lua_dev then return end
-
 local lspconfig = util.safe_require("lspconfig")
 if not lspconfig then return end
 
@@ -26,9 +23,6 @@ vim.cmd("highlight link LspInfoBorder Normal")
 vim.cmd([[
   autocmd BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
 ]])
-
--- lua-dev needs to be setup before lspconfig.
-lua_dev.setup({})
 
 mason.setup({
   ui = {
@@ -95,13 +89,14 @@ mason_lspconfig.setup_handlers({
     })
   end,
 
-  ["sumneko_lua"] = function()
-    lspconfig.sumneko_lua.setup({
+  ["jsonls"] = function()
+    lspconfig.jsonls.setup({
+      on_attach = opts.on_attach,
+      capabilities = opts.capabilities,
       settings = {
-        Lua = {
-          completion = {
-            callSnippet = "Disable",
-          },
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
         },
       },
     })
@@ -141,14 +136,24 @@ mason_lspconfig.setup_handlers({
     })
   end,
 
-  ["jsonls"] = function()
-    lspconfig.jsonls.setup({
+  ["sumneko_lua"] = function()
+    lspconfig.sumneko_lua.setup({
       on_attach = opts.on_attach,
       capabilities = opts.capabilities,
       settings = {
-        json = {
-          schemas = require("schemastore").json.schemas(),
-          validate = { enable = true },
+        Lua = {
+          completion = {
+            callSnippet = "Disable",
+          },
+          diagnostics = {
+            globals = { "vim" },
+          },
+          runtime = {
+            version = "LuaJIT",
+          },
+          telemetry = {
+            enable = false,
+          },
         },
       },
     })
