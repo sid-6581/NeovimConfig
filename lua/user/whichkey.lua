@@ -77,7 +77,7 @@ local r = which_key.register
 -- Space keybindings
 r({
   c = { "<CMD>Bdelete!<CR>", "Close buffer" },
-  C = { "<CMD>:e ~/.config/nvim/init.lua<CR>", "Edit configuration" },
+  C = { "<CMD>:e $XDG_CONFIG_HOME/nvim/init.lua<CR>", "Edit configuration" },
   e = { "<CMD>Neotree toggle<CR>", "File explorer" },
   E = { "<CMD>Neotree reveal<CR>", "Find file in explorer" },
   q = { "<CMD>q<CR>", "Quit" },
