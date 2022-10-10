@@ -12,6 +12,9 @@ g.sort_motion_flags = 'i'
 
 if vim.fn.has("win32") == 1 then vim.cmd("source $VIMRUNTIME/mswin.vim") end
 
+-- Don't move cursor left when exiting insert mode
+vim.cmd("autocmd InsertLeave * :normal! `^")
+
 vim.cmd("highlight link FloatBorder Normal")
 vim.cmd("highlight link NormalFloat Normal")
 
