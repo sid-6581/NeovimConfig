@@ -1,7 +1,8 @@
 local o = vim.opt
 local g = vim.g
 
-g.neovide_refresh_rate = 120
+g.neovide_no_idle = true
+g.neovide_refresh_rate = 60
 g.neovide_cursor_vfx_mode = ""
 g.neovide_cursor_animation_length = 0
 g.neovide_remember_window_size = true
