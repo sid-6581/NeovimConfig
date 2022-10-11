@@ -183,6 +183,9 @@ r({
   ["Y"] = { "_y$", "Yank line character-wise without indent" },
   ["`"] = { "i <Esc>r", "Insert one character" },
   ["<BS>"] = { "<CMD>noh<return>", "Clear search highlighting" },
+  ["<S-Insert>"] = { "\"+p", "Paste from system clipboard" },
+  [",p"] = { "\"+p", "Paste from system clipboard" },
+  [",P"] = { "\"+P", "Paste from system clipboard" },
   [",r"] = { "<C-R>", "Redo last change" },
   [",vb"] = { "<C-V>", "Visual block mode" },
 
@@ -240,6 +243,7 @@ r({
 r({
   ["<Esc>"] = { "<Esc>`^", "Exit insert mode" },
   ["jj"] = { "<Esc>", "Exit insert mode", noremap = false },
+  ["<S-Insert>"] = { "<C-R>+", "Paste from system clipboard" },
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
 }, { mode = "i" })
 
@@ -256,6 +260,9 @@ r({
   [",sl"] = { ":sort i<CR>", "Sort lines" },
   [",su"] = { ":sort iu<CR>", "Sort lines unique" },
   [",sn"] = { ":sort in<CR>", "Sort lines by number" },
+  [",y"] = { "\"+y", "Yank to system clipboard" },
+  ["<C-Insert>"] = { "\"+y", "Yank to system clipboard" },
+  ["<S-Insert>"] = { "\"+P", "Paste from system clipboard" },
 }, { mode = "v" })
 
 -- Operator pending mode

@@ -12,7 +12,6 @@ vim.g.sort_motion_flags = "i"
 vim.cmd("highlight link FloatBorder Normal")
 vim.cmd("highlight link NormalFloat Normal")
 
-vim.opt.clipboard:append("unnamedplus")
 vim.opt.cmdheight = 1
 vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.cursorline = true
