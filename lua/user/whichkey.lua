@@ -237,6 +237,7 @@ r({
 
 -- Insert mode
 r({
+  ["<Esc>"] = { "<Esc>`^", "Exit insert mode" },
   ["jj"] = { "<Esc>", "Exit insert mode" },
 }, { mode = "i" })
 
