@@ -1,79 +1,60 @@
-local o = vim.opt
-local g = vim.g
-
-g.neovide_no_idle = true
-g.neovide_refresh_rate = 60
-g.neovide_cursor_vfx_mode = ""
-g.neovide_cursor_animation_length = 0
-g.neovide_remember_window_size = true
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
-g.sort_motion_flags = "i"
-
-if vim.fn.has("wsl") then
-  vim.g.clipboard = {
-    name = "win32yank-wsl",
-    copy = {
-      ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf",
-    },
-    paste = {
-      ["+"] = "win32yank.exe -o --crlf",
-      ["*"] = "win32yank.exe -o --crlf",
-    },
-    cache_enable = 0,
-  }
-end
-
-if vim.fn.has("win32") == 1 then vim.cmd("source $VIMRUNTIME/mswin.vim") end
+vim.g.neovide_no_idle = true
+vim.g.neovide_refresh_rate = 60
+vim.g.neovide_cursor_vfx_mode = ""
+vim.g.neovide_cursor_animation_length = 0
+vim.g.neovide_remember_window_size = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.sort_motion_flags = "i"
 
 vim.cmd("highlight link FloatBorder Normal")
 vim.cmd("highlight link NormalFloat Normal")
 
-o.cmdheight = 1
-o.completeopt = { "menuone", "noselect" }
-o.cursorline = true
-o.expandtab = true
-o.ffs = { "unix", "dos" }
-o.fileencoding = "utf-8"
-o.fileformat = "unix"
-o.foldlevel = 99
-o.formatoptions:remove({ "c", "r", "o" })
-o.guifont = "JetBrainsMono NFM:h9.5"
-o.ignorecase = true
-o.iskeyword:append("-")
-o.laststatus = 2
-o.lazyredraw = true
-o.mouse = "a"
-o.number = true
-o.numberwidth = 4
-o.pumheight = 0
-o.relativenumber = true
-o.scrolloff = 8
-o.selection = "inclusive"
-o.shiftwidth = 2
-o.shortmess:append("cI")
-o.showmode = false
-o.showtabline = 2
-o.sidescrolloff = 8
-o.signcolumn = "yes"
-o.smartcase = true
-o.smartindent = true
-o.softtabstop = -1
-o.splitbelow = true
-o.splitright = true
-o.swapfile = false
-o.tabstop = 2
-o.termguicolors = true
-o.timeoutlen = 400
-o.title = true
-o.updatetime = 1000
-o.virtualedit:append("block")
-o.winblend = 10
-o.wrap = false
-o.writebackup = false
+vim.opt.clipboard:append("unnamedplus")
+vim.opt.cmdheight = 1
+vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.cursorline = true
+vim.opt.expandtab = true
+vim.opt.ffs = { "unix", "dos" }
+vim.opt.fileencoding = "utf-8"
+vim.opt.fileformat = "unix"
+vim.opt.foldlevel = 99
+vim.opt.formatoptions:remove({ "c", "r", "o" })
+vim.opt.guifont = "JetBrainsMono NFM:h9.5"
+vim.opt.ignorecase = true
+vim.opt.iskeyword:append("-")
+vim.opt.laststatus = 2
+vim.opt.lazyredraw = true
+vim.opt.mouse = "a"
+vim.opt.number = true
+vim.opt.numberwidth = 4
+vim.opt.pumheight = 0
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 8
+vim.opt.selection = "inclusive"
+vim.opt.shiftwidth = 2
+vim.opt.shortmess:append("cI")
+vim.opt.showmode = false
+vim.opt.showtabline = 2
+vim.opt.sidescrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.smartcase = true
+vim.opt.smartindent = true
+vim.opt.softtabstop = -1
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.swapfile = false
+vim.opt.tabstop = 2
+vim.opt.termguicolors = true
+vim.opt.timeoutlen = 400
+vim.opt.title = true
+vim.opt.updatetime = 1000
+vim.opt.virtualedit:append("block")
+vim.opt.winblend = 10
+vim.opt.wrap = false
+vim.opt.writebackup = false
 
 local map = vim.keymap.set
 
