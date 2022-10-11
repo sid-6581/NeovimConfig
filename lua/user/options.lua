@@ -8,7 +8,23 @@ g.neovide_cursor_animation_length = 0
 g.neovide_remember_window_size = true
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
-g.sort_motion_flags = 'i'
+g.loaded_perl_provider = 0
+g.sort_motion_flags = "i"
+
+if vim.fn.has("wsl") then
+  vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --crlf",
+      ["*"] = "win32yank.exe -o --crlf",
+    },
+    cache_enable = 0,
+  }
+end
 
 if vim.fn.has("win32") == 1 then vim.cmd("source $VIMRUNTIME/mswin.vim") end
 
