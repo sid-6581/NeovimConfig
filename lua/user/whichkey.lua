@@ -233,12 +233,14 @@ r({
   -- ["]<Space>"] = { "o<Esc>k", "Insert empty line below" },
 
   ["<A-1>"] = { "<CMD>Neotree toggle<CR>", "File Explorer" },
+  ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
 }, { mode = "n" })
 
 -- Insert mode
 r({
   ["<Esc>"] = { "<Esc>`^", "Exit insert mode" },
-  ["jj"] = { "<Esc>", "Exit insert mode" },
+  ["jj"] = { "<Esc>", "Exit insert mode", noremap = false },
+  ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
 }, { mode = "i" })
 
 -- Visual and select mode

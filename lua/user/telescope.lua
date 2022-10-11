@@ -39,7 +39,7 @@ telescope.setup({
         ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
         ["<A-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-l>"] = actions.complete_tag,
-        ["<C-/>"] = actions.which_key,
+        ["<F1>"] = actions.which_key,
       },
       n = {
         ["<Esc>"] = actions.close,
@@ -66,6 +66,7 @@ telescope.setup({
         ["<PageUp>"] = actions.results_scrolling_up,
         ["<PageDown>"] = actions.results_scrolling_down,
         ["?"] = actions.which_key,
+        ["<F1>"] = actions.which_key,
       },
     },
   },
