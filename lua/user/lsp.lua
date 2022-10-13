@@ -45,6 +45,7 @@ local tools = {
   "clangd",
   "css-lsp",
   "dockerfile-language-server",
+  "eslint-lsp",
   "flake8",
   "hadolint",
   "html-lsp",
@@ -57,7 +58,9 @@ local tools = {
   "shellharden",
   "stylua",
   "taplo",
+  "typescript-language-server",
   "vim-language-server",
+  "vue-language-server",
   "yaml-language-server",
 }
 
