@@ -348,7 +348,7 @@ r({
   ["K"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Show information" },
   ["gi"] = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "List all implementations" },
   ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
-  ["gl"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "" },
+  ["gl"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Show diagnostics" },
   ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
   ["<A-Enter>"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action" },
 }, { mode = "n" })
