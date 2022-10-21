@@ -62,6 +62,7 @@ local tools = {
   "vim-language-server",
   "vue-language-server",
   "yaml-language-server",
+  "yapf",
 }
 
 if vim.fn.has("win32") == 1 then
@@ -190,12 +191,13 @@ null_ls.setup({
     diagnostics.eslint,
     diagnostics.flake8,
     diagnostics.hadolint,
-    formatting.black.with({
-      extra_args = { "--preview" },
-    }),
+    -- formatting.black.with({
+    --   extra_args = { "--preview" },
+    -- }),
     formatting.eslint,
     -- formatting.prettier,
     formatting.shellharden,
     formatting.stylua,
+    formatting.yapf,
   },
 })
