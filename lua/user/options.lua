@@ -25,7 +25,6 @@ vim.opt.guifont = "JetBrainsMono NFM:h9.5"
 vim.opt.ignorecase = true
 vim.opt.iskeyword:append("-")
 vim.opt.laststatus = 2
-vim.opt.lazyredraw = true
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.numberwidth = 4
