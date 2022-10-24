@@ -191,13 +191,13 @@ null_ls.setup({
     diagnostics.eslint,
     diagnostics.flake8,
     diagnostics.hadolint,
-    -- formatting.black.with({
-    --   extra_args = { "--preview" },
-    -- }),
+    formatting.black.with({
+      extra_args = { "--preview" },
+    }),
     formatting.eslint,
     -- formatting.prettier,
     formatting.shellharden,
     formatting.stylua,
-    formatting.yapf,
+    -- formatting.yapf,
   },
 })
