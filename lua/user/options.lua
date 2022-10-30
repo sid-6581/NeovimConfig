@@ -30,6 +30,7 @@ vim.opt.number = true
 vim.opt.numberwidth = 4
 vim.opt.pumheight = 0
 -- vim.opt.relativenumber = true
+vim.opt.report = 1000
 vim.opt.scrolloff = 8
 vim.opt.selection = "inclusive"
 vim.opt.shiftwidth = 2

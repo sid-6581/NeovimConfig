@@ -3,6 +3,9 @@ local util = require("user.util")
 local lualine = util.safe_require("lualine")
 if not lualine then return end
 
+local noice = util.safe_require("noice")
+if not noice then return end
+
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic", "nvim_lsp" },
@@ -53,6 +56,12 @@ local lsp = {
   icon = "",
 }
 
+local statusline_mode = {
+  noice.api.statusline.mode.get,
+  cond = noice.api.statusline.mode.has,
+  color = { fg = "#ff9e64" },
+}
+
 lualine.setup({
   options = {
     icons_enabled = true,
@@ -65,7 +74,7 @@ lualine.setup({
   sections = {
     lualine_a = { branch },
     lualine_b = { "filename" },
-    lualine_c = { diff },
+    lualine_c = { diff, statusline_mode },
     lualine_x = { diagnostics, lsp, spaces, "encoding", fileformat, "filetype" },
     lualine_y = { "location" },
     lualine_z = { "progress" },
@@ -73,7 +82,7 @@ lualine.setup({
   inactive_sections = {
     lualine_a = { branch },
     lualine_b = { "filename" },
-    lualine_c = { diff },
+    lualine_c = { diff, statusline_mode },
     lualine_x = { diagnostics, lsp, spaces, "encoding", fileformat, "filetype" },
     lualine_y = { "location" },
     lualine_z = { "progress" },

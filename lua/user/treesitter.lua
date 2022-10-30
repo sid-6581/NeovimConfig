@@ -32,6 +32,7 @@ configs.setup({
     "lua",
     "make",
     "markdown",
+    "markdown_inline",
     "pug",
     "python",
     "r",
