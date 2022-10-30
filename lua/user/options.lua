@@ -17,8 +17,8 @@ vim.opt.completeopt = { "menuone", "noselect" }
 -- vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.ffs = { "unix", "dos" }
-vim.opt.fileencoding = "utf-8"
 vim.opt.fileformat = "unix"
+vim.opt.fileencoding = "utf-8"
 vim.opt.foldlevel = 99
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.guifont = "JetBrainsMono NFM:h9.5"

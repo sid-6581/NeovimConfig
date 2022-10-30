@@ -19,7 +19,8 @@ require("user.toggleterm")
 require("user.project")
 require("user.indentline")
 require("user.trouble")
-require("user.whichkey")
+require("user.spectre")
+require("user.which-key")
 
 local gruvbox = util.safe_require("gruvbox")
 if gruvbox then
