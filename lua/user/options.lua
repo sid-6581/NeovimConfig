@@ -48,7 +48,7 @@ vim.opt.swapfile = false
 vim.opt.tabstop = 2
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 400
-vim.opt.title = true
+vim.opt.title = false
 vim.opt.updatetime = 1000
 vim.opt.virtualedit:append("block")
 vim.opt.winblend = 10
