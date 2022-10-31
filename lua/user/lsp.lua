@@ -135,7 +135,8 @@ mason_lspconfig.setup_handlers({
       settings = {
         python = {
           analysis = {
-            typeCheckingMode = "strict",
+            typeCheckingMode = "basic",
+            useLibraryCodeForTypes = true,
           },
         },
       },
