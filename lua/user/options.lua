@@ -12,9 +12,9 @@ vim.g.sort_motion_flags = "i"
 vim.cmd("highlight link FloatBorder Normal")
 vim.cmd("highlight link NormalFloat Normal")
 
-if vim.fn.exists(":GuiFont") == 0 then
-  vim.opt.guifont = "JetBrainsMono NFM:h9.5"
-end
+-- if vim.fn.exists(":GuiFont") == 0 then
+--   vim.opt.guifont = "JetBrainsMono NFM:h9.5"
+-- end
 
 vim.opt.cmdheight = 1
 vim.opt.completeopt = { "menuone", "noselect" }
