@@ -28,5 +28,9 @@ noice.setup({
       filter = { event = "msg_show", kind = "", find = "written" },
       view = "mini",
     },
+    {
+      filter = { event = "msg_show", kind = "", find = "mason-tool-installer" },
+      view = "mini",
+    },
   },
 })
