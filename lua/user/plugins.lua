@@ -43,7 +43,6 @@ packer.startup(function(use)
   use("stevearc/dressing.nvim")
   use("MunifTanjim/nui.nvim")
   use("kyazdani42/nvim-web-devicons")
-  use("rcarriga/nvim-notify")
   use("s1n7ax/nvim-window-picker")
   use("nvim-telescope/telescope.nvim")
 

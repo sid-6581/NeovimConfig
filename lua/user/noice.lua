@@ -15,21 +15,21 @@ noice.setup({
     long_message_to_split = true,
     lsp_doc_border = true,
   },
+  views = {
+    mini = {
+      timeout = 5000,
+      position = {
+        row = 1,
+      },
+    },
+  },
   routes = {
     {
-      opts = { skip = true },
       filter = { event = "msg_show", find = "Hop " },
-    },
-    {
       opts = { skip = true },
-      filter = { event = "msg_show", find = "Neovide" },
     },
     {
       filter = { event = "msg_show", kind = "", find = "written" },
-      view = "mini",
-    },
-    {
-      filter = { event = "msg_show", kind = "", find = "mason-tool-installer" },
       view = "mini",
     },
   },

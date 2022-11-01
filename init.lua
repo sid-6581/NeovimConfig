@@ -4,7 +4,6 @@ util.safe_require("impatient")
 
 util.safe_require("user.options")
 util.safe_require("user.plugins")
-util.safe_require("user.notify")
 util.safe_require("user.noice")
 util.safe_require("user.window-picker")
 util.safe_require("user.neo-tree")
