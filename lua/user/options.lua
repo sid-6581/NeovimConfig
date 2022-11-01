@@ -12,6 +12,10 @@ vim.g.sort_motion_flags = "i"
 vim.cmd("highlight link FloatBorder Normal")
 vim.cmd("highlight link NormalFloat Normal")
 
+if vim.fn.exists(":GuiFont") == 0 then
+  vim.opt.guifont = "JetBrainsMono NFM:h9.5"
+end
+
 vim.opt.cmdheight = 1
 vim.opt.completeopt = { "menuone", "noselect" }
 -- vim.opt.cursorline = true
@@ -21,7 +25,6 @@ vim.opt.fileformat = "unix"
 vim.opt.fileencoding = "utf-8"
 vim.opt.foldlevel = 99
 vim.opt.formatoptions:remove({ "c", "r", "o" })
-vim.opt.guifont = "JetBrainsMono NFM:h9.5"
 vim.opt.ignorecase = true
 vim.opt.iskeyword:append("-")
 vim.opt.laststatus = 2
