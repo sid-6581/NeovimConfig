@@ -353,7 +353,6 @@ r({
   ["gD"] = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
   ["gd"] = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
   ["K"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Show information" },
-  ["gh"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Show information" },
   ["gi"] = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "List all implementations" },
   ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
   ["gl"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Show diagnostics" },
