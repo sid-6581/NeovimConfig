@@ -3,6 +3,13 @@ local util = require("user.util")
 local configs = util.safe_require("nvim-treesitter.configs")
 if not configs then return end
 
+local install = util.safe_require("nvim-treesitter.install")
+if not install then return end
+
+if vim.fn.has("win32") == 1 then
+  install.compilers = { "clang" }
+end
+
 vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
   group = vim.api.nvim_create_augroup("TS_FOLD_WORKAROUND", {}),
   callback = function()
@@ -20,8 +27,15 @@ configs.setup({
     "comment",
     "cpp",
     "css",
+    "diff",
     "dockerfile",
+    "git_rebase",
+    "gitattributes",
+    "gitignore",
     "go",
+    "hjson",
+    "html",
+    "http",
     "java",
     "javascript",
     "jsdoc",
@@ -29,6 +43,7 @@ configs.setup({
     "json5",
     "jsonc",
     "kotlin",
+    "llvm",
     "lua",
     "make",
     "markdown",
@@ -37,16 +52,17 @@ configs.setup({
     "python",
     "r",
     "regex",
+    "rust",
     "scss",
     "toml",
+    "sql",
     "tsx",
     "typescript",
     "vim",
     "vue",
     "yaml",
-  }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-  ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
+    "zig",
+  },
   autopairs = {
     enable = false,
   },
