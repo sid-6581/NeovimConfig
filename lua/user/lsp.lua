@@ -41,12 +41,15 @@ mason_lspconfig.setup({})
 local tools = {
   "ansible-language-server",
   "bash-language-server",
+  "beautysh",
   "black",
   "clangd",
+  "cmake-language-server",
   "css-lsp",
   "dockerfile-language-server",
   "eslint-lsp",
   "flake8",
+  "isort",
   "hadolint",
   "html-lsp",
   "json-lsp",
@@ -62,7 +65,6 @@ local tools = {
   "vim-language-server",
   "vue-language-server",
   "yaml-language-server",
-  "yapf",
 }
 
 if vim.fn.has("win32") == 1 then
@@ -195,10 +197,11 @@ null_ls.setup({
     formatting.black.with({
       extra_args = { "--preview" },
     }),
+    formatting.isort,
     formatting.eslint,
     -- formatting.prettier,
     formatting.shellharden,
+    formatting.beautysh,
     formatting.stylua,
-    -- formatting.yapf,
   },
 })
