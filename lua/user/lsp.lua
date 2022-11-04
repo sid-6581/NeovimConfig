@@ -201,7 +201,7 @@ null_ls.setup({
     formatting.eslint,
     -- formatting.prettier,
     formatting.shellharden,
-    formatting.beautysh,
+    -- formatting.beautysh,
     formatting.stylua,
   },
 })
