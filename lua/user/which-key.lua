@@ -340,13 +340,19 @@ r({
   ["X"] = { "<CMD>lua require('substitute.exchange').visual()<CR>", "Cancel exchange" },
 }, { mode = "x" })
 
--- Hop plugin mappings
+-- Leap plugin mappings
 r({
-  ["<Tab>"] = { "<CMD>HopChar2<CR>", "2 character search" },
+  ["<Tab>"] = { "<Plug>(leap-forward-to)", "2 character search" },
+  ["<S-Tab>"] = { "<Plug>(leap-backward-to)", "2 character search" },
 }, { mode = "n" })
 r({
-  ["<Tab>"] = { "<CMD>HopChar2<CR>", "2 character search" },
+  ["<Tab>"] = { "<Plug>(leap-forward-to)", "2 character search" },
+  ["<S-Tab>"] = { "<Plug>(leap-backward-to)", "2 character search" },
 }, { mode = "v" })
+r({
+  ["<Tab>"] = { "<Plug>(leap-forward-to)", "2 character search" },
+  ["<S-Tab>"] = { "<Plug>(leap-backward-to)", "2 character search" },
+}, { mode = "o" })
 
 -- LSP mappings
 r({
