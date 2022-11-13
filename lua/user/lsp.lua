@@ -193,6 +193,7 @@ null_ls.setup({
     diagnostics.eslint,
     diagnostics.flake8,
     diagnostics.hadolint,
+    diagnostics.yamllint,
     formatting.black.with({
       extra_args = { "--preview" },
     }),
@@ -202,5 +203,6 @@ null_ls.setup({
     formatting.shellharden,
     -- formatting.beautysh,
     formatting.stylua,
+    formatting.yamlfmt,
   },
 })
