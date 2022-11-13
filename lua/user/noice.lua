@@ -18,9 +18,9 @@ noice.setup({
   views = {
     mini = {
       timeout = 5000,
-      position = {
-        row = 1,
-      },
+      -- position = {
+      --   row = 1,
+      -- },
     },
   },
   routes = {},
