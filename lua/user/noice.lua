@@ -25,3 +25,5 @@ noice.setup({
   },
   routes = {},
 })
+
+vim.cmd("highlight link NoiceVirtualText DiagnosticVirtualTextHint")
