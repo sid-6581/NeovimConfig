@@ -64,6 +64,8 @@ local tools = {
   "vim-language-server",
   "vue-language-server",
   "yaml-language-server",
+  "yamlfmt",
+  "yamllint",
 }
 
 if vim.fn.has("win32") == 1 then
