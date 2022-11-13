@@ -44,7 +44,6 @@ local tools = {
   "beautysh",
   "black",
   "clangd",
-  "cmake-language-server",
   "css-lsp",
   "dockerfile-language-server",
   "eslint-lsp",
