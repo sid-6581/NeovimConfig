@@ -17,13 +17,6 @@ if not packer then return end
 local packer_util = util.safe_require("packer.util")
 if not packer_util then return end
 
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
 packer.init({
   compile_path = packer_util.join_paths(vim.fn.stdpath("data"), "site", "plugin", "packer_compiled.lua"),
   display = {
@@ -107,10 +100,10 @@ local setup = function(name)
   if plugin then plugin.setup({}) end
 end
 
-setup("guess-indent")
 setup("Comment")
-setup("substitute")
+setup("guess-indent")
 setup("nvim-surround")
+setup("substitute")
 
 local lightbulb = util.safe_require("nvim-lightbulb")
 if lightbulb then lightbulb.setup({ autocmd = { enabled = true } }) end
