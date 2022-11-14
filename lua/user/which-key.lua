@@ -107,13 +107,6 @@ r({
     t = { "<CMD>Telescope live_grep<CR>", "Text" },
   },
 
-  s = {
-    name = "Spectre",
-    s = { "<CMD>lua require('spectre').open()<CR>", "Open Spectre" },
-    w = { "<CMD>lua require('spectre').open_visual({select_word=true})<CR>", "Search word" },
-    p = { "viw:lua require('spectre').open_file_search()<CR>", "Search in current file" },
-  },
-
   t = {
     name = "Terminal",
     n = { "<CMD>lua _NODE_TOGGLE()<CR>", "Node" },
