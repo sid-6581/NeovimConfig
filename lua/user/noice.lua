@@ -4,9 +4,6 @@ local noice = util.safe_require("noice")
 if not noice then return end
 
 noice.setup({
-  cmdline = {
-    view = "cmdline",
-  },
   lsp = {
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -16,7 +13,7 @@ noice.setup({
   },
   presets = {
     bottom_search = true,
-    command_palette = false,
+    command_palette = true,
     long_message_to_split = true,
     inc_rename = false,
     lsp_doc_border = true,
