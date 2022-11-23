@@ -25,6 +25,7 @@ configs.setup({
     "gitattributes",
     "gitignore",
     "go",
+    "hcl",
     "hjson",
     "html",
     "http",

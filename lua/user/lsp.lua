@@ -202,6 +202,8 @@ null_ls.setup({
     formatting.isort,
     formatting.eslint,
     -- formatting.prettier,
+    formatting.ocdc,
+    formatting.packer,
     formatting.shellharden,
     -- formatting.beautysh,
     formatting.stylua,
