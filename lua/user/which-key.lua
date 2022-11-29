@@ -202,6 +202,8 @@ r({
 
   ["<A-1>"] = { "<CMD>Neotree toggle<CR>", "File Explorer" },
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
+
+  [",x<BS>"] = { "<CMD>CellularAutomaton make_it_rain<CR>", "Make it rain" },
 }, { mode = "n" })
 
 -- Insert mode
