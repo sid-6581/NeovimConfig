@@ -24,6 +24,11 @@ vim.cmd([[
   autocmd BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
 ]])
 
+-- Automatically format frontend files.
+vim.cmd([[
+  autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue EslintFixAll
+]])
+
 mason.setup({
   ui = {
     border = "single",
@@ -46,6 +51,7 @@ local tools = {
   "clangd",
   "css-lsp",
   "dockerfile-language-server",
+  "eslint_d",
   "eslint-lsp",
   "flake8",
   "isort",
@@ -190,9 +196,7 @@ local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
   sources = {
-    code_actions.eslint,
     code_actions.shellcheck,
-    diagnostics.eslint,
     diagnostics.flake8,
     diagnostics.hadolint,
     diagnostics.yamllint,
@@ -200,12 +204,9 @@ null_ls.setup({
       extra_args = { "--preview" },
     }),
     formatting.isort,
-    formatting.eslint,
-    -- formatting.prettier,
     formatting.ocdc,
     formatting.packer,
     formatting.shellharden,
-    -- formatting.beautysh,
     formatting.stylua,
     formatting.yamlfmt,
   },
