@@ -88,6 +88,7 @@ packer.startup(function(use)
   use("WhoIsSethDaniel/mason-tool-installer.nvim")
   use("williamboman/mason-lspconfig.nvim")
   use("williamboman/mason.nvim")
+  use("windwp/nvim-autopairs")
   use({ "nvim-neo-tree/neo-tree.nvim", branch = "main" })
 
   if packer_bootstrap then
