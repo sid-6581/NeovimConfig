@@ -137,10 +137,10 @@ r({
   ["<S-h>"] = { "<CMD>bprevious<CR>", "Previous buffer" },
   ["<S-l>"] = { "<CMD>bnext<CR>", "Next buffer" },
 
-  ["<A-j>"] = { "<CMD>MoveLine(1)<CR>", "Move down" },
-  ["<A-k>"] = { "<CMD>MoveLine(-1)<CR>", "Move up" },
-  ["<S-A-h>"] = { "<CMD>MoveHChar(-1)<CR>", "Move character left" },
-  ["<S-A-l>"] = { "<CMD>MoveHChar(1)<CR>", "Move character right" },
+  ["<A-j>"] = { ":MoveLine(1)<CR>", "Move down" },
+  ["<A-k>"] = { ":MoveLine(-1)<CR>", "Move up" },
+  ["<S-A-h>"] = { ":MoveHChar(-1)<CR>", "Move character left" },
+  ["<S-A-l>"] = { ":MoveHChar(1)<CR>", "Move character right" },
 
   ["Y"] = { "_y$", "Yank line character-wise without indent" },
   ["`"] = { "i <Esc>r", "Insert one character" },
@@ -221,10 +221,10 @@ r({
   [">"] = { ">gv", "Increase indent" },
   ["al"] = { ":<C-u>norm!0v$<CR>", "Yank a line" },
   ["il"] = { ":<C-u>norm!^vg_<CR>", "Yank inner line" },
-  ["<A-j>"] = { "<CMD>MoveBlock(1)<CR>", "Move block down" },
-  ["<A-k>"] = { "<CMD>MoveBlock(-1)<CR>", "Move block up" },
-  ["<A-h>"] = { "<CMD>MoveHBlock(-1)<CR>", "Move block left" },
-  ["<A-l>"] = { "<CMD>MoveHBlock(1)<CR>", "Move block right" },
+  ["<A-j>"] = { ":MoveBlock(1)<CR>", "Move block down" },
+  ["<A-k>"] = { ":MoveBlock(-1)<CR>", "Move block up" },
+  ["<S-A-h>"] = { ":MoveHBlock(-1)<CR>", "Move block left" },
+  ["<S-A-l>"] = { ":MoveHBlock(1)<CR>", "Move block right" },
   -- ["p"] = { '"_dP', "Paste" },
   [",sl"] = { ":sort i<CR>", "Sort lines" },
   [",su"] = { ":sort iu<CR>", "Sort lines unique" },
@@ -274,8 +274,8 @@ r({
   [",/"] = { "<C-D>", "Scroll down" },
   ["J"] = { ":m '>+1<CR>gv-gv", "Move down" },
   ["K"] = { ":m '<-2<CR>gv-gv", "Move up" },
-  ["<A-j>"] = { ":m '>+1<CR>gv-gv", "Move down" },
-  ["<A-k>"] = { ":m '<-2<CR>gv-gv", "Move up" },
+  -- ["<A-j>"] = { ":m '>+1<CR>gv-gv", "Move down" },
+  -- ["<A-k>"] = { ":m '<-2<CR>gv-gv", "Move up" },
 }, { mode = "x" })
 
 -- Sideways plugin mappings
