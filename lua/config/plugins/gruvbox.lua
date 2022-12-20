@@ -1,5 +1,6 @@
 local M = {
   "ellisonleao/gruvbox.nvim",
+  lazy = false,
 }
 
 function M.config()
@@ -20,6 +21,7 @@ function M.config()
     },
   })
 
+  vim.cmd([[ hi clear ]])
   vim.cmd.colorscheme("gruvbox")
 end
 
