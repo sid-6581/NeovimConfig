@@ -117,6 +117,31 @@ mason_lspconfig.setup_handlers({
     })
   end,
 
+  ["omnisharp"] = function()
+    lspconfig.omnisharp.setup({
+      on_attach = opts.on_attach,
+      capabilities = opts.capabilities,
+      enable_decompilation_support = true,
+      enable_import_completion = true,
+      enable_roslyn_analyzers = true,
+      organize_imports_on_format = true,
+      settings = {
+        csharp = {
+          format = {
+            enable = true,
+          },
+        },
+        omnisharp = {
+          enableDecompilationSupport = true,
+          enabledEditorConfigSupport = true,
+          enableImportCompletion = true,
+          enableRoslynAnalyzers = true,
+          organizeImportsOnFormat = true,
+        }
+      },
+    })
+  end,
+
   ["powershell_es"] = function()
     lspconfig.powershell_es.setup({
       on_attach = opts.on_attach,
@@ -174,6 +199,7 @@ mason_lspconfig.setup_handlers({
       },
     })
   end,
+
   ["yamlls"] = function()
     lspconfig.yamlls.setup({
       on_attach = opts.on_attach,
