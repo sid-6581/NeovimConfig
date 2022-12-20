@@ -1,4 +1,4 @@
-local util = require("user.util")
+local util = require("config.util")
 
 local which_key = util.safe_require("which-key")
 if not which_key then return end
@@ -43,15 +43,6 @@ r({
   q = { "<CMD>q<CR>", "Quit" },
   Q = { "<CMD>q!<CR>", "Quit without saving" },
   w = { "<CMD>w!<CR>", "Save" },
-
-  p = {
-    name = "Packer",
-    c = { "<CMD>PackerCompile<CR>", "Compile" },
-    i = { "<CMD>PackerInstall<CR>", "Install" },
-    s = { "<CMD>PackerSync<CR>", "Sync" },
-    S = { "<CMD>PackerStatus<CR>", "Status" },
-    u = { "<CMD>PackerUpdate<CR>", "Update" },
-  },
 
   g = {
     name = "Git",

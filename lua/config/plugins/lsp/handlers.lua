@@ -1,4 +1,4 @@
-local util = require("user.util")
+local util = require("config.util")
 
 local M = {}
 

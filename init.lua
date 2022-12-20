@@ -1,23 +1,12 @@
-local util = require("user.util")
+local util = require("config.util")
+local require = util.safe_require
 
-util.safe_require("impatient")
+require("config.options")
+require("config.lazy")
 
-util.safe_require("user.options")
-util.safe_require("user.plugins")
-util.safe_require("user.noice")
-util.safe_require("user.window-picker")
-util.safe_require("user.neo-tree")
-util.safe_require("user.lsp")
-util.safe_require("user.cmp")
-util.safe_require("user.autopairs")
-util.safe_require("user.dressing")
-util.safe_require("user.telescope")
-util.safe_require("user.treesitter")
-util.safe_require("user.gitsigns")
-util.safe_require("user.lualine")
-util.safe_require("user.toggleterm")
-util.safe_require("user.project")
-util.safe_require("user.indentline")
-util.safe_require("user.trouble")
-util.safe_require("user.which-key")
-util.safe_require("user.gruvbox")
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    require("config.mappings")
+  end,
+})
