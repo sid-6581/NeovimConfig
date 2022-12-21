@@ -28,7 +28,7 @@ which_key.setup({
 
 local r = which_key.register
 
--- Space keybindings
+-- Space
 r({
   c = { "<CMD>Bdelete!<CR>", "Close buffer" },
   C = { "<CMD>:e " .. vim.fn.stdpath("config") .. "/init.lua<CR>", "Edit configuration" },
@@ -214,7 +214,7 @@ r({
 
 -- Visual and select mode
 r({
-  [";;"] = { "<Esc>", "Exit visual mode" },
+  -- [";;"] = { "<Esc>", "Exit visual mode" },
   ["<lt>"] = { "<lt>gv", "Decrease indent" },
   [">"] = { ">gv", "Increase indent" },
   ["al"] = { ":<C-u>norm!0v$<CR>", "Yank a line" },
@@ -276,7 +276,7 @@ r({
   -- ["<A-k>"] = { ":m '<-2<CR>gv-gv", "Move up" },
 }, { mode = "x" })
 
--- Sideways plugin mappings
+-- Sideways plugin
 r({
   ["<A-h>"] = { "<CMD>SidewaysLeft<CR>", "Move argument left" },
   ["<A-l>"] = { "<CMD>SidewaysRight<CR>", "Move argument right" },
@@ -290,7 +290,7 @@ r({
   ["ia"] = { "<Plug>SidewaysArgumentTextobjI", "inner argument" },
 }, { mode = "x" })
 
--- Substitute plugin mappings
+-- Substitute plugin
 r({
   ["cx"] = { "<CMD>lua require('substitute.exchange').operator()<CR>", "Exchange" },
   ["cxx"] = { "<CMD>lua require('substitute.exchange').line()<CR>", "Exchange line" },
@@ -300,7 +300,7 @@ r({
   ["X"] = { "<CMD>lua require('substitute.exchange').visual()<CR>", "Cancel exchange" },
 }, { mode = "x" })
 
--- Leap plugin mappings
+-- Leap plugin
 r({
   ["<Tab>"] = { "<Plug>(leap-forward-to)", "2 character search" },
   ["<S-Tab>"] = { "<Plug>(leap-backward-to)", "2 character search" },
@@ -309,15 +309,23 @@ r({
 r({
   ["<Tab>"] = { "<Plug>(leap-forward-to)", "2 character search" },
   ["<S-Tab>"] = { "<Plug>(leap-backward-to)", "2 character search" },
-  ["M"] = { "<CMD>lua require('leap-ast').leap()<CR>", "Leap to parent AST node" },
+  ["M"] = { "<CMD>lua require('leap-ast').leap()<CR>", "Select AST node" },
 }, { mode = "v" })
 r({
   ["<Tab>"] = { "<Plug>(leap-forward-to)", "2 character search" },
   ["<S-Tab>"] = { "<Plug>(leap-backward-to)", "2 character search" },
-  ["M"] = { "<CMD>lua require('leap-ast').leap()<CR>", "Leap to parent AST node" },
+  ["M"] = { "<CMD>lua require('leap-ast').leap()<CR>", "Parent AST node" },
 }, { mode = "o" })
 
--- LSP mappings
+-- Treehopper plugin
+r({
+  ["m"] = { ":<C-U>lua require('tsht').nodes()<CR>", "AST node" },
+}, { mode = "o", noremap = false })
+r({
+  ["m"] = { ":lua require('tsht').nodes()<CR>", "Select AST node" },
+}, { mode = "x" })
+
+-- LSP
 r({
   ["gD"] = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
   ["gd"] = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Go to definition" },

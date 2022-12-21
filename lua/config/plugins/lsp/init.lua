@@ -15,13 +15,13 @@ function M.config()
 
   -- Automatically detect ansible yaml files.
   vim.cmd([[
-  autocmd BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
-]])
+    autocmd BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
+  ]])
 
   -- Automatically format frontend files.
   vim.cmd([[
-  autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue EslintFixAll
-]])
+    autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue EslintFixAll
+  ]])
 
   mason.setup({
     ui = {
@@ -82,26 +82,26 @@ function M.config()
 
   local lsp_handlers = require("config.plugins.lsp.handlers")
 
-  local opts = {
+  local options = {
     setup = lsp_handlers.setup,
     on_attach = lsp_handlers.on_attach,
     capabilities = lsp_handlers.capabilities,
   }
 
-  opts.setup()
+  options.setup()
 
   mason_lspconfig.setup_handlers({
     function(server_name)
       lspconfig[server_name].setup({
-        on_attach = opts.on_attach,
-        capabilities = opts.capabilities,
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
       })
     end,
 
     ["jsonls"] = function()
       lspconfig.jsonls.setup({
-        on_attach = opts.on_attach,
-        capabilities = opts.capabilities,
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
         settings = {
           json = {
             schemas = require("schemastore").json.schemas(),
@@ -113,8 +113,8 @@ function M.config()
 
     ["omnisharp"] = function()
       lspconfig.omnisharp.setup({
-        on_attach = opts.on_attach,
-        capabilities = opts.capabilities,
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
         enable_decompilation_support = true,
         enable_import_completion = true,
         enable_roslyn_analyzers = true,
@@ -138,8 +138,8 @@ function M.config()
 
     ["powershell_es"] = function()
       lspconfig.powershell_es.setup({
-        on_attach = opts.on_attach,
-        capabilities = opts.capabilities,
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
         settings = {
           powershell = {
             codeFormatting = {
@@ -158,8 +158,8 @@ function M.config()
 
     ["pyright"] = function()
       lspconfig.pyright.setup({
-        on_attach = opts.on_attach,
-        capabilities = opts.capabilities,
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
         settings = {
           python = {
             analysis = {
@@ -173,8 +173,8 @@ function M.config()
 
     ["sumneko_lua"] = function()
       lspconfig.sumneko_lua.setup({
-        on_attach = opts.on_attach,
-        capabilities = opts.capabilities,
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
         settings = {
           Lua = {
             completion = {
@@ -196,8 +196,8 @@ function M.config()
 
     ["yamlls"] = function()
       lspconfig.yamlls.setup({
-        on_attach = opts.on_attach,
-        capabilities = opts.capabilities,
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
         settings = {
           yaml = {
             schemaStore = {
@@ -215,6 +215,7 @@ function M.config()
   local diagnostics = null_ls.builtins.diagnostics
 
   null_ls.setup({
+    on_attach = options.on_attach,
     sources = {
       code_actions.shellcheck,
       diagnostics.flake8,
