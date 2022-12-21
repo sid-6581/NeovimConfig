@@ -1,5 +1,12 @@
 local M = {
   "nvim-telescope/telescope.nvim",
+  cmd = { "Telescope" },
+
+  dependencies = {
+    { "nvim-telescope/telescope-file-browser.nvim" },
+    { "nvim-telescope/telescope-symbols.nvim" },
+    { "nvim-telescope/telescope-z.nvim" },
+  },
 }
 
 function M.config()
@@ -13,9 +20,9 @@ function M.config()
           preview_width = 0.6,
         },
       },
-      prompt_prefix = " ",
-      selection_caret = " ",
-      path_display = { "smart" },
+      prompt_prefix = " ",
+      selection_caret = " ",
+      -- path_display = { "smart" },
       vimgrep_arguments = {
         "rg",
         "--color=never",
@@ -88,6 +95,9 @@ function M.config()
     },
     extensions = {},
   })
+
+  telescope.load_extension("file_browser")
+  telescope.load_extension("z")
 end
 
 return M

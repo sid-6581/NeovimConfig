@@ -89,7 +89,20 @@ r({
     P = { "<CMD>Telescope projects<CR>", "Projects" },
     r = { "<CMD>Telescope oldfiles<CR>", "Recent files" },
     R = { "<CMD>Telescope registers<CR>", "Registers" },
+    s = { "<CMD>Telescope symbols<CR>", "Symbols" },
     t = { "<CMD>Telescope live_grep<CR>", "Text" },
+    z = {
+      function()
+        require("telescope").extensions.z.list({ cmd = { vim.o.shell, "-c", "zoxide query -ls" } })
+      end,
+      "Zoxide",
+    },
+    ["."] = { "<CMD>Telescope file_browser<CR>", "Browse files" },
+  },
+
+  p = {
+    name = "Plugins",
+    s = { "<CMD>Lazy sync<CR>", "Lazy sync" },
   },
 
   t = {
@@ -291,14 +304,17 @@ r({
 r({
   ["<Tab>"] = { "<Plug>(leap-forward-to)", "2 character search" },
   ["<S-Tab>"] = { "<Plug>(leap-backward-to)", "2 character search" },
+  ["M"] = { "<CMD>lua require('leap-ast').leap()<CR>", "Leap to parent AST node" },
 }, { mode = "n" })
 r({
   ["<Tab>"] = { "<Plug>(leap-forward-to)", "2 character search" },
   ["<S-Tab>"] = { "<Plug>(leap-backward-to)", "2 character search" },
+  ["M"] = { "<CMD>lua require('leap-ast').leap()<CR>", "Leap to parent AST node" },
 }, { mode = "v" })
 r({
   ["<Tab>"] = { "<Plug>(leap-forward-to)", "2 character search" },
   ["<S-Tab>"] = { "<Plug>(leap-backward-to)", "2 character search" },
+  ["M"] = { "<CMD>lua require('leap-ast').leap()<CR>", "Leap to parent AST node" },
 }, { mode = "o" })
 
 -- LSP mappings

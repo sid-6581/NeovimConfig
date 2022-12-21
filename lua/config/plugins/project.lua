@@ -16,7 +16,6 @@ function M.config()
   })
 
   local telescope = require("telescope")
-
   telescope.load_extension("projects")
 end
 

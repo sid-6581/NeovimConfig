@@ -14,7 +14,6 @@ return {
       require("substitute").setup({})
     end,
   },
-  "ggandor/leap.nvim",
   "gpanders/editorconfig.nvim",
   "isobit/vim-caddyfile",
   "jose-elias-alvarez/null-ls.nvim",
