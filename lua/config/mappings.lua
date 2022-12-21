@@ -3,9 +3,6 @@ local util = require("config.util")
 local which_key = util.safe_require("which-key")
 if not which_key then return end
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 which_key.setup({
   plugins = {
     spelling = {
@@ -136,9 +133,9 @@ r({
   ["Y"] = { "_y$", "Yank line character-wise without indent" },
   ["`"] = { "i <Esc>r", "Insert one character" },
   ["<BS>"] = { "<CMD>noh<return>", "Clear search highlighting" },
-  ["<S-Insert>"] = { "\"+p", "Paste from system clipboard" },
-  [",p"] = { "\"+p", "Paste from system clipboard" },
-  [",P"] = { "\"+P", "Paste from system clipboard" },
+  ["<S-Insert>"] = { '"+p', "Paste from system clipboard" },
+  [",p"] = { '"+p', "Paste from system clipboard" },
+  [",P"] = { '"+P', "Paste from system clipboard" },
   [",r"] = { "<C-R>", "Redo last change" },
   [",vb"] = { "<C-V>", "Visual block mode" },
 
@@ -220,9 +217,9 @@ r({
   [",sl"] = { ":sort i<CR>", "Sort lines" },
   [",su"] = { ":sort iu<CR>", "Sort lines unique" },
   [",sn"] = { ":sort in<CR>", "Sort lines by number" },
-  [",y"] = { "\"+y", "Yank to system clipboard" },
-  ["<C-Insert>"] = { "\"+y", "Yank to system clipboard" },
-  ["<S-Insert>"] = { "\"+P", "Paste from system clipboard" },
+  [",y"] = { '"+y', "Yank to system clipboard" },
+  ["<C-Insert>"] = { '"+y', "Yank to system clipboard" },
+  ["<S-Insert>"] = { '"+P', "Paste from system clipboard" },
 }, { mode = "v" })
 
 -- Operator pending mode
@@ -318,3 +315,11 @@ r({
   ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
   ["<A-Enter>"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action" },
 }, { mode = "n" })
+
+-- Better wildmenu navigation
+vim.keymap.set("c", "<C-j>", function()
+  return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j"
+end, { expr = true })
+vim.keymap.set("c", "<C-k>", function()
+  return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k"
+end, { expr = true })
