@@ -9,13 +9,13 @@ local M = {
 }
 
 function M.config()
-  -- require("leap").add_default_mappings()
+  local leap = require("leap")
+  leap.opts.max_phase_one_targets = 0
+  leap.opts.highlight_unlabeled_phase_one_targets = false
+
   require("flit").setup({
     labeled_modes = "nv",
   })
-  -- vim.keymap.set({ "n", "x", "o" }, "M", function()
-  --   require("leap-ast").leap()
-  -- end, { desc = "Leap to parent AST node" })
 end
 
 return M
