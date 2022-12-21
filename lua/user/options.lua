@@ -12,9 +12,7 @@ vim.g.sort_motion_flags = "i"
 vim.cmd("highlight link FloatBorder Normal")
 vim.cmd("highlight link NormalFloat Normal")
 
-if vim.fn.exists("g:neovide") ~= 0 then
-   vim.opt.guifont = "JetBrainsMono NFM:h9.5"
-end
+if vim.fn.exists("g:neovide") ~= 0 then vim.opt.guifont = "JetBrainsMono NFM:h9.5" end
 
 vim.opt.cmdheight = 1
 vim.opt.completeopt = { "menuone", "noselect" }
@@ -76,6 +74,13 @@ vim.cmd([[
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-    autocmd BufEnter,FocusGained * checktime
   augroup end
 ]])
+
+-- auto-reload files when modified externally
+-- https://unix.stackexchange.com/a/383044
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
