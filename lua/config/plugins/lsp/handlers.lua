@@ -1,5 +1,3 @@
-local util = require("config.util")
-
 local M = {}
 
 M.setup = function()
@@ -133,8 +131,7 @@ M.on_attach = function(client)
   lsp_highlight_document(client)
 end
 
-local cmp_nvim_lsp = util.safe_require("cmp_nvim_lsp")
-if not cmp_nvim_lsp then return end
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 M.capabilities = cmp_nvim_lsp.default_capabilities()
 

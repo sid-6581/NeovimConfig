@@ -13,6 +13,7 @@ if vim.fn.exists("g:neovide") ~= 0 then vim.opt.guifont = "JetBrainsMono NFM:h9.
 
 vim.opt.autowrite = true
 vim.opt.backup = true
+vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
 vim.opt.cmdheight = 1
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.confirm = true

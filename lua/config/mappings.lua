@@ -1,7 +1,4 @@
-local util = require("config.util")
-
-local which_key = util.safe_require("which-key")
-if not which_key then return end
+local which_key = require("which-key")
 
 which_key.setup({
   plugins = {
