@@ -22,7 +22,7 @@ function M.config()
   vim.cmd([[
       augroup LspFormat
         autocmd! *
-        autocmd BufWritePre *.lua,*.py lua require("config.plugins.lsp.formatting").format()
+        autocmd BufWritePre *.lua,*.py lua vim.lsp.buf.format()
         autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue EslintFixAll
       augroup END
   ]])

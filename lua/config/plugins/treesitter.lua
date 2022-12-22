@@ -5,7 +5,6 @@ local M = {
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    "RRethy/nvim-treesitter-textsubjects",
     "nvim-treesitter/nvim-treesitter-refactor",
     "mfussenegger/nvim-treehopper",
     { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
@@ -73,12 +72,13 @@ function M.config()
       additional_vim_regex_highlighting = false,
     },
     incremental_selection = {
-      enable = false,
+      enable = true,
       keymaps = {
-        init_selection = "<C-n>",
-        node_incremental = "<C-n>",
-        scope_incremental = "<C-s>",
-        node_decremental = "<C-r>",
+        init_selection = "<CR>",
+        node_decremental = "<S-CR>",
+        node_incremental = "<CR>",
+        scope_decremental = "<S-Tab>",
+        scope_incremental = "<Tab>",
       },
     },
     indent = {
@@ -128,13 +128,6 @@ function M.config()
         peek_definition_code = {
           ["gD"] = "@function.outer",
         },
-      },
-    },
-    textsubjects = {
-      enable = true,
-      keymaps = {
-        ["."] = "textsubjects-smart",
-        [";"] = "textsubjects-container-outer",
       },
     },
   })
