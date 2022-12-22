@@ -18,9 +18,13 @@ function M.config()
     autocmd BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
   ]])
 
-  -- Automatically format frontend files.
+  -- Automatically format files on save.
   vim.cmd([[
-    autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue EslintFixAll
+      augroup LspFormat
+        autocmd! *
+        autocmd BufWritePre *.lua,*.py lua require("config.plugins.lsp.formatting").format()
+        autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue EslintFixAll
+      augroup END
   ]])
 
   mason.setup({

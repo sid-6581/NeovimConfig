@@ -13,7 +13,7 @@ M.setup = function()
   end
 
   vim.diagnostic.config({
-    virtual_text = true,
+    virtual_text = { spacing = 4, prefix = "●" },
     signs = true,
     update_in_insert = true,
     underline = true,

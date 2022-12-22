@@ -32,9 +32,9 @@ function M.config()
   local fileformat = {
     "fileformat",
     symbols = {
-      unix = " unix", -- e712
-      dos = " dos", -- e70f
-      mac = " mac", -- e711
+      unix = "lf",
+      dos = "crlf",
+      mac = "cr",
     },
   }
 
@@ -89,12 +89,12 @@ function M.config()
       lualine_z = { "progress" },
     },
     tabline = {
-      lualine_a = { "tabs" },
-      lualine_b = { { "buffers", filetype_names = { ["neo-tree"] = "", ["alpha"] = "" } } },
+      lualine_a = { { "tabs", mode = 1 } },
+      lualine_b = { { "windows", filetype_names = { ["neo-tree"] = "", ["alpha"] = "" } } },
       lualine_c = {},
       lualine_x = {},
-      lualine_y = { "hostname" },
-      lualine_z = {},
+      lualine_y = {},
+      lualine_z = { "hostname" },
     },
     extensions = {},
   })

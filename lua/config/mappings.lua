@@ -199,6 +199,7 @@ r({
   -- ["]<Space>"] = { "o<Esc>k", "Insert empty line below" },
 
   ["<A-1>"] = { "<CMD>Neotree toggle<CR>", "File Explorer" },
+  ["<A-2>"] = { "<CMD>Neotree toggle show buffers<CR>", "Buffer Explorer" },
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
 
   [",x<BS>"] = { "<CMD>CellularAutomaton make_it_rain<CR>", "Make it rain" },
