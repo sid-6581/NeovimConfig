@@ -211,6 +211,8 @@ r({
   ["jj"] = { "<Esc>", "Exit insert mode", noremap = false },
   ["<S-Insert>"] = { "<C-R>+", "Paste from system clipboard" },
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
+  ["<A-j>"] = { "<CMD>MoveLine(1)<CR>", "Move down" },
+  ["<A-k>"] = { "<CMD>MoveLine(-1)<CR>", "Move up" },
 }, { mode = "i" })
 
 -- Visual and select mode
@@ -273,8 +275,6 @@ r({
   [",/"] = { "<C-D>", "Scroll down" },
   ["J"] = { ":m '>+1<CR>gv-gv", "Move down" },
   ["K"] = { ":m '<-2<CR>gv-gv", "Move up" },
-  -- ["<A-j>"] = { ":m '>+1<CR>gv-gv", "Move down" },
-  -- ["<A-k>"] = { ":m '<-2<CR>gv-gv", "Move up" },
 }, { mode = "x" })
 
 -- Sideways plugin
