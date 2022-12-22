@@ -90,7 +90,8 @@ function M.config()
     },
     tabline = {
       lualine_a = { { "tabs", mode = 1 } },
-      lualine_b = { { "windows", filetype_names = { ["neo-tree"] = "", ["alpha"] = "" } } },
+      -- lualine_b = { { "windows", filetype_names = { ["neo-tree"] = "", ["alpha"] = "" } } },
+      lualine_b = {},
       lualine_c = {},
       lualine_x = {},
       lualine_y = {},
