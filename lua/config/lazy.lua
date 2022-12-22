@@ -23,4 +23,9 @@ lazy.setup("config.plugins", {
   checker = {
     enabled = true,
   },
+  performance = {
+    rtp = {
+      reset = false,
+    },
+  },
 })
