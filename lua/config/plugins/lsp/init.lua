@@ -49,7 +49,6 @@ function M.config()
     "clangd",
     "css-lsp",
     "dockerfile-language-server",
-    "eslint_d",
     "eslint-lsp",
     "flake8",
     "isort",
