@@ -210,6 +210,7 @@ r({
   ["<Esc>"] = { "<Esc>`^", "Exit insert mode" },
   ["jj"] = { "<Esc>", "Exit insert mode", noremap = false },
   ["<S-Enter>"] = { "<Esc>m`o<Esc>``a", "Insert blank line below" },
+  ["<S-C-Enter>"] = { "<Esc>m`O<Esc>``a", "Insert blank line above" },
   ["<S-Insert>"] = { "<C-R>+", "Paste from system clipboard" },
   ["<S-Tab>"] = { "<C-D>", "Unindent line" },
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
