@@ -76,7 +76,6 @@ function M.config()
         init_selection = "<CR>",
         node_decremental = "<S-CR>",
         node_incremental = "<CR>",
-        scope_decremental = "<S-Tab>",
         scope_incremental = "<Tab>",
       },
     },
