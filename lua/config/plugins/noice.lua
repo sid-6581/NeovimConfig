@@ -26,6 +26,9 @@ function M.config()
         ["cmp.entry.get_documentation"] = true,
       },
     },
+    messages = {
+      view_search = false,
+    },
     presets = {
       bottom_search = true,
       command_palette = false,
