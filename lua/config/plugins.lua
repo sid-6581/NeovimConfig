@@ -51,6 +51,15 @@ return {
   },
   "tpope/vim-unimpaired",
   "vim-scripts/ReplaceWithRegister",
+  {
+    "Wansmer/treesj",
+    config = function()
+      require("treesj").setup({
+        use_default_keymaps = false,
+        check_syntax_error = false,
+      })
+    end,
+  },
   "WhoIsSethDaniel/mason-tool-installer.nvim",
   "williamboman/mason-lspconfig.nvim",
   "williamboman/mason.nvim",

@@ -329,6 +329,12 @@ r({
   ["m"] = { ":lua require('tsht').nodes()<CR>", "Select AST node" },
 }, { mode = "x" })
 
+-- TreeSJ plugin
+r({
+  [",cs"] = { "<CMD>TSJSplit<CR>", "Split node" },
+  [",cj"] = { "<CMD>TSJJoin<CR>", "Join node" },
+}, { mode = "n" })
+
 -- LSP
 r({
   ["gD"] = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
