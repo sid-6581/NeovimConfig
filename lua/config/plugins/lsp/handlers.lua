@@ -53,7 +53,6 @@ M.on_attach = function(client)
   end
   if client.name == "omnisharp" then
     client.server_capabilities.semanticTokensProvider = {
-
       full = vim.empty_dict(),
       legend = {
         tokenModifiers = { "static_symbol" },
