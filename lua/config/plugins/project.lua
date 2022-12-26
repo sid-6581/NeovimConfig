@@ -9,8 +9,8 @@ function M.config()
     detection_methods = { "lsp", "pattern" },
     manual_mode = false,
     ignore_lsp = { "null-ls" },
-    on_config_done = nil,
     patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".gitignore" },
+    scope_chdir = "tab",
     show_hidden = true,
     silent_chdir = true,
   })

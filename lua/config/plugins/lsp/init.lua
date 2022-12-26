@@ -3,6 +3,8 @@ local M = {
 }
 
 function M.config()
+  require("neodev").setup({})
+
   local mason = require("mason")
   local mason_lspconfig = require("mason-lspconfig")
   local mason_tool_installer = require("mason-tool-installer")

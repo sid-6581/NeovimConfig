@@ -7,6 +7,7 @@ return {
   "christoomey/vim-sort-motion",
   "eandrju/cellular-automaton.nvim",
   "fedepujol/move.nvim",
+  "folke/neodev.nvim",
   "folke/which-key.nvim",
   {
     "gbprod/substitute.nvim",
