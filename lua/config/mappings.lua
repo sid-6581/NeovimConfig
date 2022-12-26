@@ -349,8 +349,8 @@ r({
 
 -- Better wildmenu navigation
 vim.keymap.set("c", "<C-j>", function()
-  return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j"
+  return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>"
 end, { expr = true })
 vim.keymap.set("c", "<C-k>", function()
-  return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k"
+  return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>"
 end, { expr = true })
