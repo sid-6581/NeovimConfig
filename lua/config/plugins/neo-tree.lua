@@ -16,6 +16,7 @@ function M.config()
   neo_tree.setup({
     close_if_last_window = true,
     popup_border_style = "single",
+    use_popups_for_input = false,
     window = {
       width = 30,
     },

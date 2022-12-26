@@ -8,6 +8,8 @@ function M.config()
   dressing.setup({
     input = {
       border = "single",
+      insert_only = false,
+      start_in_insert = false,
     },
     select = {
       nui = {
