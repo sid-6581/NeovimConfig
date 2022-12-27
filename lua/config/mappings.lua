@@ -38,6 +38,30 @@ r({
   Q = { "<CMD>q!<CR>", "Quit without saving" },
   w = { "<CMD>w!<CR>", "Save" },
 
+  f = {
+    name = "Find",
+    a = { "<CMD>Telescope<CR>", "All" },
+    b = { "<CMD>Telescope buffers<CR>", "Buffers" },
+    c = { "<CMD>Telescope commands<CR>", "Commands" },
+    h = { "<CMD>Telescope help_tags<CR>", "Help" },
+    f = { "<CMD>Telescope find_files<CR>", "Files" },
+    g = { "<CMD>Telescope git_branches<CR>", "Git branches" },
+    k = { "<CMD>Telescope keymaps<CR>", "Keymaps" },
+    M = { "<CMD>Telescope man_pages<CR>", "Man pages" },
+    P = { "<CMD>Telescope projects<CR>", "Projects" },
+    r = { "<CMD>Telescope oldfiles<CR>", "Recent files" },
+    R = { "<CMD>Telescope registers<CR>", "Registers" },
+    s = { "<CMD>Telescope symbols<CR>", "Symbols" },
+    t = { "<CMD>Telescope live_grep<CR>", "Text" },
+    z = {
+      function()
+        require("telescope").extensions.z.list({ cmd = { vim.o.shell, "-c", "zoxide query -ls" } })
+      end,
+      "Zoxide",
+    },
+    ["."] = { "<CMD>Telescope file_browser<CR>", "Browse files" },
+  },
+
   g = {
     name = "Git",
     b = { "<CMD>Telescope git_branches<CR>", "Checkout branch" },
@@ -74,30 +98,6 @@ r({
     R = { "<CMD>lua vim.lsp.buf.references()<CR>", "References" },
     s = { "<CMD>Telescope lsp_document_symbols<CR>", "Document symbols" },
     S = { "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace symbols" },
-  },
-
-  f = {
-    name = "Find",
-    a = { "<CMD>Telescope<CR>", "All" },
-    b = { "<CMD>Telescope buffers<CR>", "Buffers" },
-    c = { "<CMD>Telescope commands<CR>", "Commands" },
-    h = { "<CMD>Telescope help_tags<CR>", "Help" },
-    f = { "<CMD>Telescope find_files<CR>", "Files" },
-    g = { "<CMD>Telescope git_branches<CR>", "Git branches" },
-    k = { "<CMD>Telescope keymaps<CR>", "Keymaps" },
-    M = { "<CMD>Telescope man_pages<CR>", "Man pages" },
-    P = { "<CMD>Telescope projects<CR>", "Projects" },
-    r = { "<CMD>Telescope oldfiles<CR>", "Recent files" },
-    R = { "<CMD>Telescope registers<CR>", "Registers" },
-    s = { "<CMD>Telescope symbols<CR>", "Symbols" },
-    t = { "<CMD>Telescope live_grep<CR>", "Text" },
-    z = {
-      function()
-        require("telescope").extensions.z.list({ cmd = { vim.o.shell, "-c", "zoxide query -ls" } })
-      end,
-      "Zoxide",
-    },
-    ["."] = { "<CMD>Telescope file_browser<CR>", "Browse files" },
   },
 
   p = {
@@ -333,6 +333,15 @@ r({
 r({
   [",cs"] = { "<CMD>TSJSplit<CR>", "Split node" },
   [",cj"] = { "<CMD>TSJJoin<CR>", "Join node" },
+}, { mode = "n" })
+
+-- Goto-preview plugin
+r({
+  ["gpd"] = { "<CMD>lua require('goto-preview').goto_preview_definition()<CR>", "Preview definition" },
+  ["gpt"] = { "<CMD>lua require('goto-preview').goto_preview_type_definition()<CR>", "Preview type definition" },
+  ["gpi"] = { "<CMD>lua require('goto-preview').goto_preview_implementation()<CR>", "Preview implementation" },
+  ["gP"] = { "<CMD>lua require('goto-preview').close_all_win()<CR>", "Close all preview windows" },
+  ["gpr"] = { "<CMD>lua require('goto-preview').goto_preview_references()<CR>", "Preview references" },
 }, { mode = "n" })
 
 -- LSP
