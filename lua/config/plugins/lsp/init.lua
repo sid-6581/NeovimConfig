@@ -199,6 +199,14 @@ function M.config()
       })
     end,
 
+    ["volar"] = function()
+      lspconfig.volar.setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+      })
+    end,
+
     ["yamlls"] = function()
       lspconfig.yamlls.setup({
         on_attach = options.on_attach,
