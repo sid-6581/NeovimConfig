@@ -5,6 +5,7 @@ local M = {
     { "nvim-telescope/telescope-file-browser.nvim" },
     { "nvim-telescope/telescope-symbols.nvim" },
     { "nvim-telescope/telescope-z.nvim" },
+    { "debugloop/telescope-undo.nvim" },
   },
 }
 
@@ -92,10 +93,15 @@ function M.config()
         find_command = { "fd", "--hidden", "--exclude", ".git", "--glob", "" },
       },
     },
-    extensions = {},
+    extensions = {
+      undo = {
+        use_delta = false,
+      },
+    },
   })
 
   telescope.load_extension("file_browser")
+  telescope.load_extension("undo")
   telescope.load_extension("z")
 end
 

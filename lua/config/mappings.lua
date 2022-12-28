@@ -53,6 +53,7 @@ r({
     R = { "<CMD>Telescope registers<CR>", "Registers" },
     s = { "<CMD>Telescope symbols<CR>", "Symbols" },
     t = { "<CMD>Telescope live_grep<CR>", "Text" },
+    u = { "<CMD>Telescope undo<CR>", "Undo" },
     z = {
       function()
         require("telescope").extensions.z.list({ cmd = { vim.o.shell, "-c", "zoxide query -ls" } })
