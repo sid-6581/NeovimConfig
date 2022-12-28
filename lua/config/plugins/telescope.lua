@@ -18,6 +18,7 @@ function M.config()
       layout_config = {
         horizontal = {
           preview_width = 0.6,
+          width = 0.9,
         },
       },
       prompt_prefix = " ",
