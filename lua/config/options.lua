@@ -19,6 +19,7 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
+vim.opt.fillchars:append("stlnc:")
 vim.opt.ffs = { "unix", "dos" }
 vim.opt.fileformat = "unix"
 vim.opt.fileencoding = "utf-8"
