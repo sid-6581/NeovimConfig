@@ -10,5 +10,7 @@ vim.cmd([[
   augroup end
 ]])
 
-vim.cmd("highlight link FloatBorder Normal")
-vim.cmd("highlight link NormalFloat Normal")
+vim.cmd([[
+  highlight link FloatBorder Normal
+  highlight link NormalFloat Normal
+]])

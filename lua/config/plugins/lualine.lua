@@ -5,6 +5,11 @@ local M = {
 function M.config()
   local lualine = require("lualine")
   local noice = require("noice")
+  local custom_theme = require("lualine.themes.gruvbox_dark")
+
+  custom_theme.inactive.a.bg = "Normal"
+  custom_theme.inactive.b.bg = "Normal"
+  custom_theme.inactive.c.bg = "Normal"
 
   local diagnostics = {
     "diagnostics",
@@ -59,7 +64,7 @@ function M.config()
   lualine.setup({
     options = {
       icons_enabled = true,
-      theme = "auto",
+      theme = custom_theme,
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
       disabled_filetypes = { "alpha", "dashboard", "neo-tree", "neo-tree-popup", "Outline" },
