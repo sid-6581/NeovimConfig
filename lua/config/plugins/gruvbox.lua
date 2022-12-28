@@ -1,6 +1,5 @@
 local M = {
   "ellisonleao/gruvbox.nvim",
-  lazy = false,
 }
 
 function M.config()

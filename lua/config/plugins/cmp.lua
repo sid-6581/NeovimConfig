@@ -1,6 +1,5 @@
 local M = {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
