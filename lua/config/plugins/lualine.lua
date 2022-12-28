@@ -56,12 +56,6 @@ function M.config()
     icon = "",
   }
 
-  local statusline_mode = {
-    noice.api.statusline.mode.get,
-    cond = noice.api.statusline.mode.has,
-    color = { fg = "#ff9e64" },
-  }
-
   lualine.setup({
     options = {
       icons_enabled = true,
@@ -74,18 +68,30 @@ function M.config()
     sections = {
       lualine_a = { branch },
       lualine_b = { "filename" },
-      lualine_c = { diff, statusline_mode },
+      lualine_c = {
+        diff,
+        {
+          noice.api.status.mode.get,
+          cond = noice.api.status.mode.has,
+          color = { fg = "#ff9e64" },
+        },
+        {
+          noice.api.status.search.get,
+          cond = noice.api.status.search.has,
+          color = { fg = "#ff9e64" },
+        },
+      },
       lualine_x = { diagnostics, lsp, spaces, "encoding", fileformat, "filetype" },
       lualine_y = { "location" },
       lualine_z = { "progress" },
     },
     inactive_sections = {
-      lualine_a = { branch },
+      lualine_a = {},
       lualine_b = { "filename" },
-      lualine_c = { diff, statusline_mode },
-      lualine_x = { diagnostics, lsp, spaces, "encoding", fileformat, "filetype" },
-      lualine_y = { "location" },
-      lualine_z = { "progress" },
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {},
     },
     tabline = {
       lualine_a = { { "tabs", mode = 1 } },
