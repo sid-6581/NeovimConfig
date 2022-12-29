@@ -4,7 +4,6 @@ return {
   "kyazdani42/nvim-web-devicons",
   "AndrewRadev/sideways.vim",
   "b0o/schemastore.nvim",
-  "christoomey/vim-sort-motion",
   "eandrju/cellular-automaton.nvim",
   "fedepujol/move.nvim",
   "folke/neodev.nvim",

@@ -123,6 +123,9 @@ r({
 
 -- Normal mode
 r({
+  ["<S-C-T>"] = { "<CMD>tabnew<CR>", "Open new tab" },
+  ["<C-F4>"] = { "<CMD>tabnew<CR>", "Close tab" },
+
   ["<C-Up>"] = { "<CMD>resize -2<CR>", "Resize window -2" },
   ["<C-Down>"] = { "<CMD>resize +2<CR>", "Resize window +2" },
   ["<C-Left>"] = { "<CMD>vertical resize -2<CR>", "Vertical resize window -2" },
@@ -230,10 +233,10 @@ r({
   ["<A-k>"] = { ":MoveBlock(-1)<CR>", "Move block up" },
   ["<S-A-h>"] = { ":MoveHBlock(-1)<CR>", "Move block left" },
   ["<S-A-l>"] = { ":MoveHBlock(1)<CR>", "Move block right" },
-  -- ["p"] = { '"_dP', "Paste" },
+  ["p"] = { '"_dP', "Paste" },
   [",sl"] = { ":sort i<CR>", "Sort lines" },
-  [",su"] = { ":sort iu<CR>", "Sort lines unique" },
   [",sn"] = { ":sort in<CR>", "Sort lines by number" },
+  [",su"] = { ":sort iu<CR>", "Sort lines unique" },
   [",y"] = { '"+y', "Yank to system clipboard" },
   ["<C-Insert>"] = { '"+y', "Yank to system clipboard" },
   ["<S-Insert>"] = { '"+P', "Paste from system clipboard" },
@@ -338,11 +341,11 @@ r({
 
 -- Goto-preview plugin
 r({
-  ["gpd"] = { "<CMD>lua require('goto-preview').goto_preview_definition()<CR>", "Preview definition" },
-  ["gpt"] = { "<CMD>lua require('goto-preview').goto_preview_type_definition()<CR>", "Preview type definition" },
-  ["gpi"] = { "<CMD>lua require('goto-preview').goto_preview_implementation()<CR>", "Preview implementation" },
-  ["gP"] = { "<CMD>lua require('goto-preview').close_all_win()<CR>", "Close all preview windows" },
-  ["gpr"] = { "<CMD>lua require('goto-preview').goto_preview_references()<CR>", "Preview references" },
+  ["ghd"] = { "<CMD>lua require('goto-preview').goto_preview_definition()<CR>", "Preview definition" },
+  ["ght"] = { "<CMD>lua require('goto-preview').goto_preview_type_definition()<CR>", "Preview type definition" },
+  ["ghi"] = { "<CMD>lua require('goto-preview').goto_preview_implementation()<CR>", "Preview implementation" },
+  ["gH"] = { "<CMD>lua require('goto-preview').close_all_win()<CR>", "Close all preview windows" },
+  ["ghr"] = { "<CMD>lua require('goto-preview').goto_preview_references()<CR>", "Preview references" },
 }, { mode = "n" })
 
 -- LSP
