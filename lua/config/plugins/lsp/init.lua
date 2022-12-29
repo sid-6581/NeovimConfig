@@ -65,7 +65,7 @@ function M.config()
     "shellharden",
     "stylua",
     "taplo",
-    "typescript-language-server",
+    -- "typescript-language-server",
     "vim-language-server",
     "vue-language-server",
     "yaml-language-server",
@@ -203,7 +203,7 @@ function M.config()
       lspconfig.volar.setup({
         on_attach = options.on_attach,
         capabilities = options.capabilities,
-        -- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
       })
     end,
 
