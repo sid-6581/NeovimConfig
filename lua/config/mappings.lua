@@ -124,7 +124,7 @@ r({
 -- Normal mode
 r({
   ["<S-C-T>"] = { "<CMD>tabnew<CR>", "Open new tab" },
-  ["<C-F4>"] = { "<CMD>tabnew<CR>", "Close tab" },
+  ["<C-F4>"] = { "<CMD>tabclose<CR>", "Close tab" },
 
   ["<C-Up>"] = { "<CMD>resize -2<CR>", "Resize window -2" },
   ["<C-Down>"] = { "<CMD>resize +2<CR>", "Resize window +2" },
