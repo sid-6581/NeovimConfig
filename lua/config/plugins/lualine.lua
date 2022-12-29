@@ -5,9 +5,9 @@ local M = {
 function M.config()
   local lualine = require("lualine")
   local noice = require("noice")
-  local custom_theme = require("lualine.themes.gruvbox_dark")
 
-  custom_theme.inactive.a.bg = "Normal"
+  local custom_theme = require("lualine.themes.gruvbox_dark")
+  -- custom_theme.inactive.a.bg = "Normal"
   custom_theme.inactive.b.bg = "Normal"
   custom_theme.inactive.c.bg = "Normal"
 
