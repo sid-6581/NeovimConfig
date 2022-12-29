@@ -67,7 +67,7 @@ function M.config()
       theme = custom_theme,
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
-      disabled_filetypes = { "alpha", "dashboard", "neo-tree", "neo-tree-popup", "Outline" },
+      disabled_filetypes = { "alpha", "dashboard", "Outline" },
       always_divide_middle = true,
     },
     sections = {
@@ -107,7 +107,7 @@ function M.config()
       lualine_y = {},
       lualine_z = { "hostname" },
     },
-    extensions = {},
+    extensions = { "neo-tree" },
   })
 end
 
