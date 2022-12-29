@@ -102,8 +102,7 @@ r({
   },
 
   p = {
-    name = "Plugins",
-    s = { "<CMD>Lazy sync<CR>", "Lazy sync" },
+    p = { "<CMD>Lazy sync<CR>", "Lazy sync" },
   },
 
   t = {
@@ -207,6 +206,13 @@ r({
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
 
   [",x<BS>"] = { "<CMD>CellularAutomaton make_it_rain<CR>", "Make it rain" },
+
+  ["<leader>pb"] = { 'a <C-R>" <Esc>', "Paste after cursor and add space at both ends" },
+  ["<leader>pe"] = { 'a<C-R>" <Esc>', "Paste after cursor and add space at end" },
+  ["<leader>ps"] = { 'a <C-R>"<Esc>', "Paste after cursor and add space at start" },
+  ["<leader>Pb"] = { 'i <C-R>" <Esc>', "Paste before cursor and add space at both ends" },
+  ["<leader>Pe"] = { 'i<C-R>" <Esc>', "Paste before cursor and add space at end" },
+  ["<leader>Ps"] = { 'i <C-R>"<Esc>', "Paste before cursor and add space at start" },
 }, { mode = "n" })
 
 -- Insert mode
