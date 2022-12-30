@@ -3,9 +3,8 @@ local M = {
   event = { "BufReadPost", "InsertEnter" },
 
   dependencies = {
+    "b0o/schemastore.nvim",
     "folke/neodev.nvim",
-    "jose-elias-alvarez/null-ls.nvim",
-    "mfussenegger/nvim-dap",
     {
       "kosayoda/nvim-lightbulb",
       config = {
@@ -18,15 +17,13 @@ local M = {
 function M.config()
   require("neodev").setup({})
 
-  local mason = require("mason")
-  local mason_lspconfig = require("mason-lspconfig")
-  local mason_tool_installer = require("mason-tool-installer")
   local lspconfig = require("lspconfig")
-  local null_ls = require("null-ls")
 
   -- Set LSP info border.
   require("lspconfig.ui.windows").default_options.border = "rounded"
-  vim.cmd("highlight link LspInfoBorder Normal")
+  vim.cmd([[
+    highlight link LspInfoBorder Normal
+  ]])
 
   -- Automatically detect ansible yaml files.
   vim.cmd([[
@@ -42,62 +39,6 @@ function M.config()
       augroup END
   ]])
 
-  mason.setup({
-    ui = {
-      border = "single",
-      icons = {
-        package_installed = "✓",
-        package_pending = "➜",
-        package_uninstalled = "✗",
-      },
-    },
-    max_concurrent_installers = 10,
-  })
-
-  mason_lspconfig.setup({})
-
-  local tools = {
-    "ansible-language-server",
-    "bash-language-server",
-    "beautysh",
-    "black",
-    "clangd",
-    "css-lsp",
-    "dockerfile-language-server",
-    "eslint-lsp",
-    "flake8",
-    "isort",
-    "hadolint",
-    "html-lsp",
-    "json-lsp",
-    "lemminx",
-    "lua-language-server",
-    "pyright",
-    "rust-analyzer",
-    "shellcheck",
-    "shellharden",
-    "stylua",
-    "taplo",
-    -- "typescript-language-server",
-    "vim-language-server",
-    "vue-language-server",
-    "yaml-language-server",
-    "yamlfmt",
-    "yamllint",
-  }
-
-  if vim.fn.has("win32") == 1 then
-    table.insert(tools, "powershell-editor-services")
-    table.insert(tools, "omnisharp")
-  end
-
-  mason_tool_installer.setup({
-    ensure_installed = tools,
-    auto_update = true,
-    run_on_start = true,
-    start_delay = 3000,
-  })
-
   local lsp_handlers = require("config.plugins.lsp.handlers")
 
   local options = {
@@ -107,6 +48,8 @@ function M.config()
   }
 
   options.setup()
+
+  local mason_lspconfig = require("mason-lspconfig")
 
   mason_lspconfig.setup_handlers({
     function(server_name)
@@ -236,28 +179,7 @@ function M.config()
     end,
   })
 
-  local code_actions = null_ls.builtins.code_actions
-  local formatting = null_ls.builtins.formatting
-  local diagnostics = null_ls.builtins.diagnostics
-
-  null_ls.setup({
-    on_attach = options.on_attach,
-    sources = {
-      code_actions.shellcheck,
-      diagnostics.flake8,
-      diagnostics.hadolint,
-      diagnostics.yamllint,
-      formatting.black.with({
-        extra_args = { "--preview" },
-      }),
-      formatting.isort,
-      formatting.ocdc,
-      formatting.packer,
-      formatting.shellharden,
-      formatting.stylua,
-      formatting.yamlfmt,
-    },
-  })
+  require("config.plugins.null-ls").setup(options)
 end
 
 return M
