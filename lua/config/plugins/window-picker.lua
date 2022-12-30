@@ -1,5 +1,6 @@
 local M = {
   "s1n7ax/nvim-window-picker",
+  event = "VeryLazy",
 }
 
 function M.config()

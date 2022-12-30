@@ -1,5 +1,18 @@
 local M = {
   "neovim/nvim-lspconfig",
+  event = "BufReadPre",
+
+  dependencies = {
+    "folke/neodev.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
+    "mfussenegger/nvim-dap",
+    {
+      "kosayoda/nvim-lightbulb",
+      config = {
+        autocmd = { enabled = true },
+      },
+    },
+  },
 }
 
 function M.config()

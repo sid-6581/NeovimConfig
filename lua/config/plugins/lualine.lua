@@ -1,5 +1,7 @@
 local M = {
   "nvim-lualine/lualine.nvim",
+  lazy = false,
+  priority = 998,
 }
 
 function M.config()

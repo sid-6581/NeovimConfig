@@ -1,5 +1,6 @@
 local M = {
   "rmagatti/goto-preview",
+  event = "VeryLazy",
 }
 
 function M.config()

@@ -14,7 +14,7 @@ if vim.fn.exists("g:neovide") ~= 0 then vim.opt.guifont = "JetBrainsMono NFM:h9.
 vim.opt.autowrite = true
 vim.opt.backup = true
 vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.confirm = true
 vim.opt.cursorline = true
@@ -29,7 +29,7 @@ vim.opt.grepprg = "rg --vimgrep"
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.ignorecase = true
 vim.opt.iskeyword:append("-")
-vim.opt.laststatus = 2
+vim.opt.laststatus = 0
 vim.opt.list = true
 vim.opt.mouse = "a"
 vim.opt.number = true
@@ -44,7 +44,7 @@ vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.shortmess:append("cI")
 vim.opt.showmode = false
-vim.opt.showtabline = 2
+vim.opt.showtabline = 0
 vim.opt.sidescrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.smartcase = true

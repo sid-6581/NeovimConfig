@@ -6,7 +6,6 @@ vim.cmd([[
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
     autocmd FocusGained * :checktime
-    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
 ]])
 

@@ -14,6 +14,9 @@ vim.opt.runtimepath:prepend(lazypath)
 local lazy = require("lazy")
 
 lazy.setup("config.plugins", {
+  defaults = {
+    lazy = true,
+  },
   install = {
     colorscheme = { "gruvbox" },
   },
@@ -26,6 +29,17 @@ lazy.setup("config.plugins", {
   performance = {
     rtp = {
       reset = false,
+      disabled_plugins = {
+        "gzip",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+        "nvim-treesitter-textobjects",
+      },
     },
   },
 })

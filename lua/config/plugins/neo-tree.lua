@@ -1,6 +1,7 @@
 local M = {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "main",
+  cmd = "Neotree",
 }
 
 function M.config()
