@@ -24,6 +24,10 @@ return {
       },
       "mg979/vim-visual-multi",
       "michaeljsmith/vim-indent-object",
+      {
+        "rmagatti/goto-preview",
+        config = true,
+      },
       "tpope/vim-unimpaired",
       "vim-scripts/ReplaceWithRegister",
       {
@@ -38,12 +42,12 @@ return {
 
   {
     "gpanders/editorconfig.nvim",
-    event = "BufReadPost",
+    event = "BufEnter",
   },
 
   {
     "isobit/vim-caddyfile",
-    event = "BufReadPost",
+    event = "BufEnter",
   },
 
   {
@@ -60,7 +64,7 @@ return {
 
   {
     "mechatroner/rainbow_csv",
-    event = "BufReadPost",
+    event = "BufEnter",
   },
 
   {
@@ -71,12 +75,13 @@ return {
   {
     "nmac427/guess-indent.nvim",
     config = true,
-    event = "BufReadPost",
+    event = "BufEnter",
   },
 
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     event = "VeryLazy",
+    cmd = "MasonToolsUpdate",
 
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
