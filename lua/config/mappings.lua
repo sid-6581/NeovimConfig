@@ -146,7 +146,7 @@ r({
   ["Y"] = { "_y$", "Yank line character-wise without indent" },
   ["`"] = { "i <Esc>r", "Insert one character" },
   ["<BS>"] = { "<CMD>noh<return>", "Clear search highlighting" },
-  ["<S-Insert>"] = { '"+p', "Paste from system clipboard" },
+  ["<S-Insert>"] = { '"+P', "Paste from system clipboard" },
   [",p"] = { '"+p', "Paste from system clipboard" },
   [",P"] = { '"+P', "Paste from system clipboard" },
   [",r"] = { "<C-R>", "Redo last change" },

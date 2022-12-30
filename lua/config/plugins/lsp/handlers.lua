@@ -51,6 +51,7 @@ M.on_attach = function(client)
   if client.name == "tsserver" or client.name == "sumneko_lua" then
     client.server_capabilities.document_formatting = false
   end
+
   if client.name == "omnisharp" then
     client.server_capabilities.semanticTokensProvider = {
       full = vim.empty_dict(),
@@ -127,6 +128,7 @@ M.on_attach = function(client)
       range = true,
     }
   end
+
   lsp_highlight_document(client)
 end
 

@@ -17,28 +17,6 @@ local M = {
 function M.config()
   require("neodev").setup({})
 
-  local lspconfig = require("lspconfig")
-
-  -- Set LSP info border.
-  require("lspconfig.ui.windows").default_options.border = "rounded"
-  vim.cmd([[
-    highlight link LspInfoBorder Normal
-  ]])
-
-  -- Automatically detect ansible yaml files.
-  vim.cmd([[
-    autocmd BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
-  ]])
-
-  -- Automatically format files on save.
-  vim.cmd([[
-      augroup LspFormat
-        autocmd! *
-        autocmd BufWritePre *.lua,*.py lua vim.lsp.buf.format()
-        autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue EslintFixAll
-      augroup END
-  ]])
-
   local lsp_handlers = require("config.plugins.lsp.handlers")
 
   local options = {
@@ -50,6 +28,7 @@ function M.config()
   options.setup()
 
   local mason_lspconfig = require("mason-lspconfig")
+  local lspconfig = require("lspconfig")
 
   mason_lspconfig.setup_handlers({
     function(server_name)
@@ -136,19 +115,48 @@ function M.config()
       lspconfig.sumneko_lua.setup({
         on_attach = options.on_attach,
         capabilities = options.capabilities,
+        single_file_support = true,
         settings = {
           Lua = {
             completion = {
-              callSnippet = "Disable",
+              callSnippet = "Both",
+              workspaceWord = true,
             },
             diagnostics = {
-              globals = { "vim" },
+              -- enable = false,
+              groupSeverity = {
+                strong = "Warning",
+                strict = "Warning",
+              },
+              groupFileStatus = {
+                ["ambiguity"] = "Opened",
+                ["await"] = "Opened",
+                ["codestyle"] = "None",
+                ["duplicate"] = "Opened",
+                ["global"] = "Opened",
+                ["luadoc"] = "Opened",
+                ["redefined"] = "Opened",
+                ["strict"] = "Opened",
+                ["strong"] = "Opened",
+                ["type-check"] = "Opened",
+                ["unbalanced"] = "Opened",
+                ["unused"] = "Opened",
+              },
+              unusedLocalExclude = { "_*" },
             },
-            runtime = {
-              version = "LuaJIT",
+            format = {
+              enable = false,
+              defaultConfig = {
+                indent_style = "space",
+                indent_size = "2",
+                continuation_indent_size = "2",
+              },
             },
             telemetry = {
               enable = false,
+            },
+            workspace = {
+              checkThirdParty = false,
             },
           },
         },
@@ -180,6 +188,26 @@ function M.config()
   })
 
   require("config.plugins.null-ls").setup(options)
+
+  -- Set LSP info border.
+  require("lspconfig.ui.windows").default_options.border = "rounded"
+  vim.cmd([[
+    highlight link LspInfoBorder Normal
+  ]])
+
+  -- Automatically detect ansible yaml files.
+  vim.cmd([[
+    autocmd BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
+  ]])
+
+  -- Automatically format files on save.
+  vim.cmd([[
+      augroup LspFormat
+        autocmd! *
+        autocmd BufWritePre *.lua,*.py lua vim.lsp.buf.format()
+        autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js,*.vue EslintFixAll
+      augroup END
+  ]])
 end
 
 return M
