@@ -105,6 +105,7 @@ function M.config()
   telescope.load_extension("file_browser")
   telescope.load_extension("undo")
   telescope.load_extension("z")
+  telescope.load_extension("projects")
 end
 
 return M

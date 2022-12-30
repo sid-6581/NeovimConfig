@@ -1,6 +1,6 @@
 local M = {
   "neovim/nvim-lspconfig",
-  event = "BufEnter",
+  event = { "BufReadPost", "InsertEnter" },
 
   dependencies = {
     "folke/neodev.nvim",

@@ -6,6 +6,7 @@ return {
 
   {
     "folke/which-key.nvim",
+
     dependencies = {
       "AndrewRadev/sideways.vim",
       "eandrju/cellular-automaton.nvim",
@@ -13,6 +14,23 @@ return {
       {
         "gbprod/substitute.nvim",
         config = true,
+      },
+      {
+        "ggandor/leap.nvim",
+
+        dependencies = {
+          {
+            "ggandor/flit.nvim",
+            config = { labeled_modes = "nv" },
+          },
+          { "ggandor/leap-ast.nvim" },
+        },
+
+        config = function()
+          local leap = require("leap")
+          leap.opts.max_phase_one_targets = 0
+          leap.opts.highlight_unlabeled_phase_one_targets = false
+        end,
       },
       {
         "kylechui/nvim-surround",
@@ -42,12 +60,12 @@ return {
 
   {
     "gpanders/editorconfig.nvim",
-    event = "BufEnter",
+    event = { "BufReadPost", "InsertEnter" },
   },
 
   {
     "isobit/vim-caddyfile",
-    event = "BufEnter",
+    event = { "BufReadPost", "InsertEnter" },
   },
 
   {
@@ -64,7 +82,7 @@ return {
 
   {
     "mechatroner/rainbow_csv",
-    event = "BufEnter",
+    event = "BufReadPost",
   },
 
   {
@@ -75,7 +93,7 @@ return {
   {
     "nmac427/guess-indent.nvim",
     config = true,
-    event = "BufEnter",
+    event = "BufReadPost",
   },
 
   {
