@@ -1,6 +1,6 @@
 local M = {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPost", "InsertEnter" },
+  event = { "BufReadPre", "InsertEnter" },
 
   dependencies = {
     "b0o/schemastore.nvim",
