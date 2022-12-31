@@ -6,7 +6,6 @@ return {
   },
 
   config = function()
-    vim.notify("mason")
     require("mason").setup({
       ui = {
         border = "single",

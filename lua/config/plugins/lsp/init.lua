@@ -18,9 +18,7 @@ local M = {
 }
 
 function M.config()
-  vim.notify("lsp")
   require("mason")
-  vim.notify("lsp after mason")
 
   local lsp_handlers = require("config.plugins.lsp.handlers")
 
