@@ -4,7 +4,10 @@ local M = {
 
   dependencies = {
     "b0o/schemastore.nvim",
-    "folke/neodev.nvim",
+    {
+      "folke/neodev.nvim",
+      config = true,
+    },
     {
       "kosayoda/nvim-lightbulb",
       config = {
@@ -15,7 +18,9 @@ local M = {
 }
 
 function M.config()
-  require("neodev").setup({})
+  vim.notify("lsp")
+  require("mason")
+  vim.notify("lsp after mason")
 
   local lsp_handlers = require("config.plugins.lsp.handlers")
 

@@ -2,7 +2,7 @@ local M = {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   cmd = { "TSUpdate", "TSUpdateSync" },
-  event = { "BufReadPre", "InsertEnter" },
+  event = { "BufReadPost" },
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
