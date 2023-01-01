@@ -81,24 +81,8 @@ r({
   },
 
   l = {
-    name = "LSP",
-    a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action" },
-    ["C1"] = { "<CMD>lua =vim.lsp.get_active_clients()[1]<CR>", "View LSP server 1 information" },
-    ["C2"] = { "<CMD>lua =vim.lsp.get_active_clients()[2]<CR>", "View LSP server 2 information" },
-    ["C3"] = { "<CMD>lua =vim.lsp.get_active_clients()[3]<CR>", "View LSP server 3 information" },
-    d = { "<CMD>Telescope diagnostics bufnr=0<CR>", "Document diagnostics" },
-    w = { "<CMD>Telescope diagnostics<CR>", "Workspace diagnostics" },
-    f = { "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "Format" },
     i = { "<CMD>LspInfo<CR>", "LSP info" },
     I = { "<CMD>Mason<CR>", "Mason installer info" },
-    j = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic" },
-    k = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Prev diagnostic" },
-    l = { "<CMD>lua vim.lsp.codelens.run()<CR>", "Codelens action" },
-    q = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
-    r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
-    R = { "<CMD>lua vim.lsp.buf.references()<CR>", "References" },
-    s = { "<CMD>Telescope lsp_document_symbols<CR>", "Document symbols" },
-    S = { "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace symbols" },
   },
 
   p = {
@@ -187,13 +171,6 @@ r({
   [",wx"] = { "<C-W>x", "Exchange current window with next" },
   [",x12"] = { ":%s/\\n//g<CR>:%s/\\~/\\~\\r/g<CR>gg:nohlsearch<CR>", "Format X12 file" },
   [",cd"] = { ":cd %:h<CR>", "Change current working directory to current file directory" },
-
-  [",xx"] = { "<CMD>TroubleToggle<CR>", "Toggle trouble" },
-  [",xw"] = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Toggle workspace diagnostics" },
-  [",xd"] = { "<CMD>TroubleToggle document_diagnostics<CR>", "Toggle document diagnostics" },
-  [",xl"] = { "<CMD>TroubleToggle loclist<CR>", "Toggle loc list" },
-  [",xq"] = { "<CMD>TroubleToggle quickfix<CR>", "Toggle quickfix" },
-  ["gR"] = { "<CMD>TroubleToggle lsp_references<CR>" },
 
   ["[c"] = { "<CMD>lua require('gitsigns').prev_hunk()<CR>", "Previous change" },
   ["]c"] = { "<CMD>lua require('gitsigns').next_hunk()<CR>", "Next change" },
@@ -343,27 +320,6 @@ r({
 r({
   [",cs"] = { "<CMD>TSJSplit<CR>", "Split node" },
   [",cj"] = { "<CMD>TSJJoin<CR>", "Join node" },
-}, { mode = "n" })
-
--- Goto-preview plugin
-r({
-  ["ghd"] = { "<CMD>lua require('goto-preview').goto_preview_definition()<CR>", "Preview definition" },
-  ["ght"] = { "<CMD>lua require('goto-preview').goto_preview_type_definition()<CR>", "Preview type definition" },
-  ["ghi"] = { "<CMD>lua require('goto-preview').goto_preview_implementation()<CR>", "Preview implementation" },
-  ["gH"] = { "<CMD>lua require('goto-preview').close_all_win()<CR>", "Close all preview windows" },
-  ["ghr"] = { "<CMD>lua require('goto-preview').goto_preview_references()<CR>", "Preview references" },
-}, { mode = "n" })
-
--- LSP
-r({
-  ["gD"] = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
-  ["gd"] = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
-  ["K"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Show information" },
-  ["gi"] = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "List all implementations" },
-  ["gl"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Show diagnostics" },
-  ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
-  ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
-  ["<A-Enter>"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action" },
 }, { mode = "n" })
 
 -- Better wildmenu navigation

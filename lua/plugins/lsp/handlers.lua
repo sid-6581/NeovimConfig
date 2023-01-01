@@ -1,64 +1,6 @@
 local M = {}
 
-M.signs = {
-  Error = "",
-  Warn = "",
-  Hint = "",
-  Info = "",
-}
-
-M.setup = function()
-  -- vim.lsp.handlers["workspace/diagnostic/refresh"] = function(_, _, ctx)
-  --   local ns = vim.lsp.diagnostic.get_namespace(ctx.client_id)
-  --   vim.diagnostic.reset(ns)
-  --   return vim.NIL
-  -- end
-
-  for type, icon in pairs(M.signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-  end
-
-  vim.diagnostic.config({
-    virtual_text = { spacing = 4, prefix = "●" },
-    signs = true,
-    update_in_insert = true,
-    underline = true,
-    severity_sort = true,
-    float = {
-      focusable = false,
-      style = "minimal",
-      border = "single",
-      source = "always",
-      header = "",
-      prefix = "",
-    },
-  })
-
-  -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-  -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
-end
-
-local function lsp_highlight_document(client)
-  if client.server_capabilities.document_highlight then
-    vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-      false
-    )
-  end
-end
-
-M.on_attach = function(client)
-  if client.name == "tsserver" or client.name == "sumneko_lua" then
-    client.server_capabilities.document_formatting = false
-  end
-
+function M.on_attach(client, _bufnr)
   if client.name == "omnisharp" then
     client.server_capabilities.semanticTokensProvider = {
       full = vim.empty_dict(),
@@ -135,12 +77,168 @@ M.on_attach = function(client)
       range = true,
     }
   end
-
-  lsp_highlight_document(client)
 end
 
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
+function M.setup(options)
+  local mason_lspconfig = require("mason-lspconfig")
+  local lspconfig = require("lspconfig")
 
-M.capabilities = cmp_nvim_lsp.default_capabilities()
+  mason_lspconfig.setup_handlers({
+    function(server_name)
+      lspconfig[server_name].setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+      })
+    end,
+
+    ["jsonls"] = function()
+      lspconfig.jsonls.setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+        settings = {
+          json = {
+            schemas = require("schemastore").json.schemas(),
+            validate = { enable = true },
+          },
+        },
+      })
+    end,
+
+    ["omnisharp"] = function()
+      lspconfig.omnisharp.setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+        enable_decompilation_support = true,
+        enable_import_completion = true,
+        enable_roslyn_analyzers = true,
+        organize_imports_on_format = true,
+        settings = {
+          csharp = {
+            format = {
+              enable = true,
+            },
+          },
+          omnisharp = {
+            enableDecompilationSupport = true,
+            enabledEditorConfigSupport = true,
+            enableImportCompletion = true,
+            enableRoslynAnalyzers = true,
+            organizeImportsOnFormat = true,
+          },
+        },
+      })
+    end,
+
+    ["powershell_es"] = function()
+      lspconfig.powershell_es.setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+        settings = {
+          powershell = {
+            codeFormatting = {
+              autoCorrectAliases = true,
+              avoidSemicolonsAsLineTerminators = true,
+              preset = "OTBS",
+              trimWhitespaceAroundPipe = true,
+              useConstantStrings = true,
+              useCorrectCasing = true,
+              whitespaceBetweenParameters = true,
+            },
+          },
+        },
+      })
+    end,
+
+    ["pyright"] = function()
+      lspconfig.pyright.setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "basic",
+              useLibraryCodeForTypes = true,
+            },
+          },
+        },
+      })
+    end,
+
+    ["sumneko_lua"] = function()
+      lspconfig.sumneko_lua.setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+        single_file_support = false,
+        settings = {
+          Lua = {
+            completion = {
+              callSnippet = "Both",
+              workspaceWord = true,
+            },
+            diagnostics = {
+              -- enable = false,
+              groupSeverity = {
+                strong = "Warning",
+                strict = "Warning",
+              },
+              groupFileStatus = {
+                ["ambiguity"] = "Opened",
+                ["await"] = "Opened",
+                ["codestyle"] = "None",
+                ["duplicate"] = "Opened",
+                ["global"] = "Opened",
+                ["luadoc"] = "Opened",
+                ["redefined"] = "Opened",
+                ["strict"] = "Opened",
+                ["strong"] = "Opened",
+                ["type-check"] = "Opened",
+                ["unbalanced"] = "Opened",
+                ["unused"] = "Opened",
+              },
+              unusedLocalExclude = { "_*" },
+            },
+            format = {
+              enable = false,
+              defaultConfig = {
+                indent_style = "space",
+                indent_size = "2",
+                continuation_indent_size = "2",
+              },
+            },
+            telemetry = {
+              enable = false,
+            },
+            workspace = {
+              checkThirdParty = false,
+            },
+          },
+        },
+      })
+    end,
+
+    ["volar"] = function()
+      lspconfig.volar.setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+      })
+    end,
+
+    ["yamlls"] = function()
+      lspconfig.yamlls.setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+        settings = {
+          yaml = {
+            schemaStore = {
+              url = "https://www.schemastore.org/api/json/catalog.json",
+              enable = true,
+            },
+          },
+        },
+      })
+    end,
+  })
+end
 
 return M

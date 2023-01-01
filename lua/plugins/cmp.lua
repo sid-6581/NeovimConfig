@@ -24,31 +24,31 @@ return {
     local cmp = require("cmp")
 
     local kind_icons = {
-      Text = "",
-      Method = "m",
-      Function = "",
-      Constructor = "",
-      Field = "",
-      Variable = "",
       Class = "",
+      Color = "",
+      Constant = "",
+      Constructor = "",
+      Enum = "",
+      EnumMember = "",
+      Event = "",
+      Field = "",
+      File = "",
+      Folder = "",
+      Function = "",
       Interface = "",
+      Keyword = "",
+      Method = "m",
       Module = "",
+      Operator = "",
       Property = "",
+      Reference = "",
+      Snippet = "",
+      Struct = "",
+      Text = "",
+      TypeParameter = "",
       Unit = "",
       Value = "",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "",
-      Event = "",
-      Operator = "",
-      TypeParameter = "",
+      Variable = "",
     }
 
     cmp.setup({
@@ -57,6 +57,7 @@ return {
           require("luasnip").lsp_expand(args.body)
         end,
       },
+
       mapping = {
         ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -72,28 +73,33 @@ return {
         }),
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
       },
+
       formatting = {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
-          vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+          vim_item.kind = kind_icons[vim_item.kind] .. " " .. vim_item.kind
           vim_item.menu = ({
-            nvim_lsp = "[LSP]",
             buffer = "[Buffer]",
-            path = "[Path]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[LuaSnip]",
+            nvim_lua = "[Lua]",
           })[entry.source.name]
           return vim_item
         end,
       },
+
       sources = {
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "buffer" },
         { name = "path" },
       },
+
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
       },
+
       window = {
         documentation = cmp.config.window.bordered(),
       },

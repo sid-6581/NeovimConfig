@@ -7,6 +7,7 @@ return {
       border = "single",
       get_config = function(opts)
         return {
+          insert_only = #(opts.default or "") == 0,
           start_in_insert = #(opts.default or "") == 0,
         }
       end,
