@@ -11,6 +11,7 @@ function M.setup(options)
 
   nls.setup({
     on_attach = options.on_attach,
+
     sources = {
       code_actions.shellcheck,
       diagnostics.flake8,

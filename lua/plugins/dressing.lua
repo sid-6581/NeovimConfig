@@ -1,12 +1,8 @@
-local M = {
+return {
   "stevearc/dressing.nvim",
   event = "VeryLazy",
-}
 
-function M.config()
-  local dressing = require("dressing")
-
-  dressing.setup({
+  config = {
     input = {
       border = "single",
       insert_only = false,
@@ -22,7 +18,5 @@ function M.config()
         border = "single",
       },
     },
-  })
-end
-
-return M
+  },
+}

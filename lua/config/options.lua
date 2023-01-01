@@ -19,29 +19,31 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
-vim.opt.fillchars:append("stlnc:")
 vim.opt.ffs = { "unix", "dos" }
-vim.opt.fileformat = "unix"
 vim.opt.fileencoding = "utf-8"
+vim.opt.fileformat = "unix"
+vim.opt.fillchars:append("stlnc:")
 vim.opt.foldlevel = 99
 vim.opt.formatoptions:remove({ "c", "r", "o" })
-vim.opt.grepprg = "rg --vimgrep"
 vim.opt.grepformat = "%f:%l:%c:%m"
+vim.opt.grepprg = "rg --vimgrep"
 vim.opt.ignorecase = true
 vim.opt.iskeyword:append("-")
 vim.opt.laststatus = 0
 vim.opt.list = true
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("tab:» ")
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.numberwidth = 4
 vim.opt.pumblend = 10
 vim.opt.pumheight = 15
--- vim.opt.relativenumber = true
 vim.opt.report = 1000
 vim.opt.scrolloff = 8
 vim.opt.selection = "inclusive"
-vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
+vim.opt.shiftwidth = 2
 vim.opt.shortmess:append("cI")
 vim.opt.showmode = false
 vim.opt.showtabline = 0

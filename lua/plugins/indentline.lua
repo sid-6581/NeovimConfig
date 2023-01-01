@@ -1,16 +1,8 @@
-local M = {
+return {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufReadPost", "InsertEnter" },
-}
 
-function M.config()
-  local indent_blankline = require("indent_blankline")
-
-  vim.opt.list = true
-  vim.opt.listchars:append("space:⋅")
-  vim.opt.listchars:append("tab:» ")
-
-  indent_blankline.setup({
+  config = {
     buftype_exclude = {
       "terminal",
       "nofile",
@@ -52,7 +44,5 @@ function M.config()
       "import_statement",
       "operation_type",
     },
-  })
-end
-
-return M
+  },
+}

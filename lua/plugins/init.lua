@@ -15,7 +15,7 @@ return {
 
   {
     "mechatroner/rainbow_csv",
-    event = "BufReadPost",
+    ft = "csv",
   },
 
   {
@@ -25,7 +25,7 @@ return {
 
   {
     "nmac427/guess-indent.nvim",
-    config = true,
     event = "BufReadPost",
+    config = true,
   },
 }

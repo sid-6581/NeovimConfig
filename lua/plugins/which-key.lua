@@ -1,4 +1,4 @@
-local M = {
+return {
   "folke/which-key.nvim",
 
   dependencies = {
@@ -59,5 +59,3 @@ local M = {
     },
   },
 }
-
-return M

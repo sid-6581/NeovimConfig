@@ -1,16 +1,10 @@
-local M = {
+return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPost", "InsertEnter" },
-}
 
-function M.config()
-  local gitsigns = require("gitsigns")
-
-  gitsigns.setup({
+  config = {
     preview_config = {
       border = "single",
     },
-  })
-end
-
-return M
+  },
+}

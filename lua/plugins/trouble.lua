@@ -1,14 +1,8 @@
-local M = {
+return {
   "folke/trouble.nvim",
   cmd = { "TroubleToggle", "Trouble" },
-}
 
-function M.config()
-  local trouble = require("trouble")
-
-  trouble.setup({
+  config = {
     use_diagnostic_signs = true,
-  })
-end
-
-return M
+  },
+}

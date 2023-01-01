@@ -1,4 +1,4 @@
-local M = {
+return {
   "kevinhwang91/nvim-bqf",
   ft = "qf",
 
@@ -9,5 +9,3 @@ local M = {
     },
   },
 }
-
-return M

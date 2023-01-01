@@ -16,12 +16,9 @@ local M = {
 }
 
 function M.config()
-  local configs = require("nvim-treesitter.configs")
-  local install = require("nvim-treesitter.install")
+  if vim.fn.has("win32") == 1 then require("nvim-treesitter.install").compilers = { "clang" } end
 
-  if vim.fn.has("win32") == 1 then install.compilers = { "clang" } end
-
-  configs.setup({
+  require("nvim-treesitter.configs").setup({
     ensure_installed = {
       "bash",
       "c",
@@ -85,7 +82,7 @@ function M.config()
       },
     },
     indent = {
-      enable = false,
+      enable = true,
       disable = { "yaml" },
     },
     refactor = {
