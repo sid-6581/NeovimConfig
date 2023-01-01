@@ -4,7 +4,7 @@ return {
   priority = 997,
 
   config = function()
-    local signs = require("config.plugins.lsp.handlers").signs
+    local signs = require("plugins.lsp.handlers").signs
 
     signs = {
       error = signs.Error,

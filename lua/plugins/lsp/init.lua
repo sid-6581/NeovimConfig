@@ -20,7 +20,7 @@ local M = {
 function M.config()
   require("mason")
 
-  local lsp_handlers = require("config.plugins.lsp.handlers")
+  local lsp_handlers = require("plugins.lsp.handlers")
 
   local options = {
     setup = lsp_handlers.setup,
@@ -190,7 +190,7 @@ function M.config()
     end,
   })
 
-  require("config.plugins.null-ls").setup(options)
+  require("plugins.null-ls").setup(options)
 
   -- Set LSP info border.
   require("lspconfig.ui.windows").default_options.border = "rounded"
