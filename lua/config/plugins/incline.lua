@@ -9,7 +9,7 @@ return {
     require("incline").setup({
       highlight = {
         groups = {
-          InclineNormal = "CursorLine",
+          InclineNormalNC = "Comment",
         },
       },
       window = {
