@@ -2,14 +2,20 @@ local M = {
   "nvim-lualine/lualine.nvim",
   lazy = false,
   priority = 998,
+
+  dependencies = {
+    "tiagovla/scope.nvim",
+    config = true,
+  },
 }
 
 function M.config()
   local lualine = require("lualine")
   local noice = require("noice")
 
-  local custom_theme = require("lualine.themes.gruvbox_dark")
-  -- custom_theme.inactive.a.bg = "Normal"
+  local custom_theme = vim.deepcopy(require("lualine.themes.gruvbox_dark"))
+  custom_theme.inactive.x = vim.deepcopy(custom_theme.inactive.c)
+  custom_theme.inactive.y = vim.deepcopy(custom_theme.inactive.b)
   custom_theme.inactive.b.bg = "Normal"
   custom_theme.inactive.c.bg = "Normal"
 
@@ -71,6 +77,7 @@ function M.config()
       section_separators = { left = "", right = "" },
       disabled_filetypes = { "alpha", "dashboard", "Outline" },
       always_divide_middle = true,
+      globalstatus = true,
     },
     sections = {
       lualine_a = { branch },
@@ -101,15 +108,20 @@ function M.config()
       lualine_z = {},
     },
     tabline = {
-      lualine_a = { { "tabs", mode = 1 } },
-      -- lualine_b = { { "windows", filetype_names = { ["neo-tree"] = "", ["alpha"] = "" } } },
+      lualine_a = {
+        {
+          "buffers",
+          filetype_names = { ["neo-tree"] = "", ["alpha"] = "" },
+          disabled_buftypes = { "quickfix", "prompt", "neo-tree" },
+        },
+      },
       lualine_b = {},
       lualine_c = {},
       lualine_x = {},
-      lualine_y = {},
+      lualine_y = { { "tabs", mode = 1 } },
       lualine_z = { "hostname" },
     },
-    extensions = { "neo-tree" },
+    extensions = { "neo-tree", "quickfix" },
   })
 end
 

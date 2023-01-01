@@ -1,7 +1,7 @@
 return {
   "nvim-lua/plenary.nvim",
   "MunifTanjim/nui.nvim",
-  "kyazdani42/nvim-web-devicons",
+  "nvim-tree/nvim-web-devicons",
 
   {
     "gpanders/editorconfig.nvim",
