@@ -20,9 +20,64 @@ return {
       -- "hint",
     }
 
+    local colors = require("gruvbox.palette")
+
     require("bufferline").setup({
+      highlights = {
+        tab_selected = {
+          bg = colors.dark1,
+          fg = colors.light1,
+        },
+        buffer_selected = {
+          bg = colors.dark1,
+        },
+        close_button_selected = {
+          bg = colors.dark1,
+        },
+        numbers_selected = {
+          bg = colors.dark1,
+        },
+        diagnostic_selected = {
+          bg = colors.dark1,
+        },
+        hint_selected = {
+          bg = colors.dark1,
+        },
+        hint_diagnostic_selected = {
+          bg = colors.dark1,
+        },
+        info_selected = {
+          bg = colors.dark1,
+        },
+        info_diagnostic_selected = {
+          bg = colors.dark1,
+        },
+        warning_selected = {
+          bg = colors.dark1,
+        },
+        warning_diagnostic_selected = {
+          bg = colors.dark1,
+        },
+        error_selected = {
+          bg = colors.dark1,
+        },
+        error_diagnostic_selected = {
+          bg = colors.dark1,
+        },
+        modified_selected = {
+          bg = colors.dark1,
+        },
+        duplicate_selected = {
+          bg = colors.dark1,
+        },
+        indicator_selected = {
+          fg = colors.dark1,
+          bg = colors.dark1,
+        },
+      },
+
       options = {
-        separator_style = "thick",
+        separator_style = "thin",
         diagnostics = "nvim_lsp",
 
         diagnostics_indicator = function(_, _, diag)
@@ -39,12 +94,6 @@ return {
             text = "File Explorer",
             highlight = "Title",
             text_align = "center",
-          },
-        },
-
-        highlights = {
-          tab = {
-            bg = "#ffffff",
           },
         },
       },
