@@ -5,8 +5,11 @@ return {
   config = {
     input = {
       border = "single",
-      insert_only = false,
-      start_in_insert = false,
+      get_config = function(opts)
+        return {
+          start_in_insert = #(opts.default or "") == 0,
+        }
+      end,
     },
     select = {
       nui = {
