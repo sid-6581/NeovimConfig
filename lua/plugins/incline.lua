@@ -6,7 +6,16 @@ return {
   config = {
     highlight = {
       groups = {
-        InclineNormalNC = "Comment",
+        InclineNormal = {
+          guifg = require("gruvbox.palette").light1,
+          blend = 100,
+        },
+        InclineNormalNC = {
+          guifg = require("gruvbox.palette").light4,
+          cterm = "italic",
+          gui = "italic",
+          blend = 100,
+        },
       },
     },
     window = {
