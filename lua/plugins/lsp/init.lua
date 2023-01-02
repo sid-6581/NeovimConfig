@@ -27,7 +27,6 @@ local function on_attach(client, bufnr)
 end
 
 function M.config()
-  require("mason")
   require("plugins.lsp.diagnostics").setup()
 
   local capabilities = vim.lsp.protocol.make_client_capabilities()

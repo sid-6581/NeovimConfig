@@ -8,8 +8,6 @@ return {
   },
 
   config = function()
-    require("mason")
-
     local tools = {
       "ansible-language-server",
       "bash-language-server",
