@@ -24,6 +24,14 @@ return {
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true,
         },
+        hover = {
+          opts = {
+            border = "single",
+            win_options = {
+              winblend = 10,
+            },
+          },
+        },
       },
       messages = {
         view_search = false,

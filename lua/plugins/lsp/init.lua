@@ -46,7 +46,7 @@ function M.config()
   require("plugins.lsp.null-ls").setup(options)
 
   -- Set LSP info border.
-  require("lspconfig.ui.windows").default_options.border = "rounded"
+  require("lspconfig.ui.windows").default_options.border = "single"
   vim.cmd([[
     highlight link LspInfoBorder Normal
   ]])
