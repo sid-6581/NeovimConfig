@@ -79,6 +79,7 @@ return {
       options = {
         separator_style = "thin",
         diagnostics = "nvim_lsp",
+        max_name_length = 32,
 
         diagnostics_indicator = function(_, _, diag)
           local s = {}
