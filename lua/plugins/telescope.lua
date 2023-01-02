@@ -15,12 +15,14 @@ return {
 
     telescope.setup({
       defaults = {
+        winblend = 10,
         layout_config = {
           horizontal = {
             preview_width = 0.6,
             width = 0.9,
           },
         },
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         prompt_prefix = " ",
         selection_caret = " ",
         -- path_display = { "smart" },
