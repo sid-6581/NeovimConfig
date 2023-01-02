@@ -3,6 +3,7 @@ local M = {
   event = { "BufReadPre", "InsertEnter" },
 
   dependencies = {
+    "williamboman/mason.nvim",
     "b0o/schemastore.nvim",
     "jose-elias-alvarez/null-ls.nvim",
     {

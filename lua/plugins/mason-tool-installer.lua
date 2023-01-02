@@ -3,6 +3,10 @@ return {
   event = "VimEnter",
   cmd = { "MasonToolsUpdate", "MasonToolsInstall" },
 
+  dependencies = {
+    "williamboman/mason.nvim",
+  },
+
   config = function()
     require("mason")
 
