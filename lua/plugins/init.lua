@@ -4,6 +4,11 @@ return {
   "nvim-tree/nvim-web-devicons",
 
   {
+    "kevinhwang91/nvim-bqf",
+    ft = "qf",
+  },
+
+  {
     "gpanders/editorconfig.nvim",
     event = { "BufReadPost", "InsertEnter" },
   },
