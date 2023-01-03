@@ -49,7 +49,26 @@ return {
           winblend = 10,
         },
       },
-      routes = {},
+      commands = {
+        all = {
+          view = "split",
+          opts = { enter = true, format = "details" },
+        },
+      },
+      routes = {
+        {
+          filter = {
+            any = {
+              { event = "msg_show", find = "Already at oldest change" },
+              { event = "msg_show", find = "fewer lines" },
+              { event = "msg_show", find = "line less" },
+              { event = "msg_show", find = "more line" },
+              { event = "msg_show", find = "changes;" },
+            },
+          },
+          opts = { skip = true },
+        },
+      },
     })
 
     vim.cmd([[
