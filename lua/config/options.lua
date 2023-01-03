@@ -45,7 +45,7 @@ vim.opt.scrolloff = 8
 vim.opt.selection = "inclusive"
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
-vim.opt.shortmess:append("cI")
+vim.opt.shortmess:append("cIs")
 vim.opt.showmode = false
 vim.opt.showtabline = 0
 vim.opt.sidescrolloff = 8

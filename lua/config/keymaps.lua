@@ -47,6 +47,7 @@ r({
     f = { "<CMD>Telescope find_files<CR>", "Files" },
     g = { "<CMD>Telescope git_branches<CR>", "Git branches" },
     k = { "<CMD>Telescope keymaps<CR>", "Keymaps" },
+    n = { "<CMD>Noice telescope<CR>", "Noice" },
     M = { "<CMD>Telescope man_pages<CR>", "Man pages" },
     P = { "<CMD>Telescope projects<CR>", "Projects" },
     r = { "<CMD>Telescope oldfiles<CR>", "Recent files" },
