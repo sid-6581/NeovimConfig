@@ -1,6 +1,6 @@
 -- Check if we need to reload the file when it changed
 vim.cmd([[
-  autocmd FocusGained * :checktime
+  autocmd FocusGained * checktime
 ]])
 
 -- Show cursor line only in active window

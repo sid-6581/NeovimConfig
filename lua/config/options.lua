@@ -111,5 +111,6 @@ local fences = {
   "sh",
   "console=sh",
 }
+
 vim.g.markdown_fenced_languages = fences
 vim.g.markdown_recommended_style = 0
