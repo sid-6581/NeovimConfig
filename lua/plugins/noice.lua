@@ -64,7 +64,7 @@ return {
               { event = "msg_show", find = "line less" },
               { event = "msg_show", find = "more line" },
               { event = "msg_show", find = "changes;" },
-              -- { event = "lsp", kind = "progress", find = "code_action" },
+              { event = "lsp", kind = "progress", find = "code_action" },
             },
           },
           opts = { skip = true },
