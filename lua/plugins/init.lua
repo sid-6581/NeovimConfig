@@ -33,4 +33,10 @@ return {
     event = "BufReadPost",
     config = true,
   },
+
+  {
+    "norcalli/nvim-colorizer.lua",
+    event = "FileType",
+    config = true,
+  },
 }
