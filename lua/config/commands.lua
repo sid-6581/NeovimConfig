@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- Turn off comment-related formatting and automatic inserting of comment leaders
 vim.cmd([[
-  autocmd BufWinEnter * :set formatoptions-=cro
+  autocmd BufWinEnter * set formatoptions-=cro
 ]])
 
 vim.cmd([[
