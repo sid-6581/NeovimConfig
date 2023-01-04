@@ -8,7 +8,6 @@ return {
 
     require("gruvbox").setup({
       contrast = "hard",
-      inverse = false,
       overrides = {
         GruvboxAquaSign = { bg = "NONE" },
         GruvboxBlueSign = { bg = "NONE" },
@@ -18,10 +17,10 @@ return {
         GruvboxRedSign = { bg = "NONE" },
         GruvboxYellowSign = { bg = "NONE" },
         SignColumn = { bg = "NONE" },
-        DiffDelete = { bg = colors.neutral_red, fg = colors.dark0 },
-        DiffAdd = { bg = colors.neutral_green, fg = colors.dark0 },
-        DiffChange = { bg = colors.neutral_aqua, fg = colors.dark0 },
-        DiffText = { bg = colors.neutral_yellow, fg = colors.dark0 },
+        DiffDelete = { bg = colors.neutral_red, fg = colors.dark0, reverse = false },
+        DiffAdd = { bg = colors.neutral_green, fg = colors.dark0, reverse = false },
+        DiffChange = { bg = colors.neutral_aqua, fg = colors.dark0, reverse = false },
+        DiffText = { bg = colors.neutral_yellow, fg = colors.dark0, reverse = false },
       },
     })
 

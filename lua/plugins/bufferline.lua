@@ -24,12 +24,76 @@ return {
 
     require("bufferline").setup({
       highlights = {
+        fill = {
+          bg = colors.dark0_hard,
+        },
+
+        background = {
+          bg = colors.dark0_hard,
+          fg = colors.dark3,
+          italic = true,
+        },
+        close_button = {
+          bg = colors.dark0_hard,
+        },
+
+        buffer_visible = {
+          bg = colors.dark0,
+          italic = true,
+        },
+        close_button_visible = {
+          bg = colors.dark0,
+        },
+        numbers_visible = {
+          bg = colors.dark0,
+        },
+        diagnostic_visible = {
+          bg = colors.dark0,
+        },
+        hint_visible = {
+          bg = colors.dark0,
+        },
+        hint_diagnostic_visible = {
+          bg = colors.dark0,
+        },
+        info_visible = {
+          bg = colors.dark0,
+        },
+        info_diagnostic_visible = {
+          bg = colors.dark0,
+        },
+        warning_visible = {
+          bg = colors.dark0,
+        },
+        warning_diagnostic_visible = {
+          bg = colors.dark0,
+        },
+        error_visible = {
+          bg = colors.dark0,
+        },
+        error_diagnostic_visible = {
+          bg = colors.dark0,
+        },
+        modified_visible = {
+          bg = colors.dark0,
+        },
+        duplicate_visible = {
+          bg = colors.dark0,
+        },
+        indicator_visible = {
+          fg = colors.dark0,
+          bg = colors.dark0,
+        },
+
         tab_selected = {
           bg = colors.dark1,
           fg = colors.light1,
         },
+
         buffer_selected = {
           bg = colors.dark1,
+          bold = false,
+          italic = false,
         },
         close_button_selected = {
           bg = colors.dark1,
@@ -79,7 +143,7 @@ return {
       options = {
         separator_style = "thin",
         diagnostics = "nvim_lsp",
-        max_name_length = 32,
+        max_name_length = 48,
 
         diagnostics_indicator = function(_, _, diag)
           local s = {}
