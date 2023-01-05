@@ -37,6 +37,19 @@ return {
           bg = colors.dark0_hard,
         },
 
+        tab = {
+          bg = colors.dark0,
+          fg = colors.light2,
+        },
+        tab_selected = {
+          bg = colors.dark1,
+          fg = colors.light1,
+        },
+        tab_close = {
+          bg = colors.dark0_hard,
+          fg = colors.light4,
+        },
+
         buffer_visible = {
           bg = colors.dark0,
           italic = true,
@@ -83,11 +96,6 @@ return {
         indicator_visible = {
           fg = colors.dark0,
           bg = colors.dark0,
-        },
-
-        tab_selected = {
-          bg = colors.dark1,
-          fg = colors.light1,
         },
 
         buffer_selected = {
