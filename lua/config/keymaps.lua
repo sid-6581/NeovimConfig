@@ -107,8 +107,12 @@ r({
 
 -- Normal mode
 r({
-  ["<S-C-T>"] = { "<CMD>tabnew<CR>", "Open new tab" },
+  ["<C-S-t>"] = { "<CMD>tabnew<CR>", "Open new tab" },
   ["<C-F4>"] = { "<CMD>tabclose<CR>", "Close tab" },
+  ["<C-S-h>"] = { "gT", "Previous tab" },
+  ["<C-S-l>"] = { "gt", "Next tab" },
+  ["<C-S-=>"] = { "<CMD>tabnew<CR>", "Open new tab" },
+  ["<C-S-_>"] = { "<CMD>tabclose<CR>", "Close tab" },
 
   ["<C-Up>"] = { "<CMD>resize -2<CR>", "Resize window -2" },
   ["<C-Down>"] = { "<CMD>resize +2<CR>", "Resize window +2" },
@@ -198,7 +202,7 @@ r({
   ["<Esc>"] = { "<Esc>`^", "Exit insert mode" },
   ["jj"] = { "<Esc>", "Exit insert mode", noremap = false },
   ["<S-Enter>"] = { "<Esc>m`o<Esc>``a", "Insert blank line below" },
-  ["<S-C-Enter>"] = { "<Esc>m`O<Esc>``a", "Insert blank line above" },
+  ["<C-S-Enter>"] = { "<Esc>m`O<Esc>``a", "Insert blank line above" },
   ["<S-Insert>"] = { "<C-R>+", "Paste from system clipboard" },
   ["<S-Tab>"] = { "<C-D>", "Unindent line" },
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
