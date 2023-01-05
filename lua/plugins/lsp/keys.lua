@@ -59,7 +59,7 @@ function M.on_attach(client, buffer)
     [",xd"] = { "<CMD>TroubleToggle document_diagnostics<CR>", "Toggle document diagnostics" },
     [",xl"] = { "<CMD>TroubleToggle loclist<CR>", "Toggle loc list" },
     [",xq"] = { "<CMD>TroubleToggle quickfix<CR>", "Toggle quickfix" },
-    ["gR"] = { "<CMD>TroubleToggle lsp_references<CR>" },
+    ["gR"] = { "<CMD>TroubleToggle lsp_references<CR>", "Toggle references" },
 
     -- g = {
     --   name = "+goto",
