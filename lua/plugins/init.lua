@@ -1,4 +1,14 @@
 return {
+  {
+    "lambdalisue/suda.vim",
+    event = "BufReadPre",
+    cmd = { "SudaRead", "SudaWrite" },
+
+    init = function()
+      vim.g.suda_smart_edit = 1
+    end,
+  },
+
   "nvim-lua/plenary.nvim",
   "MunifTanjim/nui.nvim",
   "nvim-tree/nvim-web-devicons",
