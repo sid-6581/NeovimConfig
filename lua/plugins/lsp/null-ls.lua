@@ -19,7 +19,6 @@ function M.setup(options)
         extra_args = { "--preview" },
       }),
       formatting.isort,
-      formatting.ocdc,
       formatting.packer,
       formatting.shellharden,
       formatting.stylua,
