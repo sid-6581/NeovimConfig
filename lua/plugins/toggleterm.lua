@@ -12,6 +12,11 @@ return {
       dir = vim.fn.getcwd(),
       direction = "float",
       shell = shell,
+      highlights = {
+        FloatBorder = {
+          link = "WinSeparator",
+        },
+      },
       float_opts = {
         border = "single",
         winblend = 10,
