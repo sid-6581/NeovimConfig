@@ -26,5 +26,9 @@ return {
 
     vim.cmd([[ hi clear ]])
     vim.cmd.colorscheme("gruvbox")
+
+    vim.api.nvim_set_hl(0, "FloatBorder", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "FloatTitle", { link = "Title" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
   end,
 }

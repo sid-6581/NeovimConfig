@@ -1,7 +1,12 @@
 -- Check if we need to reload the file when it changed
-vim.cmd([[
-  autocmd FocusGained * checktime
-]])
+vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, { command = "checktime" })
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
+  end,
+})
 
 -- Show cursor line only in active window
 vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
@@ -32,11 +37,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- Highlight on yank
-vim.cmd([[
-  autocmd TextYankPost * lua vim.highlight.on_yank({ higroup = 'Visual', timeout = 200 })
-]])
-
 -- Use q to close non-editor windows, and hide them from the buffer list
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
@@ -50,20 +50,15 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "tsplayground",
     "PlenaryTestPopup",
   },
-  callback = function()
-    vim.cmd([[
-      nnoremap <silent> <buffer> q <CMD>close<CR> 
-      set nobuflisted 
-    ]])
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
   end,
 })
 
 -- Turn off comment-related formatting and automatic inserting of comment leaders
-vim.cmd([[
-  autocmd BufWinEnter * set formatoptions-=cro
-]])
-
-vim.cmd([[
-  highlight link FloatBorder Normal
-  highlight link NormalFloat Normal
-]])
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
+})

@@ -107,5 +107,11 @@ return {
     telescope.load_extension("undo")
     telescope.load_extension("z")
     telescope.load_extension("projects")
+
+    vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "TelescopePromptBorder", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "TelescopeTitle", { link = "Title" })
   end,
 }

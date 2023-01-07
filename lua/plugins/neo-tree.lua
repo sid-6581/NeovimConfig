@@ -8,10 +8,8 @@ return {
 
     vim.g.neo_tree_remove_legacy_commands = 1
 
-    vim.cmd([[
-      highlight link NeoTreeFloatBorder WinSeparator
-      highlight link NeoTreeFloatTitle Title
-    ]])
+    vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "NeoTreeFloatTitle", { link = "Title" })
 
     neo_tree.setup({
       close_if_last_window = true,
