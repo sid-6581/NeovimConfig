@@ -28,6 +28,7 @@ function M.on_attach(client, buffer)
             mode = "v",
           },
         },
+        F = { require("plugins.lsp.formatting").toggle, "Toggle format on save" },
         l = { "<CMD>lua vim.lsp.codelens.run()<CR>", "Codelens action" },
         q = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
         r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
