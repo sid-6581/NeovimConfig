@@ -1,14 +1,4 @@
 return {
-  {
-    "lambdalisue/suda.vim",
-    event = "BufReadPre",
-    cmd = { "SudaRead", "SudaWrite" },
-
-    init = function()
-      vim.g.suda_smart_edit = 1
-    end,
-  },
-
   "nvim-lua/plenary.nvim",
   "MunifTanjim/nui.nvim",
   "nvim-tree/nvim-web-devicons",
@@ -48,5 +38,27 @@ return {
     "norcalli/nvim-colorizer.lua",
     event = "FileType",
     config = true,
+  },
+
+  {
+    "lambdalisue/suda.vim",
+    event = "BufReadPre",
+    cmd = { "SudaRead", "SudaWrite" },
+
+    init = function()
+      vim.g.suda_smart_edit = 1
+    end,
+  },
+
+  {
+    "s1n7ax/nvim-window-picker",
+
+    config = {
+      fg_color = require("gruvbox.palette").bright_yellow,
+      other_win_hl_color = require("gruvbox.palette").dark1,
+      selection_display = function(char)
+        return "  " .. char .. "  "
+      end,
+    },
   },
 }
