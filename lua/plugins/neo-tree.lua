@@ -1,7 +1,7 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "main",
-  cmd = "Neotree",
+  lazy = false,
 
   config = function()
     vim.g.neo_tree_remove_legacy_commands = 1
