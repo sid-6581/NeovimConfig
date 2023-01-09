@@ -4,14 +4,12 @@ return {
   cmd = "Neotree",
 
   config = function()
-    local neo_tree = require("neo-tree")
-
     vim.g.neo_tree_remove_legacy_commands = 1
 
     vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", { link = "WinSeparator" })
     vim.api.nvim_set_hl(0, "NeoTreeFloatTitle", { link = "Title" })
 
-    neo_tree.setup({
+    require("neo-tree").setup({
       close_if_last_window = true,
       popup_border_style = "single",
       use_popups_for_input = false,
