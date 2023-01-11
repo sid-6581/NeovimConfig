@@ -26,7 +26,6 @@ return {
       "lua-language-server",
       "pyright",
       "rust-analyzer",
-      "salt-lsp",
       "shellcheck",
       "shellharden",
       "stylua",
