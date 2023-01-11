@@ -49,7 +49,8 @@ return {
 
     -- Automatically detect ansible yaml files.
     vim.cmd([[
-      autocmd BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
+      autocmd BufNewFile,BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
+      autocmd BufNewFile,BufRead *.sls set filetype=sls.yaml
     ]])
   end,
 }
