@@ -4,7 +4,11 @@ return {
   dependencies = {
     "AndrewRadev/sideways.vim",
     "eandrju/cellular-automaton.nvim",
-    "fedepujol/move.nvim",
+
+    {
+      "booperlv/nvim-gomove",
+      config = true,
+    },
 
     {
       "gbprod/substitute.nvim",

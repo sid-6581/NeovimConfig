@@ -127,11 +127,6 @@ r({
   ["<S-h>"] = { "<CMD>bprevious<CR>", "Previous buffer" },
   ["<S-l>"] = { "<CMD>bnext<CR>", "Next buffer" },
 
-  ["<A-j>"] = { ":MoveLine(1)<CR>", "Move down" },
-  ["<A-k>"] = { ":MoveLine(-1)<CR>", "Move up" },
-  ["<S-A-h>"] = { ":MoveHChar(-1)<CR>", "Move character left" },
-  ["<S-A-l>"] = { ":MoveHChar(1)<CR>", "Move character right" },
-
   ["Y"] = { "_y$", "Yank line character-wise without indent" },
   ["`"] = { "i <Esc>r", "Insert one character" },
   ["<BS>"] = { "<CMD>noh<return>", "Clear search highlighting" },
@@ -207,8 +202,6 @@ r({
   ["<S-Insert>"] = { "<C-R>+", "Paste from system clipboard" },
   ["<S-Tab>"] = { "<C-D>", "Unindent line" },
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
-  ["<A-j>"] = { "<CMD>MoveLine(1)<CR>", "Move down" },
-  ["<A-k>"] = { "<CMD>MoveLine(-1)<CR>", "Move up" },
 }, { mode = "i" })
 
 -- Visual and select mode
@@ -218,10 +211,6 @@ r({
   [">"] = { ">gv", "Increase indent" },
   ["al"] = { ":<C-u>norm!0v$<CR>", "Yank a line" },
   ["il"] = { ":<C-u>norm!^vg_<CR>", "Yank inner line" },
-  ["<A-j>"] = { ":MoveBlock(1)<CR>", "Move block down" },
-  ["<A-k>"] = { ":MoveBlock(-1)<CR>", "Move block up" },
-  ["<S-A-h>"] = { ":MoveHBlock(-1)<CR>", "Move block left" },
-  ["<S-A-l>"] = { ":MoveHBlock(1)<CR>", "Move block right" },
   ["p"] = { '"_dP', "Paste" },
   [",sl"] = { ":sort i<CR>", "Sort lines" },
   [",sn"] = { ":sort in<CR>", "Sort lines by number" },
