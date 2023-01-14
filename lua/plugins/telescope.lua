@@ -7,6 +7,10 @@ return {
     "nvim-telescope/telescope-symbols.nvim",
     "nvim-telescope/telescope-z.nvim",
     "debugloop/telescope-undo.nvim",
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    },
   },
 
   config = function()
@@ -104,6 +108,7 @@ return {
     })
 
     telescope.load_extension("file_browser")
+    telescope.load_extension("fzf")
     telescope.load_extension("undo")
     telescope.load_extension("z")
     telescope.load_extension("projects")
