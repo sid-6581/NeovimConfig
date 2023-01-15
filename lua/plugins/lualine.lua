@@ -92,7 +92,7 @@ function M.config()
           color = { fg = "#ff9e64" },
         },
       },
-      lualine_x = { diagnostics, lsp, spaces, "encoding", fileformat, "filetype" },
+      lualine_x = { diagnostics, "filetype", lsp, spaces, "encoding", fileformat },
       lualine_y = { "location" },
       lualine_z = { "progress" },
     },
