@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 997,
 
-  config = {
+  opts = {
     highlight = {
       groups = {
         InclineNormal = {

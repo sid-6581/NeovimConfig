@@ -21,7 +21,7 @@ return {
       dependencies = {
         {
           "ggandor/flit.nvim",
-          config = { labeled_modes = "nv" },
+          opts = { labeled_modes = "nv" },
         },
         { "ggandor/leap-ast.nvim" },
       },
@@ -56,7 +56,7 @@ return {
 
     {
       "Wansmer/treesj",
-      config = {
+      opts = {
         use_default_keymaps = false,
         check_syntax_error = false,
       },

@@ -2,7 +2,7 @@ return {
   "folke/trouble.nvim",
   cmd = { "TroubleToggle", "Trouble" },
 
-  config = {
+  opts = {
     use_diagnostic_signs = true,
   },
 }

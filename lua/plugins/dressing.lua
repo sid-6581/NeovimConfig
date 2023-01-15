@@ -2,7 +2,7 @@ return {
   "stevearc/dressing.nvim",
   event = "VeryLazy",
 
-  config = {
+  opts = {
     input = {
       border = "single",
       get_config = function(opts)

@@ -53,7 +53,7 @@ return {
   {
     "s1n7ax/nvim-window-picker",
 
-    config = {
+    opts = {
       fg_color = require("gruvbox.palette").bright_yellow,
       other_win_hl_color = require("gruvbox.palette").dark1,
       selection_display = function(char)

@@ -14,7 +14,7 @@ return {
       popup_border_style = "single",
       use_popups_for_input = false,
       window = {
-        width = 35,
+        width = 40,
       },
       filesystem = {
         filtered_items = {

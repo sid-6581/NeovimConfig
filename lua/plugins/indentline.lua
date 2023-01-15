@@ -2,7 +2,7 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufReadPost", "InsertEnter" },
 
-  config = {
+  opts = {
     buftype_exclude = {
       "terminal",
       "nofile",

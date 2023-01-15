@@ -2,7 +2,7 @@ return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPost", "InsertEnter" },
 
-  config = {
+  opts = {
     preview_config = {
       border = "single",
     },

@@ -12,7 +12,7 @@ return {
     },
     {
       "kosayoda/nvim-lightbulb",
-      config = {
+      opts = {
         autocmd = { enabled = true },
       },
     },
