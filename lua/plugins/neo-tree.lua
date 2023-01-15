@@ -24,7 +24,7 @@ return {
           hide_hidden = false,
         },
         bind_to_cwd = true,
-        follow_current_file = true,
+        -- follow_current_file = true,
         group_empty_dirs = true,
         hijack_netrw_behavior = "open_current",
       },
