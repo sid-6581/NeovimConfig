@@ -70,6 +70,8 @@ vim.opt.winblend = 10
 vim.opt.wrap = false
 vim.opt.writebackup = false
 
+vim.filetype.add({ extension = { nomad = "hcl" } })
+
 -- Don't load the plugins below
 local builtins = {
   "gzip",
