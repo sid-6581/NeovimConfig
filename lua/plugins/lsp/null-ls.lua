@@ -7,6 +7,22 @@ function M.setup(options)
   local formatting = nls.builtins.formatting
   local diagnostics = nls.builtins.diagnostics
 
+  local nomadfmt = {
+    method = nls.methods.FORMATTING,
+    filetypes = { "hcl" },
+    generator = nls.formatter({
+      command = "nomad",
+      args = { "fmt", "-" },
+      to_stdin = true,
+      runtime_condition = function(params)
+        -- only target nomad hcl files
+        return params.bufname:match("%.nomad") ~= nil
+      end,
+    }),
+  }
+
+  nls.register(nomadfmt)
+
   nls.setup({
     on_attach = options.on_attach,
 
