@@ -92,13 +92,10 @@ r({
 
   t = {
     name = "Terminal",
-    n = { "<CMD>lua _NODE_TOGGLE()<CR>", "Node" },
-    u = { "<CMD>lua _NCDU_TOGGLE()<CR>", "NCDU" },
-    t = { "<CMD>lua _HTOP_TOGGLE()<CR>", "Htop" },
+    f = { "<CMD>lua _TERMINAL_TOGGLE()<CR>", "Float" },
+    h = { "<CMD>lua _TERMINAL_HORIZONTAL_TOGGLE()<CR>", "Horizontal" },
     p = { "<CMD>lua _PYTHON_TOGGLE()<CR>", "Python" },
-    f = { "<CMD>ToggleTerm direction=float<CR>", "Float" },
-    h = { "<CMD>ToggleTerm size=10 direction=horizontal<CR>", "Horizontal" },
-    v = { "<CMD>ToggleTerm size=80 direction=vertical<CR>", "Vertical" },
+    v = { "<CMD>lua _TERMINAL_VERTICAL_TOGGLE()<CR>", "Vertical" },
   },
 }, {
   mode = "n",
