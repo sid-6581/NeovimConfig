@@ -33,28 +33,77 @@ return {
 
     local Terminal = require("toggleterm.terminal").Terminal
 
-    local terminal = Terminal:new({ count = 90, hidden = true })
+    local terminal
     function _TERMINAL_TOGGLE()
+      if terminal == nil then
+        terminal = Terminal:new({
+          count = 90,
+          hidden = true,
+          on_exit = function()
+            terminal = nil
+          end,
+        })
+      end
       terminal:toggle()
     end
 
-    local terminal_horizontal = Terminal:new({ count = 91, direction = "horizontal", hidden = true })
+    local terminal_horizontal
     function _TERMINAL_HORIZONTAL_TOGGLE()
+      if terminal_horizontal == nil then
+        terminal_horizontal = Terminal:new({
+          count = 91,
+          direction = "horizontal",
+          hidden = true,
+          on_exit = function()
+            terminal_horizontal = nil
+          end,
+        })
+      end
       terminal_horizontal:toggle()
     end
 
-    local terminal_vertical = Terminal:new({ count = 92, direction = "vertical", hidden = true })
+    local terminal_vertical
     function _TERMINAL_VERTICAL_TOGGLE()
+      if terminal_vertical == nil then
+        terminal_vertical = Terminal:new({
+          count = 92,
+          direction = "vertical",
+          hidden = true,
+          on_exit = function()
+            terminal_vertical = nil
+          end,
+        })
+      end
       terminal_vertical:toggle()
     end
 
-    local lazygit = Terminal:new({ count = 93, cmd = "lazygit", hidden = true })
+    local lazygit
     function _LAZYGIT_TOGGLE()
+      if lazygit == nil then
+        lazygit = Terminal:new({
+          count = 93,
+          cmd = "lazygit",
+          hidden = true,
+          on_exit = function()
+            lazygit = nil
+          end,
+        })
+      end
       lazygit:toggle()
     end
 
-    local python = Terminal:new({ count = 94, cmd = "python", hidden = true })
+    local python
     function _PYTHON_TOGGLE()
+      if lazygit == nil then
+        lazygit = Terminal:new({
+          count = 94,
+          cmd = "python",
+          hidden = true,
+          on_exit = function()
+            python = nil
+          end,
+        })
+      end
       python:toggle()
     end
   end,
