@@ -94,6 +94,7 @@ r({
     name = "Terminal",
     f = { "<CMD>lua _TERMINAL_TOGGLE()<CR>", "Float" },
     h = { "<CMD>lua _TERMINAL_HORIZONTAL_TOGGLE()<CR>", "Horizontal" },
+    m = { "<CMD>lua _MC_TOGGLE()<CR>", "Midnight Commander" },
     p = { "<CMD>lua _PYTHON_TOGGLE()<CR>", "Python" },
     v = { "<CMD>lua _TERMINAL_VERTICAL_TOGGLE()<CR>", "Vertical" },
   },

@@ -94,8 +94,8 @@ return {
 
     local python
     function _PYTHON_TOGGLE()
-      if lazygit == nil then
-        lazygit = Terminal:new({
+      if python == nil then
+        python = Terminal:new({
           count = 94,
           cmd = "python",
           hidden = true,
@@ -105,6 +105,21 @@ return {
         })
       end
       python:toggle()
+    end
+
+    local mc
+    function _MC_TOGGLE()
+      if mc == nil then
+        mc = Terminal:new({
+          count = 95,
+          cmd = "mc",
+          hidden = true,
+          on_exit = function()
+            mc = nil
+          end,
+        })
+        mc:toggle()
+      end
     end
   end,
 }
