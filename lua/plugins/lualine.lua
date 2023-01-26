@@ -2,11 +2,6 @@ local M = {
   "nvim-lualine/lualine.nvim",
   lazy = false,
   priority = 998,
-
-  dependencies = {
-    "tiagovla/scope.nvim",
-    config = true,
-  },
 }
 
 function M.config()
