@@ -35,7 +35,7 @@ r({
   e = { "<CMD>Neotree toggle<CR>", "File explorer" },
   E = { "<CMD>Neotree reveal<CR>", "Find file in explorer" },
   q = { "<CMD>q<CR>", "Quit" },
-  Q = { "<CMD>q!<CR>", "Quit without saving" },
+  Q = { "<CMD>qa!<CR>", "Quit all without saving" },
   w = { "<CMD>w!<CR>", "Save" },
 
   f = {
