@@ -87,6 +87,9 @@ return {
           on_exit = function()
             lazygit = nil
           end,
+          on_close = function()
+            require("neo-tree.events").fire_event("git_event")
+          end,
         })
       end
       lazygit:toggle()
