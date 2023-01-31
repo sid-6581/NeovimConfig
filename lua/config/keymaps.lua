@@ -126,7 +126,7 @@ r({
   ["<S-l>"] = { "<CMD>bnext<CR>", "Next buffer" },
 
   ["Y"] = { "_y$", "Yank line character-wise without indent" },
-  ["`"] = { "i <Esc>r", "Insert one character" },
+  ["`"] = { '"=nr2char(getchar())<CR>P', "Insert one character" },
   ["<BS>"] = { "<CMD>noh<return>", "Clear search highlighting" },
   ["<S-Insert>"] = { '"+P', "Paste from system clipboard" },
   [",p"] = { '"+p', "Paste from system clipboard" },
