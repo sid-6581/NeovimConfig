@@ -38,6 +38,7 @@ return {
           "--line-number",
           "--column",
           "--smart-case",
+          "--multiline",
           "--hidden",
         },
         mappings = {
