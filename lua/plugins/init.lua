@@ -4,6 +4,11 @@ return {
   "nvim-tree/nvim-web-devicons",
 
   {
+    "vmware-archive/salt-vim",
+    ft = "sls",
+  },
+
+  {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
   },

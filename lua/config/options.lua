@@ -73,7 +73,6 @@ vim.opt.writebackup = false
 vim.filetype.add({
   extension = {
     nomad = "hcl",
-    sls = "sls.yaml",
   },
 })
 
