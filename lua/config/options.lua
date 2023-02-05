@@ -63,7 +63,7 @@ vim.opt.timeoutlen = 400
 vim.opt.title = false
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
-vim.opt.updatetime = 200
+vim.opt.updatetime = 500
 vim.opt.virtualedit:append("block")
 vim.opt.wildmode = "longest,list:full"
 vim.opt.winblend = 10
