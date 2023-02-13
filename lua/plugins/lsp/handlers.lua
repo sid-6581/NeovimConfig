@@ -164,8 +164,8 @@ function M.setup(options)
       })
     end,
 
-    ["sumneko_lua"] = function()
-      lspconfig.sumneko_lua.setup({
+    ["lua_ls"] = function()
+      lspconfig.lua_ls.setup({
         on_attach = options.on_attach,
         capabilities = options.capabilities,
         single_file_support = true,
