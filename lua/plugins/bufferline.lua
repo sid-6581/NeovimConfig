@@ -20,7 +20,7 @@ return {
       -- "hint",
     }
 
-    local colors = require("gruvbox.palette")
+    local colors = require("gruvbox.palette").colors
 
     require("bufferline").setup({
       highlights = {
