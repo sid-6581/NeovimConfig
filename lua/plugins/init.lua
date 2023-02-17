@@ -5,7 +5,7 @@ return {
 
   {
     "folke/lazy.nvim",
-    version = "stable",
+    version = "9.8.3",
   },
 
   {
