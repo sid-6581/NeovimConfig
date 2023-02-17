@@ -4,6 +4,11 @@ return {
   "nvim-tree/nvim-web-devicons",
 
   {
+    "folke/lazy.nvim",
+    version = "stable",
+  },
+
+  {
     "vmware-archive/salt-vim",
     ft = "sls",
   },
