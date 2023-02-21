@@ -5,7 +5,6 @@ return {
 
   {
     "folke/lazy.nvim",
-    version = "v9.8.3",
   },
 
   {
@@ -63,13 +62,17 @@ return {
   {
     "s1n7ax/nvim-window-picker",
 
-    opts = {
-      fg_color = require("gruvbox.palette").colors.bright_yellow,
-      other_win_hl_color = require("gruvbox.palette").colors.dark1,
-      selection_display = function(char)
-        return "  " .. char .. "  "
-      end,
-    },
+    config = function()
+      local colors = require("gruvbox.palette").colors
+
+      require("nvim-window-picker").setup({
+        fg_color = colors.bright_yellow,
+        other_win_hl_color = colors.dark1,
+        selection_display = function(char)
+          return "  " .. char .. "  "
+        end,
+      })
+    end,
   },
 
   {
