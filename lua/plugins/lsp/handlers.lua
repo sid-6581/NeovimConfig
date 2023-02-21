@@ -77,6 +77,7 @@ function M.on_attach(client, _bufnr)
       range = true,
     }
   end
+  if client.name == "eslint" then client.server_capabilities.documentFormattingProvider = true end
 end
 
 function M.setup(options)
