@@ -65,7 +65,7 @@ return {
     config = function()
       local colors = require("gruvbox.palette").colors
 
-      require("nvim-window-picker").setup({
+      require("window-picker").setup({
         fg_color = colors.bright_yellow,
         other_win_hl_color = colors.dark1,
         selection_display = function(char)
