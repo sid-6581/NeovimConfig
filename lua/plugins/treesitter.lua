@@ -26,7 +26,7 @@ function M.config()
       "c",
       "c_sharp",
       "cmake",
-      -- "comment", -- comments are slowing down TS bigtime, so disable for now
+      "comment",
       "cpp",
       "css",
       "diff",
