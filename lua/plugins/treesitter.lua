@@ -84,7 +84,7 @@ function M.config()
       },
     },
     indent = {
-      enable = true,
+      enable = false,
       disable = { "yaml" },
     },
     refactor = {
