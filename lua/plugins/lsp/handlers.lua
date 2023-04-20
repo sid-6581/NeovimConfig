@@ -221,7 +221,7 @@ function M.setup(options)
       lspconfig.rust_analyzer.setup({
         on_attach = options.on_attach,
         capabilities = options.capabilities,
-        cmd = vim.fn.has("win32") == 1 and { "cmd.exe", "/c", "rust-analyzer" } or nil,
+        cmd = { "rustup", "run", "stable", "rust-analyzer" },
       })
     end,
 
