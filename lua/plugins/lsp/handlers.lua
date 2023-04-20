@@ -217,6 +217,22 @@ function M.setup(options)
       })
     end,
 
+    ["rust_analyzer"] = function()
+      lspconfig.rust_analyzer.setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+        cmd = vim.fn.has("win32") == 1 and { "cmd.exe", "/c", "rust-analyzer" } or nil,
+      })
+    end,
+
+    ["taplo"] = function()
+      lspconfig.taplo.setup({
+        on_attach = options.on_attach,
+        capabilities = options.capabilities,
+        cmd = vim.fn.has("win32") == 1 and { "cmd.exe", "/c", "taplo", "lsp", "stdio" } or nil,
+      })
+    end,
+
     ["volar"] = function()
       lspconfig.volar.setup({
         on_attach = options.on_attach,
