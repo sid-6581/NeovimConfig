@@ -221,7 +221,7 @@ function M.setup(options)
       lspconfig.rust_analyzer.setup({
         on_attach = options.on_attach,
         capabilities = options.capabilities,
-        cmd = { "rustup", "run", "stable", "rust-analyzer" },
+        cmd = { "rustup", "run", "nightly", "rust-analyzer" },
       })
     end,
 
