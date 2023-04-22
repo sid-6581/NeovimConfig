@@ -222,6 +222,14 @@ function M.setup(options)
         on_attach = options.on_attach,
         capabilities = options.capabilities,
         cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+        settings = {
+          ["rust-analyzer"] = {
+            check = {
+              command = "clippy",
+              extraArgs = "--fix",
+            },
+          },
+        },
       })
     end,
 
