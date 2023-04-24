@@ -17,7 +17,7 @@ return {
         width = 40,
       },
       filesystem = {
-        use_libuv_file_watcher = true,
+        use_libuv_file_watcher = false,
         filtered_items = {
           visible = true,
           hide_dotfiles = false,
