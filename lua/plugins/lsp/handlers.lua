@@ -226,7 +226,7 @@ function M.setup(options)
           ["rust-analyzer"] = {
             check = {
               command = "clippy",
-              extraArgs = { "--fix", "--allow-dirty" },
+              -- extraArgs = { "--fix", "--allow-dirty" },
             },
           },
         },
