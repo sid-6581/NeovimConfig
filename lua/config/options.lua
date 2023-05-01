@@ -25,6 +25,7 @@ vim.opt.fileencoding = "utf-8"
 vim.opt.fileformat = "unix"
 vim.opt.fillchars:append("stlnc:")
 vim.opt.foldlevel = 99
+vim.opt.foldmethod = "indent"
 vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.grepprg = "rg --vimgrep"
