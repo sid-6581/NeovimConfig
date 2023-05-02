@@ -322,3 +322,8 @@ end, { expr = true })
 vim.keymap.set("c", "<C-k>", function()
   return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>"
 end, { expr = true })
+
+-- Redirect output to noice
+vim.keymap.set("c", "<S-Enter>", function()
+  require("noice").redirect(vim.fn.getcmdline())
+end, { desc = "Redirect Cmdline" })
