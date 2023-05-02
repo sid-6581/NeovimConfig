@@ -64,6 +64,8 @@ return {
               { event = "msg_show", find = "line less" },
               { event = "msg_show", find = "more line" },
               { event = "msg_show", find = "changes;" },
+              { event = "msg_show", find = "^/" },
+              { error = true, find = "Pattern not found" },
               { event = "lsp", kind = "progress", find = "code_action" },
             },
           },
