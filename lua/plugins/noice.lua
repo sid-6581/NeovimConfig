@@ -65,6 +65,7 @@ return {
               { event = "msg_show", find = "more line" },
               { event = "msg_show", find = "changes;" },
               { event = "msg_show", find = "^/" },
+              { event = "msg_show", find = "B written" },
               { error = true, find = "Pattern not found" },
               { error = true, find = "Error executing luv callback" },
               { event = "lsp", kind = "progress", find = "code_action" },
