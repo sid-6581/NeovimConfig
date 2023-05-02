@@ -46,7 +46,7 @@ return {
       views = {
         mini = {
           timeout = 5000,
-          winblend = 10,
+          winblend = 100,
         },
       },
       commands = {
