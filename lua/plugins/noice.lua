@@ -64,6 +64,7 @@ return {
               { event = "msg_show", find = "line less" },
               { event = "msg_show", find = "more line" },
               { event = "msg_show", find = "changes;" },
+              { event = "msg_show", find = "change;" },
               { event = "msg_show", find = "^/" },
               { event = "msg_show", find = "B written" },
               { error = true, find = "Pattern not found" },
