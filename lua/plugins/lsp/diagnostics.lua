@@ -9,8 +9,7 @@ M.signs = {
 
 function M.setup()
   vim.diagnostic.config({
-    virtual_text = { spacing = 4, prefix = "●" },
-    -- virtual_text = false,
+    virtual_text = { spacing = 20, prefix = "●" },
     update_in_insert = true,
     underline = true,
     severity_sort = true,
