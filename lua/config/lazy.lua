@@ -14,7 +14,7 @@ local lazy = require("lazy")
 
 lazy.setup("plugins", {
   defaults = {
-    lazy = true,
+    lazy = false,
   },
   install = {
     colorscheme = { "gruvbox" },
