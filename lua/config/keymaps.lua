@@ -197,7 +197,7 @@ r({
   ["jj"] = { "<Esc>", "Exit insert mode", noremap = false },
   ["<S-Enter>"] = { "<Esc>m`o<Esc>``a", "Insert blank line below" },
   ["<C-S-Enter>"] = { "<Esc>m`O<Esc>``a", "Insert blank line above" },
-  ["<S-Insert>"] = { "<C-R>+", "Paste from system clipboard" },
+  ["<S-Insert>"] = { "<C-R><C-R>+", "Paste from system clipboard" },
   ["<S-Tab>"] = { "<C-D>", "Unindent line" },
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
 }, { mode = "i" })
@@ -317,13 +317,17 @@ r({
 
 -- Better wildmenu navigation
 vim.keymap.set("c", "<C-j>", function()
-  return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>"
+  ---@diagnostic disable-next-line: incomplete-signature-doc
+  return vim.fn.wildmenumode() == 1 and "<C-N>" or "<C-J>"
 end, { expr = true })
 vim.keymap.set("c", "<C-k>", function()
-  return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>"
+  return vim.fn.wildmenumode() == 1 and "<C-P>" or "<C-K>"
 end, { expr = true })
 
 -- Redirect output to noice
 vim.keymap.set("c", "<S-Enter>", function()
   require("noice").redirect(vim.fn.getcmdline())
 end, { desc = "Redirect Cmdline" })
+
+-- Command-line mode
+vim.keymap.set("c", "<S-Insert>", "<C-R><C-R>+", { desc = "Paste from system clipboard" })
