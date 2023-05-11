@@ -26,7 +26,7 @@ function M.config()
       "c",
       "c_sharp",
       "cmake",
-      "comment",
+      -- "comment",
       "cpp",
       "css",
       "diff",
