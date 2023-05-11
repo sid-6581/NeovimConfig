@@ -66,9 +66,6 @@ function M.config()
       "yaml",
       "zig",
     },
-    autopairs = {
-      enable = true,
-    },
     highlight = {
       enable = true,
       disable = { "comment", "help" },
@@ -85,9 +82,12 @@ function M.config()
     },
     indent = {
       enable = false,
-      disable = { "yaml" },
     },
     refactor = {
+      highlight_definitions = {
+        enable = true,
+        clear_on_cursor_move = true,
+      },
       smart_rename = {
         enable = false,
         client = {
