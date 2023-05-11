@@ -71,7 +71,7 @@ function M.config()
     },
     highlight = {
       enable = true,
-      disable = { "help" },
+      disable = { "comment", "help" },
       additional_vim_regex_highlighting = false,
     },
     incremental_selection = {
