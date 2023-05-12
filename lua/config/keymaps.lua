@@ -182,8 +182,6 @@ r({
   ["<A-2>"] = { "<CMD>Neotree toggle show buffers<CR>", "Buffer Explorer" },
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
 
-  [",x<BS>"] = { "<CMD>CellularAutomaton make_it_rain<CR>", "Make it rain" },
-
   ["<leader>pb"] = { 'a <C-R>" <Esc>', "Paste after cursor and add space at both ends" },
   ["<leader>pe"] = { 'a<C-R>" <Esc>', "Paste after cursor and add space at end" },
   ["<leader>ps"] = { 'a <C-R>"<Esc>', "Paste after cursor and add space at start" },

@@ -3,7 +3,6 @@ return {
 
   dependencies = {
     "AndrewRadev/sideways.vim",
-    "eandrju/cellular-automaton.nvim",
 
     {
       "booperlv/nvim-gomove",
