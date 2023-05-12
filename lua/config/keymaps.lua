@@ -167,6 +167,7 @@ r({
   [",wp"] = { "<C-W>W", "Previous window" },
   [",wr"] = { "<C-W>r", "Rotate windows downwards/rightwards" },
   [",wx"] = { "<C-W>x", "Exchange current window with next" },
+  [",w]"] = { "<C-W>]", "Go to identifier in split" },
   -- [",x12"] = { ":%s/\\n//g<CR>:%s/\\~/\\~\\r/g<CR>gg:nohlsearch<CR>", "Format X12 file" },
   [",x12"] = { ":%!x12pp<CR>:set ft=x12<CR>", "Format X12 file" },
   [",cd"] = { ":cd %:h<CR>", "Change current working directory to current file directory" },
