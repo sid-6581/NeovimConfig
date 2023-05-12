@@ -199,6 +199,7 @@ r({
   ["<S-Insert>"] = { "<C-R><C-R>+", "Paste from system clipboard" },
   ["<S-Tab>"] = { "<C-D>", "Unindent line" },
   ["<F1>"] = { "<CMD>Telescope help_tags<CR>", "Help" },
+  ["<C-Backspace>"] = { "<C-\\><C-O>dB", "Delete until the previous space" },
 }, { mode = "i" })
 
 -- Visual and select mode
