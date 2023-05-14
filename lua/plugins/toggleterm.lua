@@ -16,10 +16,12 @@ return {
       autochdir = true,
       open_mapping = "<C-\\><C-\\>",
       shading_factor = 2,
+      start_in_insert = true,
       dir = vim.fn.getcwd(),
       direction = "float",
       shell = shell,
       persist_size = false,
+      persist_mode = false,
       highlights = {
         FloatBorder = {
           link = "WinSeparator",
