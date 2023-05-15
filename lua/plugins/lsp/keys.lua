@@ -45,7 +45,7 @@ function M.on_attach(client, buffer)
     ["gl"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Show diagnostics" },
     ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
     ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
-    ["<A-Enter>"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action", mode = { "n", "x" } },
+    ["<A-Enter>"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action", mode = { "n", "i", "x" } },
 
     -- Goto-preview plugin
     ["ghd"] = { "<CMD>lua require('goto-preview').goto_preview_definition()<CR>", "Preview definition" },
