@@ -317,12 +317,17 @@ r({
 
 -- Better wildmenu navigation
 vim.keymap.set("c", "<C-j>", function()
-  ---@diagnostic disable-next-line: incomplete-signature-doc
-  return vim.fn.wildmenumode() == 1 and "<C-N>" or "<C-J>"
-end, { expr = true })
+  return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>"
+end, { expr = true, desc = "Wildmenu down" })
+vim.keymap.set("c", "<Down>", function()
+  return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>"
+end, { expr = true, desc = "Wildmenu down" })
 vim.keymap.set("c", "<C-k>", function()
-  return vim.fn.wildmenumode() == 1 and "<C-P>" or "<C-K>"
-end, { expr = true })
+  return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>"
+end, { expr = true, desc = "Wildmenu up" })
+vim.keymap.set("c", "<Up>", function()
+  return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>"
+end, { expr = true, desc = "Wildmenu up" })
 
 -- Redirect output to noice
 vim.keymap.set("c", "<S-Enter>", function()

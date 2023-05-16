@@ -1,11 +1,8 @@
 return {
+  "folke/lazy.nvim",
   "nvim-lua/plenary.nvim",
   "MunifTanjim/nui.nvim",
   "nvim-tree/nvim-web-devicons",
-
-  {
-    "folke/lazy.nvim",
-  },
 
   {
     "vmware-archive/salt-vim",
