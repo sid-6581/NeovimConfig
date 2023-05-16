@@ -224,11 +224,20 @@ function M.setup(options)
         cmd = { "rustup", "run", "nightly", "rust-analyzer" },
         settings = {
           ["rust-analyzer"] = {
+            diagnostics = {
+              disabled = { "unresolved-proc-macro" },
+              experimental = {
+                enable = true,
+              },
+            },
             check = {
               command = "clippy",
             },
             cargo = {
               allFeatures = true,
+            },
+            procMacro = {
+              enable = true,
             },
           },
         },
