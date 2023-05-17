@@ -1,3 +1,5 @@
+---@diagnostic disable: assign-type-mismatch
+
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
@@ -7,6 +9,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    "onsails/lspkind.nvim",
     {
       "saadparwaiz1/cmp_luasnip",
       dependencies = {
@@ -22,34 +25,7 @@ return {
 
   config = function()
     local cmp = require("cmp")
-
-    local kind_icons = {
-      Class = "",
-      Color = "",
-      Constant = "",
-      Constructor = "",
-      Enum = "",
-      EnumMember = "",
-      Event = "",
-      Field = "",
-      File = "",
-      Folder = "",
-      Function = "",
-      Interface = "",
-      Keyword = "",
-      Method = "m",
-      Module = "",
-      Operator = "",
-      Property = "",
-      Reference = "",
-      Snippet = "",
-      Struct = "",
-      Text = "",
-      TypeParameter = "",
-      Unit = "",
-      Value = "",
-      Variable = "",
-    }
+    local lspkind = require("lspkind")
 
     local lspkind_comparator = function(conf)
       local lsp_types = require("cmp.types").lsp
@@ -100,16 +76,17 @@ return {
 
       formatting = {
         fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-          vim_item.kind = kind_icons[vim_item.kind] .. " " .. vim_item.kind
-          vim_item.menu = ({
+        format = lspkind.cmp_format({
+          mode = "symbol_text",
+          menu = {
             buffer = "[Buffer]",
             nvim_lsp = "[LSP]",
             luasnip = "[LuaSnip]",
             nvim_lua = "[Lua]",
-          })[entry.source.name]
-          return vim_item
-        end,
+          },
+          maxwidth = 50,
+          ellipsis_char = "...",
+        }),
       },
 
       sources = {
