@@ -21,7 +21,7 @@ return {
     show_current_context_start = false,
     show_trailing_blankline_indent = false,
     show_first_indent_level = true,
-    use_treesitter = true,
+    use_treesitter = false,
     context_patterns = {
       "class",
       "return",
