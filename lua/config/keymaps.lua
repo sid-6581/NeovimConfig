@@ -320,13 +320,13 @@ vim.keymap.set("c", "<C-j>", function()
   return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>"
 end, { expr = true, desc = "Wildmenu down" })
 vim.keymap.set("c", "<Down>", function()
-  return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>"
+  return vim.fn.wildmenumode() == 1 and "<C-n>" or "<Down>"
 end, { expr = true, desc = "Wildmenu down" })
 vim.keymap.set("c", "<C-k>", function()
   return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>"
 end, { expr = true, desc = "Wildmenu up" })
 vim.keymap.set("c", "<Up>", function()
-  return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>"
+  return vim.fn.wildmenumode() == 1 and "<C-p>" or "<Up>"
 end, { expr = true, desc = "Wildmenu up" })
 
 -- Redirect output to noice
