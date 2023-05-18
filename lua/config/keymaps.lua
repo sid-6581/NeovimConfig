@@ -82,6 +82,7 @@ r({
   },
 
   l = {
+    name = "LSP",
     i = { "<CMD>LspInfo<CR>", "LSP info" },
     I = { "<CMD>Mason<CR>", "Mason installer info" },
   },
@@ -142,6 +143,17 @@ r({
   [",ld"] = { "]<C-D>", "Jump to next macro definition of word" },
   [",lI"] = { "[<C-I>", "Jump to first line containing word" },
   [",li"] = { "]<C-I>", "Jump to next line containing word" },
+
+  [",v."] = { "<CMD>vnew .<CR>", "Open current directory in new vsplit" },
+  [",vn"] = { "<CMD>vnew<CR>", "Open new file in vsplit" },
+  [",vs"] = { "<CMD>vsplit<CR>", "Open current file in new vsplit" },
+  [",n."] = { "<CMD>new .<CR>", "Open current directory in new split" },
+  [",nn"] = { "<CMD>new<CR>", "Open new file in split" },
+  [",s"] = { "<CMD>split<CR>", "Open current file in new split" },
+
+  [",dt"] = { "<CMD>diffthis<CR>", "Diff this" },
+  [",du"] = { "<CMD>diffupdate<CR>", "Diff update" },
+  [",do"] = { "<CMD>diffoff<CR>", "Diff off" },
 
   [",w"] = { name = "Window" },
   [",w,"] = { "<C-W>-", "Decrease window height" },
