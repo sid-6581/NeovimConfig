@@ -146,10 +146,10 @@ r({
 
   [",v."] = { "<CMD>vnew .<CR>", "Open current directory in new vsplit" },
   [",vn"] = { "<CMD>vnew<CR>", "Open new file in vsplit" },
-  [",vs"] = { "<CMD>vsplit<CR>", "Open current file in new vsplit" },
-  [",n."] = { "<CMD>new .<CR>", "Open current directory in new split" },
-  [",nn"] = { "<CMD>new<CR>", "Open new file in split" },
-  [",s"] = { "<CMD>split<CR>", "Open current file in new split" },
+  [",vc"] = { "<CMD>vsplit<CR>", "Open current file in new vsplit" },
+  [",s."] = { "<CMD>new .<CR>", "Open current directory in new split" },
+  [",sn"] = { "<CMD>new<CR>", "Open new file in split" },
+  [",sc"] = { "<CMD>split<CR>", "Open current file in new split" },
 
   [",dt"] = { "<CMD>diffthis<CR>", "Diff this" },
   [",du"] = { "<CMD>diffupdate<CR>", "Diff update" },
