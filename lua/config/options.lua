@@ -10,7 +10,8 @@ vim.g.neovide_refresh_rate = 120
 vim.g.neovide_remember_window_size = true
 vim.g.sort_motion_flags = "i"
 
-if vim.fn.exists("g:neovide") ~= 0 then vim.opt.guifont = "JetBrainsMono NFM:h9.5" end
+if vim.fn.exists("g:neovide") ~= 0 then vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h9.5" end
+if vim.fn.exists("g:nvy") ~= 0 then vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h9.5" end
 
 vim.opt.autowrite = true
 vim.opt.backup = true
