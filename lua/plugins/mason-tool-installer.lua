@@ -1,7 +1,6 @@
 return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
-  event = "VimEnter",
-  cmd = { "MasonToolsUpdate", "MasonToolsInstall" },
+  event = "VeryLazy",
 
   dependencies = {
     "williamboman/mason.nvim",

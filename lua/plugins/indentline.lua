@@ -1,6 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = { "BufReadPost", "InsertEnter" },
+  event = "VeryLazy",
 
   opts = {
     buftype_exclude = {

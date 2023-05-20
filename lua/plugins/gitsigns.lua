@@ -1,6 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = { "BufReadPost", "InsertEnter" },
+  event = "VeryLazy",
 
   opts = {
     preview_config = {

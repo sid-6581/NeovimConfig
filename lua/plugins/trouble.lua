@@ -1,6 +1,6 @@
 return {
   "folke/trouble.nvim",
-  cmd = { "TroubleToggle", "Trouble" },
+  event = "VeryLazy",
 
   opts = {
     use_diagnostic_signs = true,

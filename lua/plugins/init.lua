@@ -1,55 +1,27 @@
 return {
   "folke/lazy.nvim",
-  "nvim-lua/plenary.nvim",
+  "gpanders/editorconfig.nvim",
+  "isobit/vim-caddyfile",
+  "kevinhwang91/nvim-bqf",
+  "mechatroner/rainbow_csv",
+  "moll/vim-bbye",
   "MunifTanjim/nui.nvim",
+  "nvim-lua/plenary.nvim",
   "nvim-tree/nvim-web-devicons",
-
-  {
-    "vmware-archive/salt-vim",
-    ft = "sls",
-  },
-
-  {
-    "kevinhwang91/nvim-bqf",
-    ft = "qf",
-  },
-
-  {
-    "gpanders/editorconfig.nvim",
-    event = { "BufReadPost", "InsertEnter" },
-  },
-
-  {
-    "isobit/vim-caddyfile",
-    event = { "BufReadPost", "InsertEnter" },
-  },
-
-  {
-    "mechatroner/rainbow_csv",
-    ft = "csv",
-  },
-
-  {
-    "moll/vim-bbye",
-    cmd = "Bdelete",
-  },
+  "vmware-archive/salt-vim",
 
   {
     "nmac427/guess-indent.nvim",
-    event = "BufReadPost",
     config = true,
   },
 
   {
     "norcalli/nvim-colorizer.lua",
-    event = "FileType",
     config = true,
   },
 
   {
     "lambdalisue/suda.vim",
-    event = "BufReadPre",
-    cmd = { "SudaRead", "SudaWrite" },
 
     init = function()
       vim.g.suda_smart_edit = 1

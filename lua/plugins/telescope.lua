@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  cmd = "Telescope",
+  event = "VeryLazy",
 
   dependencies = {
     "nvim-telescope/telescope-file-browser.nvim",

@@ -1,8 +1,7 @@
 local M = {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  cmd = { "TSUpdate", "TSUpdateSync" },
-  event = { "BufReadPost" },
+  event = "VeryLazy",
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
@@ -10,7 +9,7 @@ local M = {
     "mfussenegger/nvim-treehopper",
     {
       "nvim-treesitter/playground",
-      cmd = "TSPlaygroundToggle",
+      event = "VeryLazy",
     },
   },
 }
