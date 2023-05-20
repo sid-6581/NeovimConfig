@@ -43,6 +43,8 @@ function M.on_attach(client, _buf)
         autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+        autocmd CursorHold  <buffer> lua vim.lsp.codelens.refresh()
+        autocmd CursorHoldI <buffer> lua vim.lsp.codelens.refresh()
       augroup END
     ]])
   end

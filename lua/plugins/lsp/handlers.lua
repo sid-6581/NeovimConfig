@@ -218,26 +218,59 @@ function M.setup(options)
     end,
 
     ["rust_analyzer"] = function()
-      lspconfig.rust_analyzer.setup({
-        on_attach = options.on_attach,
-        capabilities = options.capabilities,
-        cmd = { "rustup", "run", "nightly", "rust-analyzer" },
-        settings = {
-          ["rust-analyzer"] = {
-            diagnostics = {
-              disabled = { "unresolved-proc-macro" },
-              experimental = {
+      local mason_registry = require("mason-registry")
+      local codelldb = mason_registry.get_package("codelldb")
+      local extension_path = codelldb:get_install_path() .. "/extension/"
+      local codelldb_path = extension_path .. "adapter/codelldb"
+
+      if vim.loop.os_uname().sysname:find("Windows") then codelldb_path = extension_path .. "adapter/codelldb.exe" end
+
+      local rt = require("rust-tools")
+
+      rt.setup({
+        dap = {
+          adapter = {
+            type = "server",
+            port = "13000",
+            host = "127.0.0.1",
+            executable = {
+              command = codelldb_path,
+              args = { "--port", "13000" },
+            },
+          },
+        },
+        server = {
+          capabilities = options.capabilities,
+          on_attach = function(client, bufnr)
+            options.on_attach(client, bufnr)
+            vim.keymap.set(
+              "n",
+              "K",
+              rt.hover_actions.hover_actions,
+              { buffer = bufnr, desc = "Show information (Rust)" }
+            )
+            vim.keymap.set("x", "K", rt.hover_actions.hover_range, { buffer = bufnr, desc = "Show information (Rust)" })
+          end,
+          settings = {
+            ["rust-analyzer"] = {
+              diagnostics = {
+                disabled = { "unresolved-proc-macro" },
+                experimental = {
+                  enable = true,
+                },
+              },
+              check = {
+                command = "clippy",
+                extraArgs = { "--no-deps" },
+              },
+              cargo = {
+                allFeatures = true,
+                loadOutDirsFromCheck = true,
+                runBuildScripts = true,
+              },
+              procMacro = {
                 enable = true,
               },
-            },
-            check = {
-              command = "clippy",
-            },
-            cargo = {
-              allFeatures = true,
-            },
-            procMacro = {
-              enable = true,
             },
           },
         },
@@ -245,8 +278,18 @@ function M.setup(options)
     end,
 
     ["taplo"] = function()
+      local function show_documentation()
+        if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+          require("crates").show_popup()
+        else
+          vim.lsp.buf.hover()
+        end
+      end
       lspconfig.taplo.setup({
-        on_attach = options.on_attach,
+        on_attach = function(client, bufnr)
+          options.on_attach(client, bufnr)
+          vim.keymap.set("n", "K", show_documentation, { buffer = bufnr, desc = "Show Crate Documentation" })
+        end,
         capabilities = options.capabilities,
         cmd = vim.fn.has("win32") == 1 and { "cmd.exe", "/c", "taplo", "lsp", "stdio" } or nil,
       })

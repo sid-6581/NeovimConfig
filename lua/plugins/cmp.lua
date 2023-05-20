@@ -21,6 +21,21 @@ return {
         },
       },
     },
+    {
+      "Saecki/crates.nvim",
+      config = function()
+        require("null-ls")
+        require("crates").setup({
+          popup = {
+            border = "single",
+          },
+          null_ls = {
+            enabled = true,
+            name = "crates.nvim",
+          },
+        })
+      end,
+    },
   },
 
   config = function()
@@ -70,6 +85,7 @@ return {
         { name = "nvim_lua" },
         { name = "buffer" },
         { name = "path" },
+        { name = "crates" },
       },
 
       confirm_opts = {

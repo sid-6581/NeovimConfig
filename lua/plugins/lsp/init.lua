@@ -6,6 +6,7 @@ return {
     "williamboman/mason.nvim",
     "b0o/schemastore.nvim",
     "jose-elias-alvarez/null-ls.nvim",
+    "simrat39/rust-tools.nvim",
     {
       "folke/neodev.nvim",
       config = true,

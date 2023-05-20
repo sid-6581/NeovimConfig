@@ -13,6 +13,7 @@ return {
       "beautysh",
       "black",
       "clangd",
+      "codelldb",
       "css-lsp",
       "dockerfile-language-server",
       "eslint-lsp",
