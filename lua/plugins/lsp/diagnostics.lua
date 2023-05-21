@@ -36,18 +36,20 @@ function M.setup()
 end
 
 function M.on_attach(client, _buf)
-  if client.server_capabilities.document_highlight then
-    vim.cmd([[
+  vim.cmd([[
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-        autocmd CursorHold  <buffer> lua vim.lsp.codelens.refresh()
-        autocmd CursorHoldI <buffer> lua vim.lsp.codelens.refresh()
       augroup END
     ]])
-  end
+  vim.cmd([[
+      augroup lsp_codelens_refresh
+        autocmd! * <buffer>
+        autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+      augroup END
+    ]])
 end
 
 return M
