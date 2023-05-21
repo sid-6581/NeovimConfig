@@ -10,6 +10,12 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
 
+    vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+    vim.fn.sign_define(
+      "DapBreakpointCondition",
+      { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" }
+    )
+
     dapui.setup({})
 
     dap.listeners.after.event_initialized["dapui_config"] = function()
