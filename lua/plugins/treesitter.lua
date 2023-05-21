@@ -2,6 +2,7 @@ local M = {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = "VeryLazy",
+  cmd = { "TSUpdateSync" },
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
