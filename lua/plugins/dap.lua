@@ -16,6 +16,8 @@ return {
       { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" }
     )
 
+    require("dap.ext.vscode").load_launchjs(nil, { rt_lldb = { "rust" } })
+
     dapui.setup({})
 
     dap.listeners.after.event_initialized["dapui_config"] = function()
