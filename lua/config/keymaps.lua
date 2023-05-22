@@ -205,7 +205,7 @@ r({
 -- Insert mode
 r({
   ["<Esc>"] = { "<Esc>`^", "Exit insert mode" },
-  ["jj"] = { "<Esc>", "Exit insert mode", noremap = false },
+  -- ["jj"] = { "<Esc>", "Exit insert mode", noremap = false },
   ["<S-Enter>"] = { "<Esc>m`o<Esc>``a", "Insert blank line below" },
   ["<C-S-Enter>"] = { "<Esc>m`O<Esc>``a", "Insert blank line above" },
   ["<S-Insert>"] = { '<C-O>"+P', "Paste from system clipboard" },
