@@ -63,7 +63,7 @@ function M.on_attach(client, buffer)
     ["gR"] = { "<CMD>TroubleToggle lsp_references<CR>", "Toggle references" },
 
     -- LSP lines plugin
-    ["<Leader>lL"] = {
+    ["L"] = {
       function()
         require("lsp_lines").toggle()
       end,
