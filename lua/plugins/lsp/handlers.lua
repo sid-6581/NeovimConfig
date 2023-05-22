@@ -248,6 +248,7 @@ function M.setup(options)
           },
         },
         server = {
+          cmd = { "rustup", "run", "nightly", "rust-analyzer" },
           capabilities = options.capabilities,
           on_attach = function(client, bufnr)
             options.on_attach(client, bufnr)

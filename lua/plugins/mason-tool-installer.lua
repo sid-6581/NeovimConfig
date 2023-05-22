@@ -26,7 +26,7 @@ return {
       "lemminx",
       "lua-language-server",
       "pyright",
-      "rust-analyzer",
+      { "rust-analyzer", version = "nightly" },
       "shellcheck",
       "shellharden",
       "stylua",
