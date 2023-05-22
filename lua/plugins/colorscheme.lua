@@ -52,11 +52,11 @@ return {
         SignColumn = { bg = "NONE", blend = 10 },
         VertSplit = { bg = "NONE", blend = 10 },
 
-        DiagnosticVirtualTextError = { fg = colors.faded_red, italic = true },
-        DiagnosticVirtualTextWarn = { fg = colors.faded_yellow, italic = true },
-        DiagnosticVirtualTextInfo = { fg = colors.faded_blue, italic = true },
-        DiagnosticVirtualTextHint = { fg = colors.faded_aqua, italic = true },
-        DiagnosticVirtualTextOk = { fg = colors.faded_green, italic = true },
+        DiagnosticVirtualTextError = { fg = colors.bright_red, italic = true },
+        DiagnosticVirtualTextWarn = { fg = colors.bright_yellow, italic = true },
+        DiagnosticVirtualTextInfo = { fg = colors.bright_blue, italic = true },
+        DiagnosticVirtualTextHint = { fg = colors.bright_aqua, italic = true },
+        DiagnosticVirtualTextOk = { fg = colors.bright_green, italic = true },
 
         DiffDelete = { bg = colors.neutral_red, fg = colors.dark0, reverse = false },
         DiffAdd = { bg = colors.neutral_green, fg = colors.dark0, reverse = false },
