@@ -6,7 +6,7 @@ function M.on_attach(client, buffer)
   require("which-key").register({
     buffer = buffer,
 
-    ["<leader>"] = {
+    ["<Leader>"] = {
       l = {
         name = "LSP",
         a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action" },
@@ -55,12 +55,20 @@ function M.on_attach(client, buffer)
     ["ghr"] = { "<CMD>lua require('goto-preview').goto_preview_references()<CR>", "Preview references" },
 
     -- Trouble plugin
-    [",xx"] = { "<CMD>TroubleToggle<CR>", "Toggle trouble" },
-    [",xw"] = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Toggle workspace diagnostics" },
-    [",xd"] = { "<CMD>TroubleToggle document_diagnostics<CR>", "Toggle document diagnostics" },
-    [",xl"] = { "<CMD>TroubleToggle loclist<CR>", "Toggle loc list" },
-    [",xq"] = { "<CMD>TroubleToggle quickfix<CR>", "Toggle quickfix" },
+    ["<Leader>xx"] = { "<CMD>TroubleToggle<CR>", "Toggle trouble" },
+    ["<Leader>xw"] = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Toggle workspace diagnostics" },
+    ["<Leader>xd"] = { "<CMD>TroubleToggle document_diagnostics<CR>", "Toggle document diagnostics" },
+    ["<Leader>xl"] = { "<CMD>TroubleToggle loclist<CR>", "Toggle loc list" },
+    ["<Leader>xq"] = { "<CMD>TroubleToggle quickfix<CR>", "Toggle quickfix" },
     ["gR"] = { "<CMD>TroubleToggle lsp_references<CR>", "Toggle references" },
+
+    -- LSP lines plugin
+    ["<Leader>lL"] = {
+      function()
+        require("lsp_lines").toggle()
+      end,
+      "Toggle LSP lines",
+    },
 
     -- g = {
     --   name = "+goto",

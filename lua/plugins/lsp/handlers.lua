@@ -228,6 +228,14 @@ function M.setup(options)
       local rt = require("rust-tools")
 
       rt.setup({
+        tools = {
+          inlay_hints = {
+            max_len_align = true,
+          },
+          hover_actions = {
+            border = "single",
+          },
+        },
         dap = {
           adapter = {
             type = "server",
