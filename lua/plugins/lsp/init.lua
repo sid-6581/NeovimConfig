@@ -38,7 +38,7 @@ return {
         require("plugins.lsp.handlers").on_attach(client, bufnr)
         require("plugins.lsp.diagnostics").on_attach(client, bufnr)
         require("plugins.lsp.formatting").on_attach(client, bufnr)
-        require("plugins.lsp.keys").on_attach(client, bufnr)
+        require("plugins.lsp.keymaps").on_attach(client, bufnr)
       end,
       capabilities = capabilities,
       flags = { debounce_text_changes = 150 },
