@@ -1,87 +1,80 @@
 local M = {}
 
 function M.on_attach(client, buffer)
-  local capabilities = client.server_capabilities
+  local map = function(mode, lhs, rhs, opts)
+    opts.buffer = buffer
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
 
-  require("which-key").register({
-    buffer = buffer,
+  map("n", "<Leader>la", vim.lsp.buf.code_action, { desc = "Code action" })
+  map(
+    "n",
+    "<Leader>lC1",
+    function() print(vim.inspect(vim.lsp.get_active_clients()[1])) end,
+    { desc = "View LSP server 1 information" }
+  )
+  map(
+    "n",
+    "<Leader>lC2",
+    function() print(vim.inspect(vim.lsp.get_active_clients()[2])) end,
+    { desc = "View LSP server 2 information" }
+  )
+  map(
+    "n",
+    "<Leader>lC3",
+    function() print(vim.inspect(vim.lsp.get_active_clients()[3])) end,
+    { desc = "View LSP server 3 information" }
+  )
+  map("n", "<Leader>ld", "<CMD>Telescope diagnostics bufnr=0<CR>", { desc = "Document diagnostics" })
+  map("n", "<Leader>lD", "<CMD>Telescope diagnostics<CR>", { desc = "Workspace diagnostics" })
+  map("n", "<Leader>lf", require("plugins.lsp.formatting").format, { desc = "Format Document" })
+  map("v", "<Leader>lf", require("plugins.lsp.formatting").format, { desc = "Format Range" })
+  map("n", "<Leader>lF", require("plugins.lsp.formatting").toggle, { desc = "Toggle format on save" })
+  map("n", "<Leader>ll", vim.lsp.codelens.run, { desc = "Codelens action" })
+  map("n", "<Leader>lq", vim.diagnostic.setloclist, { desc = "Quickfix" })
+  map("n", "<Leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
+  map("n", "<Leader>lR", vim.lsp.buf.references, { desc = "References" })
+  map("n", "<Leader>ls", "<CMD>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
+  map("n", "<Leader>lS", "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "Workspace symbols" })
 
-    ["<Leader>"] = {
-      l = {
-        name = "LSP",
-        a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action" },
-        ["C1"] = { "<CMD>lua =vim.lsp.get_active_clients()[1]<CR>", "View LSP server 1 information" },
-        ["C2"] = { "<CMD>lua =vim.lsp.get_active_clients()[2]<CR>", "View LSP server 2 information" },
-        ["C3"] = { "<CMD>lua =vim.lsp.get_active_clients()[3]<CR>", "View LSP server 3 information" },
-        d = { "<CMD>Telescope diagnostics bufnr=0<CR>", "Document diagnostics" },
-        D = { "<CMD>Telescope diagnostics<CR>", "Workspace diagnostics" },
-        f = {
-          {
-            require("plugins.lsp.formatting").format,
-            "Format Document",
-            cond = capabilities.documentFormatting,
-          },
-          {
-            require("plugins.lsp.formatting").format,
-            "Format Range",
-            cond = capabilities.documentRangeFormatting,
-            mode = "v",
-          },
-        },
-        F = { require("plugins.lsp.formatting").toggle, "Toggle format on save" },
-        l = { "<CMD>lua vim.lsp.codelens.run()<CR>", "Codelens action" },
-        q = { "<CMD>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
-        r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
-        R = { "<CMD>lua vim.lsp.buf.references()<CR>", "References" },
-        s = { "<CMD>Telescope lsp_document_symbols<CR>", "Document symbols" },
-        S = { "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", "Workspace symbols" },
-      },
-    },
+  map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+  map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+  map("n", "K", vim.lsp.buf.hover, { desc = "Show information" })
+  map("n", "gi", vim.lsp.buf.implementation, { desc = "List all implementations" })
+  map("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostics" })
+  map("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
+  map("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+  map({ "n", "i" }, "<A-Enter>", vim.lsp.buf.code_action, { desc = "Code action" })
 
-    ["gD"] = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
-    ["gd"] = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
-    ["K"] = { "<CMD>lua vim.lsp.buf.hover()<CR>", "Show information" },
-    ["gi"] = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "List all implementations" },
-    ["gl"] = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Show diagnostics" },
-    ["[d"] = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
-    ["]d"] = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
-    ["<A-Enter>"] = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Code action", mode = { "n", "i", "x" } },
+  -- Goto-preview plugin
+  map("n", "ghd", function() require("goto-preview").goto_preview_definition() end, { desc = "Preview definition" })
+  map(
+    "n",
+    "ght",
+    function() require("goto-preview").goto_preview_type_definition() end,
+    { desc = "Preview type definition" }
+  )
+  map(
+    "n",
+    "ghi",
+    function() require("goto-preview").goto_preview_implementation() end,
+    { desc = "Preview implementation" }
+  )
+  map("n", "gH", function() require("goto-preview").close_all_win() end, { desc = "Close all preview windows" })
+  map("n", "ghr", function() require("goto-preview").goto_preview_references() end, { desc = "Preview references" })
 
-    -- Goto-preview plugin
-    ["ghd"] = { "<CMD>lua require('goto-preview').goto_preview_definition()<CR>", "Preview definition" },
-    ["ght"] = { "<CMD>lua require('goto-preview').goto_preview_type_definition()<CR>", "Preview type definition" },
-    ["ghi"] = { "<CMD>lua require('goto-preview').goto_preview_implementation()<CR>", "Preview implementation" },
-    ["gH"] = { "<CMD>lua require('goto-preview').close_all_win()<CR>", "Close all preview windows" },
-    ["ghr"] = { "<CMD>lua require('goto-preview').goto_preview_references()<CR>", "Preview references" },
+  -- Trouble plugin
+  map("n", "<Leader>xx", "<CMD>TroubleToggle<CR>", { desc = "Toggle trouble" })
+  map("n", "<Leader>xw", "<CMD>TroubleToggle workspace_diagnostics<CR>", { desc = "Toggle workspace diagnostics" })
+  map("n", "<Leader>xd", "<CMD>TroubleToggle document_diagnostics<CR>", { desc = "Toggle document diagnostics" })
+  map("n", "<Leader>xl", "<CMD>TroubleToggle loclist<CR>", { desc = "Toggle loc list" })
+  map("n", "<Leader>xq", "<CMD>TroubleToggle quickfix<CR>", { desc = "Toggle quickfix" })
+  map("n", "gR", "<CMD>TroubleToggle lsp_references<CR>", { desc = "Toggle references" })
 
-    -- Trouble plugin
-    ["<Leader>xx"] = { "<CMD>TroubleToggle<CR>", "Toggle trouble" },
-    ["<Leader>xw"] = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Toggle workspace diagnostics" },
-    ["<Leader>xd"] = { "<CMD>TroubleToggle document_diagnostics<CR>", "Toggle document diagnostics" },
-    ["<Leader>xl"] = { "<CMD>TroubleToggle loclist<CR>", "Toggle loc list" },
-    ["<Leader>xq"] = { "<CMD>TroubleToggle quickfix<CR>", "Toggle quickfix" },
-    ["gR"] = { "<CMD>TroubleToggle lsp_references<CR>", "Toggle references" },
+  -- LSP lines plugin
+  map("n", "<Leader>lL", function() require("lsp_lines").toggle() end, { desc = "Toggle LSP lines" })
 
-    -- LSP lines plugin
-    ["<Leader>lL"] = {
-      function()
-        require("lsp_lines").toggle()
-      end,
-      "Toggle LSP lines",
-    },
-
-    -- g = {
-    --   name = "+goto",
-    --   d = { "<cmd>Telescope lsp_definitions<cr>", "Goto Definition" },
-    --   r = { "<cmd>Telescope lsp_references<cr>", "References" },
-    --   R = { "<cmd>Trouble lsp_references<cr>", "Trouble References" },
-    --   D = { "<cmd>Telescope lsp_declarations<CR>", "Goto Declaration" },
-    --   I = { "<cmd>Telescope lsp_implementations<CR>", "Goto Implementation" },
-    --   t = { "<cmd>Telescope lsp_type_definitions<cr>", "Goto Type Definition" },
-    -- },
-
-    ["<S-C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help", mode = { "n", "i" } },
-  })
+  map("n", "<S-C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help" })
 end
 
 return M
