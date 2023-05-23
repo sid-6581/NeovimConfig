@@ -79,7 +79,8 @@ function M.setup()
 end
 
 function M.on_attach(client, _buf)
-  vim.cmd([[
+  if client.supports_method("textDocument/documentHighlight") then
+    vim.cmd([[
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
@@ -87,12 +88,15 @@ function M.on_attach(client, _buf)
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
     ]])
-  vim.cmd([[
+  end
+  if client.supports_method("textDocument/codeLens") then
+    vim.cmd([[
       augroup lsp_codelens_refresh
         autocmd! * <buffer>
         autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
       augroup END
     ]])
+  end
 end
 
 return M
