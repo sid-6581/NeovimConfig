@@ -12,10 +12,14 @@ return {
       config = true,
     },
     {
-      "kosayoda/nvim-lightbulb",
-      opts = {
-        autocmd = { enabled = true },
-      },
+      "nvimdev/lspsaga.nvim",
+      config = function()
+        require("lspsaga").setup({
+          lightbulb = {
+            virtual_text = false,
+          },
+        })
+      end,
     },
   },
 
