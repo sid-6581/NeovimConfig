@@ -27,7 +27,7 @@ return {
         "html-lsp",
         "json-lsp",
         "lemminx",
-        { "lua-language-server", version = "3.6.19" },
+        "lua-language-server",
         "pyright",
         { "rust-analyzer", version = "nightly" },
         "shellcheck",

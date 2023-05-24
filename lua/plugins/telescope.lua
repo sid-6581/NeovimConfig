@@ -7,9 +7,24 @@ return {
     "nvim-telescope/telescope-symbols.nvim",
     "nvim-telescope/telescope-z.nvim",
     "debugloop/telescope-undo.nvim",
+
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    },
+
+    {
+      "ahmedkhalf/project.nvim",
+      event = "VeryLazy",
+      opts = {
+        ignore_lsp = { "null-ls" },
+        patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".gitignore", "*" },
+        scope_chdir = "tab",
+        show_hidden = true,
+        silent_chdir = true,
+      },
+
+      config = function(_, opts) require("project_nvim").setup(opts) end,
     },
   },
 

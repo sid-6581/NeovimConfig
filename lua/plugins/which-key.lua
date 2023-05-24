@@ -1,17 +1,18 @@
 return {
   "folke/which-key.nvim",
+  lazy = true,
 
   dependencies = {
     "AndrewRadev/sideways.vim",
 
     {
       "booperlv/nvim-gomove",
-      config = true,
+      opts = {},
     },
 
     {
       "gbprod/substitute.nvim",
-      config = true,
+      opts = {},
     },
 
     {
@@ -34,12 +35,12 @@ return {
 
     {
       "kylechui/nvim-surround",
-      config = true,
+      opts = {},
     },
 
     {
       "numToStr/Comment.nvim",
-      config = true,
+      opts = {},
     },
 
     {
@@ -55,7 +56,7 @@ return {
 
     {
       "rmagatti/goto-preview",
-      config = true,
+      opts = {},
     },
 
     "tpope/vim-unimpaired",
@@ -70,31 +71,52 @@ return {
     },
   },
 
-  config = function()
-    require("which-key").setup({
-      plugins = {
-        spelling = {
-          enabled = true,
-        },
+  opts = {
+    plugins = {
+      spelling = {
+        enabled = true,
       },
-      popup_mappings = {
-        scroll_down = "<C-j>",
-        scroll_up = "<C-k>",
-      },
-      window = {
-        border = "single", -- none, single, double, shadow
-        position = "bottom", -- bottom, top
-        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-        padding = { 1, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
-        winblend = 10,
-      },
-      hidden = { "<silent>", "<CMD>", "<CMD>", "<CR>", "call", "lua", "^:", "^ " },
-      show_help = false,
-      show_keys = false,
-      triggers_blacklist = {
-        i = { "j", "k" },
-        v = { "j", "k" },
-      },
-    })
+    },
+    popup_mappings = {
+      scroll_down = "<C-j>",
+      scroll_up = "<C-k>",
+    },
+    window = {
+      border = "single", -- none, single, double, shadow
+      position = "bottom", -- bottom, top
+      margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+      padding = { 1, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
+      winblend = 10,
+    },
+    hidden = { "<silent>", "<CMD>", "<CMD>", "<CR>", "call", "lua", "^:", "^ " },
+    show_help = false,
+    show_keys = false,
+    triggers_blacklist = {
+      i = { "j", "k" },
+      v = { "j", "k" },
+    },
+    defaults = {
+      ["g"] = { name = "+goto" },
+      ["gz"] = { name = "+surround" },
+      ["]"] = { name = "+next" },
+      ["["] = { name = "+prev" },
+      ["<leader><tab>"] = { name = "+tabs" },
+      ["<leader>b"] = { name = "+buffer" },
+      ["<leader>c"] = { name = "+code" },
+      ["<leader>f"] = { name = "+file/find" },
+      ["<leader>g"] = { name = "+git" },
+      ["<leader>gh"] = { name = "+hunks" },
+      ["<leader>q"] = { name = "+quit/session" },
+      ["<leader>s"] = { name = "+search" },
+      ["<leader>u"] = { name = "+ui" },
+      ["<leader>w"] = { name = "+windows" },
+      ["<leader>x"] = { name = "+diagnostics/quickfix" },
+    },
+  },
+
+  config = function(_, opts)
+    local wk = require("which-key")
+    wk.setup(opts)
+    wk.register(opts.defaults)
   end,
 }

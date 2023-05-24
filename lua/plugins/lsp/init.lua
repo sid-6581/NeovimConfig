@@ -8,12 +8,12 @@ return {
     "b0o/schemastore.nvim",
     "jose-elias-alvarez/null-ls.nvim",
     "simrat39/rust-tools.nvim",
-    {
-      "folke/neodev.nvim",
-      config = true,
-    },
+
+    { "folke/neodev.nvim", opts = {} },
+
     {
       "nvimdev/lspsaga.nvim",
+
       opts = {
         request_timeout = 10000,
         ui = {
@@ -30,6 +30,16 @@ return {
           separator = "  ",
         },
       },
+    },
+
+    {
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+
+      config = function()
+        require("lsp_lines").setup()
+        vim.diagnostic.config({ virtual_lines = false }, require("lazy.core.config").ns)
+        vim.diagnostic.config({ virtual_lines = false })
+      end,
     },
   },
 

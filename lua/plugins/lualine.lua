@@ -1,7 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  lazy = false,
-  priority = 998,
+  priority = 999,
 
   config = function()
     local lualine = require("lualine")
@@ -41,14 +40,12 @@ return {
       },
     }
 
-    local spaces = function()
-      return vim.api.nvim_buf_get_option(0, "shiftwidth") .. " spaces"
-    end
+    local spaces = function() return vim.api.nvim_get_option_value("shiftwidth", { scope = "local" }) .. " spaces" end
 
     local lsp = {
       function()
         local msg = "-"
-        local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+        local buf_ft = vim.api.nvim_get_option_value("filetype", { scope = "local" })
         local clients = vim.lsp.get_active_clients()
         if next(clients) == nil then return msg end
         for _, client in ipairs(clients) do

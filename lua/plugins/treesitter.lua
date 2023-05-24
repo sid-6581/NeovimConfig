@@ -8,10 +8,7 @@ local M = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-refactor",
     "mfussenegger/nvim-treehopper",
-    {
-      "nvim-treesitter/playground",
-      event = "VeryLazy",
-    },
+    "nvim-treesitter/playground",
   },
 }
 

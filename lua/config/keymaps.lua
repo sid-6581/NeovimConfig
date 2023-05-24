@@ -1,24 +1,36 @@
+local wk = require("which-key")
+
 local map = vim.keymap.set
 
 -- Misc
 map("n", "<Esc>", "<CMD>noh<CR>", { desc = "Escape and clear search highlighting" })
 map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
-map("n", "<Leader>C", "<CMD>:e " .. vim.fn.stdpath("config") .. "/init.lua<CR>", { desc = "Edit configuration" })
+map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<A-1>", "<CMD>Neotree toggle reveal_force_cwd<CR>", { desc = "File explorer" })
 map("n", "<A-2>", "<CMD>Neotree toggle show buffers<CR>", { desc = "Buffer explorer" })
-map("n", "<A-3>", "<CMD>Neotree toggle show git<CR>", { desc = "Git explorer" })
+map("n", "<A-3>", "<CMD>Neotree toggle show git_status<CR>", { desc = "Git explorer" })
 map("n", "<F1>", "<CMD>Telescope help_tags<CR>", { desc = "Help" })
+map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
 
 -- Buffers
 map("n", "<Leader>bd", "<CMD>Bdelete!<CR>", { desc = "Delete buffer" })
 
 -- Windows
-map("n", "<Leader>wd", "<CMD>q<CR>", { desc = "Delete Window" })
+map("n", "<Leader>wd", "<CMD>q<CR>", { desc = "Close Window" })
+
+-- Tabs
+map("n", "<Leader><Tab>l", "<CMD>tablast<CR>", { desc = "Last Tab" })
+map("n", "<Leader><Tab>f", "<CMD>tabfirst<CR>", { desc = "First Tab" })
+map("n", "<Leader><Tab><Tab>", "<CMD>tabnew<CR>", { desc = "New Tab" })
+map("n", "<Leader><Tab>]", "<CMD>tabnext<CR>", { desc = "Next Tab" })
+map("n", "<Leader><Tab>d", "<CMD>tabclose<CR>", { desc = "Close Tab" })
+map("n", "<Leader><Tab>[", "<CMD>tabprevious<CR>", { desc = "Previous Tab" })
 
 map("n", "<Leader>e", "<CMD>Neotree toggle<CR>", { desc = "File explorer" })
 map("n", "<Leader>E", "<CMD>Neotree reveal<CR>", { desc = "Find file in explorer" })
 map("n", "<Leader>Q", "<CMD>qa!<CR>", { desc = "Quit all without saving" })
 
+-- Telescope
 map("n", "<Leader>fa", "<CMD>Telescope<CR>", { desc = "All" })
 map("n", "<Leader>fb", "<CMD>Telescope buffers<CR>", { desc = "Buffers" })
 map("n", "<Leader>fc", "<CMD>Telescope commands<CR>", { desc = "Commands" })
@@ -42,6 +54,7 @@ map(
 )
 map("n", "<Leader>f.", "<CMD>Telescope file_browser<CR>", { desc = "Browse files" })
 
+-- Git
 map("n", "<Leader>gb", "<CMD>Telescope git_branches<CR>", { desc = "Checkout branch" })
 map("n", "<Leader>gc", "<CMD>Telescope git_commits<CR>", { desc = "Checkout commit" })
 map("n", "<Leader>gd", "<CMD>Gitsigns diffthis HEAD<CR>", { desc = "Diff" })
@@ -56,10 +69,9 @@ map("n", "<Leader>gR", require("gitsigns").reset_buffer, { desc = "Reset buffer"
 map("n", "<Leader>gs", require("gitsigns").stage_hunk, { desc = "Stage hunk" })
 map("n", "<Leader>gu", require("gitsigns").undo_stage_hunk, { desc = "Undo stage hunk" })
 
+-- LSP
 map("n", "<Leader>li", "<CMD>LspInfo<CR>", { desc = "LSP info" })
 map("n", "<Leader>lI", "<CMD>Mason<CR>", { desc = "Mason installer info" })
-
-map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
 
 -- Terminals
 map("n", "<Leader>tf", _TERMINAL_TOGGLE, { desc = "Float" })

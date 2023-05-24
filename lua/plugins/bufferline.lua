@@ -1,7 +1,7 @@
 return {
   "akinsho/nvim-bufferline.lua",
   lazy = false,
-  priority = 997,
+  priority = 998,
 
   config = function()
     local signs = require("plugins.lsp.diagnostics").signs

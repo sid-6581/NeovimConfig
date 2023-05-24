@@ -15,9 +15,7 @@ return {
       dependencies = {
         {
           "L3MON4D3/LuaSnip",
-          config = function()
-            require("luasnip").setup({})
-          end,
+          config = function() require("luasnip").setup({}) end,
         },
       },
     },
@@ -44,9 +42,7 @@ return {
 
     cmp.setup({
       snippet = {
-        expand = function(args)
-          require("luasnip").lsp_expand(args.body)
-        end,
+        expand = function(args) require("luasnip").lsp_expand(args.body) end,
       },
 
       mapping = {
