@@ -7,9 +7,9 @@ return {
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
   -- File types
-  { "isobit/vim-caddyfile", event = "VeryLazy" },
+  { "isobit/vim-caddyfile", ft = "caddyfile" },
   { "mechatroner/rainbow_csv", ft = "csv" },
-  { "vmware-archive/salt-vim", event = "VeryLazy" },
+  { "vmware-archive/salt-vim", ft = "sls" },
 
   { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
   { "moll/vim-bbye", event = "VeryLazy" },
