@@ -15,6 +15,7 @@ return {
     {
       "nvimdev/lspsaga.nvim",
       opts = {
+        request_timeout = 10000,
         ui = {
           winblend = 10,
         },
