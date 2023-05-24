@@ -2,7 +2,7 @@
 
 return {
   "hrsh7th/nvim-cmp",
-  event = "VeryLazy",
+  event = "InsertEnter",
 
   dependencies = {
     "hrsh7th/cmp-nvim-lua",
@@ -10,28 +10,30 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "onsails/lspkind.nvim",
+
     {
       "saadparwaiz1/cmp_luasnip",
       dependencies = {
-        {
-          "L3MON4D3/LuaSnip",
-          config = function() require("luasnip").setup({}) end,
-        },
+        { "L3MON4D3/LuaSnip", opts = {} },
       },
     },
+
     {
       "Saecki/crates.nvim",
-      config = function()
+
+      opts = {
+        popup = {
+          border = "single",
+        },
+        null_ls = {
+          enabled = true,
+          name = "crates.nvim",
+        },
+      },
+
+      config = function(_, opts)
         require("null-ls")
-        require("crates").setup({
-          popup = {
-            border = "single",
-          },
-          null_ls = {
-            enabled = true,
-            name = "crates.nvim",
-          },
-        })
+        require("crates").setup(opts)
       end,
     },
   },
