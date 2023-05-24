@@ -223,7 +223,7 @@ function M.setup(options)
       local extension_path = codelldb:get_install_path() .. "/extension/"
       local codelldb_path = extension_path .. "adapter/codelldb"
 
-      if vim.loop.os_uname().sysname:find("Windows") then codelldb_path = extension_path .. "adapter/codelldb.exe" end
+      if vim.fn.has("win32") then codelldb_path = extension_path .. "adapter/codelldb.exe" end
 
       local rt = require("rust-tools")
 
@@ -252,13 +252,13 @@ function M.setup(options)
           capabilities = options.capabilities,
           on_attach = function(client, bufnr)
             options.on_attach(client, bufnr)
-            vim.keymap.set(
-              "n",
-              "K",
-              rt.hover_actions.hover_actions,
-              { buffer = bufnr, desc = "Show information (Rust)" }
-            )
-            vim.keymap.set("x", "K", rt.hover_actions.hover_range, { buffer = bufnr, desc = "Show information (Rust)" })
+            -- vim.keymap.set(
+            --   "n",
+            --   "K",
+            --   rt.hover_actions.hover_actions,
+            --   { buffer = bufnr, desc = "Show information (Rust)" }
+            -- )
+            -- vim.keymap.set("x", "K", rt.hover_actions.hover_range, { buffer = bufnr, desc = "Show information (Rust)" })
           end,
           settings = {
             ["rust-analyzer"] = {

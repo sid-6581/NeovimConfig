@@ -14,13 +14,21 @@ return {
     },
     {
       "nvimdev/lspsaga.nvim",
-      config = function()
-        require("lspsaga").setup({
-          lightbulb = {
-            virtual_text = false,
-          },
-        })
-      end,
+      opts = {
+        ui = {
+          winblend = 10,
+        },
+        preview = {
+          lines_above = 0,
+          lines_below = 0,
+        },
+        lightbulb = {
+          virtual_text = false,
+        },
+        symbol_in_winbar = {
+          separator = "  ",
+        },
+      },
     },
   },
 
