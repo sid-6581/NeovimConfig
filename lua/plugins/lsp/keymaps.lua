@@ -7,7 +7,8 @@ function M.on_attach(_client, buffer)
   end
 
   -- LSP saga plugin
-  map("n", "K", "<CMD>Lspsaga hover_doc<CR>", { desc = "Show information" })
+  -- map("n", "K", "<CMD>Lspsaga hover_doc<CR>", { desc = "Show information" })
+  map("n", "K", vim.lsp.buf.hover, { desc = "Show information" })
   map("n", "<Leader>ca", "<CMD>Lspsaga code_action<CR>", { desc = "Code action" })
   map("n", "<Leader>co", "<CMD>Lspsaga outline<CR>", { desc = "Toggle outline" })
   map("n", "<Leader>csb", "<CMD>Lspsaga show_buf_diagnostics ++unfocus<CR>", { desc = "Show buffer diagnostics" })
