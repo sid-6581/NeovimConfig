@@ -4,26 +4,22 @@ return {
 
   dependencies = {
     "AndrewRadev/sideways.vim",
+    "michaeljsmith/vim-indent-object",
+    "tpope/vim-unimpaired",
+    "vim-scripts/ReplaceWithRegister",
 
-    {
-      "booperlv/nvim-gomove",
-      opts = {},
-    },
-
-    {
-      "gbprod/substitute.nvim",
-      opts = {},
-    },
+    { "booperlv/nvim-gomove", opts = {} },
+    { "gbprod/substitute.nvim", opts = {} },
+    { "kylechui/nvim-surround", opts = {} },
+    { "numToStr/Comment.nvim", opts = {} },
+    { "rmagatti/goto-preview", opts = {} },
 
     {
       "ggandor/leap.nvim",
 
       dependencies = {
-        {
-          "ggandor/flit.nvim",
-          opts = { labeled_modes = "nv" },
-        },
-        { "ggandor/leap-ast.nvim" },
+        { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } },
+        "ggandor/leap-ast.nvim",
       },
 
       config = function()
@@ -34,16 +30,6 @@ return {
     },
 
     {
-      "kylechui/nvim-surround",
-      opts = {},
-    },
-
-    {
-      "numToStr/Comment.nvim",
-      opts = {},
-    },
-
-    {
       "mg979/vim-visual-multi",
       init = function()
         -- vim.g.VM_quit_after_leaving_insert_mode = 1
@@ -51,16 +37,6 @@ return {
         vim.g.VM_silent_exit = 1
       end,
     },
-
-    "michaeljsmith/vim-indent-object",
-
-    {
-      "rmagatti/goto-preview",
-      opts = {},
-    },
-
-    "tpope/vim-unimpaired",
-    "vim-scripts/ReplaceWithRegister",
 
     {
       "Wansmer/treesj",
