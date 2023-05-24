@@ -4,6 +4,7 @@ return {
 
   dependencies = {
     "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
     "b0o/schemastore.nvim",
     "jose-elias-alvarez/null-ls.nvim",
     "simrat39/rust-tools.nvim",
