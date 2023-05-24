@@ -1,12 +1,23 @@
 local map = vim.keymap.set
 
-map("n", "<Leader>c", "<CMD>Bdelete!<CR>", { desc = "Close buffer" })
+-- Misc
+map("n", "<Esc>", "<CMD>noh<CR>", { desc = "Escape and clear search highlighting" })
+map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
 map("n", "<Leader>C", "<CMD>:e " .. vim.fn.stdpath("config") .. "/init.lua<CR>", { desc = "Edit configuration" })
+map("n", "<A-1>", "<CMD>Neotree toggle reveal_force_cwd<CR>", { desc = "File explorer" })
+map("n", "<A-2>", "<CMD>Neotree toggle show buffers<CR>", { desc = "Buffer explorer" })
+map("n", "<A-3>", "<CMD>Neotree toggle show git<CR>", { desc = "Git explorer" })
+map("n", "<F1>", "<CMD>Telescope help_tags<CR>", { desc = "Help" })
+
+-- Buffers
+map("n", "<Leader>bd", "<CMD>Bdelete!<CR>", { desc = "Delete buffer" })
+
+-- Windows
+map("n", "<Leader>wd", "<CMD>q<CR>", { desc = "Delete Window" })
+
 map("n", "<Leader>e", "<CMD>Neotree toggle<CR>", { desc = "File explorer" })
 map("n", "<Leader>E", "<CMD>Neotree reveal<CR>", { desc = "Find file in explorer" })
-map("n", "<Leader>q", "<CMD>q<CR>", { desc = "Quit" })
 map("n", "<Leader>Q", "<CMD>qa!<CR>", { desc = "Quit all without saving" })
-map("n", "<Leader>w", "<CMD>w!<CR>", { desc = "Save" })
 
 map("n", "<Leader>fa", "<CMD>Telescope<CR>", { desc = "All" })
 map("n", "<Leader>fb", "<CMD>Telescope buffers<CR>", { desc = "Buffers" })
@@ -50,6 +61,7 @@ map("n", "<Leader>lI", "<CMD>Mason<CR>", { desc = "Mason installer info" })
 
 map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
 
+-- Terminals
 map("n", "<Leader>tf", _TERMINAL_TOGGLE, { desc = "Float" })
 map("n", "<Leader>th", _TERMINAL_HORIZONTAL_TOGGLE, { desc = "Horizontal" })
 map("n", "<Leader>tm", _MC_TOGGLE, { desc = "Midnight Commander" })
@@ -74,7 +86,6 @@ map("n", "<S-h>", "<CMD>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Next buffer" })
 map("n", "Y", "_y$", { desc = "Yank line character-wise without indent" })
 map("n", "`", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
-map("n", "<BS>", "<CMD>noh<return>", { desc = "Clear search highlighting" })
 map("n", "<S-Insert>", '"+P', { desc = "Paste from system clipboard" })
 map("n", ",p", '"+p', { desc = "Paste from system clipboard" })
 map("n", ",P", '"+P', { desc = "Paste from system clipboard" })
@@ -125,9 +136,6 @@ map("n", ",x12", ":%!x12pp<CR>:set ft=x12<CR>", { desc = "Format X12 file" })
 map("n", ",cd", ":cd %:h<CR>", { desc = "Change current working directory to current file directory" })
 map("n", "[c", require("gitsigns").prev_hunk, { desc = "Previous change" })
 map("n", "]c", require("gitsigns").next_hunk, { desc = "Next change" })
-map("n", "<A-1>", "<CMD>Neotree toggle reveal_force_cwd<CR>", { desc = "File Explorer" })
-map("n", "<A-2>", "<CMD>Neotree toggle show buffers<CR>", { desc = "Buffer Explorer" })
-map("n", "<F1>", "<CMD>Telescope help_tags<CR>", { desc = "Help" })
 map("n", "<Leader>pb", 'a <C-R>" <Esc>', { desc = "Paste after cursor and add space at both ends" })
 map("n", "<Leader>pe", 'a<C-R>" <Esc>', { desc = "Paste after cursor and add space at end" })
 map("n", "<Leader>ps", 'a <C-R>"<Esc>', { desc = "Paste after cursor and add space at start" })
