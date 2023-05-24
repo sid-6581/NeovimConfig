@@ -27,15 +27,15 @@ return {
     local widgets = require("dap.ui.widgets")
     local map = vim.keymap.set
 
-    map("n", "<F5>", function() require("dap").continue() end, { desc = "Continue" })
-    map("n", "<S-F5>", function() require("dap").terminate() end, { desc = "Terminate" })
     map("n", "<F10>", function() require("dap").step_over() end, { desc = "Step Over" })
     map("n", "<F11>", function() require("dap").step_into() end, { desc = "Step Into" })
     map("n", "<F12>", function() require("dap").step_out() end, { desc = "Step Out" })
+    map("n", "<F5>", function() require("dap").continue() end, { desc = "Continue" })
     map("n", "<F9>", function() require("dap").toggle_breakpoint() end, { desc = "Toggle Breakpoint" })
-    map({ "n", "v" }, "<Leader>dh", function() require("dap.ui.widgets").hover() end, { desc = "Debug Hover" })
-    map({ "n", "v" }, "<Leader>dp", function() require("dap.ui.widgets").preview() end, { desc = "Debug Preview" })
     map("n", "<Leader>df", function() widgets.centered_float(widgets.frames) end, { desc = "Debug Frames" })
     map("n", "<Leader>ds", function() widgets.centered_float(widgets.scopes) end, { desc = "Debug Scopes" })
+    map("n", "<S-F5>", function() require("dap").terminate() end, { desc = "Terminate" })
+    map({ "n", "v" }, "<Leader>dh", function() require("dap.ui.widgets").hover() end, { desc = "Debug Hover" })
+    map({ "n", "v" }, "<Leader>dp", function() require("dap.ui.widgets").preview() end, { desc = "Debug Preview" })
   end,
 }

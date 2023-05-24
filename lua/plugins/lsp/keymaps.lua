@@ -22,15 +22,15 @@ function M.on_attach(_client, buffer)
   map("n", "<Leader>cci", "<CMD>Lspsaga incoming_calls<CR>", { desc = "Incoming calls" })
   map("n", "<Leader>cco", "<CMD>Lspsaga outgoing_calls<CR>", { desc = "Outgoing calls" })
 
-  -- LSP lines plugin
-  map("n", "<Leader>sL", require("lsp_lines").toggle, { desc = "Show LSP lines" })
-
   map("n", "K", vim.lsp.buf.hover, { desc = "Show information" })
   map("n", "<Leader>cl", vim.lsp.codelens.run, { desc = "Codelens action" })
   map("n", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format document" })
   map("v", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format range" })
   map("n", "<Leader>cF", require("plugins.lsp.formatting").toggle, { desc = "Toggle format on save" })
   map("n", "<Leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+
+  -- LSP lines plugin
+  map("n", "<Leader>lL", require("lsp_lines").toggle, { desc = "Show LSP lines" })
 
   map("n", "<Leader>ld", "<CMD>Telescope diagnostics bufnr=0<CR>", { desc = "Document diagnostics" })
   map("n", "<Leader>lD", "<CMD>Telescope diagnostics<CR>", { desc = "Workspace diagnostics" })
