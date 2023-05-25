@@ -7,25 +7,21 @@ function M.on_attach(_client, buffer)
   end
 
   -- LSP saga plugin
-  -- map("n", "K", "<CMD>Lspsaga hover_doc<CR>", { desc = "Show information" })
-  map("n", "<Leader>ca", "<CMD>Lspsaga code_action<CR>", { desc = "Code action" })
   map("n", "<Leader>co", "<CMD>Lspsaga outline<CR>", { desc = "Toggle outline" })
   map("n", "[d", "<CMD>Lspsaga diagnostic_jump_prev<CR>", { desc = "Go to previous diagnostic" })
   map("n", "]d", "<CMD>Lspsaga diagnostic_jump_next<CR>", { desc = "Go to next diagnostic" })
   map("n", "gd", "<CMD>Lspsaga goto_definition<CR>", { desc = "Go to definition" })
   map("n", "gh", "<CMD>Lspsaga lsp_finder<CR>", { desc = "LSP finder" })
   map("n", "gl", "<CMD>Lspsaga show_line_diagnostics ++unfocus<CR>", { desc = "Show line diagnostics" })
-  -- map("n", "gpd",<Leader>cd "<CMD>Lspsaga peek_definition<CR>", { desc = "Peek definition" })
-  -- map("n", "gpt", "<CMD>Lspsaga peek_type_definition<CR>", { desc = "Peek type definition" })
-  -- map("n", "gt", "<CMD>Lspsaga goto_type_definition<CR>", { desc = "Go to type definition" })
-  map({ "n", "i" }, "<A-Enter>", "<CMD>Lspsaga code_action<CR>", { desc = "Code action" })
 
-  map("n", "K", vim.lsp.buf.hover, { desc = "Show information" })
-  map("n", "<Leader>cl", vim.lsp.codelens.run, { desc = "Codelens action" })
+  map("n", "<Leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
   map("n", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format document" })
-  map("v", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format range" })
   map("n", "<Leader>cF", require("plugins.lsp.formatting").toggle, { desc = "Toggle format on save" })
+  map("n", "<Leader>cl", vim.lsp.codelens.run, { desc = "Codelens action" })
   map("n", "<Leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+  map("n", "K", vim.lsp.buf.hover, { desc = "Show information" })
+  map("v", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format range" })
+  map({ "n", "i" }, "<A-Enter>", vim.lsp.buf.code_action, { desc = "Code action" })
 
   -- LSP lines plugin
   map("n", "<Leader>lL", require("lsp_lines").toggle, { desc = "Show LSP lines" })
