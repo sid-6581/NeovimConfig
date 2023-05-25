@@ -18,6 +18,7 @@ return {
         request_timeout = 10000,
         ui = {
           winblend = 10,
+          lines = { "└", "├", "│", "─" },
         },
         preview = {
           lines_above = 0,

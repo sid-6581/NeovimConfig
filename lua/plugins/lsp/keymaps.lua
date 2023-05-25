@@ -19,8 +19,6 @@ function M.on_attach(_client, buffer)
   -- map("n", "gpt", "<CMD>Lspsaga peek_type_definition<CR>", { desc = "Peek type definition" })
   -- map("n", "gt", "<CMD>Lspsaga goto_type_definition<CR>", { desc = "Go to type definition" })
   map({ "n", "i" }, "<A-Enter>", "<CMD>Lspsaga code_action<CR>", { desc = "Code action" })
-  map("n", "<Leader>cci", "<CMD>Lspsaga incoming_calls<CR>", { desc = "Incoming calls" })
-  map("n", "<Leader>cco", "<CMD>Lspsaga outgoing_calls<CR>", { desc = "Outgoing calls" })
 
   map("n", "K", vim.lsp.buf.hover, { desc = "Show information" })
   map("n", "<Leader>cl", vim.lsp.codelens.run, { desc = "Codelens action" })
