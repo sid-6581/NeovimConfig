@@ -2,7 +2,7 @@ local M = {}
 
 function M.on_attach(_client, buffer)
   local map = function(mode, lhs, rhs, opts)
-    opts.buffer = buffer
+    vim.tbl_deep_extend("force", { buffer = buffer, silent = true, noremap = true }, opts)
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 

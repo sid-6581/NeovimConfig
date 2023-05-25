@@ -1,7 +1,7 @@
 local wk = require("which-key")
 
 local map = function(mode, lhs, rhs, opts)
-  opts.silent = true
+  vim.tbl_deep_extend("force", { silent = true, noremap = true }, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
@@ -257,25 +257,25 @@ map(
   "c",
   "<C-j>",
   function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>" end,
-  { expr = true, desc = "Wildmenu down" }
+  { expr = true, desc = "Wildmenu down", silent = false }
 )
 map(
   "c",
   "<Down>",
   function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<Down>" end,
-  { expr = true, desc = "Wildmenu down" }
+  { expr = true, desc = "Wildmenu down", silent = false }
 )
 map(
   "c",
   "<C-k>",
   function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>" end,
-  { expr = true, desc = "Wildmenu up" }
+  { expr = true, desc = "Wildmenu up", silent = false }
 )
 map(
   "c",
   "<Up>",
   function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<Up>" end,
-  { expr = true, desc = "Wildmenu up" }
+  { expr = true, desc = "Wildmenu up", silent = false }
 )
 
 -- Redirect output to noice

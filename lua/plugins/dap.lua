@@ -25,7 +25,11 @@ return {
     dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
 
     local widgets = require("dap.ui.widgets")
-    local map = vim.keymap.set
+
+    local map = function(mode, lhs, rhs, opts)
+      vim.tbl_deep_extend("force", { silent = true, noremap = true }, opts)
+      vim.keymap.set(mode, lhs, rhs, opts)
+    end
 
     map("n", "<F10>", function() require("dap").step_over() end, { desc = "Step Over" })
     map("n", "<F11>", function() require("dap").step_into() end, { desc = "Step Into" })
