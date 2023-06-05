@@ -6,7 +6,8 @@ local map = function(mode, lhs, rhs, opts)
 end
 
 -- Misc
-map("n", "<Esc>", "<CMD>noh<CR>", { desc = "Escape and clear search highlighting" })
+map("n", "<Esc>", "<CMD>noh<CR>", { desc = "Clear search highlighting" })
+map("n", "<BS>", "<CMD>noh<CR>", { desc = "Clear search highlighting" })
 map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<A-1>", "<CMD>Neotree toggle reveal_force_cwd<CR>", { desc = "File explorer" })
