@@ -183,9 +183,9 @@ map("v", "<S-Insert>", '"+P', { desc = "Paste from system clipboard" })
 map("v", "<lt>", "<lt>gv", { desc = "Decrease indent" })
 map("v", ">", ">gv", { desc = "Increase indent" })
 map("v", "p", '"_dP', { desc = "Paste" })
-map("v", "sl", ":sort i<CR>", { desc = "Sort lines" })
-map("v", "sn", ":sort in<CR>", { desc = "Sort lines by number" })
-map("v", "su", ":sort iu<CR>", { desc = "Sort lines unique" })
+map("v", "<Leader>sl", ":sort i<CR>", { desc = "Sort lines" })
+map("v", "<Leader>sn", ":sort in<CR>", { desc = "Sort lines by number" })
+map("v", "<Leader>su", ":sort iu<CR>", { desc = "Sort lines unique" })
 
 -- Operator pending mode
 map({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { desc = "inner line" })
