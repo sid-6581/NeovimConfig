@@ -74,9 +74,37 @@ return {
       local colors = require("gruvbox.palette").colors
 
       require("window-picker").setup({
-        fg_color = colors.bright_yellow,
-        other_win_hl_color = colors.dark1,
-        selection_display = function(char) return "  " .. char .. "  " end,
+        highlights = {
+          statusline = {
+            focused = {
+              fg = colors.bright_yellow,
+              bg = colors.dark1,
+              bold = true,
+            },
+            unfocused = {
+              fg = colors.bright_yellow,
+              bg = colors.dark1,
+              bold = true,
+            },
+          },
+          winbar = {
+            focused = {
+              fg = colors.bright_yellow,
+              bg = colors.dark1,
+              bold = true,
+            },
+            unfocused = {
+              fg = colors.bright_yellow,
+              bg = colors.dark1,
+              bold = true,
+            },
+          },
+        },
+        picker_config = {
+          statusline_winbar_picker = {
+            selection_display = function(char) return "  " .. char .. "  " end,
+          },
+        },
       })
     end,
   },
