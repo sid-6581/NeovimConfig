@@ -16,6 +16,7 @@ map("n", "<A-3>", "<CMD>Neotree toggle show git_status<CR>", { desc = "Git explo
 map("n", "<F1>", "<CMD>Telescope help_tags<CR>", { desc = "Help" })
 map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
+map("n", "zt", "<CMD>%foldclose<CR>", { desc = "Close top level folds" })
 
 -- Buffers
 map("n", "<S-Esc>", "<CMD>Bdelete!<CR>", { desc = "Delete buffer" })
