@@ -31,9 +31,12 @@ return {
       table.insert(newVirtText, { suffix, "MoreMsg" })
       return newVirtText
     end
+
     require("ufo").setup({
       fold_virt_text_handler = handler,
+      provider_selector = function() return { "treesitter", "indent" } end,
     })
+
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
     vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
