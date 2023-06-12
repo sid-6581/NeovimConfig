@@ -20,6 +20,14 @@ return {
   { "lambdalisue/suda.vim", event = "VeryLazy", init = function() vim.g.suda_smart_edit = 1 end },
 
   {
+    "wellle/targets.vim",
+    event = "VeryLazy",
+    init = function()
+      vim.g.targets_seekRanges = "cc cr cb cB lc ac Ac lr lb ar ab lB Ar aB Ab AB rr ll rb al rB Al bb aa bB Aa BB AA"
+    end,
+  },
+
+  {
     "folke/trouble.nvim",
     event = "VeryLazy",
 
