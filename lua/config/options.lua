@@ -25,6 +25,7 @@ vim.opt.ffs = { "unix", "dos" }
 vim.opt.fileencoding = "utf-8"
 vim.opt.fileformat = "unix"
 vim.opt.fillchars:append("stlnc:")
+vim.opt.fillchars:append("eob: ")
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
