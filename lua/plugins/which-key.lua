@@ -39,6 +39,14 @@ return {
           },
         },
         modes = {
+          search = {
+            highlight = {
+              label = {
+                before = true,
+                after = false,
+              },
+            },
+          },
           treesitter = {
             highlight = {
               backdrop = true,
@@ -52,7 +60,7 @@ return {
         vim.api.nvim_set_hl(
           0,
           "FlashLabel",
-          { bg = colors.dark0, fg = colors.bright_aqua, italic = true, reverse = true }
+          { bg = colors.light0, fg = colors.faded_purple, italic = true, reverse = true }
         )
       end,
     },
