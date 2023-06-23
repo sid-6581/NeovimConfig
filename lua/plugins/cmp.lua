@@ -1,5 +1,3 @@
----@diagnostic disable: assign-type-mismatch
-
 return {
   "hrsh7th/nvim-cmp",
   event = { "VeryLazy", "InsertEnter" },

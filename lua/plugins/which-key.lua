@@ -15,21 +15,6 @@ return {
     { "rmagatti/goto-preview", opts = {} },
 
     {
-      "ggandor/leap.nvim",
-
-      dependencies = {
-        { "ggandor/flit.nvim", opts = { labeled_modes = "nv" } },
-        "ggandor/leap-ast.nvim",
-      },
-
-      config = function()
-        local leap = require("leap")
-        leap.opts.max_phase_one_targets = 0
-        leap.opts.highlight_unlabeled_phase_one_targets = false
-      end,
-    },
-
-    {
       "mg979/vim-visual-multi",
       init = function()
         vim.g.VM_show_warnings = 0
@@ -43,6 +28,11 @@ return {
         use_default_keymaps = false,
         check_syntax_error = false,
       },
+    },
+
+    {
+      "folke/flash.nvim",
+      opts = {},
     },
   },
 
