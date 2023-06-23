@@ -38,11 +38,22 @@ return {
             style = "inline",
           },
         },
+        modes = {
+          treesitter = {
+            highlight = {
+              backdrop = true,
+            },
+          },
+        },
       },
       config = function(_, opts)
         require("flash").setup(opts)
         local colors = require("gruvbox.palette").colors
-        vim.api.nvim_set_hl(0, "FlashLabel", { bg = colors.dark0, fg = colors.bright_aqua, italic = true })
+        vim.api.nvim_set_hl(
+          0,
+          "FlashLabel",
+          { bg = colors.dark0, fg = colors.bright_aqua, italic = true, reverse = true }
+        )
       end,
     },
   },

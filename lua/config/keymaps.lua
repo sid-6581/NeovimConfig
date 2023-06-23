@@ -240,8 +240,8 @@ map("n", "cxc", function() require("substitute.exchange").cancel() end, { desc =
 map("x", "X", function() require("substitute.exchange").visual() end, { desc = "Cancel exchange" })
 
 -- Flash plugin
-map("o", "m", ":<C-U>lua require('flash').treesitter()<CR>", { desc = "AST node" })
-map("x", "m", ":lua require('flash').treesitter()<CR>", { desc = "Select AST node" })
+map({ "o", "x" }, "n", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
+map({ "o", "x" }, "r", function() require("flash").remote() end, { desc = "Remote Flash" })
 
 -- TreeSJ plugin
 map("n", "<Leader>cs", "<CMD>TSJSplit<CR>", { desc = "Split node" })
