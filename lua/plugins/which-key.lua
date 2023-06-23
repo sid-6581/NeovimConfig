@@ -32,7 +32,18 @@ return {
 
     {
       "folke/flash.nvim",
-      opts = {},
+      opts = {
+        highlight = {
+          label = {
+            style = "inline",
+          },
+        },
+      },
+      config = function(_, opts)
+        require("flash").setup(opts)
+        local colors = require("gruvbox.palette").colors
+        vim.api.nvim_set_hl(0, "FlashLabel", { bg = colors.dark0, fg = colors.bright_aqua, italic = true })
+      end,
     },
   },
 
