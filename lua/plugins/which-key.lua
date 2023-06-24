@@ -41,6 +41,7 @@ return {
         modes = {
           search = {
             highlight = {
+              backdrop = true,
               label = {
                 before = true,
                 after = false,
