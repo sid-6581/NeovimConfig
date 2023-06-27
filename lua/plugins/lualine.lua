@@ -84,7 +84,7 @@ return {
           },
         },
         lualine_x = { diagnostics, "filetype", lsp, spaces, "encoding", fileformat },
-        lualine_y = { "location" },
+        lualine_y = { "location", "selectioncount" },
         lualine_z = { "progress" },
       },
       inactive_sections = {
