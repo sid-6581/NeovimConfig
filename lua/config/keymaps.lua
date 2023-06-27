@@ -6,7 +6,7 @@ local map = function(mode, lhs, rhs, opts)
 end
 
 -- Misc
-map("n", "<Esc>", "<CMD>noh<CR>", { desc = "Clear search highlighting" })
+map("n", "<Esc>", "<CMD>noh<CR><Esc>", { desc = "Clear search highlighting" })
 map("n", "<BS>", "<CMD>noh<CR>", { desc = "Clear search highlighting" })
 map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })

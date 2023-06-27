@@ -62,6 +62,9 @@ return {
         DiffAdd = { bg = colors.neutral_green, fg = colors.dark0, reverse = false },
         DiffChange = { bg = colors.neutral_aqua, fg = colors.dark0, reverse = false },
         DiffText = { bg = colors.neutral_yellow, fg = colors.dark0, reverse = false },
+
+        IncSearch = { bg = colors.dark0, fg = colors.neutral_yellow, reverse = true },
+        Search = { bg = colors.dark0, fg = colors.faded_yellow, reverse = true },
       },
     })
 
