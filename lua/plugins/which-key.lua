@@ -38,12 +38,12 @@ return {
         },
         modes = {
           search = {
+            label = {
+              before = true,
+              after = false,
+            },
             highlight = {
               backdrop = true,
-              label = {
-                before = true,
-                after = false,
-              },
             },
           },
         },
