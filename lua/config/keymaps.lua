@@ -165,7 +165,7 @@ map("n", "<Leader>Ps", 'i <C-R>"<Esc>', { desc = "Paste before cursor and add sp
 map("n", "<S-Insert>", '"+P', { desc = "Paste from system clipboard" })
 map("n", "[c", function() require("gitsigns").prev_hunk() end, { desc = "Previous change" })
 map("n", "]c", function() require("gitsigns").next_hunk() end, { desc = "Next change" })
-map("n", "`", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
+map("n", "1", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
 map("n", "Y", "_y$", { desc = "Yank line character-wise without indent" })
 
 -- Insert mode
@@ -237,7 +237,7 @@ map("x", "ia", "<Plug>SidewaysArgumentTextobjI", { desc = "inner argument" })
 map("n", "cx", function() require("substitute.exchange").operator() end, { desc = "Exchange" })
 map("n", "cxx", function() require("substitute.exchange").line() end, { desc = "Exchange line" })
 map("n", "cxc", function() require("substitute.exchange").cancel() end, { desc = "Cancel exchange" })
-map("x", "X", function() require("substitute.exchange").visual() end, { desc = "Cancel exchange" })
+map("x", "X", function() require("substitute.exchange").visual() end, { desc = "Visual exchange" })
 
 -- Flash plugin
 map({ "o", "x" }, "n", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
