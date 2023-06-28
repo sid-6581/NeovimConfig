@@ -33,10 +33,8 @@ return {
     {
       "folke/flash.nvim",
       opts = {
-        highlight = {
-          label = {
-            style = "inline",
-          },
+        label = {
+          style = "inline",
         },
         modes = {
           search = {
