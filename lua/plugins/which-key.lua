@@ -48,11 +48,6 @@ return {
               },
             },
           },
-          treesitter = {
-            highlight = {
-              backdrop = true,
-            },
-          },
         },
       },
       config = function(_, opts)
