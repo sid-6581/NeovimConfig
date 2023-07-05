@@ -83,6 +83,7 @@ end
 function M.setup(options)
   local mason_lspconfig = require("mason-lspconfig")
   local lspconfig = require("lspconfig")
+  local util = require("lspconfig.util")
 
   mason_lspconfig.setup_handlers({
     function(server_name)
@@ -301,6 +302,7 @@ function M.setup(options)
         end,
         capabilities = options.capabilities,
         cmd = vim.fn.has("win32") == 1 and { "cmd.exe", "/c", "taplo", "lsp", "stdio" } or nil,
+        root_dir = function(fname) return util.find_git_ancestor(fname) or util.root_pattern("Cargo.toml")(fname) end,
       })
     end,
 
