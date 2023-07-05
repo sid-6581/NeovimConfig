@@ -251,16 +251,7 @@ function M.setup(options)
         server = {
           cmd = { "rustup", "run", "nightly", "rust-analyzer" },
           capabilities = options.capabilities,
-          on_attach = function(client, bufnr)
-            options.on_attach(client, bufnr)
-            -- vim.keymap.set(
-            --   "n",
-            --   "K",
-            --   rt.hover_actions.hover_actions,
-            --   { buffer = bufnr, desc = "Show information (Rust)" }
-            -- )
-            -- vim.keymap.set("x", "K", rt.hover_actions.hover_range, { buffer = bufnr, desc = "Show information (Rust)" })
-          end,
+          on_attach = options.on_attach,
           settings = {
             ["rust-analyzer"] = {
               diagnostics = {

@@ -4,11 +4,11 @@ return {
 
   dependencies = {
     "AndrewRadev/sideways.vim",
+    "fedepujol/move.nvim",
     "michaeljsmith/vim-indent-object",
     "tpope/vim-unimpaired",
     "vim-scripts/ReplaceWithRegister",
 
-    { "booperlv/nvim-gomove", opts = {} },
     { "gbprod/substitute.nvim", opts = {} },
     { "kylechui/nvim-surround", opts = {} },
     { "numToStr/Comment.nvim", opts = {} },
@@ -87,7 +87,6 @@ return {
     },
     defaults = {
       ["g"] = { name = "+goto" },
-      ["gz"] = { name = "+surround" },
       ["]"] = { name = "+next" },
       ["["] = { name = "+prev" },
       ["<Leader><tab>"] = { name = "+tabs" },

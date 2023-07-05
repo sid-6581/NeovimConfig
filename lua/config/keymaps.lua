@@ -223,8 +223,20 @@ map("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "Up" })
 -- Visual mode
 map("v", ",.", "<C-U>", { desc = "Scroll up" })
 map("v", ",/", "<C-D>", { desc = "Scroll down" })
-map("v", "J", ":m '>+1<CR>gv-gv", { desc = "Move down" })
-map("v", "K", ":m '<-2<CR>gv-gv", { desc = "Move up" })
+map("v", "J", ":m '>+1<CR>gv-gv", { desc = "Move lines down" })
+map("v", "K", ":m '<-2<CR>gv-gv", { desc = "Move lines up" })
+
+-- Move plugin
+map("n", "<A-j>", ":MoveLine(1)<CR>", { desc = "Move line down" })
+map("n", "<A-k>", ":MoveLine(-1)<CR>", { desc = "Move line up" })
+-- map("n", "<S-A-h>", ":MoveHChar(-1)<CR>", { desc = "Move character left" })
+-- map("n", "<S-A-l>", ":MoveHChar(1)<CR>", { desc = "Move character right" })
+map("n", "<S-A-l>", ":MoveWord(1)<CR>", { desc = "Move word right" })
+map("n", "<S-A-h>", ":MoveWord(-1)<CR>", { desc = "Move word left" })
+map("v", "<A-j>", ":MoveBlock(1)<CR>", { desc = "Move block up" })
+map("v", "<A-k>", ":MoveBlock(-1)<CR>", { desc = "Move block down" })
+map("v", "<A-h>", ":MoveHBlock(-1)<CR>", { desc = "Move block left" })
+map("v", "<A-l>", ":MoveHBlock(1)<CR>", { desc = "Move block right" })
 
 -- Sideways plugin
 map("n", "<A-h>", "<CMD>SidewaysLeft<CR>", { desc = "Move argument left" })
