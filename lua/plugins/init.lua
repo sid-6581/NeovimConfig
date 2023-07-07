@@ -12,12 +12,21 @@ return {
   { "vmware-archive/salt-vim", ft = "sls" },
 
   { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
-  { "moll/vim-bbye", event = "VeryLazy" },
   { "tpope/vim-repeat", event = "VeryLazy" },
   { "nmac427/guess-indent.nvim", event = "VeryLazy", opts = {} },
   { "norcalli/nvim-colorizer.lua", event = "VeryLazy", config = function() require("colorizer").setup() end },
   { "tiagovla/scope.nvim", event = "VeryLazy", opts = {} },
   { "lambdalisue/suda.vim", event = "VeryLazy", init = function() vim.g.suda_smart_edit = 1 end },
+
+  {
+    "kazhala/close-buffers.nvim",
+    event = "VeryLazy",
+    opts = {
+      filetype_ignore = { "neo-tree" },
+      preserve_window_layout = {},
+    },
+    config = function(_, opts) require("close_buffers").setup(opts) end,
+  },
 
   {
     "wellle/targets.vim",
