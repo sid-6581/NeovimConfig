@@ -19,6 +19,7 @@ map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
 map("n", "zt", "<CMD>%foldclose<CR>", { desc = "Close top level folds" })
 
 -- Buffers
+map("n", "<Leader><Esc>", "<CMD>:bdelete<CR>", { desc = "Delete buffer and close window" })
 map("n", "<S-Esc>", function() require("close_buffers").delete({ type = "this" }) end, { desc = "Delete buffer" })
 map("n", "<Leader>bd", function() require("close_buffers").delete({ type = "this" }) end, { desc = "Delete buffer" })
 map(
@@ -43,7 +44,6 @@ map("n", "<S-h>", "<CMD>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Next buffer" })
 
 -- Windows
-map("n", "<Leader><Esc>", "<C-W>c", { desc = "Close current window" })
 map("n", "<Leader>w,", "<C-W>-", { desc = "Decrease window height" })
 map("n", "<Leader>w.", "<C-W>+", { desc = "Increase window height" })
 map("n", "<Leader>w<Bar>", "<C-W><Bar>", { desc = "Maximize window width" })
