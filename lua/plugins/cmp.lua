@@ -38,7 +38,19 @@ return {
 
   config = function()
     local cmp = require("cmp")
+    local compare = require("cmp.config.compare")
+    local types = require("cmp.types")
     local lspkind = require("lspkind")
+
+    ---@type table<integer, integer>
+    local modified_priority = {
+      [types.lsp.CompletionItemKind.Variable] = types.lsp.CompletionItemKind.Method,
+      [types.lsp.CompletionItemKind.Snippet] = 100, -- bottom
+      [types.lsp.CompletionItemKind.Keyword] = 100, -- bottom
+      [types.lsp.CompletionItemKind.Text] = 100, -- bottom
+    }
+    ---@param kind integer: kind of completion entry
+    local function modified_kind(kind) return modified_priority[kind] or kind end
 
     cmp.setup({
       snippet = {
@@ -76,12 +88,34 @@ return {
         }),
       },
 
+      sorting = {
+        comparators = {
+          function(entry1, entry2) -- sort by compare kind (Variable, Function etc)
+            local kind1 = modified_kind(entry1:get_kind())
+            local kind2 = modified_kind(entry2:get_kind())
+            if kind1 ~= kind2 then return kind1 - kind2 < 0 end
+          end,
+          compare.offset,
+          compare.exact,
+          function(entry1, entry2) -- sort by length ignoring "=~"
+            local len1 = string.len(string.gsub(entry1.completion_item.label, "[=~()_]", ""))
+            local len2 = string.len(string.gsub(entry2.completion_item.label, "[=~()_]", ""))
+            if len1 ~= len2 then return len1 - len2 < 0 end
+          end,
+          ---@diagnostic disable-next-line: assign-type-mismatch
+          compare.recently_used,
+          compare.score,
+          compare.order,
+        },
+      },
+
       sources = {
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "buffer" },
         { name = "path" },
         { name = "crates" },
+        { name = "luasnip" },
       },
 
       confirm_opts = {
