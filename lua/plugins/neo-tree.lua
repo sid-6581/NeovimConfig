@@ -14,6 +14,9 @@ return {
       popup_border_style = "single",
       use_popups_for_input = false,
       window = {
+        mappings = {
+          ["Z"] = "expand_all_nodes",
+        },
         width = 40,
       },
       filesystem = {
@@ -23,6 +26,9 @@ return {
           hide_dotfiles = false,
           hide_gitignored = false,
           hide_hidden = false,
+          never_show = {
+            ".git",
+          },
         },
         bind_to_cwd = true,
         follow_current_file = {
