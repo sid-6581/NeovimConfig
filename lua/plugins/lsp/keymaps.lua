@@ -26,21 +26,11 @@ function M.on_attach(_client, buffer)
   map("n", "<Leader>lS", "<CMD>Telescopet lsp_dynamic_workspace_symbols<CR>", { desc = "Workspace symbols" })
 
   -- Goto-preview
-  map("n", "gpd", function() require("goto-preview").goto_preview_definition({}) end, { desc = "Preview definition" })
-  map(
-    "n",
-    "gpt",
-    function() require("goto-preview").goto_preview_type_definition({}) end,
-    { desc = "Preview type definition" }
-  )
-  map(
-    "n",
-    "gpi",
-    function() require("goto-preview").goto_preview_implementation({}) end,
-    { desc = "Preview implementation" }
-  )
-  map("n", "gP", function() require("goto-preview").close_all_win() end, { desc = "Close all preview windows" })
-  map("n", "gpr", function() require("goto-preview").goto_preview_references() end, { desc = "Preview references" })
+  map("n", "gpd", require("goto-preview").goto_preview_definition, { desc = "Preview definition" })
+  map("n", "gpt", require("goto-preview").goto_preview_type_definition, { desc = "Preview type definition" })
+  map("n", "gpi", require("goto-preview").goto_preview_implementation, { desc = "Preview implementation" })
+  map("n", "gP", require("goto-preview").close_all_win, { desc = "Close all preview windows" })
+  map("n", "gpr", require("goto-preview").goto_preview_references, { desc = "Preview references" })
 
   -- Trouble
   map("n", "<Leader>xx", "<CMD>TroubleToggle<CR>", { desc = "Toggle trouble" })
@@ -50,11 +40,11 @@ function M.on_attach(_client, buffer)
   map("n", "<Leader>xq", "<CMD>TroubleToggle quickfix<CR>", { desc = "Toggle quickfix" })
   map("n", "gR", "<CMD>TroubleToggle lsp_references<CR>", { desc = "Toggle references" })
 
-  map("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "Go to previous diagnostic" })
-  map("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "Go to next diagnostic" })
-  map("n", "gK", function() vim.lsp.buf.signature_help() end, { desc = "Signature Help" })
-  map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go to definition" })
-  map("n", "gl", function() vim.diagnostic.open_float() end, { desc = "Show diagnostics" })
+  map("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
+  map("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+  map("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+  map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+  map("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostics" })
 
   map(
     "n",
