@@ -9,7 +9,6 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     "simrat39/rust-tools.nvim",
     { "simrat39/symbols-outline.nvim", opts = {} },
-
     { "folke/neodev.nvim", opts = {} },
 
     {

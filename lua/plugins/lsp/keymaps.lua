@@ -15,6 +15,9 @@ function M.on_attach(_client, buffer)
   map("v", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format range" })
   map({ "n", "i" }, "<A-Enter>", vim.lsp.buf.code_action, { desc = "Code action" })
 
+  -- Symbols-outline
+  map("n", "<Leader>co", "<CMD>SymbolsOutline<CR>", { desc = "Symbols outline" })
+
   -- LSP lines
   map("n", "<Leader>lL", require("lsp_lines").toggle, { desc = "Show LSP lines" })
 
