@@ -6,14 +6,6 @@ function M.on_attach(_client, buffer)
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 
-  -- LSP saga plugin
-  map("n", "<Leader>co", "<CMD>Lspsaga outline<CR>", { desc = "Toggle outline" })
-  map("n", "[d", "<CMD>Lspsaga diagnostic_jump_prev<CR>", { desc = "Go to previous diagnostic" })
-  map("n", "]d", "<CMD>Lspsaga diagnostic_jump_next<CR>", { desc = "Go to next diagnostic" })
-  map("n", "gd", "<CMD>Lspsaga goto_definition<CR>", { desc = "Go to definition" })
-  map("n", "gh", "<CMD>Lspsaga lsp_finder<CR>", { desc = "LSP finder" })
-  map("n", "gl", "<CMD>Lspsaga show_line_diagnostics ++unfocus<CR>", { desc = "Show line diagnostics" })
-
   map("n", "<Leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
   map("n", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format document" })
   map("n", "<Leader>cF", require("plugins.lsp.formatting").toggle, { desc = "Toggle format on save" })
@@ -23,23 +15,34 @@ function M.on_attach(_client, buffer)
   map("v", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format range" })
   map({ "n", "i" }, "<A-Enter>", vim.lsp.buf.code_action, { desc = "Code action" })
 
-  -- LSP lines plugin
+  -- LSP lines
   map("n", "<Leader>lL", require("lsp_lines").toggle, { desc = "Show LSP lines" })
 
+  -- Telescope
   map("n", "<Leader>ld", "<CMD>Telescope diagnostics bufnr=0<CR>", { desc = "Document diagnostics" })
   map("n", "<Leader>lD", "<CMD>Telescope diagnostics<CR>", { desc = "Workspace diagnostics" })
-  map("n", "<Leader>lR", vim.lsp.buf.references, { desc = "References" })
+  map("n", "<Leader>lr", "<CMD>Telescope lsp_references<CR>", { desc = "References" })
   map("n", "<Leader>ls", "<CMD>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
-  map("n", "<Leader>lS", "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "Workspace symbols" })
+  map("n", "<Leader>lS", "<CMD>Telescopet lsp_dynamic_workspace_symbols<CR>", { desc = "Workspace symbols" })
 
-  -- Goto-preview plugin
-  -- map("n", "ghd", require("goto-preview").goto_preview_definition, { desc = "Preview definition" })
-  -- map("n", "ght", require("goto-preview").goto_preview_type_definition, { desc = "Preview type definition" })
-  -- map("n", "ghi", require("goto-preview").goto_preview_implementation, { desc = "Preview implementation" })
-  -- map("n", "gH", require("goto-preview").close_all_win, { desc = "Close all preview windows" })
-  -- map("n", "ghr", require("goto-preview").goto_preview_references, { desc = "Preview references" })
+  -- Goto-preview
+  map("n", "gpd", function() require("goto-preview").goto_preview_definition({}) end, { desc = "Preview definition" })
+  map(
+    "n",
+    "gpt",
+    function() require("goto-preview").goto_preview_type_definition({}) end,
+    { desc = "Preview type definition" }
+  )
+  map(
+    "n",
+    "gpi",
+    function() require("goto-preview").goto_preview_implementation({}) end,
+    { desc = "Preview implementation" }
+  )
+  map("n", "gP", function() require("goto-preview").close_all_win() end, { desc = "Close all preview windows" })
+  map("n", "gpr", function() require("goto-preview").goto_preview_references() end, { desc = "Preview references" })
 
-  -- Trouble plugin
+  -- Trouble
   map("n", "<Leader>xx", "<CMD>TroubleToggle<CR>", { desc = "Toggle trouble" })
   map("n", "<Leader>xw", "<CMD>TroubleToggle workspace_diagnostics<CR>", { desc = "Toggle workspace diagnostics" })
   map("n", "<Leader>xd", "<CMD>TroubleToggle document_diagnostics<CR>", { desc = "Toggle document diagnostics" })
@@ -47,7 +50,11 @@ function M.on_attach(_client, buffer)
   map("n", "<Leader>xq", "<CMD>TroubleToggle quickfix<CR>", { desc = "Toggle quickfix" })
   map("n", "gR", "<CMD>TroubleToggle lsp_references<CR>", { desc = "Toggle references" })
 
-  map("n", "<S-C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+  map("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "Go to previous diagnostic" })
+  map("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "Go to next diagnostic" })
+  map("n", "gK", function() vim.lsp.buf.signature_help() end, { desc = "Signature Help" })
+  map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go to definition" })
+  map("n", "gl", function() vim.diagnostic.open_float() end, { desc = "Show diagnostics" })
 
   map(
     "n",

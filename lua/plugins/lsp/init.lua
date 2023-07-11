@@ -12,28 +12,6 @@ return {
     { "folke/neodev.nvim", opts = {} },
 
     {
-      "nvimdev/lspsaga.nvim",
-
-      opts = {
-        request_timeout = 10000,
-        ui = {
-          winblend = 10,
-          lines = { "└", "├", "│", "─" },
-        },
-        preview = {
-          lines_above = 0,
-          lines_below = 0,
-        },
-        lightbulb = {
-          virtual_text = false,
-        },
-        symbol_in_winbar = {
-          separator = "  ",
-        },
-      },
-    },
-
-    {
       "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 
       config = function()
