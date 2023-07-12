@@ -271,6 +271,7 @@ map("n", "cxc", function() require("substitute.exchange").cancel() end, { desc =
 map("x", "X", function() require("substitute.exchange").visual() end, { desc = "Visual exchange" })
 
 -- Flash plugin
+map("n", "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, { desc = "Flash Treesitter" })
 map({ "o", "x" }, "n", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
 map({ "o", "x" }, "r", function() require("flash").remote() end, { desc = "Remote Flash" })
 
