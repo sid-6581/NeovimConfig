@@ -45,7 +45,7 @@ end
 
 function M.setup()
   ---@diagnostic disable-next-line: duplicate-set-field
-  vim.diagnostic._get_virt_text_chunks = get_virt_text_chunks
+  -- vim.diagnostic._get_virt_text_chunks = get_virt_text_chunks
 
   vim.diagnostic.config({
     -- virtual_text = { spacing = 20, prefix = "●" },

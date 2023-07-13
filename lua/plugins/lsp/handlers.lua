@@ -231,7 +231,7 @@ function M.setup(options)
       rt.setup({
         tools = {
           inlay_hints = {
-            max_len_align = true,
+            max_len_align = false,
           },
           hover_actions = {
             border = "single",
