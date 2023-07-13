@@ -10,7 +10,12 @@ return {
     "simrat39/rust-tools.nvim",
 
     { "folke/neodev.nvim", opts = {} },
-    { "sid-6581/symbols-outline.nvim", opts = {} },
+    {
+      "sid-6581/symbols-outline.nvim",
+      opts = {
+        preview_bg_highlight = "Normal",
+      },
+    },
 
     {
       "SmiteshP/nvim-navic",
