@@ -10,7 +10,7 @@ return {
     vim.api.nvim_set_hl(0, "NeoTreeFloatTitle", { link = "Title" })
 
     require("neo-tree").setup({
-      close_if_last_window = true,
+      close_if_last_window = false,
       popup_border_style = "single",
       use_popups_for_input = false,
       window = {
