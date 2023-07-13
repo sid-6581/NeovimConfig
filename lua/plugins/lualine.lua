@@ -5,9 +5,15 @@ return {
   config = function()
     local lualine = require("lualine")
     local noice = require("noice")
+    local navic = require("nvim-navic")
 
     local custom_theme = vim.deepcopy(require("lualine.themes.gruvbox_dark"))
     custom_theme.normal.c.bg = "Normal"
+    custom_theme.insert.c.bg = "Normal"
+    custom_theme.visual.c.bg = "Normal"
+    custom_theme.command.c.bg = "Normal"
+    custom_theme.replace.c.bg = "Normal"
+    custom_theme.inactive.c.bg = "Normal"
 
     local diagnostics = {
       "diagnostics",
@@ -71,7 +77,15 @@ return {
         lualine_a = { "hostname", branch },
         lualine_b = { "filename" },
         lualine_c = {
-          diff,
+          {
+            "navic",
+            color_correction = "dynamic",
+            fmt = function(str) return str .. "%#NavicSeparator# %*" end,
+            padding = {
+              left = 1,
+              right = 0,
+            },
+          },
           {
             noice.api.status.mode.get,
             cond = noice.api.status.mode.has,
@@ -83,7 +97,7 @@ return {
             color = { fg = "#ff9e64" },
           },
         },
-        lualine_x = { diagnostics, "filetype", lsp, spaces, "encoding", fileformat },
+        lualine_x = { diff, diagnostics, "filetype", lsp, spaces, "encoding", fileformat },
         lualine_y = { "location", "selectioncount" },
         lualine_z = { "progress" },
       },
