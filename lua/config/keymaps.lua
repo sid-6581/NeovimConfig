@@ -103,7 +103,7 @@ map("n", "<Leader>E", "<CMD>Neotree reveal<CR>", { desc = "Find file in explorer
 map("n", "<Leader>Q", "<CMD>qa!<CR>", { desc = "Quit all without saving" })
 
 -- Telescope
-map("n", "<Leader>fa", "<CMD>Telescope<CR>", { desc = "All" })
+map("n", "<Leader>fa", "<CMD>Telescope builtin include_extensions=true<CR>", { desc = "All" })
 map("n", "<Leader>fb", "<CMD>Telescope buffers<CR>", { desc = "Buffers" })
 map("n", "<Leader>fc", "<CMD>Telescope commands<CR>", { desc = "Commands" })
 map("n", "<Leader>ff", "<CMD>Telescope find_files<CR>", { desc = "Files" })
