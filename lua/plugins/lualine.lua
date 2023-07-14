@@ -9,11 +9,11 @@ return {
 
     local custom_theme = vim.deepcopy(require("lualine.themes.gruvbox_dark"))
     custom_theme.normal.c.bg = "Normal"
-    custom_theme.insert.c.bg = "Normal"
-    custom_theme.visual.c.bg = "Normal"
-    custom_theme.command.c.bg = "Normal"
-    custom_theme.replace.c.bg = "Normal"
-    custom_theme.inactive.c.bg = "Normal"
+    custom_theme.insert.c = custom_theme.normal.c
+    custom_theme.visual.c = custom_theme.normal.c
+    custom_theme.command.c = custom_theme.normal.c
+    custom_theme.replace.c = custom_theme.normal.c
+    custom_theme.inactive.c = custom_theme.normal.c
 
     local diagnostics = {
       "diagnostics",
