@@ -23,7 +23,7 @@ return {
     event = "VeryLazy",
     opts = {
       filetype_ignore = { "neo-tree" },
-      preserve_window_layout = {},
+      preserve_window_layout = { "this" },
     },
     config = function(_, opts) require("close_buffers").setup(opts) end,
   },
