@@ -16,7 +16,29 @@ map("n", "<A-3>", "<CMD>Neotree toggle show git_status<CR>", { desc = "Git explo
 map("n", "<F1>", "<CMD>Telescope help_tags<CR>", { desc = "Help" })
 map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
+
+-- Folds
+local closeFoldsWithLevel = function(level)
+  local lineCount = vim.api.nvim_buf_line_count(0)
+  local winView = vim.fn.winsaveview()
+  local lnum = 1
+  while lnum <= lineCount do
+    if vim.fn.foldlevel(lnum) == level then
+      vim.api.nvim_win_set_cursor(0, { lnum, 0 })
+      vim.cmd("norm! zc")
+      local endLnum = vim.fn.foldclosedend(lnum)
+      lnum = endLnum > 0 and (endLnum + 1) or (lnum + 1)
+    else
+      lnum = lnum + 1
+    end
+  end
+  vim.fn.winrestview(winView)
+end
+
 map("n", "zt", "<CMD>%foldclose<CR>", { desc = "Close top level folds" })
+map("n", "z1", function() closeFoldsWithLevel(1) end, { desc = "Close folds with level 1" })
+map("n", "z2", function() closeFoldsWithLevel(2) end, { desc = "Close folds with level 2" })
+map("n", "z3", function() closeFoldsWithLevel(3) end, { desc = "Close folds with level 3" })
 
 -- Buffers
 map("n", "<Leader><Esc>", "<CMD>:bdelete<CR>", { desc = "Delete buffer and close window" })
