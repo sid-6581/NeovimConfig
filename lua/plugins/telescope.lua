@@ -1,3 +1,35 @@
+local yank_all_entries = function(prompt_bufnr)
+  local actions = require("telescope.actions")
+  local action_state = require("telescope.actions.state")
+  local entry_display = require("telescope.pickers.entry_display")
+  local picker = action_state.get_current_picker(prompt_bufnr)
+  local manager = picker.manager
+
+  local entries = {}
+  for entry in manager:iter() do
+    local display, _ = entry_display.resolve(picker, entry)
+    table.insert(entries, display)
+  end
+
+  actions.close(prompt_bufnr)
+  vim.fn.setreg("", table.concat(entries, "\n"))
+end
+
+local yank_preview_lines = function(prompt_bufnr)
+  local actions = require("telescope.actions")
+  local action_state = require("telescope.actions.state")
+  local picker = action_state.get_current_picker(prompt_bufnr)
+  local previewer = picker.previewer
+  local winid = previewer.state.winid
+  local bufnr = previewer.state.bufnr
+  local line_start = vim.fn.line("w0", winid)
+  local line_end = vim.fn.line("w$", winid)
+  local lines = vim.api.nvim_buf_get_lines(bufnr, line_start, line_end, false)
+  local text = table.concat(lines, "\n")
+  actions.close(prompt_bufnr)
+  vim.fn.setreg("", text)
+end
+
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.1",
@@ -60,14 +92,18 @@ return {
         mappings = {
           i = {
             ["<Esc>"] = actions.close,
+            ["<F1>"] = actions.which_key,
             ["<C-n>"] = actions.cycle_history_next,
             ["<C-p>"] = actions.cycle_history_prev,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
-            ["<F1>"] = actions.which_key,
+            ["<C-y>e"] = yank_all_entries,
+            ["<C-y>p"] = yank_preview_lines,
           },
           n = {
             ["<F1>"] = actions.which_key,
+            ["<C-y>e"] = yank_all_entries,
+            ["<C-y>p"] = yank_preview_lines,
           },
         },
       },
