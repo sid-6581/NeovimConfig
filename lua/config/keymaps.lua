@@ -102,7 +102,18 @@ map("n", "<C-S-l>", "gt", { desc = "Next tab" })
 map("n", "<C-S-t>", "<CMD>tabnew<CR>", { desc = "Open new tab" })
 
 -- Folds
-map("n", "zt", "<CMD>%foldclose<CR>", { desc = "Close top level folds" })
+map(
+  "n",
+  "zff",
+  function() require("util").closeTextObjectFolds("@function.outer") end,
+  { desc = "Close folds for functions" }
+)
+map(
+  "n",
+  "zfc",
+  function() require("util").closeTextObjectFolds("@class.outer") end,
+  { desc = "Close folds for classes" }
+)
 map("n", "z1", function() require("util").closeFoldsWithLevel(1) end, { desc = "Close folds with level 1" })
 map("n", "z2", function() require("util").closeFoldsWithLevel(2) end, { desc = "Close folds with level 2" })
 map("n", "z3", function() require("util").closeFoldsWithLevel(3) end, { desc = "Close folds with level 3" })

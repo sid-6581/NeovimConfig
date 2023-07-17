@@ -18,6 +18,19 @@ function M.closeFoldsWithLevel(level)
   vim.fn.winrestview(winView)
 end
 
+-- Close all folds with a given treesitter textobject. Does not close folds inside the fold recursively.
+function M.closeTextObjectFolds(textobject)
+  local winView = vim.fn.winsaveview()
+  vim.api.nvim_win_set_cursor(0, { 1, 0 })
+  while true do
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    vim.cmd({ cmd = "TSTextobjectGotoNextStart", args = { textobject } })
+    if vim.deep_equal(cursor, vim.api.nvim_win_get_cursor(0)) then break end
+    vim.cmd("norm! zc")
+  end
+  vim.fn.winrestview(winView)
+end
+
 -- Closes the window unless it's the only window remaining in the tab page.
 -- If the buffer in the window is not shown in any other window, also close the buffer.
 function M.closeWindowOrBuffer()
