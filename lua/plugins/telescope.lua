@@ -51,7 +51,7 @@ return {
       event = "VeryLazy",
       opts = {
         ignore_lsp = { "null-ls" },
-        patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", ".gitignore", "*" },
+        patterns = { ".git" },
         scope_chdir = "tab",
         show_hidden = true,
         silent_chdir = true,
