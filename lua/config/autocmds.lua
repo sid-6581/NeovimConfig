@@ -57,10 +57,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- Turn off filetype indent for filetypes
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "vue" },
-  callback = function()
-    vim.b.did_indent = 1
-    vim.notify("disabled indent")
-  end,
+  callback = function() vim.opt_local.indentkeys = nil end,
 })
 
 -- Turn off comment-related formatting and automatic inserting of comment leaders
