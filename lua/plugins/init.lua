@@ -19,13 +19,59 @@ return {
   { "lambdalisue/suda.vim", event = "VeryLazy", init = function() vim.g.suda_smart_edit = 1 end },
 
   {
+    "fedepujol/move.nvim",
+    event = "VeryLazy",
+
+    keys = {
+      { "<A-j>", ":MoveLine(1)<CR>", desc = "Move line down" },
+      { "<A-k>", ":MoveLine(-1)<CR>", desc = "Move line up" },
+      { "<S-A-l>", ":MoveWord(1)<CR>", desc = "Move word right" },
+      { "<S-A-h>", ":MoveWord(-1)<CR>", desc = "Move word left" },
+      { mode = "v", "<A-j>", ":MoveBlock(1)<CR>", desc = "Move block up" },
+      { mode = "v", "<A-k>", ":MoveBlock(-1)<CR>", desc = "Move block down" },
+      { mode = "v", "<A-h>", ":MoveHBlock(-1)<CR>", desc = "Move block left" },
+      { mode = "v", "<A-l>", ":MoveHBlock(1)<CR>", desc = "Move block right" },
+    },
+  },
+
+  {
+    "AndrewRadev/sideways.vim",
+    event = "VeryLazy",
+
+    keys = {
+      { "<A-h>", "<CMD>SidewaysLeft<CR>", desc = "Move argument left" },
+      { "<A-l>", "<CMD>SidewaysRight<CR>", desc = "Move argument right" },
+      { mode = "o", "aa", "<Plug>SidewaysArgumentTextobjA", desc = "an argument" },
+      { mode = "o", "ia", "<Plug>SidewaysArgumentTextobjI", desc = "inner argument" },
+      { mode = "x", "aa", "<Plug>SidewaysArgumentTextobjA", desc = "an argument" },
+      { mode = "x", "ia", "<Plug>SidewaysArgumentTextobjI", desc = "inner argument" },
+    },
+  },
+
+  {
     "kazhala/close-buffers.nvim",
     event = "VeryLazy",
+
+    keys = {
+      { "<S-Esc>", function() require("close_buffers").delete({ type = "this" }) end, desc = "Delete buffer" },
+      { "<Leader>bd", function() require("close_buffers").delete({ type = "this" }) end, desc = "Delete buffer" },
+      { "<Leader>ba", function() require("close_buffers").delete({ type = "all" }) end, desc = "Delete all buffers" },
+      {
+        "<Leader>bh",
+        function() require("close_buffers").delete({ type = "hidden" }) end,
+        desc = "Delete hidden buffers",
+      },
+      {
+        "<Leader>bo",
+        function() require("close_buffers").delete({ type = "other" }) end,
+        desc = "Delete other buffers",
+      },
+    },
+
     opts = {
       filetype_ignore = { "neo-tree" },
       preserve_window_layout = { "this" },
     },
-    config = function(_, opts) require("close_buffers").setup(opts) end,
   },
 
   {

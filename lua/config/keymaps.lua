@@ -12,7 +12,6 @@ map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>Q", "<CMD>qa!<CR>", { desc = "Quit all without saving" })
 
-map("n", "<F1>", "<CMD>Telescope help_tags<CR>", { desc = "Help" })
 map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
 
@@ -22,26 +21,6 @@ map(
   "<Leader><Esc>",
   function() require("util").closeWindowOrBuffer() end,
   { desc = "Delete buffer and close window" }
-)
-map("n", "<S-Esc>", function() require("close_buffers").delete({ type = "this" }) end, { desc = "Delete buffer" })
-map("n", "<Leader>bd", function() require("close_buffers").delete({ type = "this" }) end, { desc = "Delete buffer" })
-map(
-  "n",
-  "<Leader>ba",
-  function() require("close_buffers").delete({ type = "all" }) end,
-  { desc = "Delete all buffers" }
-)
-map(
-  "n",
-  "<Leader>bh",
-  function() require("close_buffers").delete({ type = "hidden" }) end,
-  { desc = "Delete hidden buffers" }
-)
-map(
-  "n",
-  "<Leader>bo",
-  function() require("close_buffers").delete({ type = "other" }) end,
-  { desc = "Delete other buffers" }
 )
 map("n", "<S-h>", "<CMD>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Next buffer" })
@@ -119,46 +98,12 @@ map("n", "z2", function() require("util").closeFoldsWithLevel(2) end, { desc = "
 map("n", "z3", function() require("util").closeFoldsWithLevel(3) end, { desc = "Close folds with level 3" })
 map("n", "z4", function() require("util").closeFoldsWithLevel(4) end, { desc = "Close folds with level 4" })
 
--- Neo-tree plugin
-map("n", "<A-1>", "<CMD>Neotree toggle reveal_force_cwd<CR>", { desc = "File explorer" })
-map("n", "<A-2>", "<CMD>Neotree toggle show buffers<CR>", { desc = "Buffer explorer" })
-map("n", "<A-3>", "<CMD>Neotree toggle show git_status<CR>", { desc = "Git explorer" })
-map("n", "<Leader>e", "<CMD>Neotree toggle<CR>", { desc = "File explorer" })
-map("n", "<Leader>E", "<CMD>Neotree reveal<CR>", { desc = "Find file in explorer" })
-
--- Telescope plugin
-map("n", "<Leader>fa", "<CMD>Telescope builtin include_extensions=true<CR>", { desc = "All" })
-map("n", "<Leader>fb", "<CMD>Telescope buffers<CR>", { desc = "Buffers" })
-map("n", "<Leader>fc", "<CMD>Telescope commands<CR>", { desc = "Commands" })
-map("n", "<Leader>ff", "<CMD>Telescope find_files<CR>", { desc = "Files" })
-map("n", "<Leader>fg", "<CMD>Telescope git_branches<CR>", { desc = "Git branches" })
-map("n", "<Leader>fh", "<CMD>Telescope help_tags<CR>", { desc = "Help" })
-map("n", "<Leader>fk", "<CMD>Telescope keymaps<CR>", { desc = "Keymaps" })
-map("n", "<Leader>fM", "<CMD>Telescope man_pages<CR>", { desc = "Man pages" })
-map("n", "<Leader>fn", "<CMD>Noice telescope<CR>", { desc = "Noice" })
-map("n", "<Leader>fp", "<CMD>Telescope projects<CR>", { desc = "Projects" })
-map("n", "<Leader>fr", "<CMD>Telescope oldfiles<CR>", { desc = "Recent files" })
-map("n", "<Leader>fR", "<CMD>Telescope registers<CR>", { desc = "Registers" })
-map("n", "<Leader>fs", "<CMD>Telescope symbols<CR>", { desc = "Symbols" })
-map("n", "<Leader>ft", "<CMD>Telescope live_grep<CR>", { desc = "Text" })
-map("n", "<Leader>fu", "<CMD>Telescope undo<CR>", { desc = "Undo" })
-map(
-  "n",
-  "<Leader>fz",
-  function() require("telescope").extensions.z.list({ cmd = { vim.o.shell, "-c", "zoxide query -ls" } }) end,
-  { desc = "Zoxide" }
-)
-map("n", "<Leader>f.", "<CMD>Telescope file_browser<CR>", { desc = "Browse files" })
-
 -- Git
-map("n", "<Leader>gb", "<CMD>Telescope git_branches<CR>", { desc = "Checkout branch" })
-map("n", "<Leader>gc", "<CMD>Telescope git_commits<CR>", { desc = "Checkout commit" })
 map("n", "<Leader>gd", "<CMD>Gitsigns diffthis HEAD<CR>", { desc = "Diff" })
 map("n", "<Leader>gg", _LAZYGIT_TOGGLE, { desc = "Lazygit" })
 map("n", "<Leader>gj", function() require("gitsigns").next_hunk() end, { desc = "Next hunk" })
 map("n", "<Leader>gk", function() require("gitsigns").prev_hunk() end, { desc = "Prev hunk" })
 map("n", "<Leader>gl", function() require("gitsigns").blame_line() end, { desc = "Blame" })
-map("n", "<Leader>go", "<CMD>Telescope git_status<CR>", { desc = "Open changed file" })
 map("n", "<Leader>gp", function() require("gitsigns").preview_hunk() end, { desc = "Preview hunk" })
 map("n", "<Leader>gR", function() require("gitsigns").reset_buffer() end, { desc = "Reset buffer" })
 map("n", "<Leader>gr", function() require("gitsigns").reset_hunk() end, { desc = "Reset hunk" })
@@ -217,7 +162,6 @@ map("i", "<S-Enter>", "<Esc>m`o<Esc>``a", { desc = "Insert blank line below" })
 map("i", "<C-S-Enter>", "<Esc>m`O<Esc>``a", { desc = "Insert blank line above" })
 map("i", "<S-Insert>", '<C-O>"+P', { desc = "Paste from system clipboard" })
 map("i", "<S-Tab>", "<C-D>", { desc = "Unindent line" })
-map("i", "<F1>", "<CMD>Telescope help_tags<CR>", { desc = "Help" })
 map("i", "<C-BS>", "<C-w>", { desc = "Delete previous word" })
 map("i", "<A-BS>", "<C-\\><C-o>dB", { desc = "Delete until the previous space" })
 
@@ -267,26 +211,6 @@ map("v", ",.", "<C-U>", { desc = "Scroll up" })
 map("v", ",/", "<C-D>", { desc = "Scroll down" })
 map("v", "J", ":m '>+1<CR>gv-gv", { desc = "Move lines down" })
 map("v", "K", ":m '<-2<CR>gv-gv", { desc = "Move lines up" })
-
--- Move plugin
-map("n", "<A-j>", ":MoveLine(1)<CR>", { desc = "Move line down" })
-map("n", "<A-k>", ":MoveLine(-1)<CR>", { desc = "Move line up" })
--- map("n", "<S-A-h>", ":MoveHChar(-1)<CR>", { desc = "Move character left" })
--- map("n", "<S-A-l>", ":MoveHChar(1)<CR>", { desc = "Move character right" })
-map("n", "<S-A-l>", ":MoveWord(1)<CR>", { desc = "Move word right" })
-map("n", "<S-A-h>", ":MoveWord(-1)<CR>", { desc = "Move word left" })
-map("v", "<A-j>", ":MoveBlock(1)<CR>", { desc = "Move block up" })
-map("v", "<A-k>", ":MoveBlock(-1)<CR>", { desc = "Move block down" })
-map("v", "<A-h>", ":MoveHBlock(-1)<CR>", { desc = "Move block left" })
-map("v", "<A-l>", ":MoveHBlock(1)<CR>", { desc = "Move block right" })
-
--- Sideways plugin
-map("n", "<A-h>", "<CMD>SidewaysLeft<CR>", { desc = "Move argument left" })
-map("n", "<A-l>", "<CMD>SidewaysRight<CR>", { desc = "Move argument right" })
-map("o", "aa", "<Plug>SidewaysArgumentTextobjA", { desc = "an argument" })
-map("o", "ia", "<Plug>SidewaysArgumentTextobjI", { desc = "inner argument" })
-map("x", "aa", "<Plug>SidewaysArgumentTextobjA", { desc = "an argument" })
-map("x", "ia", "<Plug>SidewaysArgumentTextobjI", { desc = "inner argument" })
 
 -- Substitute plugin
 map("n", "cx", function() require("substitute.exchange").operator() end, { desc = "Exchange" })

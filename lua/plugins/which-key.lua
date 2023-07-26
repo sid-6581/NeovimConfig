@@ -3,8 +3,6 @@ return {
   lazy = true,
 
   dependencies = {
-    "AndrewRadev/sideways.vim",
-    "fedepujol/move.nvim",
     "michaeljsmith/vim-indent-object",
     "tpope/vim-unimpaired",
     "vim-scripts/ReplaceWithRegister",
