@@ -1,4 +1,4 @@
-local M = {
+return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = "VeryLazy",
@@ -9,14 +9,8 @@ local M = {
     "nvim-treesitter/nvim-treesitter-refactor",
     "nvim-treesitter/playground",
   },
-}
 
-function M.config()
-  if vim.fn.has("win32") == 1 then require("nvim-treesitter.install").compilers = { "clang" } end
-
-  require("nvim-treesitter.install").prefer_git = false
-
-  require("nvim-treesitter.configs").setup({
+  opts = {
     ensure_installed = {
       "bash",
       "c",
@@ -128,7 +122,11 @@ function M.config()
         },
       },
     },
-  })
-end
+  },
 
-return M
+  config = function(_, opts)
+    if vim.fn.has("win32") == 1 then require("nvim-treesitter.install").compilers = { "clang" } end
+    require("nvim-treesitter.install").prefer_git = false
+    require("nvim-treesitter.configs").setup(opts)
+  end,
+}
