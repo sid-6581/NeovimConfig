@@ -1,22 +1,89 @@
 return {
   "folke/lazy.nvim",
 
+  --
   -- Libraries used by other plugins
-  { "MunifTanjim/nui.nvim", lazy = true },
-  { "nvim-lua/plenary.nvim", lazy = true },
-  { "nvim-tree/nvim-web-devicons", lazy = true },
+  --
+  {
+    "MunifTanjim/nui.nvim",
+    event = "VeryLazy",
+  },
 
+  {
+    "nvim-lua/plenary.nvim",
+    event = "VeryLazy",
+  },
+
+  {
+    "nvim-tree/nvim-web-devicons",
+    event = "VeryLazy",
+  },
+
+  --
   -- File types
-  { "isobit/vim-caddyfile", ft = "caddyfile" },
-  { "mechatroner/rainbow_csv", ft = "csv" },
-  { "vmware-archive/salt-vim", ft = "sls" },
+  --
+  {
+    "isobit/vim-caddyfile",
+    ft = "caddyfile",
+  },
 
-  { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
-  { "tpope/vim-repeat", event = "VeryLazy" },
-  { "nmac427/guess-indent.nvim", event = "VeryLazy", opts = {} },
-  { "norcalli/nvim-colorizer.lua", event = "VeryLazy", config = function() require("colorizer").setup() end },
-  { "tiagovla/scope.nvim", event = "VeryLazy", opts = {} },
-  { "lambdalisue/suda.vim", event = "VeryLazy", init = function() vim.g.suda_smart_edit = 1 end },
+  {
+    "mechatroner/rainbow_csv",
+    ft = "csv",
+  },
+
+  {
+    "vmware-archive/salt-vim",
+    ft = "sls",
+  },
+
+  --
+  -- Other plugins
+  --
+  {
+    "kevinhwang91/nvim-bqf",
+    event = "VeryLazy",
+  },
+
+  {
+    "tpope/vim-repeat",
+    event = "VeryLazy",
+  },
+
+  {
+    "nmac427/guess-indent.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "norcalli/nvim-colorizer.lua",
+    event = "VeryLazy",
+    config = function() require("colorizer").setup() end,
+  },
+
+  {
+    "tiagovla/scope.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "lambdalisue/suda.vim",
+    event = "VeryLazy",
+    init = function() vim.g.suda_smart_edit = 1 end,
+  },
+
+  {
+    "kylechui/nvim-surround",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "vim-scripts/ReplaceWithRegister",
+    event = "VeryLazy",
+  },
 
   {
     "folke/flash.nvim",
@@ -57,12 +124,35 @@ return {
   },
 
   {
+    "rmagatti/goto-preview",
+    event = "VeryLazy",
+
+    keys = {
+      { "gpd", function() require("goto-preview").goto_preview_definition({}) end, desc = "Preview definition" },
+      {
+        "gpt",
+        function() require("goto-preview").goto_preview_type_definition({}) end,
+        desc = "Preview type definition",
+      },
+      {
+        "gpi",
+        function() require("goto-preview").goto_preview_implementation({}) end,
+        desc = "Preview implementation",
+      },
+      { "gpP", function() require("goto-preview").close_all_win({}) end, desc = "Close all preview windows" },
+      { "gpr", function() require("goto-preview").goto_preview_references({}) end, desc = "Preview references" },
+    },
+
+    opts = {},
+  },
+
+  {
     "gbprod/substitute.nvim",
     event = "VeryLazy",
 
     keys = {
-      { mode = "n", "cx", function() require("substitute.exchange").operator() end, desc = "Exchange" },
-      { mode = "n", "cxx", function() require("substitute.exchange").line() end, desc = "Exchange line" },
+      { "cx", function() require("substitute.exchange").operator() end, desc = "Exchange" },
+      { "cxx", function() require("substitute.exchange").line() end, desc = "Exchange line" },
       { mode = "n", "cxc", function() require("substitute.exchange").cancel() end, desc = "Cancel exchange" },
       { mode = "x", "X", function() require("substitute.exchange").visual() end, desc = "Visual exchange" },
     },

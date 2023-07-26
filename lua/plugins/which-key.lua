@@ -5,11 +5,8 @@ return {
   dependencies = {
     "michaeljsmith/vim-indent-object",
     "tpope/vim-unimpaired",
-    "vim-scripts/ReplaceWithRegister",
 
-    { "kylechui/nvim-surround", opts = {} },
     { "numToStr/Comment.nvim", opts = {} },
-    { "rmagatti/goto-preview", opts = {} },
 
     {
       "mg979/vim-visual-multi",
@@ -46,6 +43,7 @@ return {
     },
     defaults = {
       ["g"] = { name = "+goto" },
+      ["gp"] = { name = "+goto preview" },
       ["]"] = { name = "+next" },
       ["["] = { name = "+prev" },
       ["<Leader><tab>"] = { name = "+tabs" },
@@ -53,6 +51,7 @@ return {
       ["<Leader>c"] = { name = "+code" },
       ["<Leader>f"] = { name = "+find" },
       ["<Leader>g"] = { name = "+git" },
+      ["<Leader>u"] = { name = "+toggles" },
       ["<Leader>w"] = { name = "+windows" },
       ["<Leader>x"] = { name = "+diagnostics/quickfix" },
     },

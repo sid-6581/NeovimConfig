@@ -11,15 +11,15 @@ map("n", "<BS>", "<CMD>noh<CR>", { desc = "Clear search highlighting" })
 map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>Q", "<CMD>qa!<CR>", { desc = "Quit all without saving" })
-
 map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
+map("n", "<leader>iu", vim.show_pos, { desc = "Inspect under cursor" })
 
 -- Buffers
 map(
   "n",
   "<Leader><Esc>",
-  function() require("util").closeWindowOrBuffer() end,
+  function() require("util").close_window_or_buffer() end,
   { desc = "Delete buffer and close window" }
 )
 map("n", "<S-h>", "<CMD>bprevious<CR>", { desc = "Previous buffer" })
@@ -84,19 +84,19 @@ map("n", "<C-S-t>", "<CMD>tabnew<CR>", { desc = "Open new tab" })
 map(
   "n",
   "zff",
-  function() require("util").closeTextObjectFolds("@function.outer") end,
+  function() require("util").close_text_object_folds("@function.outer") end,
   { desc = "Close folds for functions" }
 )
 map(
   "n",
   "zfc",
-  function() require("util").closeTextObjectFolds("@class.outer") end,
+  function() require("util").close_text_object_folds("@class.outer") end,
   { desc = "Close folds for classes" }
 )
-map("n", "z1", function() require("util").closeFoldsWithLevel(1) end, { desc = "Close folds with level 1" })
-map("n", "z2", function() require("util").closeFoldsWithLevel(2) end, { desc = "Close folds with level 2" })
-map("n", "z3", function() require("util").closeFoldsWithLevel(3) end, { desc = "Close folds with level 3" })
-map("n", "z4", function() require("util").closeFoldsWithLevel(4) end, { desc = "Close folds with level 4" })
+map("n", "z1", function() require("util").close_folds_with_level(1) end, { desc = "Close folds with level 1" })
+map("n", "z2", function() require("util").close_folds_with_level(2) end, { desc = "Close folds with level 2" })
+map("n", "z3", function() require("util").close_folds_with_level(3) end, { desc = "Close folds with level 3" })
+map("n", "z4", function() require("util").close_folds_with_level(4) end, { desc = "Close folds with level 4" })
 
 -- Git
 map("n", "<Leader>gd", "<CMD>Gitsigns diffthis HEAD<CR>", { desc = "Diff" })
@@ -236,6 +236,19 @@ map(
   "<Up>",
   function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<Up>" end,
   { expr = true, desc = "Wildmenu up", silent = false }
+)
+
+-- Toggles
+map("n", "<Leader>ud", function() require("util").toggle_diagnostics() end, { desc = "Toggle diagnostics" })
+map("n", "<Leader>uh", function() vim.lsp.inlay_hint(0, nil) end, { desc = "Toggle inlay hints" })
+map("n", "<Leader>uf", require("plugins.lsp.formatting").toggle, { desc = "Toggle format on save" })
+map("n", "<Leader>uw", function() require("util").toggle("wrap") end, { desc = "Toggle wrap" })
+map("n", "<leader>ul", function() require("util").toggle_number() end, { desc = "Toggle line numbers" })
+map(
+  "n",
+  "<leader>ur",
+  function() require("util").toggle("relativenumber") end,
+  { desc = "Toggle relative line numbers" }
 )
 
 -- Redirect output to noice

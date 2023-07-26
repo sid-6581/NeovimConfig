@@ -8,7 +8,6 @@ function M.on_attach(_client, buffer)
 
   map("n", "<Leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
   map("n", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format document" })
-  map("n", "<Leader>cF", require("plugins.lsp.formatting").toggle, { desc = "Toggle format on save" })
   map("n", "<Leader>cl", vim.lsp.codelens.run, { desc = "Codelens action" })
   map("n", "<Leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
   map("n", "K", vim.lsp.buf.hover, { desc = "Show information" })
@@ -28,13 +27,6 @@ function M.on_attach(_client, buffer)
   map("n", "<Leader>ls", "<CMD>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
   map("n", "<Leader>lS", "<CMD>Telescopet lsp_dynamic_workspace_symbols<CR>", { desc = "Workspace symbols" })
 
-  -- Goto-preview
-  map("n", "gpd", require("goto-preview").goto_preview_definition, { desc = "Preview definition" })
-  map("n", "gpt", require("goto-preview").goto_preview_type_definition, { desc = "Preview type definition" })
-  map("n", "gpi", require("goto-preview").goto_preview_implementation, { desc = "Preview implementation" })
-  map("n", "gP", require("goto-preview").close_all_win, { desc = "Close all preview windows" })
-  map("n", "gpr", require("goto-preview").goto_preview_references, { desc = "Preview references" })
-
   -- Trouble
   map("n", "<Leader>xx", "<CMD>TroubleToggle<CR>", { desc = "Toggle trouble" })
   map("n", "<Leader>xw", "<CMD>TroubleToggle workspace_diagnostics<CR>", { desc = "Toggle workspace diagnostics" })
@@ -52,19 +44,19 @@ function M.on_attach(_client, buffer)
   map(
     "n",
     "<Leader>lC1",
-    function() print(vim.inspect(vim.lsp.get_active_clients()[1])) end,
+    function() print(vim.inspect(vim.lsp.get_clients()[1])) end,
     { desc = "View LSP server 1 information" }
   )
   map(
     "n",
     "<Leader>lC2",
-    function() print(vim.inspect(vim.lsp.get_active_clients()[2])) end,
+    function() print(vim.inspect(vim.lsp.get_clients()[2])) end,
     { desc = "View LSP server 2 information" }
   )
   map(
     "n",
     "<Leader>lC3",
-    function() print(vim.inspect(vim.lsp.get_active_clients()[3])) end,
+    function() print(vim.inspect(vim.lsp.get_clients()[3])) end,
     { desc = "View LSP server 3 information" }
   )
 end
