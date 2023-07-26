@@ -7,7 +7,6 @@ return {
     "tpope/vim-unimpaired",
     "vim-scripts/ReplaceWithRegister",
 
-    { "gbprod/substitute.nvim", opts = {} },
     { "kylechui/nvim-surround", opts = {} },
     { "numToStr/Comment.nvim", opts = {} },
     { "rmagatti/goto-preview", opts = {} },
@@ -17,44 +16,6 @@ return {
       init = function()
         vim.g.VM_show_warnings = 0
         vim.g.VM_silent_exit = 1
-      end,
-    },
-
-    {
-      "Wansmer/treesj",
-      opts = {
-        use_default_keymaps = false,
-        check_syntax_error = false,
-      },
-    },
-
-    {
-      "folke/flash.nvim",
-      opts = {
-        label = {
-          style = "inline",
-        },
-        modes = {
-          search = {
-            label = {
-              before = true,
-              after = false,
-            },
-            highlight = {
-              backdrop = true,
-            },
-          },
-        },
-      },
-      config = function(_, opts)
-        require("flash").setup(opts)
-        local colors = require("gruvbox.palette").colors
-        vim.api.nvim_set_hl(
-          0,
-          "FlashLabel",
-          { bg = colors.light0, fg = colors.faded_purple, italic = false, reverse = true }
-        )
-        vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = colors.gray })
       end,
     },
   },

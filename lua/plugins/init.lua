@@ -19,6 +19,73 @@ return {
   { "lambdalisue/suda.vim", event = "VeryLazy", init = function() vim.g.suda_smart_edit = 1 end },
 
   {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+
+    keys = {
+      { "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, desc = "Flash Treesitter" },
+      { mode = { "o", "x" }, "n", function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { mode = { "o", "x" }, "r", function() require("flash").remote() end, desc = "Remote Flash" },
+    },
+
+    opts = {
+      label = {
+        style = "inline",
+      },
+      modes = {
+        search = {
+          label = {
+            before = true,
+            after = false,
+          },
+          highlight = {
+            backdrop = true,
+          },
+        },
+      },
+    },
+
+    init = function()
+      local colors = require("gruvbox.palette").colors
+      vim.api.nvim_set_hl(
+        0,
+        "FlashLabel",
+        { bg = colors.light0, fg = colors.faded_purple, italic = false, reverse = true }
+      )
+      vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = colors.gray })
+    end,
+  },
+
+  {
+    "gbprod/substitute.nvim",
+    event = "VeryLazy",
+
+    keys = {
+      { mode = "n", "cx", function() require("substitute.exchange").operator() end, desc = "Exchange" },
+      { mode = "n", "cxx", function() require("substitute.exchange").line() end, desc = "Exchange line" },
+      { mode = "n", "cxc", function() require("substitute.exchange").cancel() end, desc = "Cancel exchange" },
+      { mode = "x", "X", function() require("substitute.exchange").visual() end, desc = "Visual exchange" },
+    },
+
+    opts = {},
+  },
+
+  {
+    "Wansmer/treesj",
+    event = "VeryLazy",
+
+    keys = {
+      { "<Leader>cs", "<CMD>TSJSplit<CR>", desc = "Split node" },
+      { "<Leader>cj", "<CMD>TSJJoin<CR>", desc = "Join node" },
+    },
+
+    opts = {
+      use_default_keymaps = false,
+      check_syntax_error = false,
+    },
+  },
+
+  {
     "fedepujol/move.nvim",
     event = "VeryLazy",
 

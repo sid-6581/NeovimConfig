@@ -212,21 +212,6 @@ map("v", ",/", "<C-D>", { desc = "Scroll down" })
 map("v", "J", ":m '>+1<CR>gv-gv", { desc = "Move lines down" })
 map("v", "K", ":m '<-2<CR>gv-gv", { desc = "Move lines up" })
 
--- Substitute plugin
-map("n", "cx", function() require("substitute.exchange").operator() end, { desc = "Exchange" })
-map("n", "cxx", function() require("substitute.exchange").line() end, { desc = "Exchange line" })
-map("n", "cxc", function() require("substitute.exchange").cancel() end, { desc = "Cancel exchange" })
-map("x", "X", function() require("substitute.exchange").visual() end, { desc = "Visual exchange" })
-
--- Flash plugin
-map("n", "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, { desc = "Flash Treesitter" })
-map({ "o", "x" }, "n", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
-map({ "o", "x" }, "r", function() require("flash").remote() end, { desc = "Remote Flash" })
-
--- TreeSJ plugin
-map("n", "<Leader>cs", "<CMD>TSJSplit<CR>", { desc = "Split node" })
-map("n", "<Leader>cj", "<CMD>TSJJoin<CR>", { desc = "Join node" })
-
 -- Better wildmenu navigation
 map(
   "c",
