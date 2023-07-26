@@ -3,11 +3,6 @@ return {
   lazy = true,
 
   dependencies = {
-    "michaeljsmith/vim-indent-object",
-    "tpope/vim-unimpaired",
-
-    { "numToStr/Comment.nvim", opts = {} },
-
     {
       "mg979/vim-visual-multi",
       init = function()

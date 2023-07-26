@@ -3,9 +3,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, { comma
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
-  end,
+  callback = function() vim.highlight.on_yank({ higroup = "Visual", timeout = 200 }) end,
 })
 
 -- Show cursor line only in active window
@@ -61,14 +59,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
     "vue",
   },
-  callback = function()
-    vim.b.did_indent = 1
-  end,
+  callback = function() vim.b.did_indent = 1 end,
 })
 
 -- Turn off comment-related formatting and automatic inserting of comment leaders
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
-  end,
+  callback = function() vim.opt.formatoptions:remove({ "c", "r", "o" }) end,
 })

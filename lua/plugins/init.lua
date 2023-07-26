@@ -46,6 +46,17 @@ return {
   },
 
   {
+    "numToStr/Comment.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "tpope/vim-unimpaired",
+    event = "VeryLazy",
+  },
+
+  {
     "tpope/vim-repeat",
     event = "VeryLazy",
   },
