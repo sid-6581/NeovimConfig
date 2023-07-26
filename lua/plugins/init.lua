@@ -125,11 +125,7 @@ return {
 
     init = function()
       local colors = require("gruvbox.palette").colors
-      vim.api.nvim_set_hl(
-        0,
-        "FlashLabel",
-        { bg = colors.light0, fg = colors.faded_purple, italic = false, reverse = true }
-      )
+      vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#ffffff", fg = "#000000", italic = true, reverse = true })
       vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = colors.gray })
     end,
   },
