@@ -99,13 +99,90 @@ return {
   {
     "chrisgrieser/nvim-spider",
     event = "VeryLazy",
+
     keys = {
       { mode = { "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", desc = "Spider-w" },
       { mode = { "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", desc = "Spider-e" },
       { mode = { "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", desc = "Spider-b" },
       { mode = { "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", desc = "Spider-ge" },
     },
+
     opts = {},
+  },
+
+  {
+    "chrisgrieser/nvim-various-textobjs",
+
+    keys = {
+      {
+        mode = { "o", "x" },
+        "ii",
+        "<cmd>lua require('various-textobjs').indentation(true, true)<CR>",
+        desc = "indentation level (no line above)",
+      },
+      {
+        mode = { "o", "x" },
+        "ai",
+        "<cmd>lua require('various-textobjs').indentation(false, true)<CR>",
+        desc = "indentation level (and line above)",
+      },
+      {
+        mode = { "o", "x" },
+        "iI",
+        "<cmd>lua require('various-textobjs').indentation(true, true)<CR>",
+        desc = "indentation level (no lines above/below)",
+      },
+      {
+        mode = { "o", "x" },
+        "aI",
+        "<cmd>lua require('various-textobjs').indentation(false, false)<CR>",
+        desc = "indentation level (and lines above/below)",
+      },
+      { mode = { "o", "x" }, "is", "<cmd>lua require('various-textobjs').subword(true)<CR>", desc = "inner subword" },
+      { mode = { "o", "x" }, "as", "<cmd>lua require('various-textobjs').subword(false)<CR>", desc = "a subword" },
+      { mode = { "o", "x" }, "|", "<cmd>lua require('various-textobjs').column()<CR>", desc = "column down" },
+      {
+        mode = { "o", "x" },
+        "iv",
+        "<cmd>lua require('various-textobjs').value(true)<CR>",
+        desc = "inner value (assignment or key/value)",
+      },
+      {
+        mode = { "o", "x" },
+        "av",
+        "<cmd>lua require('various-textobjs').value(false)<CR>",
+        desc = "a value (assignment or key/value)",
+      },
+      {
+        mode = { "o", "x" },
+        "ik",
+        "<cmd>lua require('various-textobjs').key(true)<CR>",
+        desc = "inner key (assignment or key/value)",
+      },
+      {
+        mode = { "o", "x" },
+        "ak",
+        "<cmd>lua require('various-textobjs').key(false)<CR>",
+        desc = "a key (assignment or key/value)",
+      },
+      {
+        mode = { "o", "x" },
+        "im",
+        "<cmd>lua require('various-textobjs').chainMember(true)<CR>",
+        desc = "inner chain member",
+      },
+      {
+        mode = { "o", "x" },
+        "am",
+        "<cmd>lua require('various-textobjs').chainMember(false)<CR>",
+        desc = "a chain member",
+      },
+    },
+
+    opts = {
+      lookForwardSmall = 0,
+      lookForwardBig = 0,
+    },
   },
 
   {
