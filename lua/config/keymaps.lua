@@ -121,6 +121,7 @@ map("n", "<Leader>tm", _MC_TOGGLE, { desc = "Midnight Commander" })
 map("n", "<Leader>tp", _PYTHON_TOGGLE, { desc = "Python" })
 map("n", "<Leader>tv", _TERMINAL_VERTICAL_TOGGLE, { desc = "Vertical" })
 
+-- Normal mode
 map("n", ",.", "<C-U>", { desc = "Scroll up" })
 map("n", ",/", "<C-D>", { desc = "Scroll down" })
 map("n", ",[", "<C-T>", { desc = "Pop tag from stack" })
@@ -155,6 +156,12 @@ map("n", "[c", function() require("gitsigns").prev_hunk() end, { desc = "Previou
 map("n", "]c", function() require("gitsigns").next_hunk() end, { desc = "Next change" })
 map("n", "1", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
 map("n", "Y", "_y$", { desc = "Yank line character-wise without indent" })
+
+-- Motions
+map("n", "w", "<cmd>lua require('util.motion').motion('w')<CR>", { desc = "Next word" })
+map("n", "e", "<cmd>lua require('util.motion').motion('e')<CR>", { desc = "Next end of word" })
+map("n", "b", "<cmd>lua require('util.motion').motion('b')<CR>", { desc = "Previous word" })
+map("n", "ge", "<cmd>lua require('util.motion').motion('ge')<CR>", { desc = "Previous end of word" })
 
 -- Insert mode
 map("i", "<Esc>", "<Esc>`^", { desc = "Exit insert mode" })
