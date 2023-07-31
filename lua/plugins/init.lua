@@ -98,6 +98,7 @@ return {
 
   {
     "chrisgrieser/nvim-various-textobjs",
+    event = "VeryLazy",
 
     keys = {
       {
