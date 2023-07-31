@@ -35,6 +35,7 @@ return {
       bind_to_cwd = true,
       follow_current_file = {
         enabled = true,
+        leave_dirs_open = true,
       },
       group_empty_dirs = false,
       hijack_netrw_behavior = "open_current",
