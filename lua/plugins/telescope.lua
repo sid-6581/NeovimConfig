@@ -4,13 +4,11 @@ local yank_all_entries = function(prompt_bufnr)
   local entry_display = require("telescope.pickers.entry_display")
   local picker = action_state.get_current_picker(prompt_bufnr)
   local manager = picker.manager
-
   local entries = {}
   for entry in manager:iter() do
     local display, _ = entry_display.resolve(picker, entry)
     table.insert(entries, display)
   end
-
   actions.close(prompt_bufnr)
   vim.fn.setreg("", table.concat(entries, "\n"))
 end
@@ -72,20 +70,6 @@ return {
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-    },
-
-    {
-      "ahmedkhalf/project.nvim",
-      event = "VeryLazy",
-      opts = {
-        ignore_lsp = { "null-ls" },
-        patterns = { ".git" },
-        scope_chdir = "tab",
-        show_hidden = true,
-        silent_chdir = true,
-      },
-
-      config = function(_, opts) require("project_nvim").setup(opts) end,
     },
   },
 

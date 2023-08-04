@@ -151,10 +151,10 @@ map("n", "<Leader>pe", 'a<C-R>" <Esc>', { desc = "Paste after cursor and add spa
 map("n", "<Leader>Pe", 'i<C-R>" <Esc>', { desc = "Paste before cursor and add space at end" })
 map("n", "<Leader>ps", 'a <C-R>"<Esc>', { desc = "Paste after cursor and add space at start" })
 map("n", "<Leader>Ps", 'i <C-R>"<Esc>', { desc = "Paste before cursor and add space at start" })
+map("n", "<Leader>1", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
 map("n", "<S-Insert>", '"+P', { desc = "Paste from system clipboard" })
 map("n", "[c", function() require("gitsigns").prev_hunk() end, { desc = "Previous change" })
 map("n", "]c", function() require("gitsigns").next_hunk() end, { desc = "Next change" })
-map("n", "1", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
 map("n", "Y", "_y$", { desc = "Yank line character-wise without indent" })
 
 -- Motions

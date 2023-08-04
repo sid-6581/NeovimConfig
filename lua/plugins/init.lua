@@ -80,6 +80,20 @@ return {
   },
 
   {
+    "ahmedkhalf/project.nvim",
+    event = "VeryLazy",
+    main = "project_nvim",
+
+    opts = {
+      ignore_lsp = { "null-ls" },
+      patterns = { ".git" },
+      scope_chdir = "tab",
+      show_hidden = true,
+      silent_chdir = true,
+    },
+  },
+
+  {
     "lambdalisue/suda.vim",
     event = "VeryLazy",
     init = function() vim.g.suda_smart_edit = 1 end,
