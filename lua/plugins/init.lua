@@ -85,6 +85,7 @@ return {
     main = "project_nvim",
 
     opts = {
+      detection_methods = { "pattern", "lsp" },
       ignore_lsp = { "null-ls" },
       patterns = { ".git" },
       scope_chdir = "tab",
