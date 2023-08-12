@@ -66,6 +66,7 @@ return {
     "nvim-telescope/telescope-symbols.nvim",
     "nvim-telescope/telescope-z.nvim",
     "debugloop/telescope-undo.nvim",
+    "Marskey/telescope-sg",
 
     {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -128,9 +129,18 @@ return {
         undo = {
           use_delta = false,
         },
+        ast_grep = {
+          command = {
+            "ast-grep",
+            "--json=stream",
+          },
+          grep_open_files = false,
+          lang = nil,
+        },
       },
     })
 
+    telescope.load_extension("ast_grep")
     telescope.load_extension("file_browser")
     telescope.load_extension("fzf")
     telescope.load_extension("undo")
