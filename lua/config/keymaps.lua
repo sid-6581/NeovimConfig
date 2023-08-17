@@ -14,6 +14,8 @@ map("n", "<Leader>Q", "<CMD>qa!<CR>", { desc = "Quit all without saving" })
 map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
 map("n", "<leader>iu", vim.show_pos, { desc = "Inspect under cursor" })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
 -- Buffers
 map(

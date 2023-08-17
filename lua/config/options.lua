@@ -64,11 +64,11 @@ vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 2
 vim.opt.termguicolors = true
-vim.opt.timeoutlen = 400
+vim.opt.timeoutlen = 300
 vim.opt.title = false
 vim.opt.undofile = true
 vim.opt.undolevels = 10000
-vim.opt.updatetime = 500
+vim.opt.updatetime = 250
 vim.opt.virtualedit:append("block")
 vim.opt.wildmode = "longest,list:full"
 vim.opt.winblend = 10
