@@ -35,6 +35,7 @@ return {
   keys = {
     { "<F1>", "<CMD>Telescope help_tags<CR>", desc = "Help" },
     { mode = "i", "<F1>", "<CMD>Telescope help_tags<CR>", desc = "Help" },
+    { "<Leader>f/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", desc = "Current buffer fuzzy find" },
     { "<Leader>fa", "<CMD>Telescope builtin include_extensions=true<CR>", desc = "All" },
     { "<Leader>fA", "<CMD>Telescope ast_grep<CR>", desc = "ast-grep" },
     { "<Leader>fb", "<CMD>Telescope buffers<CR>", desc = "Buffers" },
@@ -51,6 +52,7 @@ return {
     { "<Leader>fs", "<CMD>Telescope symbols<CR>", desc = "Symbols" },
     { "<Leader>ft", "<CMD>Telescope live_grep<CR>", desc = "Text" },
     { "<Leader>fu", "<CMD>Telescope undo<CR>", desc = "Undo" },
+    { "<Leader>fw", "<CMD>Telescope grep_string<CR>", desc = "Word" },
     { "<Leader>gb", "<CMD>Telescope git_branches<CR>", desc = "Branches" },
     { "<Leader>gc", "<CMD>Telescope git_commits<CR>", desc = "Commits" },
     { "<Leader>go", "<CMD>Telescope git_status<CR>", desc = "Status" },
