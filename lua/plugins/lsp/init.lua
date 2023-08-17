@@ -61,11 +61,10 @@ return {
 
     require("plugins.lsp.handlers").setup(options)
     require("plugins.lsp.null-ls").setup(options)
-
     require("lspconfig.ui.windows").default_options.border = "single"
-    vim.cmd([[
-      highlight link LspInfoBorder Normal
-    ]])
+
+    vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
+    vim.api.nvim_set_hl(0, "LspReferenceText", {})
 
     -- Automatically detect ansible yaml files.
     vim.cmd([[
