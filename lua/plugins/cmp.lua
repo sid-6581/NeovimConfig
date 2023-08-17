@@ -1,8 +1,10 @@
+---@diagnostic disable: missing-fields
 return {
   "hrsh7th/nvim-cmp",
   event = { "VeryLazy", "InsertEnter" },
 
   dependencies = {
+    "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
@@ -126,6 +128,44 @@ return {
       window = {
         documentation = cmp.config.window.bordered(),
       },
+    })
+
+    cmp.setup.cmdline("/", {
+      mapping = {
+        ["<C-k>"] = { c = cmp.mapping.select_prev_item() },
+        ["<C-j>"] = { c = cmp.mapping.select_next_item() },
+        ["<Up>"] = { c = cmp.mapping.select_prev_item() },
+        ["<Down>"] = { c = cmp.mapping.select_next_item() },
+        ["<C-y>"] = { c = cmp.config.disable },
+        ["<C-e>"] = cmp.mapping({
+          i = cmp.mapping.abort(),
+          c = cmp.mapping.close(),
+        }),
+        ["<Tab>"] = { c = cmp.mapping.confirm({ select = true }) },
+      },
+      sources = {
+        { name = "buffer" },
+      },
+    })
+
+    cmp.setup.cmdline(":", {
+      mapping = {
+        ["<C-k>"] = { c = cmp.mapping.select_prev_item() },
+        ["<C-j>"] = { c = cmp.mapping.select_next_item() },
+        ["<Up>"] = { c = cmp.mapping.select_prev_item() },
+        ["<Down>"] = { c = cmp.mapping.select_next_item() },
+        ["<C-y>"] = { c = cmp.config.disable },
+        ["<C-e>"] = cmp.mapping({
+          i = cmp.mapping.abort(),
+          c = cmp.mapping.close(),
+        }),
+        ["<Tab>"] = { c = cmp.mapping.confirm({ select = true }) },
+      },
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline" },
+      }),
     })
   end,
 }
