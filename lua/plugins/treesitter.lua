@@ -6,7 +6,6 @@ return {
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    "nvim-treesitter/nvim-treesitter-refactor",
     "nvim-treesitter/playground",
   },
 
@@ -72,28 +71,6 @@ return {
     },
     indent = {
       enable = false,
-    },
-    refactor = {
-      highlight_definitions = {
-        enable = true,
-        clear_on_cursor_move = true,
-      },
-      smart_rename = {
-        enable = false,
-        client = {
-          smart_rename = "<leader>cr",
-        },
-      },
-      navigation = {
-        enable = true,
-        keymaps = {
-          -- goto_definition = "gd",
-          -- list_definitions = "gnD",
-          -- list_definitions_toc = "gO",
-          -- goto_next_usage = "<a-*>",
-          -- goto_previous_usage = "<a-#>",
-        },
-      },
     },
     textobjects = {
       select = {
