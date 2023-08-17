@@ -83,9 +83,6 @@ return {
 
   config = function(_, opts)
     require("noice").setup(opts)
-
-    vim.cmd([[
-      highlight link NoiceVirtualText DiagnosticVirtualTextHint
-    ]])
+    vim.api.nvim_set_hl(0, "NoiceVirtualText ", { link = "DiagnosticVirtualTextHint" })
   end,
 }
