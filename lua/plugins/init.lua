@@ -193,6 +193,7 @@ return {
 
     keys = {
       { "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, desc = "Flash Treesitter" },
+      { "gN", function() require("flash").treesitter({ jump = { pos = "end" } }) end, desc = "Flash Treesitter" },
       { mode = { "o", "x" }, "n", function() require("flash").treesitter() end, desc = "Flash Treesitter" },
       { mode = { "o", "x" }, "r", function() require("flash").remote() end, desc = "Remote Flash" },
     },
@@ -207,6 +208,11 @@ return {
             before = true,
             after = false,
           },
+          highlight = {
+            backdrop = true,
+          },
+        },
+        treesitter = {
           highlight = {
             backdrop = true,
           },
