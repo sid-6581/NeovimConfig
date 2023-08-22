@@ -232,6 +232,7 @@ function M.setup(options)
         tools = {
           inlay_hints = {
             max_len_align = false,
+            highlight = "GruvboxBg2",
           },
           hover_actions = {
             border = "single",
