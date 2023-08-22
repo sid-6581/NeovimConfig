@@ -203,6 +203,15 @@ return {
         style = "inline",
       },
       modes = {
+        char = {
+          config = function(opts)
+            -- autohide flash when in operator-pending mode
+            opts.autohide = vim.fn.mode(true):find("no") and (vim.v.operator == "y" or vim.v.operator == "d")
+            -- disable jump labels when enabled and when using a count
+            opts.jump_labels = opts.jump_labels and vim.v.count == 0
+          end,
+          jump_labels = true,
+        },
         search = {
           label = {
             before = true,

@@ -73,6 +73,7 @@ return {
       enable = false,
     },
     textobjects = {
+      lookahead = false,
       select = {
         enable = true,
         lookahead = true,
