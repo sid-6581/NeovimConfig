@@ -41,6 +41,13 @@ return {
   -- Other plugins
   --
   {
+    "IndianBoy42/tree-sitter-just",
+    event = "VeryLazy",
+    config = true,
+    build = ":TSInstall just",
+  },
+
+  {
     "kevinhwang91/nvim-bqf",
     event = "VeryLazy",
   },
