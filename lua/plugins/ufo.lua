@@ -32,9 +32,9 @@ return {
       return newVirtText
     end
 
+    ---@diagnostic disable-next-line: missing-fields
     require("ufo").setup({
       fold_virt_text_handler = handler,
-      provider_selector = function() return { "treesitter", "indent" } end,
     })
 
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
