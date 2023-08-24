@@ -9,11 +9,12 @@ end
 map("n", "<Esc>", "<CMD>noh<CR><Esc>", { desc = "Clear search highlighting" })
 map("n", "<BS>", "<CMD>noh<CR>", { desc = "Clear search highlighting" })
 map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
+map("i", "<C-s>", "<C-o><CMD>w!<CR>", { desc = "Save" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>Q", "<CMD>qa!<CR>", { desc = "Quit all without saving" })
 map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
-map("n", "<leader>iu", vim.show_pos, { desc = "Inspect under cursor" })
+map("n", "<Leader>iu", vim.show_pos, { desc = "Inspect under cursor" })
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
@@ -169,8 +170,8 @@ map("n", "ge", "<cmd>lua require('util.motion').motion('ge')<CR>", { desc = "Pre
 map("i", "<Esc>", "<Esc>`^", { desc = "Exit insert mode" })
 map("i", "<S-Enter>", "<Esc>m`o<Esc>``a", { desc = "Insert blank line below" })
 map("i", "<C-S-Enter>", "<Esc>m`O<Esc>``a", { desc = "Insert blank line above" })
-map("i", "<S-Insert>", '<C-O>"+P', { desc = "Paste from system clipboard" })
-map("i", "<S-Tab>", "<C-D>", { desc = "Unindent line" })
+map("i", "<S-Insert>", '<C-o>"+P', { desc = "Paste from system clipboard" })
+map("i", "<S-Tab>", "<C-d>", { desc = "Unindent line" })
 map("i", "<C-BS>", "<C-w>", { desc = "Delete previous word" })
 map("i", "<A-BS>", "<C-\\><C-o>dB", { desc = "Delete until the previous space" })
 
@@ -259,9 +260,6 @@ map(
   function() require("util").toggle("relativenumber") end,
   { desc = "Toggle relative line numbers" }
 )
-
--- Redirect output to noice
-map("c", "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, { desc = "Redirect Cmdline" })
 
 -- Command-line mode
 map("c", "<S-Insert>", "<C-R><C-R>+", { desc = "Paste from system clipboard" })
