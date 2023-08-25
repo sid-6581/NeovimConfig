@@ -228,7 +228,6 @@ return {
             -- disable jump labels when enabled and when using a count
             opts.jump_labels = opts.jump_labels and vim.v.count == 0
           end,
-          jump_labels = true,
         },
         search = {
           label = {
