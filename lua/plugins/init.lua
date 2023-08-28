@@ -37,12 +37,10 @@ return {
     ft = "sls",
   },
 
-  --
-  -- Other plugins
-  --
   {
     "LhKipp/nvim-nu",
     event = "VeryLazy",
+    ft = "nu",
     main = "nu",
     config = true,
     build = ":TSInstall nu",
@@ -51,10 +49,14 @@ return {
   {
     "IndianBoy42/tree-sitter-just",
     event = "VeryLazy",
+    ft = "just",
     config = true,
     build = ":TSInstall just",
   },
 
+  --
+  -- Other plugins
+  --
   {
     "kevinhwang91/nvim-bqf",
     event = "VeryLazy",
