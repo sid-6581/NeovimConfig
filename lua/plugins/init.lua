@@ -41,6 +41,14 @@ return {
   -- Other plugins
   --
   {
+    "LhKipp/nvim-nu",
+    event = "VeryLazy",
+    main = "nu",
+    config = true,
+    build = ":TSInstall nu",
+  },
+
+  {
     "IndianBoy42/tree-sitter-just",
     event = "VeryLazy",
     config = true,
