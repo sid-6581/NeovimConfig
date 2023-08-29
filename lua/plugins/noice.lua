@@ -73,7 +73,7 @@ return {
     },
     views = {
       mini = {
-        timeout = 5000,
+        timeout = 2000,
         winblend = 100,
       },
     },
@@ -100,8 +100,16 @@ return {
             { event = "lsp", kind = "progress", find = "code_action" },
             { event = "lsp", find = "Roots Scanned" },
             { event = "lsp", find = "Fetching" },
-            { event = "lsp", find = "Loading" },
+            { event = "lsp", find = "Processing" },
             { event = "lsp", find = "metadata" },
+            {
+              event = "lsp",
+              cond = function(message)
+                local client = vim.tbl_get(message.opts, "progress", "client")
+                local title = vim.tbl_get(message.opts, "progress", "title")
+                return client == "rust_analyzer" and (title == "Loading" or title == nil)
+              end,
+            },
           },
         },
         opts = { skip = true },
