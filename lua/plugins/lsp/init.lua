@@ -9,16 +9,24 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     "simrat39/rust-tools.nvim",
 
-    { "folke/neodev.nvim", opts = {} },
+    {
+      "folke/neodev.nvim",
+      opts = {},
+    },
+
     {
       "sid-6581/symbols-outline.nvim",
+
       opts = {
         preview_bg_highlight = "Normal",
+        relative_width = false,
+        width = 40,
       },
     },
 
     {
       "SmiteshP/nvim-navic",
+
       opts = {
         lsp = {
           auto_attach = true,
@@ -65,10 +73,5 @@ return {
 
     vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
     vim.api.nvim_set_hl(0, "LspReferenceText", {})
-
-    -- Automatically detect ansible yaml files.
-    vim.cmd([[
-      autocmd BufNewFile,BufRead *.yaml,*.yml if search('hosts:\|tasks:', 'nw') | set ft=yaml.ansible | endif
-    ]])
   end,
 }
