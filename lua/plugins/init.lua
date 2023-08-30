@@ -54,6 +54,13 @@ return {
   },
 
   {
+    "yorickpeterse/nvim-pqf",
+    event = "VeryLazy",
+    main = "pqf",
+    config = true,
+  },
+
+  {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
     opts = {},
