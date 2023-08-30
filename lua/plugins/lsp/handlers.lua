@@ -290,7 +290,6 @@ function M.setup(options)
           vim.keymap.set("n", "K", show_documentation, { buffer = bufnr, desc = "Show Crate Documentation" })
         end,
         capabilities = options.capabilities,
-        cmd = vim.fn.has("win32") == 1 and { "cmd.exe", "/c", "taplo", "lsp", "stdio" } or nil,
         root_dir = function(fname) return util.find_git_ancestor(fname) or util.root_pattern("Cargo.toml")(fname) end,
       })
     end,
