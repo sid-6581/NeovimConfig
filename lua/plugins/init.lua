@@ -95,6 +95,12 @@ return {
   },
 
   {
+    "altermo/ultimate-autopair.nvim",
+    event = { "InsertEnter", "CmdlineEnter", "VeryLazy" },
+    opts = {},
+  },
+
+  {
     "ahmedkhalf/project.nvim",
     event = "VeryLazy",
     main = "project_nvim",
@@ -127,14 +133,12 @@ return {
   },
 
   {
-    {
-      "mg979/vim-visual-multi",
-      event = "VeryLazy",
-      init = function()
-        vim.g.VM_show_warnings = 0
-        vim.g.VM_silent_exit = 1
-      end,
-    },
+    "mg979/vim-visual-multi",
+    event = "VeryLazy",
+    init = function()
+      vim.g.VM_show_warnings = 0
+      vim.g.VM_silent_exit = 1
+    end,
   },
 
   {
@@ -221,7 +225,7 @@ return {
       { "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, desc = "Flash Treesitter" },
       { "gN", function() require("flash").treesitter({ jump = { pos = "end" } }) end, desc = "Flash Treesitter" },
       { mode = { "o", "x" }, "n", function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { mode = { "o", "x" }, "r", function() require("flash").remote() end, desc = "Remote Flash" },
+      { mode = { "o", "x" }, "R", function() require("flash").remote() end, desc = "Remote Flash" },
     },
 
     opts = {
