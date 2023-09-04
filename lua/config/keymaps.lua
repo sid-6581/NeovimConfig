@@ -161,10 +161,10 @@ map("n", "]c", function() require("gitsigns").next_hunk() end, { desc = "Next ch
 map("n", "Y", "_y$", { desc = "Yank line character-wise without indent" })
 
 -- Motions
-map("n", "w", "<cmd>lua require('util.motion').motion('w')<CR>", { desc = "Next word" })
-map("n", "e", "<cmd>lua require('util.motion').motion('e')<CR>", { desc = "Next end of word" })
-map("n", "b", "<cmd>lua require('util.motion').motion('b')<CR>", { desc = "Previous word" })
-map("n", "ge", "<cmd>lua require('util.motion').motion('ge')<CR>", { desc = "Previous end of word" })
+map("n", "w", "<CMD>call search('\\<')<CR>", { desc = "Next word" })
+map("n", "b", "<CMD>call search('\\<', 'b')<CR>", { desc = "Previous word" })
+map("n", "e", "<CMD>call search('\\>')<CR>", { desc = "Next end of word" })
+map("n", "ge", "<CMD>call search('\\>', 'b')<CR>", { desc = "Previous end of word" })
 
 -- Insert mode
 map("i", "<Esc>", "<Esc>`^", { desc = "Exit insert mode" })
