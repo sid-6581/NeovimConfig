@@ -22,7 +22,7 @@ return {
       width = 40,
     },
     filesystem = {
-      use_libuv_file_watcher = false,
+      use_libuv_file_watcher = true,
       filtered_items = {
         visible = false,
         hide_dotfiles = true,
