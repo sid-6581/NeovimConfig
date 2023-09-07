@@ -67,11 +67,6 @@ return {
   },
 
   {
-    "tpope/vim-unimpaired",
-    event = "VeryLazy",
-  },
-
-  {
     "tpope/vim-repeat",
     event = "VeryLazy",
   },

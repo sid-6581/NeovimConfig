@@ -17,6 +17,12 @@ map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
 map("n", "<Leader>iu", vim.show_pos, { desc = "Inspect under cursor" })
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+map("n", "[q", "<CMD>cprev<CR>", { desc = "Previous qflist entry" })
+map("n", "]q", "<CMD>cnext<CR>", { desc = "Next qflist entry" })
+map("n", "[Q", "<CMD>cprev<CR>", { desc = "First qflist entry" })
+map("n", "]Q", "<CMD>cnext<CR>", { desc = "Last qflist entry" })
+map("n", "[<Space>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>", { desc = "Add blank line above" })
+map("n", "]<Space>", "<CMD>put =repeat(nr2char(10), v:count1)|silent '[-<CR>", { desc = "Add blank line below" })
 
 -- Buffers
 map(
@@ -133,10 +139,6 @@ map("n", ",cd", ":cd %:h<CR>", { desc = "Change current working directory to cur
 map("n", ",do", "<CMD>diffoff<CR>", { desc = "Diff off" })
 map("n", ",dt", "<CMD>diffthis<CR>", { desc = "Diff this" })
 map("n", ",du", "<CMD>diffupdate<CR>", { desc = "Diff update" })
-map("n", ",lD", "[<C-D>", { desc = "Jump to first macro definition of word" })
-map("n", ",ld", "]<C-D>", { desc = "Jump to next macro definition of word" })
-map("n", ",lI", "[<C-I>", { desc = "Jump to first line containing word" })
-map("n", ",li", "]<C-I>", { desc = "Jump to next line containing word" })
 map("n", ",p", '"+p', { desc = "Paste from system clipboard" })
 map("n", ",P", '"+P', { desc = "Paste from system clipboard" })
 map("n", ",r", "<C-R>", { desc = "Redo last change" })
