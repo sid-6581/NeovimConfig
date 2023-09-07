@@ -45,7 +45,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "lspinfo",
     "spectre_panel",
     "startuptime",
-    "tsplayground",
     "PlenaryTestPopup",
   },
   callback = function(event)

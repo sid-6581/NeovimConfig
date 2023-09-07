@@ -372,20 +372,6 @@ return {
   },
 
   {
-    "AndrewRadev/sideways.vim",
-    event = "VeryLazy",
-
-    keys = {
-      { "<A-h>", "<CMD>SidewaysLeft<CR>", desc = "Move argument left" },
-      { "<A-l>", "<CMD>SidewaysRight<CR>", desc = "Move argument right" },
-      { mode = "o", "aa", "<Plug>SidewaysArgumentTextobjA", desc = "an argument" },
-      { mode = "o", "ia", "<Plug>SidewaysArgumentTextobjI", desc = "inner argument" },
-      { mode = "x", "aa", "<Plug>SidewaysArgumentTextobjA", desc = "an argument" },
-      { mode = "x", "ia", "<Plug>SidewaysArgumentTextobjI", desc = "inner argument" },
-    },
-  },
-
-  {
     "kazhala/close-buffers.nvim",
     event = "VeryLazy",
 

@@ -6,7 +6,6 @@ return {
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    "nvim-treesitter/playground",
   },
 
   opts = {
@@ -77,26 +76,45 @@ return {
       select = {
         enable = true,
         lookahead = true,
+        include_surrounding_whitespace = true,
         keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = "@class.inner",
+          ["aa"] = { query = "@parameter.outer", desc = "an argument" },
+          ["ia"] = { query = "@parameter.inner", desc = "inner argument" },
+          ["af"] = { query = "@function.outer", desc = "a function" },
+          ["if"] = { query = "@function.inner", desc = "inner function" },
+          ["ac"] = { query = "@class.outer", desc = "a class" },
+          ["ic"] = { query = "@class.inner", desc = "inner class" },
         },
       },
       move = {
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
-        goto_next_start = { ["]m"] = "@function.outer", ["]]"] = "@class.outer" },
+        goto_next_start = {
+          ["]m"] = "@function.outer",
+          ["]]"] = "@class.outer",
+          [")"] = { query = { "@parameter.inner", "@statement.outer" } },
+        },
         goto_next_end = { ["]M"] = "@function.outer", ["]["] = "@class.outer" },
-        goto_previous_start = { ["[m"] = "@function.outer", ["[["] = "@class.outer" },
+        goto_previous_start = {
+          ["[m"] = "@function.outer",
+          ["[["] = "@class.outer",
+          ["("] = { query = { "@parameter.inner", "@statement.outer" } },
+        },
         goto_previous_end = { ["[M"] = "@function.outer", ["[]"] = "@class.outer" },
       },
-      lsp_interop = {
-        enable = false,
-        peek_definition_code = {
-          ["gD"] = "@function.outer",
+      swap = {
+        enable = true,
+        swap_next = {
+          ["<A-l>"] = {
+            query = { "@parameter.inner", "@statement.outer", "@*" },
+            desc = "Swap with next node",
+          },
+        },
+        swap_previous = {
+          ["<A-h>"] = {
+            query = { "@parameter.inner", "@statement.outer", "@*" },
+            desc = "Swap with previous node",
+          },
         },
       },
     },
