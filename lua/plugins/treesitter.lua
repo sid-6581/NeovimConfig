@@ -75,7 +75,7 @@ return {
       lookahead = false,
       select = {
         enable = true,
-        lookahead = true,
+        lookahead = false,
         include_surrounding_whitespace = true,
         keymaps = {
           ["aa"] = { query = "@parameter.outer", desc = "an argument" },
@@ -92,13 +92,17 @@ return {
         goto_next_start = {
           ["]m"] = "@function.outer",
           ["]]"] = "@class.outer",
-          [")"] = { query = { "@parameter.inner", "@statement.outer" } },
+          [")"] = {
+            query = { "@parameter.inner", "@call.outer", "@statement.outer", "@function.outer", "@class.outer" },
+          },
         },
         goto_next_end = { ["]M"] = "@function.outer", ["]["] = "@class.outer" },
         goto_previous_start = {
           ["[m"] = "@function.outer",
           ["[["] = "@class.outer",
-          ["("] = { query = { "@parameter.inner", "@statement.outer" } },
+          ["("] = {
+            query = { "@parameter.inner", "@call.outer", "@statement.outer", "@function.outer", "@class.outer" },
+          },
         },
         goto_previous_end = { ["[M"] = "@function.outer", ["[]"] = "@class.outer" },
       },
