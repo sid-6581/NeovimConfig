@@ -78,12 +78,12 @@ return {
         lookahead = false,
         include_surrounding_whitespace = true,
         keymaps = {
-          ["aa"] = { query = "@parameter.outer", desc = "an argument" },
-          ["ia"] = { query = "@parameter.inner", desc = "inner argument" },
-          ["af"] = { query = "@function.outer", desc = "a function" },
-          ["if"] = { query = "@function.inner", desc = "inner function" },
-          ["ac"] = { query = "@class.outer", desc = "a class" },
-          ["ic"] = { query = "@class.inner", desc = "inner class" },
+          ["aA"] = { query = "@parameter.outer", desc = "an argument" },
+          ["iA"] = { query = "@parameter.inner", desc = "inner argument" },
+          ["aF"] = { query = "@function.outer", desc = "a function" },
+          ["iF"] = { query = "@function.inner", desc = "inner function" },
+          ["aC"] = { query = "@class.outer", desc = "a class" },
+          ["iC"] = { query = "@class.inner", desc = "inner class" },
         },
       },
       move = {
