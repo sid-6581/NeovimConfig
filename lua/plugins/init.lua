@@ -214,6 +214,12 @@ return {
       { "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, desc = "Flash Treesitter" },
       { "gN", function() require("flash").treesitter({ jump = { pos = "end" } }) end, desc = "Flash Treesitter" },
       { mode = { "o", "x" }, "n", function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      {
+        mode = { "o", "x" },
+        "N",
+        function() require("flash").treesitter_search() end,
+        desc = "Flash Treesitter Search",
+      },
       { mode = { "o", "x" }, "R", function() require("flash").remote() end, desc = "Remote Flash" },
     },
 
@@ -316,8 +322,8 @@ return {
       { "<S-A-l>", ":MoveWord(1)<CR>", desc = "Move word right" },
       { "<S-A-h>", ":MoveWord(-1)<CR>", desc = "Move word left" },
       { mode = "v", "<A-j>", ":MoveBlock(1)<CR>", desc = "Move block up" },
-      { mode = "v", "<A-k>", ":MoveBlock(-1)<CR>", desc = "Move block down" },
-      { mode = "v", "<A-h>", ":MoveHBlock(-1)<CR>", desc = "Move block left" },
+      { mode = "v", "<A-k>", ":MoveBlock(1)<CR>", desc = "Move block down" },
+      { mode = "v", "<A-h>", ":MoveHBlock(-)<CR>", desc = "Move block left" },
       { mode = "v", "<A-l>", ":MoveHBlock(1)<CR>", desc = "Move block right" },
     },
   },
