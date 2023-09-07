@@ -16,8 +16,9 @@ if vim.fn.exists("g:nvy") ~= 0 then vim.opt.guifont = "JetBrainsMono Nerd Font M
 vim.opt.autowrite = true
 vim.opt.backup = true
 vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
+vim.opt.breakindent = true
 vim.opt.cmdheight = 0
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = "menuone,noinsert,noselect"
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
@@ -36,9 +37,11 @@ vim.opt.ignorecase = true
 vim.opt.iskeyword:append("-")
 vim.opt.laststatus = 0
 vim.opt.list = true
-vim.opt.list = true
 vim.opt.listchars:append("space:⋅")
 vim.opt.listchars:append("tab:» ")
+vim.opt.listchars:append("extends:…")
+vim.opt.listchars:append("precedes:…")
+vim.opt.listchars:append("nbsp:␣")
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.numberwidth = 4

@@ -176,6 +176,10 @@ map("i", "<S-Insert>", '<C-o>"+P', { desc = "Paste from system clipboard" })
 map("i", "<S-Tab>", "<C-d>", { desc = "Unindent line" })
 map("i", "<C-BS>", "<C-w>", { desc = "Delete previous word" })
 map("i", "<A-BS>", "<C-\\><C-o>dB", { desc = "Delete until the previous space" })
+map("i", "<A-h>", "<Left>", { noremap = false, desc = "Left" })
+map("i", "<A-j>", "<Down>", { noremap = false, desc = "Down" })
+map("i", "<A-k>", "<Up>", { noremap = false, desc = "Up" })
+map("i", "<A-l>", "<Right>", { noremap = false, desc = "Right" })
 
 -- Visual and select mode
 map("v", ",y", '"+y', { desc = "Yank to system clipboard" })
@@ -187,30 +191,6 @@ map("v", "p", '"_dP', { desc = "Paste" })
 map("v", "<Leader>sl", ":sort i<CR>", { desc = "Sort lines" })
 map("v", "<Leader>sn", ":sort in<CR>", { desc = "Sort lines by number" })
 map("v", "<Leader>su", ":sort iu<CR>", { desc = "Sort lines unique" })
-
--- Operator pending mode
--- map({ "o", "x" }, "il", ":<C-u>normal! ^vg_<CR>", { desc = "inner line" })
--- map({ "o", "x" }, "al", ":<C-u>normal! 0v$<CR>", { desc = "a line" })
--- map({ "o", "x" }, "i/", ":<C-u>normal! T/vt/<CR>", { desc = "inner /" })
--- map({ "o", "x" }, "a/", ":<C-u>normal! F/vt/<CR>", { desc = "a /" })
--- map({ "o", "x" }, "i,", ":<C-u>normal! T,vt,<CR>", { desc = "inner ," })
--- map({ "o", "x" }, "a,", ":<C-u>normal! F,vt,<CR>", { desc = "a ," })
--- map({ "o", "x" }, "i.", ":<C-u>normal! T.vt.<CR>", { desc = "inner ." })
--- map({ "o", "x" }, "a.", ":<C-u>normal! F.vt.<CR>", { desc = "a ." })
--- map({ "o", "x" }, "i_", ":<C-u>normal! T_vt_<CR>", { desc = "inner _" })
--- map({ "o", "x" }, "a_", ":<C-u>normal! F_vt_<CR>", { desc = "a _" })
--- map({ "o", "x" }, "i-", ":<C-u>normal! T-vt-<CR>", { desc = "inner -" })
--- map({ "o", "x" }, "a-", ":<C-u>normal! F-vt-<CR>", { desc = "a -" })
--- map({ "o", "x" }, "i%", ":<C-u>normal! T%vt%<CR>", { desc = "inner %" })
--- map({ "o", "x" }, "a%", ":<C-u>normal! F%vt%<CR>", { desc = "a %" })
--- map({ "o", "x" }, "i=", ":<C-u>normal! T=vt=<CR>", { desc = "inner =" })
--- map({ "o", "x" }, "a=", ":<C-u>normal! F=vt=<CR>", { desc = "a =" })
--- map({ "o", "x" }, "i?", ":<C-u>normal! T?vt?<CR>", { desc = "inner ?" })
--- map({ "o", "x" }, "a?", ":<C-u>normal! F?vt?<CR>", { desc = "a ?" })
--- map({ "o", "x" }, "i!", ":<C-u>normal! T!vt!<CR>", { desc = "inner !" })
--- map({ "o", "x" }, "a!", ":<C-u>normal! F!vt!<CR>", { desc = "a !" })
--- map({ "o", "x" }, "i&", ":<C-u>normal! T&vt&<CR>", { desc = "inner &" })
--- map({ "o", "x" }, "a&", ":<C-u>normal! F&vt&<CR>", { desc = "a &" })
 
 -- Terminal mode
 map("t", "<C-h>", "<C-\\><C-N><C-w>h", { desc = "Left" })
@@ -265,3 +245,5 @@ map(
 
 -- Command-line mode
 map("c", "<S-Insert>", "<C-R><C-R>+", { desc = "Paste from system clipboard" })
+map("c", "<M-h>", "<Left>", { silent = false, desc = "Left" })
+map("c", "<M-l>", "<Right>", { silent = false, desc = "Right" })

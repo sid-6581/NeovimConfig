@@ -3,28 +3,9 @@ return {
   lazy = true,
 
   opts = {
-    plugins = {
-      spelling = {
-        enabled = true,
-      },
-    },
-    popup_mappings = {
-      scroll_down = "<C-j>",
-      scroll_up = "<C-k>",
-    },
     window = {
       border = "single", -- none, single, double, shadow
-      position = "bottom", -- bottom, top
-      margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-      padding = { 1, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
       winblend = 10,
-    },
-    hidden = { "<silent>", "<CMD>", "<CMD>", "<CR>", "call", "lua", "^:", "^ " },
-    show_help = true,
-    show_keys = true,
-    triggers_blacklist = {
-      i = { "j", "k" },
-      v = { "j", "k" },
     },
     defaults = {
       ["g"] = { name = "+Goto" },
