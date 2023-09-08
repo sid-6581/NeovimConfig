@@ -15,6 +15,13 @@ return {
       comment = { suffix = "C" },
     })
 
+    require("mini.move").setup({
+      mappings = {
+        line_left = "<S-Tab>",
+        line_right = "<Tab>",
+      },
+    })
+
     require("mini.surround").setup({
       mappings = {
         add = "<Leader>sa",

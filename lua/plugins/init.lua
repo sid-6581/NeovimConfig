@@ -300,22 +300,6 @@ return {
   },
 
   {
-    "fedepujol/move.nvim",
-    event = "VeryLazy",
-
-    keys = {
-      { "<A-j>", ":MoveLine(1)<CR>", desc = "Move line down" },
-      { "<A-k>", ":MoveLine(-1)<CR>", desc = "Move line up" },
-      { "<S-A-l>", ":MoveWord(1)<CR>", desc = "Move word right" },
-      { "<S-A-h>", ":MoveWord(-1)<CR>", desc = "Move word left" },
-      { mode = "v", "<A-j>", ":MoveBlock(1)<CR>", desc = "Move block up" },
-      { mode = "v", "<A-k>", ":MoveBlock(1)<CR>", desc = "Move block down" },
-      { mode = "v", "<A-h>", ":MoveHBlock(-)<CR>", desc = "Move block left" },
-      { mode = "v", "<A-l>", ":MoveHBlock(1)<CR>", desc = "Move block right" },
-    },
-  },
-
-  {
     "kazhala/close-buffers.nvim",
     event = "VeryLazy",
 
