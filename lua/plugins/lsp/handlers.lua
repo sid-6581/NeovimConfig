@@ -228,6 +228,7 @@ function M.setup(options)
       require("rust-tools").setup({
         tools = {
           inlay_hints = {
+            auto = false,
             max_len_align = false,
             highlight = "GruvboxBg2",
           },
