@@ -117,11 +117,6 @@ return {
   },
 
   {
-    "vim-scripts/ReplaceWithRegister",
-    event = "VeryLazy",
-  },
-
-  {
     "mg979/vim-visual-multi",
     event = "VeryLazy",
     init = function()
@@ -278,20 +273,6 @@ return {
       },
       { "gpP", function() require("goto-preview").close_all_win({}) end, desc = "Close all preview windows" },
       { "gpr", function() require("goto-preview").goto_preview_references({}) end, desc = "Preview references" },
-    },
-
-    opts = {},
-  },
-
-  {
-    "gbprod/substitute.nvim",
-    event = "VeryLazy",
-
-    keys = {
-      { "cx", function() require("substitute.exchange").operator() end, desc = "Exchange" },
-      { "cxx", function() require("substitute.exchange").line() end, desc = "Exchange line" },
-      { mode = "n", "cxc", function() require("substitute.exchange").cancel() end, desc = "Cancel exchange" },
-      { mode = "x", "X", function() require("substitute.exchange").visual() end, desc = "Visual exchange" },
     },
 
     opts = {},

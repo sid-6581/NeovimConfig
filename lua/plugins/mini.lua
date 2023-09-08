@@ -8,5 +8,7 @@ return {
         a = false,
       },
     })
+
+    require("mini.operators").setup({})
   end,
 }
