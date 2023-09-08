@@ -39,6 +39,15 @@ return {
     { "<Leader>fg", "<CMD>Telescope git_branches<CR>", desc = "Git branches" },
     { "<Leader>fh", "<CMD>Telescope help_tags<CR>", desc = "Help" },
     { "<Leader>fk", "<CMD>Telescope keymaps<CR>", desc = "Keymaps" },
+    {
+      "<Leader>fl",
+      function()
+        require("telescope.builtin").find_files({
+          cwd = require("telescope.utils").buffer_dir(),
+        })
+      end,
+      desc = "Files from current directory",
+    },
     { "<Leader>fM", "<CMD>Telescope man_pages<CR>", desc = "Man pages" },
     { "<Leader>fn", "<CMD>Noice telescope<CR>", desc = "Noice" },
     { "<Leader>fp", "<CMD>Telescope projects<CR>", desc = "Projects" },
