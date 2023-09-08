@@ -9,6 +9,9 @@ return {
       },
     })
 
-    require("mini.operators").setup({})
+    require("mini.bracketed").setup({})
+    require("mini.operators").setup({
+      comment = { suffix = "C" },
+    })
   end,
 }

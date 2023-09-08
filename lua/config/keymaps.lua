@@ -9,7 +9,7 @@ end
 map("n", "<Esc>", "<CMD>noh<CR><Esc>", { desc = "Clear search highlighting" })
 map("n", "<BS>", "<CMD>noh<CR>", { desc = "Clear search highlighting" })
 map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
-map("i", "<C-s>", "<C-o><CMD>w!<CR>", { desc = "Save" })
+map("i", "<C-s>", "<C-O><CMD>w!<CR>", { desc = "Save" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>Q", "<CMD>qa!<CR>", { desc = "Quit all without saving" })
 map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
@@ -17,12 +17,9 @@ map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
 map("n", "<Leader>iu", vim.show_pos, { desc = "Inspect under cursor" })
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
-map("n", "[q", "<CMD>cprev<CR>", { desc = "Previous qflist entry" })
-map("n", "]q", "<CMD>cnext<CR>", { desc = "Next qflist entry" })
-map("n", "[Q", "<CMD>cfirst<CR>", { desc = "First qflist entry" })
-map("n", "]Q", "<CMD>clast<CR>", { desc = "Last qflist entry" })
 map("n", "[<Space>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>", { desc = "Add blank line above" })
 map("n", "]<Space>", "<CMD>put =repeat(nr2char(10), v:count1)|silent '[-<CR>", { desc = "Add blank line below" })
+map("n", "gX", "gX", { desc = "Open current path or URI" })
 
 -- Buffers
 map(
