@@ -61,11 +61,6 @@ return {
   },
 
   {
-    "m4xshen/hardtime.nvim",
-    opts = {},
-  },
-
-  {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
     opts = {},
