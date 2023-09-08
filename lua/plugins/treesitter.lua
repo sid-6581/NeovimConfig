@@ -78,8 +78,8 @@ return {
         lookahead = false,
         include_surrounding_whitespace = true,
         keymaps = {
-          ["aA"] = { query = "@parameter.outer", desc = "an argument" },
-          ["iA"] = { query = "@parameter.inner", desc = "inner argument" },
+          ["aa"] = { query = "@parameter.outer", desc = "an argument" },
+          ["ia"] = { query = "@parameter.inner", desc = "inner argument" },
           ["aF"] = { query = "@function.outer", desc = "a function" },
           ["iF"] = { query = "@function.inner", desc = "inner function" },
           ["aC"] = { query = "@class.outer", desc = "a class" },
