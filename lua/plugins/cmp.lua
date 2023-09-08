@@ -55,6 +55,10 @@ return {
     local function modified_kind(kind) return modified_priority[kind] or kind end
 
     cmp.setup({
+      completion = {
+        completeopt = "menu,menuone,noselect",
+      },
+
       snippet = {
         expand = function(args) require("luasnip").lsp_expand(args.body) end,
       },
