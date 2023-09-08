@@ -354,14 +354,6 @@ return {
     },
   },
 
-  -- {
-  --   "wellle/targets.vim",
-  --   event = "VeryLazy",
-  --   init = function()
-  --     vim.g.targets_seekRanges = "cc cr cb cB lc ac Ac lr lb ar ab lB Ar aB Ab AB rr ll rb al rB Al bb aa bB Aa BB AA"
-  --   end,
-  -- },
-
   {
     "folke/trouble.nvim",
     event = "VeryLazy",
@@ -374,6 +366,11 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
+
+    keys = {
+      { "[c", function() require("gitsigns").prev_hunk() end, { desc = "Previous change" } },
+      { "]c", function() require("gitsigns").next_hunk() end, { desc = "Next change" } },
+    },
 
     opts = {
       preview_config = {

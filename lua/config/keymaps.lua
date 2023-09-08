@@ -158,8 +158,6 @@ map("n", "<Leader>ps", 'a <C-R>"<Esc>', { desc = "Paste after cursor and add spa
 map("n", "<Leader>Ps", 'i <C-R>"<Esc>', { desc = "Paste before cursor and add space at start" })
 map("n", "<Leader>1", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
 map("n", "<S-Insert>", '"+P', { desc = "Paste from system clipboard" })
-map("n", "[c", function() require("gitsigns").prev_hunk() end, { desc = "Previous change" })
-map("n", "]c", function() require("gitsigns").next_hunk() end, { desc = "Next change" })
 map("n", "Y", "_y$", { desc = "Yank line character-wise without indent" })
 
 -- Motions
@@ -174,6 +172,8 @@ map("i", "<S-Enter>", "<Esc>m`o<Esc>``a", { desc = "Insert blank line below" })
 map("i", "<C-S-Enter>", "<Esc>m`O<Esc>``a", { desc = "Insert blank line above" })
 map("i", "<S-Insert>", '<C-o>"+P', { desc = "Paste from system clipboard" })
 map("i", "<S-Tab>", "<C-d>", { desc = "Unindent line" })
+map("i", "<C-b>", "{<CR>},<Esc>O", { desc = "{|}," })
+map("i", "<C-9>", "(),<Esc><Left>i", { desc = "(|)," })
 map("i", "<C-BS>", "<C-w>", { desc = "Delete previous word" })
 map("i", "<A-BS>", "<C-\\><C-o>dB", { desc = "Delete until the previous space" })
 map("i", "<A-h>", "<Left>", { noremap = false, desc = "Left" })
