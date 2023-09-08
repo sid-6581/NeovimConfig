@@ -2,25 +2,25 @@ local M = {}
 
 -- Close all folds with a given fold level. Does not close folds inside the fold recursively.
 function M.close_folds_with_level(level)
-  local winView = vim.fn.winsaveview()
-  local lineCount = vim.api.nvim_buf_line_count(0)
-  local lnum = 1
-  while lnum <= lineCount do
-    if vim.fn.foldlevel(lnum) == level then
-      vim.api.nvim_win_set_cursor(0, { lnum, 0 })
+  local win_view = vim.fn.winsaveview()
+  local line_count = vim.api.nvim_buf_line_count(0)
+  local line = 1
+  while line <= line_count do
+    if vim.fn.foldlevel(line) == level then
+      vim.api.nvim_win_set_cursor(0, { line, 0 })
       vim.cmd("norm! zc")
-      local endLnum = vim.fn.foldclosedend(lnum)
-      lnum = endLnum > 0 and (endLnum + 1) or (lnum + 1)
+      local end_line = vim.fn.foldclosedend(line)
+      line = end_line > 0 and (end_line + 1) or (line + 1)
     else
-      lnum = lnum + 1
+      line = line + 1
     end
   end
-  vim.fn.winrestview(winView)
+  vim.fn.winrestview(win_view)
 end
 
 -- Close all folds with a given treesitter textobject. Does not close folds inside the fold recursively.
 function M.close_text_object_folds(textobject)
-  local winView = vim.fn.winsaveview()
+  local win_view = vim.fn.winsaveview()
   vim.api.nvim_win_set_cursor(0, { 1, 0 })
   while true do
     local cursor = vim.api.nvim_win_get_cursor(0)
@@ -28,7 +28,7 @@ function M.close_text_object_folds(textobject)
     if vim.deep_equal(cursor, vim.api.nvim_win_get_cursor(0)) then break end
     vim.cmd("norm! zc")
   end
-  vim.fn.winrestview(winView)
+  vim.fn.winrestview(win_view)
 end
 
 -- Closes the window unless it's the only window remaining in the tab page.
@@ -48,7 +48,7 @@ function M.close_window_or_buffer()
     vim.api.nvim_tabpage_list_wins(0)
   )
 
-  if #buffer_windows > 1 then
+  if #buffer_windows > 1 or #vim.api.nvim_list_tabpages() > 1 then
     vim.api.nvim_win_close(0, false)
   elseif #windows > 1 then
     vim.api.nvim_buf_delete(current_buffer, {})
