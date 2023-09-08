@@ -15,7 +15,7 @@ function M.close_folds_with_level(level)
       line = line + 1
     end
   end
-  vim.fn.winrestview(win_view)
+  if win_view then vim.fn.winrestview(win_view) end
 end
 
 -- Close all folds with a given treesitter textobject. Does not close folds inside the fold recursively.
@@ -28,7 +28,7 @@ function M.close_text_object_folds(textobject)
     if vim.deep_equal(cursor, vim.api.nvim_win_get_cursor(0)) then break end
     vim.cmd("norm! zc")
   end
-  vim.fn.winrestview(win_view)
+  if win_view then vim.fn.winrestview(win_view) end
 end
 
 -- Closes the window unless it's the only window remaining in the tab page.
@@ -36,22 +36,23 @@ end
 function M.close_window_or_buffer()
   local current_buffer = vim.api.nvim_get_current_buf()
 
-  -- Get windows with valid buffers.
-  local windows = vim.tbl_filter(function(window)
+  local windows_with_valid_buffers = vim.tbl_filter(function(window)
     local buffer = vim.api.nvim_win_get_buf(window)
     return vim.api.nvim_buf_is_valid(buffer) and vim.api.nvim_get_option_value("buflisted", { buf = buffer })
   end, vim.api.nvim_tabpage_list_wins(0))
 
-  -- Get windows showing the current buffer.
-  local buffer_windows = vim.tbl_filter(
+  local windows_with_this_buffer = vim.tbl_filter(
     function(window) return vim.api.nvim_win_get_buf(window) == current_buffer end,
     vim.api.nvim_tabpage_list_wins(0)
   )
 
-  if #buffer_windows > 1 or #vim.api.nvim_list_tabpages() > 1 then
+  local current_window_has_valid_buffer = vim.tbl_contains(windows_with_valid_buffers, vim.api.nvim_get_current_win())
+
+  if #windows_with_valid_buffers > 1 or #vim.api.nvim_list_tabpages() > 1 or not current_window_has_valid_buffer then
     vim.api.nvim_win_close(0, false)
-  elseif #windows > 1 then
-    vim.api.nvim_buf_delete(current_buffer, {})
+    if #windows_with_this_buffer == 1 and current_window_has_valid_buffer then
+      vim.api.nvim_buf_delete(current_buffer, {})
+    end
   else
     require("close_buffers").delete({ type = "this" })
   end
