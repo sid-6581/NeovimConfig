@@ -104,23 +104,12 @@ map("n", "z2", function() require("util").close_folds_with_level(2) end, { desc 
 map("n", "z3", function() require("util").close_folds_with_level(3) end, { desc = "Close folds with level 3" })
 map("n", "z4", function() require("util").close_folds_with_level(4) end, { desc = "Close folds with level 4" })
 
--- Git
-map("n", "<Leader>gd", "<CMD>Gitsigns diffthis HEAD<CR>", { desc = "Diff" })
-map("n", "<Leader>gg", _LAZYGIT_TOGGLE, { desc = "Lazygit" })
-map("n", "<Leader>gj", function() require("gitsigns").next_hunk() end, { desc = "Next hunk" })
-map("n", "<Leader>gk", function() require("gitsigns").prev_hunk() end, { desc = "Prev hunk" })
-map("n", "<Leader>gl", function() require("gitsigns").blame_line() end, { desc = "Blame" })
-map("n", "<Leader>gp", function() require("gitsigns").preview_hunk() end, { desc = "Preview hunk" })
-map("n", "<Leader>gR", function() require("gitsigns").reset_buffer() end, { desc = "Reset buffer" })
-map("n", "<Leader>gr", function() require("gitsigns").reset_hunk() end, { desc = "Reset hunk" })
-map("n", "<Leader>gs", function() require("gitsigns").stage_hunk() end, { desc = "Stage hunk" })
-map("n", "<Leader>gu", function() require("gitsigns").undo_stage_hunk() end, { desc = "Undo stage hunk" })
-
 -- LSP
 map("n", "<Leader>li", "<CMD>LspInfo<CR>", { desc = "LSP info" })
 map("n", "<Leader>lI", "<CMD>Mason<CR>", { desc = "Mason installer info" })
 
 -- Terminals
+map("n", "<Leader>gg", _LAZYGIT_TOGGLE, { desc = "Lazygit" })
 map("n", "<Leader>tf", _TERMINAL_TOGGLE, { desc = "Float" })
 map("n", "<Leader>th", _TERMINAL_HORIZONTAL_TOGGLE, { desc = "Horizontal" })
 map("n", "<Leader>tm", _MC_TOGGLE, { desc = "Midnight Commander" })

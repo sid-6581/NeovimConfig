@@ -351,6 +351,7 @@ return {
     keys = {
       { "[c", function() require("gitsigns").prev_hunk() end, desc = "Previous change (git)" },
       { "]c", function() require("gitsigns").next_hunk() end, desc = "Next change (git)" },
+      { "<Leader>gd", function() require("gitsigns").diff_this("HEAD") end, desc = "Diff" },
       { "<Leader>gj", function() require("gitsigns").next_hunk() end, desc = "Next hunk" },
       { "<Leader>gk", function() require("gitsigns").prev_hunk() end, desc = "Prev hunk" },
       { "<Leader>gl", function() require("gitsigns").blame_line() end, desc = "Blame" },
