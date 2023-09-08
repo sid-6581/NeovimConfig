@@ -19,7 +19,8 @@ map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 map("n", "[<Space>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>", { desc = "Add blank line above" })
 map("n", "]<Space>", "<CMD>put =repeat(nr2char(10), v:count1)|silent '[-<CR>", { desc = "Add blank line below" })
-map("n", "gX", "gX", { desc = "Open current path or URI" })
+map("n", "gX", "gx", { desc = "Open current path or URI" })
+map("v", "gX", "gx", { desc = "Open current path or URI" })
 
 -- Buffers
 map(

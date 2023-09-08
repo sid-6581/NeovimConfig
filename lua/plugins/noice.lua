@@ -73,7 +73,7 @@ return {
     },
     views = {
       mini = {
-        timeout = 2000,
+        timeout = 5000,
         winblend = 100,
       },
     },
