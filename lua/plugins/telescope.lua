@@ -50,7 +50,6 @@ return {
     },
     { "<Leader>fM", "<CMD>Telescope man_pages<CR>", desc = "Man pages" },
     { "<Leader>fn", "<CMD>Noice telescope<CR>", desc = "Noice" },
-    { "<Leader>fp", "<CMD>Telescope projects<CR>", desc = "Projects" },
     { "<Leader>fr", "<CMD>Telescope oldfiles<CR>", desc = "Recent files" },
     { "<Leader>fR", "<CMD>Telescope registers<CR>", desc = "Registers" },
     { "<Leader>fs", "<CMD>Telescope symbols<CR>", desc = "Symbols" },
@@ -152,7 +151,6 @@ return {
     telescope.load_extension("fzf")
     telescope.load_extension("undo")
     telescope.load_extension("z")
-    telescope.load_extension("projects")
     telescope.load_extension("scope")
 
     vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "WinSeparator" })

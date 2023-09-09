@@ -9,6 +9,8 @@ return {
       },
     })
 
+    require("mini.misc").setup_auto_root()
+
     require("mini.bracketed").setup({})
 
     require("mini.operators").setup({
