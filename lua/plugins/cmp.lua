@@ -138,8 +138,6 @@ return {
       mapping = {
         ["<C-k>"] = { c = cmp.mapping.select_prev_item() },
         ["<C-j>"] = { c = cmp.mapping.select_next_item() },
-        ["<Up>"] = { c = cmp.mapping.select_prev_item() },
-        ["<Down>"] = { c = cmp.mapping.select_next_item() },
         ["<C-y>"] = { c = cmp.config.disable },
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
@@ -156,8 +154,6 @@ return {
       mapping = {
         ["<C-k>"] = { c = cmp.mapping.select_prev_item() },
         ["<C-j>"] = { c = cmp.mapping.select_next_item() },
-        ["<Up>"] = { c = cmp.mapping.select_prev_item() },
-        ["<Down>"] = { c = cmp.mapping.select_next_item() },
         ["<C-y>"] = { c = cmp.config.disable },
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
