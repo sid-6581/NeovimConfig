@@ -136,10 +136,10 @@ return {
 
     cmp.setup.cmdline("/", {
       mapping = {
-        ["<C-k>"] = { c = cmp.mapping.select_prev_item(select_opts) },
-        ["<C-j>"] = { c = cmp.mapping.select_next_item(select_opts) },
-        ["<Up>"] = { c = cmp.mapping.select_prev_item(select_opts) },
-        ["<Down>"] = { c = cmp.mapping.select_next_item(select_opts) },
+        ["<C-k>"] = { c = cmp.mapping.select_prev_item() },
+        ["<C-j>"] = { c = cmp.mapping.select_next_item() },
+        ["<Up>"] = { c = cmp.mapping.select_prev_item() },
+        ["<Down>"] = { c = cmp.mapping.select_next_item() },
         ["<C-y>"] = { c = cmp.config.disable },
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
@@ -154,10 +154,10 @@ return {
 
     cmp.setup.cmdline(":", {
       mapping = {
-        ["<C-k>"] = { c = cmp.mapping.select_prev_item(select_opts) },
-        ["<C-j>"] = { c = cmp.mapping.select_next_item(select_opts) },
-        ["<Up>"] = { c = cmp.mapping.select_prev_item(select_opts) },
-        ["<Down>"] = { c = cmp.mapping.select_next_item(select_opts) },
+        ["<C-k>"] = { c = cmp.mapping.select_prev_item() },
+        ["<C-j>"] = { c = cmp.mapping.select_next_item() },
+        ["<Up>"] = { c = cmp.mapping.select_prev_item() },
+        ["<Down>"] = { c = cmp.mapping.select_next_item() },
         ["<C-y>"] = { c = cmp.config.disable },
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
