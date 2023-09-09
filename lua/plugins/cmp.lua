@@ -17,13 +17,13 @@ return {
 
       dependencies = { "rafamadriz/friendly-snippets" },
 
-      opts = {
-        history = true,
-      },
+      config = function()
+        require("luasnip").setup({
+          history = true,
+        })
 
-      config = function(_, opts)
-        require("luasnip").setup(opts)
         require("luasnip.loaders.from_vscode").lazy_load()
+        require("luasnip.loaders.from_vscode").load({ paths = { "./snippets" } })
       end,
     },
 

@@ -1,0 +1,80 @@
+{
+  "{}": {
+    "prefix": "{}",
+    "body": [
+      "{ $1 }"
+    ],
+    "description": "Braces with space"
+  },
+  "{},": {
+    "prefix": "{},",
+    "body": [
+      "{ $1 },"
+    ],
+    "description": "Braces with space and comma"
+  },
+  "{": {
+    "prefix": "{",
+    "body": [
+      "{",
+      "\t$1",
+      "}"
+    ],
+    "description": "Braces with newline"
+  },
+  "{,": {
+    "prefix": "{,",
+    "body": [
+      "{",
+      "\t$1",
+      "},"
+    ],
+    "description": "Braces with newline and comma"
+  },
+  "(": {
+    "prefix": "(",
+    "body": [
+      "($1)"
+    ],
+    "description": "Parentheses"
+  },
+  "(,": {
+    "prefix": "(,",
+    "body": [
+      "($1),"
+    ],
+    "description": "Parentheses with comma"
+  },
+  "[]": {
+    "prefix": "[]",
+    "body": [
+      "[$1]"
+    ],
+    "description": "Brackets"
+  },
+  "[],": {
+    "prefix": "[],",
+    "body": [
+      "[$1],"
+    ],
+    "description": "Brackets"
+  },
+  "[": {
+    "prefix": "[",
+    "body": [
+      "[",
+      "\t$1",
+      "]"
+    ],
+    "description": "Brackets with newline"
+  },
+  "[,": {
+    "prefix": "[",
+    "body": [
+      "[",
+      "\t$1",
+      "],"
+    ],
+    "description": "Brackets with newline and comma"
+  }
+}

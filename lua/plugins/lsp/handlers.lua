@@ -299,7 +299,7 @@ function M.setup(options)
       lspconfig.volar.setup({
         on_attach = options.on_attach,
         capabilities = options.capabilities,
-        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       })
     end,
 
