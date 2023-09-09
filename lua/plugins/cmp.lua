@@ -10,12 +10,21 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "onsails/lspkind.nvim",
+    "saadparwaiz1/cmp_luasnip",
 
     {
-      "saadparwaiz1/cmp_luasnip",
-      dependencies = {
-        { "L3MON4D3/LuaSnip", opts = {} },
+      "L3MON4D3/LuaSnip",
+
+      dependencies = { "rafamadriz/friendly-snippets" },
+
+      opts = {
+        history = true,
       },
+
+      config = function(_, opts)
+        require("luasnip").setup(opts)
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end,
     },
 
     {
@@ -41,6 +50,7 @@ return {
   config = function()
     local cmp = require("cmp")
     local lspkind = require("lspkind")
+    local luasnip = require("luasnip")
 
     local select_opts = { behavior = cmp.SelectBehavior.Select }
 
@@ -62,7 +72,22 @@ return {
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
         }),
-        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ select = true })
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if not cmp.visible() and luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       },
 
       confirmation = {
@@ -91,7 +116,7 @@ return {
       },
 
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
+        { name = "nvim_lsp", keyword_length = 1 },
         { name = "luasnip" },
         { name = "nvim_lua" },
         { name = "buffer" },
