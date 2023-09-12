@@ -51,6 +51,7 @@ return {
     { "<Leader>fM", "<CMD>Telescope man_pages<CR>", desc = "Man pages" },
     { "<Leader>fn", "<CMD>Noice telescope<CR>", desc = "Noice" },
     { "<Leader>fr", "<CMD>Telescope oldfiles<CR>", desc = "Recent files" },
+    { "<Leader>fp", "<CMD>Telescope repo list<CR>", desc = "Projects" },
     { "<Leader>fR", "<CMD>Telescope registers<CR>", desc = "Registers" },
     { "<Leader>fs", "<CMD>Telescope symbols<CR>", desc = "Symbols" },
     { "<Leader>ft", "<CMD>Telescope live_grep<CR>", desc = "Text" },
@@ -73,6 +74,7 @@ return {
     "nvim-telescope/telescope-z.nvim",
     "debugloop/telescope-undo.nvim",
     "Marskey/telescope-sg",
+    "cljoly/telescope-repo.nvim",
 
     {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -132,9 +134,6 @@ return {
         },
       },
       extensions = {
-        undo = {
-          use_delta = false,
-        },
         ast_grep = {
           command = {
             "ast-grep",
@@ -143,15 +142,25 @@ return {
           grep_open_files = false,
           lang = nil,
         },
+        repo = {
+          list = {
+            file_ignore_patterns = { "/%.cache/", "/%.cargo/" },
+            search_dirs = vim.fn.has("win32") and { "D:/Code", "~/AppData/Local/" } or { "~" },
+          },
+        },
+        undo = {
+          use_delta = false,
+        },
       },
     })
 
     telescope.load_extension("ast_grep")
     telescope.load_extension("file_browser")
     telescope.load_extension("fzf")
+    telescope.load_extension("repo")
+    telescope.load_extension("scope")
     telescope.load_extension("undo")
     telescope.load_extension("z")
-    telescope.load_extension("scope")
 
     vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "WinSeparator" })
     vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "WinSeparator" })
