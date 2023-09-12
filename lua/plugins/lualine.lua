@@ -72,6 +72,9 @@ return {
         disabled_filetypes = { "alpha", "dashboard", "Outline" },
         always_divide_middle = true,
         globalstatus = true,
+        refresh = {
+          statusline = 100,
+        },
       },
       sections = {
         lualine_a = { "hostname", branch },
