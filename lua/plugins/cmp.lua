@@ -74,7 +74,7 @@ return {
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.confirm({ select = true })
+            cmp.confirm({ cmp.ConfirmBehavior.Insert, select = true })
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           else
@@ -91,7 +91,7 @@ return {
       },
 
       confirmation = {
-        default_behavior = cmp.ConfirmBehavior.Replace,
+        default_behavior = cmp.ConfirmBehavior.Insert,
       },
 
       formatting = {
