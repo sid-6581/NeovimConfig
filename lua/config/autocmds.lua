@@ -42,7 +42,6 @@ if vim.fn.has("win32") == 1 then
       local name = vim.api.nvim_buf_get_name(0)
       if name:sub(2, 2) == ":" then
         name = name:gsub("\\", "/"):gsub("^%l", string.upper)
-        vim.notify(name)
         vim.api.nvim_buf_set_name(0, name)
       end
     end,
