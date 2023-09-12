@@ -87,6 +87,13 @@ return {
     vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", { link = "WinSeparator" })
     vim.api.nvim_set_hl(0, "NeoTreeFloatTitle", { link = "Title" })
 
+    local utils = require("neo-tree.utils")
+    ---@diagnostic disable-next-line: duplicate-set-field
+    utils.escape_path = function(path)
+      local escaped_path = vim.fn.fnameescape(path)
+      return escaped_path
+    end
+
     require("neo-tree").setup(opts)
   end,
 }
