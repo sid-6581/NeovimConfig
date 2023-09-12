@@ -223,7 +223,7 @@ function M.setup(options)
       local codelldb = mason_registry.get_package("codelldb")
       local extension_path = codelldb:get_install_path() .. "/extension/"
       local codelldb_path = extension_path .. "adapter/codelldb"
-      if vim.fn.has("win32") then codelldb_path = extension_path .. "adapter/codelldb.exe" end
+      if vim.fn.has("win32") == 1 then codelldb_path = extension_path .. "adapter/codelldb.exe" end
 
       require("rust-tools").setup({
         tools = {
