@@ -35,6 +35,20 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
+-- Normalize paths for Windows buffers
+if vim.fn.has("win32") == 1 then
+  vim.api.nvim_create_autocmd({ "BufRead" }, {
+    callback = function()
+      local name = vim.api.nvim_buf_get_name(0)
+      if name:sub(2, 2) == ":" then
+        name = name:gsub("\\", "/"):gsub("^%l", string.upper)
+        vim.notify(name)
+        vim.api.nvim_buf_set_name(0, name)
+      end
+    end,
+  })
+end
+
 -- Use q to close non-editor windows, and hide them from the buffer list
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
