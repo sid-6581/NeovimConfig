@@ -146,7 +146,7 @@ return {
           list = {
             fd_opts = "--no-ignore",
             file_ignore_patterns = { "/%.cache/", "/%.cargo/" },
-            search_dirs = (vim.fn.has("win32") == 1) and { "D:/Code", "E:/Code", "~/AppData/Local/" } or { "~" },
+            search_dirs = (vim.fn.has("win32") == 1) and { "D:/Code", "E:/", "~/AppData/Local/" } or { "~" },
           },
         },
         undo = {
