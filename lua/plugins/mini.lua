@@ -18,14 +18,14 @@ return {
 
     require("mini.comment").setup({})
 
-    require("mini.operators").setup({})
-
     require("mini.move").setup({
       mappings = {
         line_left = "<S-Tab>",
         line_right = "<Tab>",
       },
     })
+
+    require("mini.operators").setup({})
 
     require("mini.surround").setup({
       mappings = {

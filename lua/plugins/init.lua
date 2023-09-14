@@ -99,6 +99,19 @@ return {
   },
 
   {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "VeryLazy",
+
+    opts = {
+      char = "▏",
+      show_current_context = true,
+      show_trailing_blankline_indent = false,
+      show_first_indent_level = true,
+      use_treesitter = true,
+    },
+  },
+
+  {
     "chrisgrieser/nvim-various-textobjs",
     event = "VeryLazy",
 
