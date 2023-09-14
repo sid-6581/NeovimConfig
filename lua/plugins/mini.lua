@@ -3,6 +3,8 @@ return {
   event = "VeryLazy",
 
   config = function()
+    require("mini.misc").setup_auto_root()
+
     require("mini.ai").setup({
       custom_textobjects = {
         a = false,
@@ -10,7 +12,7 @@ return {
       search_method = "cover",
     })
 
-    require("mini.misc").setup_auto_root()
+    require("mini.align").setup({})
 
     require("mini.bracketed").setup({
       comment = { suffix = "C" },
