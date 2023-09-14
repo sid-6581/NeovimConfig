@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 
 -- Normalize paths for Windows buffers
 if vim.fn.has("win32") == 1 then
-  vim.api.nvim_create_autocmd({ "BufAdd" }, {
+  vim.api.nvim_create_autocmd({ "BufRead" }, {
     callback = function()
       local name = vim.api.nvim_buf_get_name(0)
       if name:sub(2, 2) == ":" then
