@@ -11,13 +11,13 @@ return {
 
     require("mini.misc").setup_auto_root()
 
-    require("mini.bracketed").setup({})
+    require("mini.bracketed").setup({
+      comment = { suffix = "C" },
+    })
 
     require("mini.comment").setup({})
 
-    require("mini.operators").setup({
-      comment = { suffix = "C" },
-    })
+    require("mini.operators").setup({})
 
     require("mini.move").setup({
       mappings = {
