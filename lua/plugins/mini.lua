@@ -7,6 +7,7 @@ return {
       custom_textobjects = {
         a = false,
       },
+      search_method = "cover",
     })
 
     require("mini.misc").setup_auto_root()
