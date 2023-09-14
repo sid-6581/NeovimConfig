@@ -27,6 +27,20 @@ return {
   "nvim-telescope/telescope.nvim",
   event = "VeryLazy",
 
+  dependencies = {
+    "nvim-telescope/telescope-file-browser.nvim",
+    "nvim-telescope/telescope-symbols.nvim",
+    "jvgrootveld/telescope-zoxide",
+    "debugloop/telescope-undo.nvim",
+    "Marskey/telescope-sg",
+    "cljoly/telescope-repo.nvim",
+
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    },
+  },
+
   keys = {
     { "<F1>", "<CMD>Telescope help_tags<CR>", desc = "Help" },
     { mode = "i", "<F1>", "<CMD>Telescope help_tags<CR>", desc = "Help" },
@@ -57,29 +71,11 @@ return {
     { "<Leader>ft", "<CMD>Telescope live_grep<CR>", desc = "Text" },
     { "<Leader>fu", "<CMD>Telescope undo<CR>", desc = "Undo" },
     { "<Leader>fw", "<CMD>Telescope grep_string<CR>", desc = "Word" },
+    { "<Leader>fz", "<CMD>Telescope zoxide list<CR>", desc = "Zoxide" },
+    { "<Leader>f.", "<CMD>Telescope file_browser<CR>", desc = "Browse files" },
     { "<Leader>gb", "<CMD>Telescope git_branches<CR>", desc = "Branches" },
     { "<Leader>gc", "<CMD>Telescope git_commits<CR>", desc = "Commits" },
     { "<Leader>go", "<CMD>Telescope git_status<CR>", desc = "Status" },
-    {
-      "<Leader>fz",
-      function() require("telescope").extensions.z.list({ cmd = { vim.o.shell, "-c", "zoxide query -ls" } }) end,
-      desc = "Zoxide",
-    },
-    { "<Leader>f.", "<CMD>Telescope file_browser<CR>", desc = "Browse files" },
-  },
-
-  dependencies = {
-    "nvim-telescope/telescope-file-browser.nvim",
-    "nvim-telescope/telescope-symbols.nvim",
-    "nvim-telescope/telescope-z.nvim",
-    "debugloop/telescope-undo.nvim",
-    "Marskey/telescope-sg",
-    "cljoly/telescope-repo.nvim",
-
-    {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-    },
   },
 
   config = function()
@@ -161,7 +157,7 @@ return {
     telescope.load_extension("repo")
     telescope.load_extension("scope")
     telescope.load_extension("undo")
-    telescope.load_extension("z")
+    telescope.load_extension("zoxide")
 
     vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "WinSeparator" })
     vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "WinSeparator" })
