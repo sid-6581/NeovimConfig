@@ -277,21 +277,6 @@ return {
   },
 
   {
-    "Wansmer/treesj",
-    event = "VeryLazy",
-
-    keys = {
-      { "<Leader>cs", "<CMD>TSJSplit<CR>", desc = "Split node" },
-      { "<Leader>cj", "<CMD>TSJJoin<CR>", desc = "Join node" },
-    },
-
-    opts = {
-      use_default_keymaps = false,
-      check_syntax_error = false,
-    },
-  },
-
-  {
     "kazhala/close-buffers.nvim",
     event = "VeryLazy",
 

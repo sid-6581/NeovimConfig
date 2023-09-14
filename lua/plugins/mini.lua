@@ -27,6 +27,26 @@ return {
 
     require("mini.operators").setup({})
 
+    local gen_hook = require("mini.splitjoin").gen_hook
+    local brackets = { brackets = { "%b{}" } }
+
+    require("mini.splitjoin").setup({
+      detect = {
+        separator = "[,;]",
+      },
+      split = {
+        hooks_post = {
+          gen_hook.add_trailing_separator(brackets),
+        },
+      },
+      join = {
+        hooks_post = {
+          gen_hook.del_trailing_separator(brackets),
+          gen_hook.pad_brackets(brackets),
+        },
+      },
+    })
+
     require("mini.surround").setup({
       mappings = {
         add = "<Leader>sa",
