@@ -13,6 +13,8 @@ return {
 
     require("mini.bracketed").setup({})
 
+    require("mini.comment").setup({})
+
     require("mini.operators").setup({
       comment = { suffix = "C" },
     })
