@@ -98,7 +98,6 @@ local builtins = {
   "vimballPlugin",
   "2html_plugin",
   "matchit",
-  "matchparen",
   "logiPat",
   "rrhelper",
   "netrw",
