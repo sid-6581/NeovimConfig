@@ -8,6 +8,7 @@ return {
     require("mini.ai").setup({
       custom_textobjects = {
         a = false,
+        A = require("mini.ai").gen_spec.argument(),
       },
       search_method = "cover",
     })
