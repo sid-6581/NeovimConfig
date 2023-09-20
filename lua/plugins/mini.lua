@@ -25,6 +25,9 @@ return {
         line_left = "<S-Tab>",
         line_right = "<Tab>",
       },
+      options = {
+        reindent_linewise = false,
+      },
     })
 
     require("mini.operators").setup({})
