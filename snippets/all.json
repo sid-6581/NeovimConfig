@@ -31,20 +31,6 @@
     ],
     "description": "Braces with newline and comma"
   },
-  "(": {
-    "prefix": "(",
-    "body": [
-      "($1)"
-    ],
-    "description": "Parentheses"
-  },
-  "(,": {
-    "prefix": "(,",
-    "body": [
-      "($1),"
-    ],
-    "description": "Parentheses with comma"
-  },
   "[]": {
     "prefix": "[]",
     "body": [
