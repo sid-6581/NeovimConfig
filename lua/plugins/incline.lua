@@ -3,7 +3,7 @@ return {
   priority = 998,
 
   config = function()
-    local colors = require("gruvbox.palette").colors
+    local colors = require("util.colors")
 
     require("incline").setup({
       highlight = {

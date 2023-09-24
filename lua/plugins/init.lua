@@ -247,7 +247,7 @@ return {
     },
 
     init = function()
-      local colors = require("gruvbox.palette").colors
+      local colors = require("util.colors")
       vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#ffffff", fg = "#000000", italic = true, reverse = true })
       vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = colors.gray })
     end,
@@ -368,7 +368,7 @@ return {
     event = "VeryLazy",
 
     config = function()
-      local colors = require("gruvbox.palette").colors
+      local colors = require("util.colors")
 
       require("window-picker").setup({
         highlights = {
