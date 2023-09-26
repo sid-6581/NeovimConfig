@@ -1,53 +1,11 @@
 return {
   "folke/lazy.nvim",
 
-  --
-  -- Libraries used by other plugins
-  --
   {
-    "MunifTanjim/nui.nvim",
-    event = "VeryLazy",
+    "nmac427/guess-indent.nvim",
+    opts = {},
   },
 
-  {
-    "nvim-lua/plenary.nvim",
-    event = "VeryLazy",
-  },
-
-  {
-    "nvim-tree/nvim-web-devicons",
-    event = "VeryLazy",
-  },
-
-  --
-  -- File types
-  --
-  {
-    "isobit/vim-caddyfile",
-    ft = "caddyfile",
-  },
-
-  {
-    "mechatroner/rainbow_csv",
-    ft = "csv",
-  },
-
-  {
-    "vmware-archive/salt-vim",
-    ft = "sls",
-  },
-
-  {
-    "IndianBoy42/tree-sitter-just",
-    event = "VeryLazy",
-    ft = "just",
-    config = true,
-    build = ":TSInstall just",
-  },
-
-  --
-  -- Other plugins
-  --
   {
     "kevinhwang91/nvim-bqf",
     event = "VeryLazy",
@@ -57,17 +15,6 @@ return {
     "yorickpeterse/nvim-pqf",
     event = "VeryLazy",
     main = "pqf",
-    config = true,
-  },
-
-  {
-    "tpope/vim-repeat",
-    event = "VeryLazy",
-  },
-
-  {
-    "nmac427/guess-indent.nvim",
-    event = "VeryLazy",
     opts = {},
   },
 
