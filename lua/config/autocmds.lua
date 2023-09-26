@@ -2,9 +2,10 @@
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, { command = "checktime" })
 
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function() vim.highlight.on_yank({ higroup = "Visual", timeout = 200 }) end,
-})
+-- Not needed right now with Yanky enabled
+-- vim.api.nvim_create_autocmd("TextYankPost", {
+--   callback = function() vim.highlight.on_yank({ higroup = "Visual", timeout = 200 }) end,
+-- })
 
 -- Show cursor line only in active window
 -- vim.api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {

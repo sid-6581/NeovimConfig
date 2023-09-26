@@ -109,6 +109,7 @@ return {
         mappings = {
           i = {
             ["<Esc>"] = actions.close,
+            ["<C-c>"] = false,
             ["<F1>"] = actions.which_key,
             ["<C-n>"] = actions.cycle_history_next,
             ["<C-p>"] = actions.cycle_history_prev,

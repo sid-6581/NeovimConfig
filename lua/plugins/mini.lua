@@ -16,7 +16,8 @@ return {
     require("mini.align").setup({})
 
     require("mini.bracketed").setup({
-      comment = { suffix = "C" },
+      comment = { suffix = "" },
+      yank = { suffix = "" },
     })
 
     require("mini.comment").setup({})
