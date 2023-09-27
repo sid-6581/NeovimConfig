@@ -8,7 +8,6 @@ return {
       winblend = 10,
     },
     defaults = {
-      ["g"] = { name = "+Goto" },
       ["gp"] = { name = "+Goto Preview" },
       ["]"] = { name = "+Next" },
       ["["] = { name = "+Prev" },
