@@ -4,7 +4,7 @@ return {
   priority = 1000,
 
   config = function()
-    local colors = require("util.colors")
+    local colors = require("util.colors").colors
 
     require("gruvbox").setup({
       contrast = "hard",
