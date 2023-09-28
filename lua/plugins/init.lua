@@ -48,13 +48,11 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
+    main = "ibl",
 
     opts = {
-      char = "▏",
-      show_current_context = true,
-      show_trailing_blankline_indent = false,
-      show_first_indent_level = true,
-      use_treesitter = true,
+      debounce = 100,
+      indent = { char = "▏" },
     },
   },
 
