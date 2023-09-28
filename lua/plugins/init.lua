@@ -7,12 +7,6 @@ return {
   },
 
   {
-    "folke/neoconf.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-
-  {
     "kevinhwang91/nvim-bqf",
     event = "VeryLazy",
   },

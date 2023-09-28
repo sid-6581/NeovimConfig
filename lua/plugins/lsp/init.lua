@@ -10,6 +10,11 @@ return {
     "simrat39/rust-tools.nvim",
 
     {
+      "folke/neoconf.nvim",
+      config = false,
+    },
+
+    {
       "folke/neodev.nvim",
       opts = {},
     },
@@ -47,6 +52,7 @@ return {
   },
 
   config = function()
+    require("neoconf").setup({})
     require("plugins.lsp.diagnostics").setup()
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
