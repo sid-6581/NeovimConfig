@@ -2,12 +2,13 @@ return {
   "folke/lazy.nvim",
 
   {
-    "folke/neoconf.nvim",
+    "nmac427/guess-indent.nvim",
     opts = {},
   },
 
   {
-    "nmac427/guess-indent.nvim",
+    "folke/neoconf.nvim",
+    event = "VeryLazy",
     opts = {},
   },
 
