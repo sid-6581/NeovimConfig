@@ -50,7 +50,8 @@ return {
         opts = {
           border = "single",
           size = {
-            max_width = 80,
+            max_height = 60,
+            max_width = 120,
           },
           win_options = {
             winblend = 10,
