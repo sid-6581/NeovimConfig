@@ -54,9 +54,9 @@ return {
   config = function()
     require("neoconf").setup({})
     require("neodev").setup({
-      override = function(_, options)
-        options.library.enabled = true
-        options.library.plugins = true
+      override = function(_, library)
+        library.enabled = true
+        library.plugins = true
       end,
     })
     require("plugins.lsp.diagnostics").setup()
