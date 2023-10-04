@@ -53,12 +53,7 @@ return {
 
   config = function()
     require("neoconf").setup({})
-    require("neodev").setup({
-      override = function(_, library)
-        library.enabled = true
-        library.plugins = true
-      end,
-    })
+    require("neodev").setup({})
     require("plugins.lsp.diagnostics").setup()
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
