@@ -16,7 +16,7 @@ return {
 
     {
       "folke/neodev.nvim",
-      opts = {},
+      config = false,
     },
 
     {
@@ -53,6 +53,12 @@ return {
 
   config = function()
     require("neoconf").setup({})
+    require("neodev").setup({
+      override = function(_, options)
+        options.library.enabled = true
+        options.library.plugins = true
+      end,
+    })
     require("plugins.lsp.diagnostics").setup()
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
