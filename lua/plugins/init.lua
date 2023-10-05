@@ -52,7 +52,13 @@ return {
 
     opts = {
       debounce = 100,
-      indent = { char = "▏" },
+      indent = {
+        char = "▏",
+      },
+      scope = {
+        show_start = false,
+        show_end = false,
+      },
     },
   },
 
