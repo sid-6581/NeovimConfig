@@ -82,12 +82,7 @@ end
 
 function M.setup(options)
   require("neoconf").setup({})
-  require("neodev").setup({
-    override = function(_, library)
-      library.enabled = true
-      library.plugins = true
-    end,
-  })
+  require("neodev").setup({})
   local mason_lspconfig = require("mason-lspconfig")
   local lspconfig = require("lspconfig")
   local util = require("lspconfig.util")
