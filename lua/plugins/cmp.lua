@@ -17,11 +17,12 @@ return {
 
       dependencies = { "rafamadriz/friendly-snippets" },
 
-      config = function()
-        require("luasnip").setup({
-          history = true,
-        })
+      opts = {
+        history = true,
+      },
 
+      config = function(_, opts)
+        require("luasnip").setup(opts)
         require("luasnip.loaders.from_vscode").lazy_load()
         require("luasnip.loaders.from_vscode").load({ paths = { "./snippets" } })
       end,
@@ -39,11 +40,6 @@ return {
           name = "crates.nvim",
         },
       },
-
-      config = function(_, opts)
-        require("null-ls")
-        require("crates").setup(opts)
-      end,
     },
   },
 

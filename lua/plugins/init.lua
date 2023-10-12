@@ -175,6 +175,7 @@ return {
         char = {
           config = function(opts)
             -- autohide flash when in operator-pending mode
+            ---@diagnostic disable-next-line: undefined-field
             opts.autohide = vim.fn.mode(true):find("no") and (vim.v.operator == "y" or vim.v.operator == "d")
             -- disable jump labels when enabled and when using a count
             opts.jump_labels = opts.jump_labels and vim.v.count == 0
@@ -361,5 +362,39 @@ return {
       { mode = { "v" }, "g<C-A>", function() require("dial.map").manipulate("increment", "gvisual") end },
       { mode = { "v" }, "g<C-X>", function() require("dial.map").manipulate("decrement", "gvisual") end },
     },
+  },
+
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+
+    opts = {
+      window = {
+        border = "single", -- none, single, double, shadow
+        winblend = 10,
+      },
+      defaults = {
+        ["gp"] = { name = "+Goto Preview" },
+        ["]"] = { name = "+Next" },
+        ["["] = { name = "+Prev" },
+        ["<Leader><tab>"] = { name = "+Tabs" },
+        ["<Leader>b"] = { name = "+Buffers" },
+        ["<Leader>c"] = { name = "+Code" },
+        ["<Leader>d"] = { name = "+Debug" },
+        ["<Leader>f"] = { name = "+Find" },
+        ["<Leader>l"] = { name = "+LSP" },
+        ["<Leader>g"] = { name = "+Git" },
+        ["<Leader>t"] = { name = "+Terminal" },
+        ["<Leader>u"] = { name = "+Toggles" },
+        ["<Leader>w"] = { name = "+Windows" },
+        ["<Leader>x"] = { name = "+Diagnostics/Quickfix" },
+      },
+    },
+
+    config = function(_, opts)
+      local wk = require("which-key")
+      wk.setup(opts)
+      wk.register(opts.defaults)
+    end,
   },
 }

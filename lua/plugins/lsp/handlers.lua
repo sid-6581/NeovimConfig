@@ -1,104 +1,27 @@
+---@diagnostic disable: missing-fields
+
 local M = {}
 
-function M.on_attach(client, _bufnr)
-  if client.name == "omnisharp" then
-    client.server_capabilities.semanticTokensProvider = {
-      full = vim.empty_dict(),
-      legend = {
-        tokenModifiers = { "static_symbol" },
-        tokenTypes = {
-          "comment",
-          "excluded_code",
-          "identifier",
-          "keyword",
-          "keyword_control",
-          "number",
-          "operator",
-          "operator_overloaded",
-          "preprocessor_keyword",
-          "string",
-          "whitespace",
-          "text",
-          "static_symbol",
-          "preprocessor_text",
-          "punctuation",
-          "string_verbatim",
-          "string_escape_character",
-          "class_name",
-          "delegate_name",
-          "enum_name",
-          "interface_name",
-          "module_name",
-          "struct_name",
-          "type_parameter_name",
-          "field_name",
-          "enum_member_name",
-          "constant_name",
-          "local_name",
-          "parameter_name",
-          "method_name",
-          "extension_method_name",
-          "property_name",
-          "event_name",
-          "namespace_name",
-          "label_name",
-          "xml_doc_comment_attribute_name",
-          "xml_doc_comment_attribute_quotes",
-          "xml_doc_comment_attribute_value",
-          "xml_doc_comment_cdata_section",
-          "xml_doc_comment_comment",
-          "xml_doc_comment_delimiter",
-          "xml_doc_comment_entity_reference",
-          "xml_doc_comment_name",
-          "xml_doc_comment_processing_instruction",
-          "xml_doc_comment_text",
-          "xml_literal_attribute_name",
-          "xml_literal_attribute_quotes",
-          "xml_literal_attribute_value",
-          "xml_literal_cdata_section",
-          "xml_literal_comment",
-          "xml_literal_delimiter",
-          "xml_literal_embedded_expression",
-          "xml_literal_entity_reference",
-          "xml_literal_name",
-          "xml_literal_processing_instruction",
-          "xml_literal_text",
-          "regex_comment",
-          "regex_character_class",
-          "regex_anchor",
-          "regex_quantifier",
-          "regex_grouping",
-          "regex_alternation",
-          "regex_text",
-          "regex_self_escaped_character",
-          "regex_other_escape",
-        },
-      },
-      range = true,
-    }
-  end
-  if client.name == "eslint" then client.server_capabilities.documentFormattingProvider = true end
-end
+function M.on_attach(_client, _bufnr) end
 
 function M.setup(options)
   require("neoconf").setup({})
   require("neodev").setup({})
-  local mason_lspconfig = require("mason-lspconfig")
-  local lspconfig = require("lspconfig")
-  local util = require("lspconfig.util")
+  require("mason").setup()
+  require("mason-lspconfig").setup()
 
-  mason_lspconfig.setup_handlers({
-    function(server_name)
-      lspconfig[server_name].setup({
-        on_attach = options.on_attach,
-        capabilities = options.capabilities,
-      })
-    end,
+  local setup = function(server_name, opts)
+    require("lspconfig")[server_name].setup(vim.tbl_deep_extend("force", {
+      on_attach = options.on_attach,
+      capabilities = options.capabilities,
+    }, opts))
+  end
 
-    ["jsonls"] = function()
-      lspconfig.jsonls.setup({
-        on_attach = options.on_attach,
-        capabilities = options.capabilities,
+  require("mason-lspconfig").setup_handlers({
+    function(server_name) setup(server_name, {}) end,
+
+    jsonls = function(server_name)
+      setup(server_name, {
         settings = {
           json = {
             schemas = require("schemastore").json.schemas(),
@@ -108,14 +31,8 @@ function M.setup(options)
       })
     end,
 
-    ["omnisharp"] = function()
-      lspconfig.omnisharp.setup({
-        on_attach = options.on_attach,
-        capabilities = options.capabilities,
-        enable_decompilation_support = true,
-        enable_import_completion = true,
-        enable_roslyn_analyzers = true,
-        organize_imports_on_format = true,
+    omnisharp = function(server_name)
+      setup(server_name, {
         settings = {
           csharp = {
             format = {
@@ -133,10 +50,8 @@ function M.setup(options)
       })
     end,
 
-    ["powershell_es"] = function()
-      lspconfig.powershell_es.setup({
-        on_attach = options.on_attach,
-        capabilities = options.capabilities,
+    powershell_es = function(server_name)
+      setup(server_name, {
         settings = {
           powershell = {
             codeFormatting = {
@@ -153,10 +68,8 @@ function M.setup(options)
       })
     end,
 
-    ["pyright"] = function()
-      lspconfig.pyright.setup({
-        on_attach = options.on_attach,
-        capabilities = options.capabilities,
+    pyright = function(server_name)
+      setup(server_name, {
         settings = {
           python = {
             analysis = {
@@ -168,10 +81,8 @@ function M.setup(options)
       })
     end,
 
-    ["lua_ls"] = function()
-      lspconfig.lua_ls.setup({
-        on_attach = options.on_attach,
-        capabilities = options.capabilities,
+    lua_ls = function(server_name)
+      setup(server_name, {
         single_file_support = true,
         settings = {
           Lua = {
@@ -220,9 +131,8 @@ function M.setup(options)
       })
     end,
 
-    ["rust_analyzer"] = function()
-      local mason_registry = require("mason-registry")
-      local codelldb = mason_registry.get_package("codelldb")
+    rust_analyzer = function()
+      local codelldb = require("mason-registry").get_package("codelldb")
       local extension_path = codelldb:get_install_path() .. "/extension/"
       local codelldb_path = extension_path .. "adapter/codelldb"
       if vim.fn.has("win32") == 1 then codelldb_path = extension_path .. "adapter/codelldb.exe" end
@@ -279,7 +189,7 @@ function M.setup(options)
       })
     end,
 
-    ["taplo"] = function()
+    taplo = function(server_name)
       local function show_documentation()
         if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
           require("crates").show_popup()
@@ -287,28 +197,27 @@ function M.setup(options)
           vim.lsp.buf.hover()
         end
       end
-      lspconfig.taplo.setup({
+
+      setup(server_name, {
         on_attach = function(client, bufnr)
           options.on_attach(client, bufnr)
           vim.keymap.set("n", "K", show_documentation, { buffer = bufnr, desc = "Show Crate Documentation" })
         end,
-        capabilities = options.capabilities,
-        root_dir = function(fname) return util.find_git_ancestor(fname) or util.root_pattern("Cargo.toml")(fname) end,
+        root_dir = function(fname)
+          return require("lspconfig.util").find_git_ancestor(fname)
+            or require("lspconfig.util").root_pattern("Cargo.toml")(fname)
+        end,
       })
     end,
 
-    ["volar"] = function()
-      lspconfig.volar.setup({
-        on_attach = options.on_attach,
-        capabilities = options.capabilities,
+    volar = function(server_name)
+      setup(server_name, {
         filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       })
     end,
 
-    ["yamlls"] = function()
-      lspconfig.yamlls.setup({
-        on_attach = options.on_attach,
-        capabilities = options.capabilities,
+    yamlls = function(server_name)
+      setup(server_name, {
         settings = {
           yaml = {
             schemaStore = {

@@ -14,7 +14,6 @@ return {
       "c",
       "c_sharp",
       "cmake",
-      -- "comment",
       "cpp",
       "css",
       "diff",
@@ -54,11 +53,13 @@ return {
       "yaml",
       "zig",
     },
+
     highlight = {
       enable = true,
       disable = { "comment", "help" },
       additional_vim_regex_highlighting = false,
     },
+
     incremental_selection = {
       enable = true,
       keymaps = {
@@ -68,11 +69,14 @@ return {
         scope_incremental = "<Tab>",
       },
     },
+
     indent = {
-      enable = false,
+      enable = true,
     },
+
     textobjects = {
       lookahead = false,
+
       select = {
         enable = true,
         lookahead = false,
@@ -86,9 +90,10 @@ return {
           ["iC"] = { query = "@class.inner", desc = "inner class" },
         },
       },
+
       move = {
         enable = true,
-        set_jumps = true, -- whether to set jumps in the jumplist
+        set_jumps = true,
         goto_next_start = {
           ["]m"] = "@function.outer",
           ["]]"] = "@class.outer",
@@ -106,6 +111,7 @@ return {
         },
         goto_previous_end = { ["[M"] = "@function.outer", ["[]"] = "@class.outer" },
       },
+
       swap = {
         enable = true,
         swap_next = {

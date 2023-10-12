@@ -1,3 +1,6 @@
+if vim.fn.exists("g:neovide") ~= 0 then vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h9.5" end
+if vim.fn.exists("g:nvy") ~= 0 then vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h9.5" end
+
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
@@ -10,15 +13,12 @@ vim.g.neovide_refresh_rate = 120
 vim.g.neovide_remember_window_size = true
 vim.g.sort_motion_flags = "i"
 
-if vim.fn.exists("g:neovide") ~= 0 then vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h9.5" end
-if vim.fn.exists("g:nvy") ~= 0 then vim.opt.guifont = "JetBrainsMono Nerd Font Mono:h9.5" end
-
 vim.opt.autowrite = true
 vim.opt.backup = true
 vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
 vim.opt.breakindent = true
 vim.opt.cmdheight = 0
-vim.opt.completeopt = ""
+vim.opt.completeopt = "menuone,noselect"
 vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
@@ -83,47 +83,3 @@ vim.filetype.add({
     nomad = "hcl",
   },
 })
-
--- Don't load the plugins below
-local builtins = {
-  "gzip",
-  "zip",
-  "zipPlugin",
-  "fzf",
-  "tar",
-  "tarPlugin",
-  "getscript",
-  "getscriptPlugin",
-  "vimball",
-  "vimballPlugin",
-  "2html_plugin",
-  "matchit",
-  "logiPat",
-  "rrhelper",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-}
-
-for _, plugin in ipairs(builtins) do
-  vim.g["loaded_" .. plugin] = 1
-end
-
--- Use proper syntax highlighting in code blocks
-local fences = {
-  "lua",
-  -- "vim",
-  "json",
-  "typescript",
-  "javascript",
-  "js=javascript",
-  "ts=typescript",
-  "shell=sh",
-  "python",
-  "sh",
-  "console=sh",
-}
-
-vim.g.markdown_fenced_languages = fences
-vim.g.markdown_recommended_style = 0
