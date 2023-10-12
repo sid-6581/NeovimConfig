@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
-  event = { "VeryLazy", "BufReadPre", "BufNewFile", "MasonToolsUpdate" },
+  event = { "VeryLazy", "BufReadPre", "BufNewFile" },
+  cmd = { "MasonToolsUpdate" },
 
   dependencies = {
     {
