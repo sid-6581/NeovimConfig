@@ -52,6 +52,7 @@ return {
     { "<Leader>ff", "<CMD>Telescope find_files<CR>", desc = "Files" },
     { "<Leader>fg", "<CMD>Telescope git_branches<CR>", desc = "Git branches" },
     { "<Leader>fh", "<CMD>Telescope help_tags<CR>", desc = "Help" },
+    { "<Leader>fH", "<CMD>Telescope highlights<CR>", desc = "Highlights" },
     { "<Leader>fk", "<CMD>Telescope keymaps<CR>", desc = "Keymaps" },
     {
       "<Leader>fl",
