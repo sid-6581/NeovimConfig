@@ -40,6 +40,14 @@ return {
       group_empty_dirs = false,
       hijack_netrw_behavior = "open_current",
     },
+    source_selector = {
+      winbar = true,
+      sources = {
+        { source = "filesystem", display_name = " 󰉓 Files " },
+        { source = "buffers", display_name = " 󱔗 Buffers " },
+        { source = "git_status", display_name = " 󰊢 Git " },
+      },
+    },
     default_component_configs = {
       icon = {
         folder_empty = "",
