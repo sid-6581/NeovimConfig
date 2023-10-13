@@ -5,7 +5,7 @@ return {
   config = function()
     local lualine = require("lualine")
     local noice = require("noice")
-    local navic = require("nvim-navic")
+    local _aerial = require("aerial")
 
     local custom_theme = vim.deepcopy(require("lualine.themes.gruvbox_dark"))
     custom_theme.normal.c.bg = "Normal"
@@ -81,13 +81,7 @@ return {
         lualine_b = { "filename" },
         lualine_c = {
           {
-            "navic",
-            color_correction = "dynamic",
-            fmt = function(str) return str .. "%#NavicSeparator# %*" end,
-            padding = {
-              left = 1,
-              right = 0,
-            },
+            "aerial",
           },
           {
             noice.api.status.mode.get,

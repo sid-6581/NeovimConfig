@@ -76,6 +76,19 @@ return {
     { "<Leader>gb", "<CMD>Telescope git_branches<CR>", desc = "Branches" },
     { "<Leader>gc", "<CMD>Telescope git_commits<CR>", desc = "Commits" },
     { "<Leader>go", "<CMD>Telescope git_status<CR>", desc = "Status" },
+    { "<Leader>ld", function() require("telescope.builtin").diagnostics() end, desc = "Workspace diagnostics" },
+    {
+      "<Leader>lD",
+      function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end,
+      desc = "Document diagnostics",
+    },
+    { "<Leader>lr", function() require("telescope.builtin").lsp_references() end, desc = "References" },
+    {
+      "<Leader>ls",
+      function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end,
+      desc = "Workspace symbols",
+    },
+    { "<Leader>lS", function() require("telescope.builtin").lsp_document_symbols() end, desc = "Document symbols" },
   },
 
   config = function()

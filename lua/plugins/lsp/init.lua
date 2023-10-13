@@ -36,23 +36,19 @@ return {
     },
 
     {
-      "sid-6581/symbols-outline.nvim",
+      "stevearc/aerial.nvim",
 
       opts = {
-        preview_bg_highlight = "Normal",
-        relative_width = false,
-        width = 40,
-      },
-    },
-
-    {
-      "SmiteshP/nvim-navic",
-
-      opts = {
-        lsp = {
-          auto_attach = true,
+        layout = {
+          min_width = 30,
+          placement = "edge",
         },
-        highlight = true,
+        attach_mode = "global",
+        highlight_mode = "last",
+      },
+
+      keys = {
+        { "<Leader>co", "<CMD>AerialToggle!<CR>", desc = "Symbols outline" },
       },
     },
 
@@ -64,6 +60,10 @@ return {
         vim.diagnostic.config({ virtual_lines = false }, require("lazy.core.config").ns)
         vim.diagnostic.config({ virtual_lines = false })
       end,
+
+      keys = {
+        { "<Leader>lL", function() require("lsp_lines").toggle() end, desc = "Show LSP lines" },
+      },
     },
   },
 
