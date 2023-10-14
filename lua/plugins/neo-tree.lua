@@ -81,12 +81,4 @@ return {
       },
     },
   },
-
-  config = function(_, opts)
-    vim.g.neo_tree_remove_legacy_commands = 1
-    vim.api.nvim_set_hl(0, "NeoTreeFloatBorder", { link = "WinSeparator" })
-    vim.api.nvim_set_hl(0, "NeoTreeFloatTitle", { link = "Title" })
-
-    require("neo-tree").setup(opts)
-  end,
 }

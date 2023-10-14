@@ -71,7 +71,7 @@ return {
     },
 
     indent = {
-      enable = true,
+      enable = false,
     },
 
     textobjects = {

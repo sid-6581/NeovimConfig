@@ -70,76 +70,81 @@ return {
       {
         mode = { "o", "x" },
         "ii",
-        "<CMD>lua require('various-textobjs').indentation(true, true)<CR>",
+        function() require("various-textobjs").indentation("inner", "inner") end,
         desc = "indentation level (no line above)",
       },
       {
         mode = { "o", "x" },
         "ai",
-        "<CMD>lua require('various-textobjs').indentation(false, true)<CR>",
+        function() require("various-textobjs").indentation("outer", "inner") end,
         desc = "indentation level (and line above)",
       },
       {
         mode = { "o", "x" },
         "iI",
-        "<CMD>lua require('various-textobjs').indentation(true, true)<CR>",
+        function() require("various-textobjs").indentation("inner", "inner") end,
         desc = "indentation level (no lines above/below)",
       },
       {
         mode = { "o", "x" },
         "aI",
-        "<CMD>lua require('various-textobjs').indentation(false, false)<CR>",
+        function() require("various-textobjs").indentation("outer", "outer") end,
         desc = "indentation level (and lines above/below)",
       },
-      { mode = { "o", "x" }, "iS", "<CMD>lua require('various-textobjs').subword(true)<CR>", desc = "inner subword" },
-      { mode = { "o", "x" }, "aS", "<CMD>lua require('various-textobjs').subword(false)<CR>", desc = "a subword" },
-      { mode = { "o", "x" }, "|", "<CMD>lua require('various-textobjs').column()<CR>", desc = "column down" },
+      {
+        mode = { "o", "x" },
+        "iS",
+        function() require("various-textobjs").subword("inner") end,
+        desc = "inner subword",
+      },
+      { mode = { "o", "x" }, "aS", function() require("various-textobjs").subword("outer") end, desc = "a subword" },
+      { mode = { "o", "x" }, "|", function() require("various-textobjs").column() end, desc = "column down" },
       {
         mode = { "o", "x" },
         "iv",
-        "<CMD>lua require('various-textobjs').value(true)<CR>",
+        function() require("various-textobjs").value("inner") end,
         desc = "inner value (assignment or key/value)",
       },
       {
         mode = { "o", "x" },
         "av",
-        "<CMD>lua require('various-textobjs').value(false)<CR>",
+        function() require("various-textobjs").value("outer") end,
         desc = "a value (assignment or key/value)",
       },
       {
         mode = { "o", "x" },
         "ik",
-        "<CMD>lua require('various-textobjs').key(true)<CR>",
+        function() require("various-textobjs").key("inner") end,
         desc = "inner key (assignment or key/value)",
       },
       {
         mode = { "o", "x" },
         "ak",
-        "<CMD>lua require('various-textobjs').key(false)<CR>",
+        function() require("various-textobjs").key("outer") end,
         desc = "a key (assignment or key/value)",
       },
       {
         mode = { "o", "x" },
         "im",
-        "<CMD>lua require('various-textobjs').chainMember(true)<CR>",
+        function() require("various-textobjs").chainMember("inner") end,
         desc = "inner chain member",
       },
       {
         mode = { "o", "x" },
         "am",
-        "<CMD>lua require('various-textobjs').chainMember(false)<CR>",
+        function() require("various-textobjs").chainMember("outer") end,
         desc = "a chain member",
       },
       {
         mode = { "o", "x" },
         "iL",
-        "<CMD>lua require('various-textobjs').lineCharacterwise(true)<CR>",
+        function() require("various-textobjs").lineCharacterwise("inner") end,
         desc = "inner line characterwise",
       },
       {
         mode = { "o", "x" },
         "aL",
-        "<CMD>lua require('various-textobjs').lineCharacterwise(false)<CR>",
+        function() require("various-textobjs").lineCharacterwise("outer") end,
         desc = "a line characterwise",
       },
     },
@@ -198,9 +203,10 @@ return {
       },
     },
 
-    init = function()
+    config = function(_, opts)
+      require("flash").setup(opts)
       local colors = require("util.colors")
-      vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#ffffff", fg = "#000000", italic = true, reverse = true })
+      vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ffffff" })
       vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = colors.gray })
     end,
   },
