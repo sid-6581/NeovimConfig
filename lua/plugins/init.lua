@@ -418,9 +418,8 @@ return {
     },
 
     config = function(_, opts)
-      local wk = require("which-key")
-      wk.setup(opts)
-      wk.register(opts.defaults)
+      require("which-key").setup(opts)
+      require("which-key").register(opts.defaults)
     end,
   },
 }

@@ -53,6 +53,7 @@ return {
     { "<Leader>fa", function() require("telescope.builtin").builtin() end, desc = "All" },
     { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
     { "<Leader>fc", function() require("telescope.builtin").commands() end, desc = "Commands" },
+    { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands" },
     { "<Leader>ff", function() require("telescope.builtin").find_files() end, desc = "Files" },
     { "<Leader>fg", function() require("telescope.builtin").git_branches() end, desc = "Git branches" },
     { "<Leader>fh", function() require("telescope.builtin").help_tags() end, desc = "Help" },
