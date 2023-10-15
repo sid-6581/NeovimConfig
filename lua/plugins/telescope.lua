@@ -132,7 +132,10 @@ return {
           find_command = { "fd", "--hidden", "--exclude", ".git", "--glob", "" },
         },
         keymaps = {
-          filter = function(km) return not km.lhs:match("Þ$") and (not km.rhs or not km.rhs:match("which%-key")) end,
+          filter = function(km)
+            -- Hide which-key keymaps
+            return not km.lhs:match("Þ$") and (not km.rhs or not km.rhs:match("which%-key"))
+          end,
         },
         lsp_references = {
           show_line = false,
