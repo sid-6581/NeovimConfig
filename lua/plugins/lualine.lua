@@ -5,7 +5,6 @@ return {
   config = function()
     local lualine = require("lualine")
     local noice = require("noice")
-    local _aerial = require("aerial")
 
     local custom_theme = vim.deepcopy(require("lualine.themes.gruvbox_dark"))
     custom_theme.normal.c.bg = "Normal"
@@ -52,9 +51,10 @@ return {
       function()
         local msg = "-"
         local buf_ft = vim.api.nvim_get_option_value("filetype", { scope = "local" })
-        local clients = vim.lsp.get_active_clients()
+        local clients = vim.lsp.get_clients()
         if next(clients) == nil then return msg end
         for _, client in ipairs(clients) do
+          ---@diagnostic disable-next-line: undefined-field
           local filetypes = client.config.filetypes
           if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then return client.name end
         end
@@ -84,12 +84,16 @@ return {
             "aerial",
           },
           {
+            ---@diagnostic disable-next-line: undefined-field
             noice.api.status.mode.get,
+            ---@diagnostic disable-next-line: undefined-field
             cond = noice.api.status.mode.has,
             color = { fg = "#ff9e64" },
           },
           {
+            ---@diagnostic disable-next-line: undefined-field
             noice.api.status.search.get,
+            ---@diagnostic disable-next-line: undefined-field
             cond = noice.api.status.search.has,
             color = { fg = "#ff9e64" },
           },
