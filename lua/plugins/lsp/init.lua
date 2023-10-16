@@ -36,33 +36,6 @@ return {
     },
 
     {
-      "stevearc/aerial.nvim",
-
-      opts = {
-        backends = { "lsp", "treesitter", "markdown", "man" },
-        layout = {
-          min_width = 30,
-          placement = "edge",
-        },
-        attach_mode = "global",
-        highlight_mode = "last",
-        highlight_closest = false,
-        highlight_on_hover = true,
-        show_guides = true,
-        filter_kind = false,
-      },
-
-      keys = {
-        { "<Leader>co", function() require("aerial").toggle({ focus = false }) end, desc = "Symbols outline" },
-      },
-
-      config = function(_, opts)
-        require("aerial").setup(opts)
-        vim.api.nvim_set_hl(0, "AerialGuide", { link = "Comment" })
-      end,
-    },
-
-    {
       "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 
       config = function()
@@ -72,7 +45,7 @@ return {
       end,
 
       keys = {
-        { "<Leader>lL", function() require("lsp_lines").toggle() end, desc = "Show LSP lines" },
+        { "<Leader>uL", function() require("lsp_lines").toggle() end, desc = "Toggle LSP lines" },
       },
     },
   },
