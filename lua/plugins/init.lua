@@ -44,21 +44,4 @@ return {
       vim.g.VM_silent_exit = 1
     end,
   },
-
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "VeryLazy",
-    main = "ibl",
-
-    opts = {
-      debounce = 100,
-      indent = {
-        char = "▏",
-      },
-      scope = {
-        show_start = false,
-        show_end = false,
-      },
-    },
-  },
 }
