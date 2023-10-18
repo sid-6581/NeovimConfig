@@ -1,82 +1,111 @@
 return {
-  "echasnovski/mini.nvim",
-  event = "VeryLazy",
+  {
+    "echasnovski/mini.misc",
+    event = "VeryLazy",
 
-  config = function()
-    require("mini.misc").setup_auto_root()
+    config = function() require("mini.misc").setup_auto_root() end,
+  },
 
-    require("mini.ai").setup({
-      n_lines = 500,
-      custom_textobjects = {
-        a = false,
-        A = require("mini.ai").gen_spec.argument({
-          brackets = { "%b()", "%b[]", "%b{}", "%b<>", "%||" },
-          separator = "[,;]",
-        }),
-        o = require("mini.ai").gen_spec.treesitter({
-          a = { "@block.outer", "@conditional.outer", "@loop.outer" },
-          i = { "@block.inner", "@conditional.inner", "@loop.inner" },
-        }, {}),
-        f = require("mini.ai").gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
-        c = require("mini.ai").gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
-        t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
-      },
-      search_method = "cover",
-    })
+  {
+    "echasnovski/mini.ai",
+    event = "VeryLazy",
 
-    -- Register mini.ai keys in which-key
-    local i = {
-      [" "] = "Whitespace",
-      ['"'] = 'Balanced "',
-      ["'"] = "Balanced '",
-      ["`"] = "Balanced `",
-      ["("] = "Balanced (",
-      [")"] = "Balanced ) including white-space",
-      [">"] = "Balanced > including white-space",
-      ["<lt>"] = "Balanced <",
-      ["]"] = "Balanced ] including white-space",
-      ["["] = "Balanced [",
-      ["}"] = "Balanced } including white-space",
-      ["{"] = "Balanced {",
-      ["?"] = "User Prompt",
-      _ = "Underscore",
-      A = "Argument",
-      b = "Balanced ), ], }",
-      c = "Class",
-      f = "Function",
-      o = "Block, conditional, loop",
-      q = "Quote `, \", '",
-      t = "Tag",
-    }
-    local a = vim.deepcopy(i)
-    for k, v in pairs(a) do
-      a[k] = v:gsub(" including.*", "")
-    end
+    opts = function()
+      return {
+        n_lines = 500,
+        custom_textobjects = {
+          a = false,
+          A = require("mini.ai").gen_spec.argument({
+            brackets = { "%b()", "%b[]", "%b{}", "%b<>", "%||" },
+            separator = "[,;]",
+          }),
+          o = require("mini.ai").gen_spec.treesitter({
+            a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+            i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+          }, {}),
+          f = require("mini.ai").gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
+          c = require("mini.ai").gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
+          t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
+        },
+        search_method = "cover",
+      }
+    end,
 
-    local ic = vim.deepcopy(i)
-    local ac = vim.deepcopy(a)
-    for key, name in pairs({ n = "Next", l = "Last" }) do
-      ---@diagnostic disable-next-line: assign-type-mismatch
-      i[key] = vim.tbl_extend("force", { name = "Inside " .. name .. " textobject" }, ic)
-      ---@diagnostic disable-next-line: assign-type-mismatch
-      a[key] = vim.tbl_extend("force", { name = "Around " .. name .. " textobject" }, ac)
-    end
-    require("which-key").register({
-      mode = { "o", "x" },
-      i = i,
-      a = a,
-    })
+    config = function(_, opts)
+      require("mini.ai").setup(opts)
 
-    require("mini.align").setup({})
+      -- Register mini.ai keys in which-key
+      local i = {
+        [" "] = "Whitespace",
+        ['"'] = 'Balanced "',
+        ["'"] = "Balanced '",
+        ["`"] = "Balanced `",
+        ["("] = "Balanced (",
+        [")"] = "Balanced ) including white-space",
+        [">"] = "Balanced > including white-space",
+        ["<lt>"] = "Balanced <",
+        ["]"] = "Balanced ] including white-space",
+        ["["] = "Balanced [",
+        ["}"] = "Balanced } including white-space",
+        ["{"] = "Balanced {",
+        ["?"] = "User Prompt",
+        _ = "Underscore",
+        A = "Argument",
+        b = "Balanced ), ], }",
+        c = "Class",
+        f = "Function",
+        o = "Block, conditional, loop",
+        q = "Quote `, \", '",
+        t = "Tag",
+      }
+      local a = vim.deepcopy(i)
+      for k, v in pairs(a) do
+        a[k] = v:gsub(" including.*", "")
+      end
 
-    require("mini.bracketed").setup({
+      local ic = vim.deepcopy(i)
+      local ac = vim.deepcopy(a)
+      for key, name in pairs({ n = "Next", l = "Last" }) do
+        ---@diagnostic disable-next-line: assign-type-mismatch
+        i[key] = vim.tbl_extend("force", { name = "Inside " .. name .. " textobject" }, ic)
+        ---@diagnostic disable-next-line: assign-type-mismatch
+        a[key] = vim.tbl_extend("force", { name = "Around " .. name .. " textobject" }, ac)
+      end
+      require("which-key").register({
+        mode = { "o", "x" },
+        i = i,
+        a = a,
+      })
+    end,
+  },
+
+  {
+    "echasnovski/mini.align",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
+    "echasnovski/mini.bracketed",
+    event = "VeryLazy",
+
+    opts = {
       comment = { suffix = "" },
       yank = { suffix = "" },
-    })
+    },
+  },
 
-    require("mini.comment").setup({})
+  {
+    "echasnovski/mini.comment",
+    event = "VeryLazy",
+    opts = {},
+  },
 
-    require("mini.move").setup({
+  {
+    "echasnovski/mini.move",
+    event = "VeryLazy",
+
+    opts = {
       mappings = {
         line_left = "<S-Tab>",
         line_right = "<Tab>",
@@ -84,31 +113,46 @@ return {
       options = {
         reindent_linewise = false,
       },
-    })
+    },
+  },
 
-    require("mini.operators").setup({})
+  {
+    "echasnovski/mini.operators",
+    event = "VeryLazy",
+    opts = {},
+  },
 
-    local gen_hook = require("mini.splitjoin").gen_hook
-    local brackets = { brackets = { "%b{}" } }
+  {
+    "echasnovski/mini.splitjoin",
+    event = "VeryLazy",
 
-    require("mini.splitjoin").setup({
-      detect = {
-        separator = "[,;]",
-      },
-      split = {
-        hooks_post = {
-          gen_hook.add_trailing_separator(brackets),
+    opts = function()
+      local gen_hook = require("mini.splitjoin").gen_hook
+      local brackets = { brackets = { "%b{}" } }
+      return {
+        detect = {
+          separator = "[,;]",
         },
-      },
-      join = {
-        hooks_post = {
-          gen_hook.del_trailing_separator(brackets),
-          gen_hook.pad_brackets(brackets),
+        split = {
+          hooks_post = {
+            gen_hook.add_trailing_separator(brackets),
+          },
         },
-      },
-    })
+        join = {
+          hooks_post = {
+            gen_hook.del_trailing_separator(brackets),
+            gen_hook.pad_brackets(brackets),
+          },
+        },
+      }
+    end,
+  },
 
-    require("mini.surround").setup({
+  {
+    "echasnovski/mini.surround",
+    event = "VeryLazy",
+
+    opts = {
       mappings = {
         add = "<Leader>sa",
         delete = "<Leader>sd",
@@ -120,6 +164,6 @@ return {
         suffix_last = "l",
         suffix_next = "n",
       },
-    })
-  end,
+    },
+  },
 }
