@@ -81,21 +81,14 @@ return {
         enable = true,
         lookahead = false,
         include_surrounding_whitespace = true,
-        keymaps = {
-          ["aa"] = { query = "@parameter.outer", desc = "an argument" },
-          ["ia"] = { query = "@parameter.inner", desc = "inner argument" },
-          ["aF"] = { query = "@function.outer", desc = "a function" },
-          ["iF"] = { query = "@function.inner", desc = "inner function" },
-          ["aC"] = { query = "@class.outer", desc = "a class" },
-          ["iC"] = { query = "@class.inner", desc = "inner class" },
-        },
+        keymaps = {},
       },
 
       move = {
         enable = true,
         set_jumps = true,
         goto_next_start = {
-          ["]m"] = "@function.outer",
+          ["]f"] = "@function.outer",
           ["]]"] = "@class.outer",
           [")"] = {
             query = { "@parameter.inner", "@call.outer", "@statement.outer", "@function.outer", "@class.outer" },
@@ -103,7 +96,7 @@ return {
         },
         goto_next_end = { ["]M"] = "@function.outer", ["]["] = "@class.outer" },
         goto_previous_start = {
-          ["[m"] = "@function.outer",
+          ["[f"] = "@function.outer",
           ["[["] = "@class.outer",
           ["("] = {
             query = { "@parameter.inner", "@call.outer", "@statement.outer", "@function.outer", "@class.outer" },

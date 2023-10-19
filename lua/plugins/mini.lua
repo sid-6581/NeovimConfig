@@ -14,7 +14,7 @@ return {
       return {
         n_lines = 500,
         custom_textobjects = {
-          a = false,
+          a = require("mini.ai").gen_spec.treesitter({ a = "@parameter.outer", i = "@parameter.inner" }, {}),
           A = require("mini.ai").gen_spec.argument({
             brackets = { "%b()", "%b[]", "%b{}", "%b<>", "%||" },
             separator = "[,;]",
@@ -50,7 +50,8 @@ return {
         ["{"] = "Balanced {",
         ["?"] = "User Prompt",
         _ = "Underscore",
-        A = "Argument",
+        a = "Argument",
+        A = "Argument (non-treesitter)",
         b = "Balanced ), ], }",
         c = "Class",
         f = "Function",
@@ -91,6 +92,8 @@ return {
 
     opts = {
       comment = { suffix = "" },
+      file = { suffix = "" },
+      undo = { suffix = "" },
       yank = { suffix = "" },
     },
   },
