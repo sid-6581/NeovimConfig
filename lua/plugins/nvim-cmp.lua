@@ -18,7 +18,8 @@ return {
       dependencies = { "rafamadriz/friendly-snippets" },
 
       opts = {
-        history = true,
+        history = false,
+        region_check_events = { "CursorMoved", "CursorHold", "InsertEnter" },
       },
 
       config = function(_, opts)
