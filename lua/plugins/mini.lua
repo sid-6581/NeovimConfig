@@ -1,5 +1,10 @@
 return {
   {
+    "echasnovski/mini.nvim",
+    event = "VeryLazy",
+  },
+
+  {
     "echasnovski/mini.misc",
     event = "VeryLazy",
 
@@ -176,6 +181,7 @@ return {
         suffix_last = "l",
         suffix_next = "n",
       },
+      respect_selection_type = true,
     },
   },
 }
