@@ -138,6 +138,9 @@ return {
             return not km.lhs:match("Þ$") and (not km.rhs or not km.rhs:match("which%-key"))
           end,
         },
+        lsp_definitions = {
+          show_line = false,
+        },
         lsp_references = {
           show_line = false,
         },

@@ -14,7 +14,7 @@ function M.on_attach(_client, buffer)
   -- LSP
   map("n", "K", vim.lsp.buf.hover, { desc = "Show information" })
   map("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
-  map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+  map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, { desc = "Go to definition symbols" })
   map({ "n", "i" }, "<A-Enter>", vim.lsp.buf.code_action, { desc = "Code action" })
   map("n", "<Leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
   map("n", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format document" })
