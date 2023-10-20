@@ -155,6 +155,15 @@ return {
     "echasnovski/mini.surround",
     event = "VeryLazy",
 
+    keys = {
+      { mode = { "v" }, "<Leader>)", "<Leader>sa)", desc = "Surround with ()", remap = true },
+      { mode = { "v" }, "<Leader>}", "<Leader>sa{", desc = "Surround with { }", remap = true },
+      { mode = { "v" }, "<Leader>]", "<Leader>sa]", desc = "Surround with []", remap = true },
+      { "<Leader>)", "<Leader>srb)", desc = "Replace surround with ()", remap = true },
+      { "<Leader>}", "<Leader>srb{", desc = "Replace surround with { }", remap = true },
+      { "<Leader>]", "<Leader>srb]", desc = "Replace surround with []", remap = true },
+    },
+
     opts = {
       mappings = {
         add = "<Leader>sa",
