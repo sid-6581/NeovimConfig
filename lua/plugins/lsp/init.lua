@@ -7,6 +7,10 @@ return {
     {
       "williamboman/mason.nvim",
 
+      keys = {
+        { "<Leader>lI", "<CMD>Mason<CR>", desc = "LSP installer info" },
+      },
+
       opts = {
         ui = {
           border = "single",
@@ -38,15 +42,15 @@ return {
     {
       "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 
+      keys = {
+        { "<Leader>uL", function() require("lsp_lines").toggle() end, desc = "Toggle LSP lines" },
+      },
+
       config = function()
         require("lsp_lines").setup()
         vim.diagnostic.config({ virtual_lines = false }, require("lazy.core.config").ns)
         vim.diagnostic.config({ virtual_lines = false })
       end,
-
-      keys = {
-        { "<Leader>uL", function() require("lsp_lines").toggle() end, desc = "Toggle LSP lines" },
-      },
     },
   },
 
