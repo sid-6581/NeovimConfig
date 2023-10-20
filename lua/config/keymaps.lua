@@ -126,6 +126,10 @@ map("n", "<Leader>tp", _PYTHON_TOGGLE, { desc = "Python" })
 map("n", "<Leader>tv", _TERMINAL_VERTICAL_TOGGLE, { desc = "Vertical" })
 
 -- Normal mode
+map("n", "-", "<CMD>split<CR>", { desc = "Open current file in new split" })
+map("n", "<C-->", "<CMD>new<CR>", { desc = "Open new file in new split" })
+map("n", "|", "<CMD>vsplit<CR>", { desc = "Open current file in new vsplit" })
+map("n", "<C-S-\\>", "<CMD>vnew<CR>", { desc = "Open new file in new vsplit" })
 map("n", ",.", "<C-U>", { desc = "Scroll up" })
 map("n", ",/", "<C-D>", { desc = "Scroll down" })
 map("n", ",[", "<C-T>", { desc = "Pop tag from stack" })
