@@ -89,20 +89,12 @@ return {
         set_jumps = true,
         goto_next_start = {
           ["]f"] = "@function.outer",
-          ["]]"] = "@class.outer",
-          [")"] = {
-            query = { "@parameter.inner", "@call.outer", "@statement.outer", "@function.outer", "@class.outer" },
-          },
         },
-        goto_next_end = { ["]M"] = "@function.outer", ["]["] = "@class.outer" },
+        goto_next_end = {},
         goto_previous_start = {
           ["[f"] = "@function.outer",
-          ["[["] = "@class.outer",
-          ["("] = {
-            query = { "@parameter.inner", "@call.outer", "@statement.outer", "@function.outer", "@class.outer" },
-          },
         },
-        goto_previous_end = { ["[M"] = "@function.outer", ["[]"] = "@class.outer" },
+        goto_previous_end = {},
       },
 
       swap = {
