@@ -135,17 +135,15 @@ map("n", "(", "<CMD>call search('\\(\\n\\n\\|\\%^\\)\\s*\\zs\\S', 'b')<CR>", { d
 map("n", ")", "<CMD>call search('\\n\\n\\s*\\zs\\S')<CR>", { desc = "Next start of paragraph" })
 
 -- Insert mode
-map("i", "<A-9>", "(),<Esc><Left>i", { desc = "(|)," })
 map("i", "<A-BS>", "<C-\\><C-o>dB", { desc = "Delete until the previous space" })
-map("i", "<A-[>", "{<CR>},<Esc>O", { desc = "{|}," })
 map("i", "<A-h>", "<Left>", { noremap = false, desc = "Left" })
 map("i", "<A-j>", "<Down>", { noremap = false, desc = "Down" })
 map("i", "<A-k>", "<Up>", { noremap = false, desc = "Up" })
 map("i", "<A-l>", "<Right>", { noremap = false, desc = "Right" })
 map("i", "<C-BS>", "<C-w>", { desc = "Delete previous word" })
+map("i", "<C-Enter>", "<Esc>m`o<Esc>``a", { desc = "Insert blank line below" })
 map("i", "<C-S-Enter>", "<Esc>m`O<Esc>``a", { desc = "Insert blank line above" })
 map("i", "<Esc>", "<Esc>`^", { desc = "Exit insert mode" })
-map("i", "<S-Enter>", "<Esc>m`o<Esc>``a", { desc = "Insert blank line below" })
 map("i", "<S-Insert>", '<C-o>"+P', { desc = "Paste from system clipboard" })
 map("i", "<S-Tab>", "<C-d>", { desc = "Unindent line" })
 
