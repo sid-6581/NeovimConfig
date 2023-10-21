@@ -2,6 +2,15 @@ return {
   "akinsho/toggleterm.nvim",
   event = "VeryLazy",
 
+  keys = {
+    { "<Leader>gg", _LAZYGIT_TOGGLE, desc = "Lazygit" },
+    { "<Leader>tf", _TERMINAL_TOGGLE, desc = "Float" },
+    { "<Leader>th", _TERMINAL_HORIZONTAL_TOGGLE, desc = "Horizontal" },
+    { "<Leader>tm", _MC_TOGGLE, desc = "Midnight Commander" },
+    { "<Leader>tp", _PYTHON_TOGGLE, desc = "Python" },
+    { "<Leader>tv", _TERMINAL_VERTICAL_TOGGLE, desc = "Vertical" },
+  },
+
   config = function()
     local shell = (vim.fn.has("win32") == 1) and "pwsh -NoLogo" or vim.o.shell
 
@@ -42,9 +51,7 @@ return {
         terminal = Terminal:new({
           count = 90,
           hidden = true,
-          on_exit = function()
-            terminal = nil
-          end,
+          on_exit = function() terminal = nil end,
         })
       end
       terminal:toggle()
@@ -58,9 +65,7 @@ return {
           count = 91,
           direction = "horizontal",
           hidden = true,
-          on_exit = function()
-            terminal_horizontal = nil
-          end,
+          on_exit = function() terminal_horizontal = nil end,
         })
       end
       terminal_horizontal:toggle()
@@ -74,9 +79,7 @@ return {
           count = 92,
           direction = "vertical",
           hidden = true,
-          on_exit = function()
-            terminal_vertical = nil
-          end,
+          on_exit = function() terminal_vertical = nil end,
         })
       end
       terminal_vertical:toggle()
@@ -90,12 +93,8 @@ return {
           count = 93,
           cmd = "lazygit",
           hidden = true,
-          on_exit = function()
-            lazygit = nil
-          end,
-          on_close = function()
-            require("neo-tree.events").fire_event("git_event")
-          end,
+          on_exit = function() lazygit = nil end,
+          on_close = function() require("neo-tree.events").fire_event("git_event") end,
         })
       end
       lazygit:toggle()
@@ -109,9 +108,7 @@ return {
           count = 94,
           cmd = "python",
           hidden = true,
-          on_exit = function()
-            python = nil
-          end,
+          on_exit = function() python = nil end,
         })
       end
       python:toggle()
@@ -125,9 +122,7 @@ return {
           count = 95,
           cmd = "mc",
           hidden = true,
-          on_exit = function()
-            mc = nil
-          end,
+          on_exit = function() mc = nil end,
         })
         mc:toggle()
       end

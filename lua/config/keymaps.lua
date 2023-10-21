@@ -36,7 +36,7 @@ map("n", "<C-l>", "<C-W>l", { desc = "Right one window" })
 map("n", "<Leader>-", "<CMD>new<CR>", { desc = "Open new file in new split" })
 map("n", "<Leader>.-", "<CMD>new .<CR>", { desc = "Edit current directory in new vplit" })
 map("n", "<Leader>.\\", "<CMD>vnew .<CR>", { desc = "Edit current directory in new vsplit" })
-map("n", "<Leader>1", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
+map("n", "!", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
 map("n", "<Leader><Leader>-", "<CMD>split<CR>", { desc = "Open current file in new split" })
 map("n", "<Leader><Leader>.", "<CMD>e .<CR>", { desc = "Edit current directory" })
 map("n", "<Leader><Leader>\\", "<CMD>vsplit<CR>", { desc = "Open current file in new vsplit" })
@@ -101,14 +101,6 @@ map("n", "z4", function() require("util").close_folds_with_level(4) end, { desc 
 
 -- LSP
 map("n", "<Leader>li", "<CMD>LspInfo<CR>", { desc = "LSP info" })
-
--- Terminals
-map("n", "<Leader>gg", _LAZYGIT_TOGGLE, { desc = "Lazygit" })
-map("n", "<Leader>tf", _TERMINAL_TOGGLE, { desc = "Float" })
-map("n", "<Leader>th", _TERMINAL_HORIZONTAL_TOGGLE, { desc = "Horizontal" })
-map("n", "<Leader>tm", _MC_TOGGLE, { desc = "Midnight Commander" })
-map("n", "<Leader>tp", _PYTHON_TOGGLE, { desc = "Python" })
-map("n", "<Leader>tv", _TERMINAL_VERTICAL_TOGGLE, { desc = "Vertical" })
 
 -- Normal mode
 map("n", ",.", "<C-U>", { desc = "Scroll up" })
@@ -176,8 +168,6 @@ map("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Right" })
 -- Visual mode
 map("v", ",.", "<C-U>", { desc = "Scroll up" })
 map("v", ",/", "<C-D>", { desc = "Scroll down" })
-map("v", "J", ":m '>+1<CR>gv-gv", { desc = "Move lines down" })
-map("v", "K", ":m '<-2<CR>gv-gv", { desc = "Move lines up" })
 
 -- Better wildmenu navigation
 map("c", "<C-j>", function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>" end, { expr = true, desc = "Wildmenu down", silent = false })
