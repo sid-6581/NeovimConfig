@@ -3,12 +3,12 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>gg", _LAZYGIT_TOGGLE, desc = "Lazygit" },
-    { "<Leader>tf", _TERMINAL_TOGGLE, desc = "Float" },
-    { "<Leader>th", _TERMINAL_HORIZONTAL_TOGGLE, desc = "Horizontal" },
-    { "<Leader>tm", _MC_TOGGLE, desc = "Midnight Commander" },
-    { "<Leader>tp", _PYTHON_TOGGLE, desc = "Python" },
-    { "<Leader>tv", _TERMINAL_VERTICAL_TOGGLE, desc = "Vertical" },
+    { "<Leader>gg", function() _LAZYGIT_TOGGLE() end, desc = "Lazygit" },
+    { "<Leader>tf", function() _TERMINAL_TOGGLE() end, desc = "Float" },
+    { "<Leader>th", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Horizontal" },
+    { "<Leader>tm", function() _MC_TOGGLE() end, desc = "Midnight Commander" },
+    { "<Leader>tp", function() _PYTHON_TOGGLE() end, desc = "Python" },
+    { "<Leader>tv", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Vertical" },
   },
 
   config = function()
