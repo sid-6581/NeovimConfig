@@ -63,14 +63,13 @@ return {
     },
   },
 
-  config = function()
+  opts = function()
     local cmp = require("cmp")
     local lspkind = require("lspkind")
     local luasnip = require("luasnip")
-
     local select_opts = { behavior = cmp.SelectBehavior.Select }
 
-    cmp.setup({
+    return {
       snippet = {
         expand = function(args) require("luasnip").lsp_expand(args.body) end,
       },
@@ -148,7 +147,13 @@ return {
       experimental = {
         ghost_text = true,
       },
-    })
+    }
+  end,
+
+  config = function(_, opts)
+    local cmp = require("cmp")
+
+    cmp.setup(opts)
 
     cmp.setup.cmdline("/", {
       mapping = {
