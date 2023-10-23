@@ -7,6 +7,7 @@ return {
     debounce = 100,
     indent = {
       char = "▏",
+      tab_char = "▏",
     },
     scope = {
       show_start = false,

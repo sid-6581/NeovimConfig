@@ -175,14 +175,6 @@ function M.setup(options)
                 command = "clippy",
                 extraArgs = { "--no-deps" },
               },
-              cargo = {
-                allFeatures = true,
-                loadOutDirsFromCheck = true,
-                runBuildScripts = true,
-              },
-              procMacro = {
-                enable = true,
-              },
             },
           },
         },
