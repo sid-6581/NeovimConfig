@@ -65,7 +65,7 @@ return {
     { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
     { "<Leader>fs", function() require("telescope.builtin").symbols() end, desc = "Symbols" },
     { "<Leader>ft", function() require("telescope.builtin").live_grep() end, desc = "Text" },
-    { "<Leader>fu", function() require("telescope.builtin").undo() end, desc = "Undo" },
+    { "<Leader>fu", function() require("telescope").extensions.undo.undo() end, desc = "Undo" },
     { "<Leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Word" },
     { "<Leader>fz", function() require("telescope").extensions.zoxide.list() end, desc = "Zoxide" },
     { "<Leader>gb", function() require("telescope.builtin").git_branches() end, desc = "Branches" },
@@ -78,11 +78,10 @@ return {
     { "<Leader>ls", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = "Workspace symbols" },
   },
 
-  config = function()
-    local telescope = require("telescope")
+  opts = function()
     local actions = require("telescope.actions")
 
-    telescope.setup({
+    return {
       defaults = {
         winblend = 10,
         layout_config = {
@@ -156,17 +155,23 @@ return {
         },
         repo = {
           list = {
-            fd_opts = "--no-ignore",
             file_ignore_patterns = { "/%.cache/", "/%.cargo/" },
-            search_dirs = (vim.fn.has("win32") == 1) and { "D:/Code", "~/AppData/Local/" } or { "~" },
+            search_dirs = (vim.fn.has("win32") == 1)
+                and { "D:/Code", "~/AppData/Local/nvim-data", "~/AppData/Local/nvim" }
+              or { "~" },
           },
         },
         undo = {
           use_delta = false,
         },
       },
-    })
+    }
+  end,
 
+  config = function(_, opts)
+    local telescope = require("telescope")
+
+    telescope.setup(opts)
     telescope.load_extension("ast_grep")
     telescope.load_extension("file_browser")
     telescope.load_extension("fzf")
