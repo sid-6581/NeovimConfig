@@ -25,19 +25,19 @@ function M.on_attach(_client, buffer)
   map(
     "n",
     "<Leader>lC1",
-    function() print(vim.inspect(vim.lsp.get_clients()[1])) end,
+    function() vim.notify(vim.inspect(vim.lsp.get_clients()[1])) end,
     { desc = "View LSP server 1 information" }
   )
   map(
     "n",
     "<Leader>lC2",
-    function() print(vim.inspect(vim.lsp.get_clients()[2])) end,
+    function() vim.notify(vim.inspect(vim.lsp.get_clients()[2])) end,
     { desc = "View LSP server 2 information" }
   )
   map(
     "n",
     "<Leader>lC3",
-    function() print(vim.inspect(vim.lsp.get_clients()[3])) end,
+    function() vim.notify(vim.inspect(vim.lsp.get_clients()[3])) end,
     { desc = "View LSP server 3 information" }
   )
 end
