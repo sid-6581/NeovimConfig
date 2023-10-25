@@ -16,22 +16,23 @@ return {
     event = "VeryLazy",
 
     opts = function()
+      local gen_spec = require("mini.ai").gen_spec
+
       return {
-        n_lines = 500,
         custom_textobjects = {
-          a = require("mini.ai").gen_spec.treesitter({ a = "@parameter.outer", i = "@parameter.inner" }, {}),
-          A = require("mini.ai").gen_spec.argument({
+          a = gen_spec.argument({
             brackets = { "%b()", "%b[]", "%b{}", "%b<>", "%||" },
-            separator = "[,;]",
+            separator = "%s*[,;]%s*",
           }),
-          o = require("mini.ai").gen_spec.treesitter({
+          c = gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
+          f = gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
+          o = gen_spec.treesitter({
             a = { "@block.outer", "@conditional.outer", "@loop.outer" },
             i = { "@block.inner", "@conditional.inner", "@loop.inner" },
           }, {}),
-          f = require("mini.ai").gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
-          c = require("mini.ai").gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
           t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
         },
+        n_lines = 500,
         search_method = "cover",
       }
     end,
@@ -56,7 +57,6 @@ return {
         ["?"] = "User Prompt",
         _ = "Underscore",
         a = "Argument",
-        A = "Argument (non-treesitter)",
         b = "Balanced ), ], }",
         c = "Class",
         f = "Function",
