@@ -98,6 +98,7 @@ return {
     opts = {
       comment = { suffix = "" },
       file = { suffix = "" },
+      treesitter = { suffix = "n" },
       undo = { suffix = "" },
       yank = { suffix = "" },
     },
