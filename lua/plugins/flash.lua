@@ -12,8 +12,14 @@ return {
   },
 
   opts = {
+    labels = "ASDFGHJKLQWERTYUIOPZXCVBNM",
     label = {
-      style = "inline",
+      uppercase = false,
+      style = "overlay",
+    },
+    search = {
+      incremental = true,
+      multi_window = false,
     },
     modes = {
       char = {

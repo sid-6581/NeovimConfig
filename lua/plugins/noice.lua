@@ -61,6 +61,7 @@ return {
     },
     messages = {
       view_search = false,
+      view_history = "notify",
     },
     popupmenu = {
       backend = "cmp",

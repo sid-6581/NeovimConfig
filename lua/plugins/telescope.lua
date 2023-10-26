@@ -43,17 +43,17 @@ return {
 
   -- stylua: ignore
   keys = {
-    { mode = { "n", "i", "x" }, "<F1>", function() require("telescope.builtin").help_tags() end, desc = "Help" },
     { "<Leader>f.", function() require("telescope").extensions.file_browser.file_browser() end, desc = "Browse files" },
     { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find" },
     { "<Leader>fA", function() require("telescope.builtin").ast_grep() end, desc = "ast-grep" },
+    { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands" },
     { "<Leader>fH", function() require("telescope.builtin").highlights() end, desc = "Highlights" },
     { "<Leader>fM", function() require("telescope.builtin").man_pages() end, desc = "Man pages" },
+    { "<Leader>fP", function() require("telescope").extensions.package_info.package_info() end, desc = "NPM Packages" },
     { "<Leader>fR", function() require("telescope.builtin").registers() end, desc = "Registers" },
     { "<Leader>fa", function() require("telescope.builtin").builtin() end, desc = "All" },
     { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
     { "<Leader>fc", function() require("telescope.builtin").commands() end, desc = "Commands" },
-    { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands" },
     { "<Leader>ff", function() require("telescope.builtin").find_files() end, desc = "Files" },
     { "<Leader>fg", function() require("telescope.builtin").git_branches() end, desc = "Git branches" },
     { "<Leader>fh", function() require("telescope.builtin").help_tags() end, desc = "Help" },
@@ -76,10 +76,13 @@ return {
     { "<Leader>ld", function() require("telescope.builtin").diagnostics() end, desc = "Workspace diagnostics" },
     { "<Leader>lr", function() require("telescope.builtin").lsp_references() end, desc = "References" },
     { "<Leader>ls", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = "Workspace symbols" },
+    { "<leader>fy", function() require("telescope").extensions.yank_history.yank_history({}) end, desc = "Yank History" },
+    { mode = { "n", "i", "x" }, "<F1>", function() require("telescope.builtin").help_tags() end, desc = "Help" },
   },
 
   opts = function()
     local actions = require("telescope.actions")
+    local themes = require("telescope.themes")
 
     return {
       defaults = {
@@ -124,6 +127,7 @@ return {
           },
         },
       },
+
       pickers = {
         builtin = {
           include_extensions = true,
@@ -143,7 +147,9 @@ return {
         lsp_references = {
           show_line = false,
         },
+        symbols = themes.get_cursor({}),
       },
+
       extensions = {
         ast_grep = {
           command = {
@@ -153,6 +159,7 @@ return {
           grep_open_files = false,
           lang = nil,
         },
+        package_info = themes.get_cursor({}),
         repo = {
           list = {
             file_ignore_patterns = { "/%.cache/", "/%.cargo/" },
