@@ -61,7 +61,6 @@ return {
     },
     messages = {
       view_search = false,
-      view_history = "notify",
     },
     popupmenu = {
       backend = "cmp",
@@ -89,13 +88,14 @@ return {
       {
         filter = {
           any = {
+            { event = "msg_show", kind = "" },
             { event = "msg_show", find = "Already at oldest change" },
             { event = "msg_show", find = "fewer lines" },
             { event = "msg_show", find = "line less" },
             { event = "msg_show", find = "more line" },
             { event = "msg_show", find = "changes;" },
             { event = "msg_show", find = "change;" },
-            -- { event = "msg_show", find = "^/" },
+            { event = "msg_show", find = "^/" },
             { event = "msg_show", find = "B written" },
             { error = true, find = "Pattern not found" },
             { error = true, find = "Error executing luv callback" },
