@@ -23,6 +23,12 @@ local yank_preview_lines = function(prompt_bufnr)
   vim.fn.setreg("", text)
 end
 
+local cursor_theme = function(opts)
+  return require("telescope.themes").get_cursor(
+    vim.tbl_deep_extend("force", { layout_config = { height = 20, width = 80 } }, opts)
+  )
+end
+
 return {
   "nvim-telescope/telescope.nvim",
   event = "VeryLazy",
@@ -63,7 +69,7 @@ return {
     { "<Leader>fo", function() require("telescope.builtin").vim_options() end, desc = "Vim options" },
     { "<Leader>fp", function() require("telescope").extensions.repo.list() end, desc = "Projects" },
     { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
-    { "<Leader>fs", function() require("telescope.builtin").symbols() end, desc = "Symbols" },
+    { "<Leader>fs", function() require("telescope.builtin").symbols(cursor_theme({})) end, desc = "Symbols" },
     { "<Leader>ft", function() require("telescope.builtin").live_grep() end, desc = "Text" },
     { "<Leader>fu", function() require("telescope").extensions.undo.undo() end, desc = "Undo" },
     { "<Leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Word" },
@@ -147,7 +153,7 @@ return {
         lsp_references = {
           show_line = false,
         },
-        symbols = themes.get_cursor({}),
+        symbols = cursor_theme({}),
       },
 
       extensions = {
@@ -159,7 +165,7 @@ return {
           grep_open_files = false,
           lang = nil,
         },
-        package_info = themes.get_cursor({}),
+        package_info = themes.get_cursor({ layout_config = { height = 10 } }),
         repo = {
           list = {
             file_ignore_patterns = { "/%.cache/", "/%.cargo/" },
