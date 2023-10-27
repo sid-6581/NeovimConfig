@@ -9,6 +9,7 @@ return {
     { "<Leader>tm", function() _MC_TOGGLE() end, desc = "Midnight Commander" },
     { "<Leader>tp", function() _PYTHON_TOGGLE() end, desc = "Python" },
     { "<Leader>tv", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Vertical" },
+    { mode = { "n", "t" }, "<C--><C-->", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Horizontal" },
   },
 
   config = function()
