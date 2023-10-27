@@ -55,7 +55,6 @@ return {
     { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands" },
     { "<Leader>fH", function() require("telescope.builtin").highlights() end, desc = "Highlights" },
     { "<Leader>fM", function() require("telescope.builtin").man_pages() end, desc = "Man pages" },
-    { "<Leader>fP", function() require("telescope").extensions.package_info.package_info() end, desc = "NPM Packages" },
     { "<Leader>fR", function() require("telescope.builtin").registers() end, desc = "Registers" },
     { "<Leader>fa", function() require("telescope.builtin").builtin() end, desc = "All" },
     { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
@@ -165,7 +164,6 @@ return {
           grep_open_files = false,
           lang = nil,
         },
-        package_info = themes.get_cursor({ layout_config = { height = 10 } }),
         repo = {
           list = {
             file_ignore_patterns = { "/%.cache/", "/%.cargo/" },
