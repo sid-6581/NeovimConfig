@@ -88,7 +88,6 @@ return {
       {
         filter = {
           any = {
-            { event = "msg_show", kind = "" },
             { event = "msg_show", find = "Already at oldest change" },
             { event = "msg_show", find = "fewer lines" },
             { event = "msg_show", find = "line less" },

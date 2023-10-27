@@ -18,7 +18,6 @@ return {
       style = "overlay",
     },
     search = {
-      incremental = true,
       multi_window = false,
     },
     modes = {
@@ -32,6 +31,7 @@ return {
         end,
       },
       search = {
+        incremental = true,
         label = {
           before = true,
           after = false,
