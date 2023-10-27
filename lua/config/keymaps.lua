@@ -78,17 +78,14 @@ map("n", "<S-C-Right>", "<CMD>vertical resize +2<CR>", { desc = "Vertical resize
 map("n", "<S-C-Up>", "<CMD>resize +2<CR>", { desc = "Resize window +2" })
 
 -- Tabs
+map("n", "<C-S-h>", "gT", { desc = "Previous tab" })
+map("n", "<C-S-l>", "gt", { desc = "Next tab" })
+map("n", "<C-S-t>", "<CMD>tabnew<CR>", { desc = "Open new tab" })
 map("n", "<Leader><Tab><BS>", "<CMD>tabclose<CR>", { desc = "Close tab" })
 map("n", "<Leader><Tab><Tab>", "<CMD>tabnew<CR>", { desc = "New tab" })
 map("n", "<Leader><Tab>h", "<CMD>tabprevious<CR>", { desc = "Previous tab" })
 map("n", "<Leader><Tab>l", "<CMD>tabnext<CR>", { desc = "Next tab" })
-map("n", "<Leader><Tab>d", "<CMD>tabclose<CR>", { desc = "Close tab" })
-map("n", "<C-F4>", "<CMD>tabclose<CR>", { desc = "Close tab" })
-map("n", "<C-S-=>", "<CMD>tabnew<CR>", { desc = "Open new tab" })
-map("n", "<C-S-_>", "<CMD>tabclose<CR>", { desc = "Close tab" })
-map("n", "<C-S-h>", "gT", { desc = "Previous tab" })
-map("n", "<C-S-l>", "gt", { desc = "Next tab" })
-map("n", "<C-S-t>", "<CMD>tabnew<CR>", { desc = "Open new tab" })
+map("n", "<Leader><Tab>q", "<CMD>tabclose<CR>", { desc = "Close tab" })
 
 -- Folds
 map("n", "zff", function() require("util").close_text_object_folds("@function.outer") end, { desc = "Close folds for functions" })

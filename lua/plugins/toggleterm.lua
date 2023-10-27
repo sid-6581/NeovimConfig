@@ -2,14 +2,17 @@ return {
   "akinsho/toggleterm.nvim",
   event = "VeryLazy",
 
+  -- stylua: ignore
   keys = {
     { "<Leader>gg", function() _LAZYGIT_TOGGLE() end, desc = "Lazygit" },
-    { "<Leader>tf", function() _TERMINAL_TOGGLE() end, desc = "Float" },
-    { "<Leader>th", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Horizontal" },
-    { "<Leader>tm", function() _MC_TOGGLE() end, desc = "Midnight Commander" },
-    { "<Leader>tp", function() _PYTHON_TOGGLE() end, desc = "Python" },
+    { "<Leader>tf", function() _TERMINAL_TOGGLE() end, desc = "Toggle terminal (float)" },
+    { "<Leader>th", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Toggle terminal (horizontal)" },
+    { "<Leader>tm", function() _MC_TOGGLE() end, desc = "Toggle terminal (Midnight Commander)" },
+    { "<Leader>tp", function() _PYTHON_TOGGLE() end, desc = "Toggle terminal (Python)" },
     { "<Leader>tv", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Vertical" },
-    { mode = { "n", "t" }, "<C--><C-->", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Horizontal" },
+    { mode = { "n", "i", "v", "t" }, "<C-->", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Toggle terminal (horizontal)" },
+    { mode = { "n", "i", "v", "t" }, "<C-=>", function() _TERMINAL_TOGGLE() end, desc = "Toggle terminal (float)" },
+    { mode = { "n", "i", "v", "t" }, "<C-S-\\>", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Toggle terminal (vertical)" },
   },
 
   config = function()
