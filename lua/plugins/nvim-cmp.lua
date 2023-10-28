@@ -18,26 +18,26 @@ return {
       dependencies = { "rafamadriz/friendly-snippets" },
 
       opts = function()
-        local ext_opts = {
-          active = {
-            virt_text = {},
-          },
-          passive = {
-            virt_text = { { "|", "GruvboxBlue" } },
-            virt_text_pos = "inline",
-            hl_mode = "combine",
-          },
-        }
+        -- local ext_opts = {
+        --   active = {
+        --     virt_text = {},
+        --   },
+        --   passive = {
+        --     virt_text = { { "|", "GruvboxBlue" } },
+        --     virt_text_pos = "inline",
+        --     hl_mode = "combine",
+        --   },
+        -- }
 
         return {
           history = false,
           region_check_events = { "CursorMoved", "CursorHold", "InsertEnter" },
           delete_check_events = { "TextChanged", "InsertLeave" },
-          ext_opts = {
-            [require("luasnip.util.types").insertNode] = ext_opts,
-            [require("luasnip.util.types").choiceNode] = ext_opts,
-            [require("luasnip.util.types").exitNode] = ext_opts,
-          },
+          -- ext_opts = {
+          --   [require("luasnip.util.types").insertNode] = ext_opts,
+          --   [require("luasnip.util.types").choiceNode] = ext_opts,
+          --   [require("luasnip.util.types").exitNode] = ext_opts,
+          -- },
         }
       end,
 

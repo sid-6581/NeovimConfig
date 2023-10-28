@@ -78,7 +78,16 @@ return {
       },
       sections = {
         lualine_a = { "hostname", branch },
-        lualine_b = { "filename" },
+        lualine_b = {
+          {
+            "filename",
+            newfile_status = true,
+            symbols = {
+              modified = "●",
+              readonly = "",
+            },
+          },
+        },
         lualine_c = {
           {
             "aerial",
@@ -110,20 +119,31 @@ return {
         lualine_y = {},
         lualine_z = {},
       },
-      -- tabline = {
-      --   lualine_a = {
-      --     {
-      --       "buffers",
-      --       filetype_names = { ["neo-tree"] = "", ["alpha"] = "" },
-      --       disabled_buftypes = { "quickfix", "prompt", "neo-tree" },
-      --     },
-      --   },
-      --   lualine_b = {},
-      --   lualine_c = {},
-      --   lualine_x = {},
-      --   lualine_y = { { "tabs", mode = 1 } },
-      --   lualine_z = { "hostname" },
-      -- },
+      tabline = {
+        lualine_a = {
+          {
+            "buffers",
+            show_filename_only = false,
+            filetype_names = { ["neo-tree"] = "" },
+            disabled_buftypes = { "quickfix", "prompt", "neo-tree" },
+            symbols = {
+              alternate_file = " ",
+            },
+          },
+        },
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {
+          {
+            "tabs",
+            mode = 1,
+            symbols = {
+              modified = "●",
+            },
+          },
+        },
+      },
       extensions = { "neo-tree", "quickfix" },
     })
 
