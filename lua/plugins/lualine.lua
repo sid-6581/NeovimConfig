@@ -69,7 +69,6 @@ return {
         theme = custom_theme,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { "alpha", "dashboard", "Outline" },
         always_divide_middle = true,
         globalstatus = true,
         refresh = {
