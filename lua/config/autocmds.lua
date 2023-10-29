@@ -41,11 +41,11 @@ if vim.fn.has("win32") == 1 then
   vim.api.nvim_create_autocmd({ "BufRead" }, {
     callback = function()
       local name = vim.api.nvim_buf_get_name(0)
-      vim.notify(name)
-      -- if name:sub(2, 2) == ":" then
-      --   name = name:gsub("\\", "/"):gsub("^%l", string.upper)
-      --   vim.api.nvim_buf_set_name(0, name)
-      -- end
+      -- vim.notify(name)
+      if name:sub(2, 2) == ":" then
+        name = name:gsub("\\", "/"):gsub("^%l", string.upper)
+        vim.api.nvim_buf_set_name(0, name)
+      end
     end,
   })
 end

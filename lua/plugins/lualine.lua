@@ -67,8 +67,8 @@ return {
       options = {
         icons_enabled = true,
         theme = custom_theme,
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
         always_divide_middle = true,
         globalstatus = true,
         refresh = {
@@ -126,7 +126,7 @@ return {
             filetype_names = { ["neo-tree"] = "" },
             disabled_buftypes = { "quickfix", "prompt", "neo-tree" },
             symbols = {
-              alternate_file = " ",
+              alternate_file = "",
             },
           },
         },

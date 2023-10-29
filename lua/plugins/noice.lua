@@ -113,7 +113,10 @@ return {
             },
           },
         },
-        opts = { skip = true },
+        opts = {
+          skip = true,
+          stop = true,
+        },
       },
     },
   },
