@@ -51,7 +51,7 @@ return {
     event = "VeryLazy",
 
     config = function()
-      local colors = require("util.colors")
+      local colors = require("util.colors").colors
 
       require("window-picker").setup({
         highlights = {

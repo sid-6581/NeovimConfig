@@ -3,7 +3,7 @@ return {
   priority = 998,
 
   config = function()
-    local colors = require("util.colors")
+    local colors = require("util.colors").colors
 
     require("incline").setup({
       highlight = {
@@ -27,10 +27,10 @@ return {
         },
       },
       hide = {
-        only_win = true,
+        only_win = false,
       },
       render = function(props)
-        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+        local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":.")
         local icon, color = require("nvim-web-devicons").get_icon_color(filename)
         return {
           { icon, guifg = color },
