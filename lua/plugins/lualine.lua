@@ -122,7 +122,7 @@ return {
         lualine_a = {
           {
             "buffers",
-            show_filename_only = false,
+            show_filename_only = true,
             filetype_names = { ["neo-tree"] = "" },
             disabled_buftypes = { "quickfix", "prompt", "neo-tree" },
             symbols = {
@@ -133,9 +133,10 @@ return {
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
-        lualine_y = {
+        lualine_z = {
           {
             "tabs",
+            cond = function() return #vim.api.nvim_list_tabpages() > 1 end,
             mode = 1,
             symbols = {
               modified = "●",
