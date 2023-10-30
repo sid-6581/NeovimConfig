@@ -1,5 +1,21 @@
 local M = {}
 
+-- Normalize a path. Will fix Windows paths.
+---@param path string
+function M.normalize_path(path)
+  if path:sub(2, 2) == ":" then path = path:gsub("\\", "/"):gsub("^%l", string.upper) end
+  return path
+end
+
+-- Clean oldfiles. Normalize paths, remove junk.
+function M.clean_oldfiles()
+  local oldfiles = {}
+  for _, path in ipairs(vim.v.oldfiles) do
+    oldfiles[#oldfiles + 1] = M.normalize_path(path)
+  end
+  vim.v.oldfiles = oldfiles
+end
+
 -- Close all folds with a given fold level. Does not close folds inside the fold recursively.
 function M.close_folds_with_level(level)
   local win_view = vim.fn.winsaveview()
@@ -70,6 +86,7 @@ function M.close_window_or_buffer()
   end
 end
 
+-- Toggle a built-in option
 ---@param silent boolean?
 ---@param values? {[1]:any, [2]:any}
 function M.toggle(option, silent, values)

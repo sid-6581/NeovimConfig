@@ -1,3 +1,5 @@
+local util = require("util")
+
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, { command = "checktime" })
 
@@ -39,15 +41,12 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- Normalize paths for Windows buffers
 if vim.fn.has("win32") == 1 then
   vim.api.nvim_create_autocmd({ "BufRead" }, {
-    callback = function()
-      local name = vim.api.nvim_buf_get_name(0)
-      -- vim.notify(name)
-      if name:sub(2, 2) == ":" then
-        name = name:gsub("\\", "/"):gsub("^%l", string.upper)
-        vim.api.nvim_buf_set_name(0, name)
-      end
-    end,
+    callback = function() vim.api.nvim_buf_set_name(0, util.normalize_path(vim.api.nvim_buf_get_name(0))) end,
   })
+  vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
+    callback = function() util.clean_oldfiles() end,
+  })
+  util.clean_oldfiles()
 end
 
 -- Use q to close non-editor windows, and hide them from the buffer list
