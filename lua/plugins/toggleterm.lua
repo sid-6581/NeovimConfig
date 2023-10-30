@@ -16,7 +16,9 @@ return {
   },
 
   config = function()
-    local shell = (vim.fn.has("win32") == 1) and "pwsh -NoLogo" or vim.o.shell
+    local shell = (vim.fn.has("win32") == 1)
+        and "C:/msys64/msys2_shell.cmd -defterm -no-start -ucrt64 -full-path -shell zsh"
+      or vim.o.shell
 
     require("toggleterm").setup({
       size = function(term)
