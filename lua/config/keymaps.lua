@@ -13,7 +13,6 @@ map("n", "<Esc>", "<CMD>noh<CR><Esc>", { desc = "Clear search highlighting" })
 map("n", "<Leader><Enter>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>k", { desc = "Add blank line on current line" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>Q", "<CMD>qa!<CR>", { desc = "Quit all without saving" })
-map("n", "<Leader>iu", vim.show_pos, { desc = "Inspect under cursor" })
 map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
 map("n", "[<Space>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>", { desc = "Add blank line above" })
@@ -95,8 +94,10 @@ map("n", "z2", function() require("util").close_folds_with_level(2) end, { desc 
 map("n", "z3", function() require("util").close_folds_with_level(3) end, { desc = "Close folds with level 3" })
 map("n", "z4", function() require("util").close_folds_with_level(4) end, { desc = "Close folds with level 4" })
 
--- LSP
+-- Code
 map("n", "<Leader>li", "<CMD>LspInfo<CR>", { desc = "LSP info" })
+map("n", "<Leader>ci", function() vim.show_pos() end, { desc = "Inspect under cursor" })
+map("n", "<Leader>cI", function() vim.treesitter.inspect_tree() end, { desc = "Inspect treesitter tree" })
 
 -- Normal mode
 map("n", ",.", "<C-U>", { desc = "Scroll up" })
