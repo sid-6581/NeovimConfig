@@ -21,6 +21,7 @@ return {
       ["<Leader>f"] = { name = "Find" },
       ["<Leader>l"] = { name = "LSP" },
       ["<Leader>g"] = { name = "Git" },
+      ["<Leader>go"] = { name = "Octo" },
       ["<Leader>t"] = { name = "Terminal" },
       ["<Leader>u"] = { name = "Toggles" },
       ["<Leader>w"] = { name = "Windows" },

@@ -6,40 +6,31 @@ function M.on_attach(_client, buffer)
     vim.keymap.set(mode, lhs, rhs, opts)
   end
 
-  -- Diagnostics
+  -- stylua: ignore start
+
   map("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostics" })
   map("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
   map("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
 
-  -- LSP
-  map("n", "K", vim.lsp.buf.hover, { desc = "Show information" })
-  map("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+  map("n", "<Leader>ca", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
+  map("n", "<Leader>cf", function() require("plugins.lsp.formatting").format() end, { desc = "Format document" })
+  map("n", "<Leader>cl", function() vim.lsp.codelens.run() end, { desc = "Codelens" })
+  map("n", "<Leader>cr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
+  map("n", "<Leader>lC1", function() vim.notify(vim.inspect(vim.lsp.get_clients()[1])) end, { desc = "View LSP server 1 information" })
+  map("n", "<Leader>lC2", function() vim.notify(vim.inspect(vim.lsp.get_clients()[2])) end, { desc = "View LSP server 2 information" })
+  map("n", "<Leader>lC3", function() vim.notify(vim.inspect(vim.lsp.get_clients()[3])) end, { desc = "View LSP server 3 information" })
+  map("n", "<Leader>lD", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end, { desc = "Document diagnostics" })
+  map("n", "<Leader>lS", function() require("telescope.builtin").lsp_document_symbols() end, { desc = "Document symbols" })
+  map("n", "<Leader>ld", function() require("telescope.builtin").diagnostics() end, { desc = "Workspace diagnostics" })
+  map("n", "<Leader>lr", function() require("telescope.builtin").lsp_references() end, { desc = "References" })
+  map("n", "<Leader>ls", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, { desc = "Workspace symbols" })
+  map("n", "K", function() vim.lsp.buf.hover() end, { desc = "Show information" })
+  map("n", "gK", function() vim.lsp.buf.signature_help() end, { desc = "Signature Help" })
   map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, { desc = "Go to definition symbols" })
-  map({ "n", "i" }, "<A-Enter>", vim.lsp.buf.code_action, { desc = "Code action" })
-  map("n", "<Leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-  map("n", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format document" })
-  map("n", "<Leader>cl", vim.lsp.codelens.run, { desc = "Codelens" })
-  map("n", "<Leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
-  map("v", "<Leader>cf", require("plugins.lsp.formatting").format, { desc = "Format range" })
+  map("v", "<Leader>cf", function() require("plugins.lsp.formatting").format() end, { desc = "Format range" })
+  map({ "n", "i" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
 
-  map(
-    "n",
-    "<Leader>lC1",
-    function() vim.notify(vim.inspect(vim.lsp.get_clients()[1])) end,
-    { desc = "View LSP server 1 information" }
-  )
-  map(
-    "n",
-    "<Leader>lC2",
-    function() vim.notify(vim.inspect(vim.lsp.get_clients()[2])) end,
-    { desc = "View LSP server 2 information" }
-  )
-  map(
-    "n",
-    "<Leader>lC3",
-    function() vim.notify(vim.inspect(vim.lsp.get_clients()[3])) end,
-    { desc = "View LSP server 3 information" }
-  )
+  -- stylua: ignore end
 end
 
 return M

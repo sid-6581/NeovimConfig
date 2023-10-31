@@ -12,7 +12,7 @@ return {
     { "<Leader>gp", function() require("gitsigns").preview_hunk() end, desc = "Preview hunk" },
     { "<Leader>gR", function() require("gitsigns").reset_buffer() end, desc = "Reset buffer" },
     { "<Leader>gr", function() require("gitsigns").reset_hunk() end, desc = "Reset hunk" },
-    { "<Leader>gs", function() require("gitsigns").stage_hunk() end, desc = "Stage hunk" },
+    { "<Leader>gS", function() require("gitsigns").stage_hunk() end, desc = "Stage hunk" },
     { "<Leader>gu", function() require("gitsigns").undo_stage_hunk() end, desc = "Undo stage hunk" },
   },
 
