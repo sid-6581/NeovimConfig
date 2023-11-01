@@ -6,7 +6,7 @@ end
 -- stylua: ignore start
 
 -- Misc
-map("i", "<C-s>", "<C-O><CMD>w!<CR>", { desc = "Save" })
+map("i", "<C-s>", "<C-\\><C-o><CMD>w!<CR>", { desc = "Save" })
 map("n", "<BS>", "<CMD>noh<CR>", { desc = "Clear search highlighting" })
 map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
 map("n", "<Esc>", "<CMD>noh<CR><Esc>", { desc = "Clear search highlighting" })
@@ -140,7 +140,7 @@ map("i", "<C-BS>", "<C-w>", { desc = "Delete previous word" })
 map("i", "<C-Enter>", "<Esc>m`o<Esc>``a", { desc = "Insert blank line below" })
 map("i", "<C-S-Enter>", "<Esc>m`O<Esc>``a", { desc = "Insert blank line above" })
 map("i", "<Esc>", "<Esc>`^", { desc = "Exit insert mode" })
-map("i", "<S-Insert>", '<C-o>"+P', { desc = "Paste from system clipboard" })
+map("i", "<S-Insert>", '<C-r>+', { desc = "Paste from system clipboard" })
 map("i", "<S-Tab>", "<C-d>", { desc = "Unindent line" })
 
 -- Visual and select mode
