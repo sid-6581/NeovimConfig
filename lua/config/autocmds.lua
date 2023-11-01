@@ -39,6 +39,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Turn off comment-related formatting and automatic inserting of comment leaders
-vim.api.nvim_create_autocmd("BufWinEnter", {
+vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
   callback = function() vim.opt.formatoptions:remove({ "c", "r", "o" }) end,
 })
