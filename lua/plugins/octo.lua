@@ -1,6 +1,6 @@
 return {
   "pwntester/octo.nvim",
-  event = "VeryLazy",
+  lazy = true,
 
   keys = {
     { "<Leader>gog", "<CMD>Octo gist list<CR>", desc = "Gists" },

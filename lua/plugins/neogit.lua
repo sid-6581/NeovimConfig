@@ -1,6 +1,6 @@
 return {
   "NeogitOrg/neogit",
-  event = "VeryLazy",
+  lazy = true,
 
   keys = {
     { "<Leader>gn", "<CMD>Neogit<CR>", desc = "Neogit" },
