@@ -25,6 +25,7 @@ return {
           vertical = 1,
           horizontal = 0,
         },
+        zindex = 1,
       },
       hide = {
         only_win = false,
