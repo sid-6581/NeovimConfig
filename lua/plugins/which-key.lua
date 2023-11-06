@@ -5,7 +5,7 @@ return {
   opts = {
     window = {
       border = "single", -- none, single, double, shadow
-      winblend = 10,
+      winblend = 0,
     },
     icons = {
       group = "",

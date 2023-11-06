@@ -86,7 +86,7 @@ return {
 
     return {
       defaults = {
-        winblend = 10,
+        winblend = 0,
         layout_config = {
           horizontal = {
             preview_width = 0.6,

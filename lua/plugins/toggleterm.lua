@@ -44,7 +44,7 @@ return {
       },
       float_opts = {
         border = "single",
-        winblend = 10,
+        winblend = 0,
       },
     })
 

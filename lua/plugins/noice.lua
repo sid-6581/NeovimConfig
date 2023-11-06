@@ -54,7 +54,7 @@ return {
             max_width = 120,
           },
           win_options = {
-            winblend = 10,
+            winblend = 0,
           },
         },
       },
