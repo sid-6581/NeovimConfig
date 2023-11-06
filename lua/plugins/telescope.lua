@@ -82,7 +82,6 @@ return {
 
   opts = function()
     local actions = require("telescope.actions")
-    local themes = require("telescope.themes")
 
     return {
       defaults = {
