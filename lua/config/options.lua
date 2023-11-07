@@ -45,7 +45,7 @@ vim.opt.listchars:append("nbsp:␣")
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.numberwidth = 4
-vim.opt.pumblend = 0
+vim.opt.pumblend = 10
 vim.opt.pumheight = 15
 vim.opt.relativenumber = false
 vim.opt.report = 1000
@@ -75,7 +75,7 @@ vim.opt.undolevels = 10000
 vim.opt.updatetime = 250
 vim.opt.virtualedit:append("block")
 vim.opt.wildmode = "longest,list:full"
-vim.opt.winblend = 0
+vim.opt.winblend = 10
 vim.opt.wrap = false
 vim.opt.writebackup = false
 
