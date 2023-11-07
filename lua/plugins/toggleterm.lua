@@ -12,7 +12,7 @@ return {
     { "<Leader>tv", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Vertical" },
     { mode = { "n", "i", "v", "t" }, "<C-->", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Toggle terminal (horizontal)" },
     { mode = { "n", "i", "v", "t" }, "<C-=>", function() _TERMINAL_TOGGLE() end, desc = "Toggle terminal (float)" },
-    { mode = { "n", "i", "v", "t" }, "<C-S-\\>", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Toggle terminal (vertical)" },
+    { mode = { "n", "i", "v", "t" }, "<C-|>", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Toggle terminal (vertical)" },
   },
 
   config = function()
