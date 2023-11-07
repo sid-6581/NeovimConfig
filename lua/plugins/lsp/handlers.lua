@@ -20,6 +20,17 @@ function M.setup(options)
   require("mason-lspconfig").setup_handlers({
     function(server_name) setup(server_name, {}) end,
 
+    eslint = function(server_name)
+      setup(server_name, {
+        on_attach = function(_client, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+          })
+        end,
+      })
+    end,
+
     jsonls = function(server_name)
       setup(server_name, {
         settings = {
