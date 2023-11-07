@@ -4,5 +4,5 @@
         "no-unknown",
         "incomplete-signature-doc"
     ],
-    "Lua.workspace.checkThirdParty": false
+    "workspace.checkThirdParty": "Disable"
 }
