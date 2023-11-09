@@ -1,3 +1,8 @@
+local map = function(mode, lhs, rhs, opts)
+  vim.tbl_deep_extend("force", { silent = true, noremap = true }, opts)
+  vim.keymap.set(mode, lhs, rhs, opts)
+end
+
 return {
   "mfussenegger/nvim-dap",
   event = "VeryLazy",
@@ -6,30 +11,27 @@ return {
     "rcarriga/nvim-dap-ui",
   },
 
-  config = function()
+  opts = {},
+
+  config = function(_, opts)
     local dap = require("dap")
     local dapui = require("dapui")
 
+    -- stylua: ignore start
     vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-    vim.fn.sign_define(
-      "DapBreakpointCondition",
-      { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" }
-    )
+    vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+    -- stylua: ignore end
 
+    require("dap.ext.vscode").json_decode = require("neoconf.json.jsonc").decode_jsonc
     require("dap.ext.vscode").load_launchjs(nil, { rt_lldb = { "rust" } })
 
-    dapui.setup({})
+    dapui.setup(opts)
 
     dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
     dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
     dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
 
     local widgets = require("dap.ui.widgets")
-
-    local map = function(mode, lhs, rhs, opts)
-      vim.tbl_deep_extend("force", { silent = true, noremap = true }, opts)
-      vim.keymap.set(mode, lhs, rhs, opts)
-    end
 
     map("n", "<F10>", function() require("dap").step_over() end, { desc = "Step Over" })
     map("n", "<F11>", function() require("dap").step_into() end, { desc = "Step Into" })
