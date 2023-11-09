@@ -8,7 +8,12 @@ return {
     "echasnovski/mini.misc",
     event = "VeryLazy",
 
-    config = function() require("mini.misc").setup_auto_root() end,
+    config = function()
+      require("mini.misc").setup_auto_root(
+        { ".git", "Makefile", "package.json", "Cargo.toml" },
+        function(path) return vim.fs.dirname(path) end
+      )
+    end,
   },
 
   {
