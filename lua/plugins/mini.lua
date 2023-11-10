@@ -141,6 +141,11 @@ return {
       local gen_hook = require("mini.splitjoin").gen_hook
       local brackets = { brackets = { "%b{}" } }
       return {
+        mappings = {
+          toggle = "gS",
+          join = "<Leader>cj",
+          split = "<Leader>cs",
+        },
         detect = {
           separator = "[,;]",
         },
