@@ -14,7 +14,8 @@ return {
   opts = {
     labels = "ASDFGHJKLQWERTYUIOPZXCVBNM",
     label = {
-      uppercase = false,
+      exclude = "abcdefghijklmnopqrstuvwxyz",
+      uppercase = true,
       style = "overlay",
     },
     search = {
@@ -37,12 +38,13 @@ return {
           after = false,
         },
         highlight = {
-          backdrop = true,
+          backdrop = false,
         },
       },
       treesitter = {
+        labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
         highlight = {
-          backdrop = true,
+          backdrop = false,
         },
       },
     },
