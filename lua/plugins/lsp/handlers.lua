@@ -184,7 +184,7 @@ function M.setup(options)
               },
               check = {
                 command = "clippy",
-                extraArgs = { "--no-deps" },
+                extraArgs = { "--no-deps", "--all-targets", "--all-features" },
               },
             },
           },
