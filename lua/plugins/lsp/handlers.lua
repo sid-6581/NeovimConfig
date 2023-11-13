@@ -176,6 +176,9 @@ function M.setup(options)
           on_attach = options.on_attach,
           settings = {
             ["rust-analyzer"] = {
+              cargo = {
+                features = "all",
+              },
               diagnostics = {
                 disabled = { "unresolved-proc-macro" },
                 experimental = {
