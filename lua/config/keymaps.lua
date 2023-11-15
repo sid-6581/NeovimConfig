@@ -173,7 +173,7 @@ map("c", "<Up>", function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<U
 -- Toggles
 map("n", "<Leader>ud", function() require("util").toggle_diagnostics() end, { desc = "Toggle diagnostics" })
 map("n", "<Leader>uf", require("plugins.lsp.formatting").toggle, { desc = "Toggle format on save" })
-map("n", "<Leader>uh", function() vim.lsp.inlay_hint(0, nil) end, { desc = "Toggle inlay hints" })
+map("n", "<Leader>uh", function() vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled(0)) end, { desc = "Toggle inlay hints" })
 map("n", "<Leader>uw", function() require("util").toggle("wrap") end, { desc = "Toggle wrap" })
 map("n", "<leader>ul", function() require("util").toggle_number() end, { desc = "Toggle line numbers" })
 map("n", "<leader>ur", function() require("util").toggle("relativenumber") end, { desc = "Toggle relative line numbers" })
