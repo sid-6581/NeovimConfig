@@ -116,7 +116,7 @@ return {
   },
 
   config = function(_, opts)
-    if vim.fn.has("win32") == 1 then require("nvim-treesitter.install").compilers = { "clang" } end
+    if vim.fn.has("win32") == 1 then require("nvim-treesitter.install").compilers = { "zig" } end
     require("nvim-treesitter.install").prefer_git = false
     require("nvim-treesitter.configs").setup(opts)
   end,
