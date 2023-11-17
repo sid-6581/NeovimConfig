@@ -4,10 +4,9 @@ return {
 
   -- stylua: ignore
   keys = {
-    { mode = { "o", "x" }, "ii", function() require("various-textobjs").indentation("inner", "inner") end, desc = "indentation level (no line above)" },
+    { mode = { "o", "x" }, "!", function() require("various-textobjs").diagnostic() end, desc = "diagnostic" },
+    { mode = { "o", "x" }, "ii", function() require("various-textobjs").indentation("inner", "inner") end, desc = "indentation level (no line above/below)" },
     { mode = { "o", "x" }, "ai", function() require("various-textobjs").indentation("outer", "outer") end, desc = "indentation level (and line above/below)" },
-    -- { mode = { "o", "x" }, "iI", function() require("various-textobjs").indentation("inner", "inner") end, desc = "indentation level (no lines above/below)" },
-    -- { mode = { "o", "x" }, "aI", function() require("various-textobjs").indentation("outer", "outer") end, desc = "indentation level (and lines above/below)" },
     { mode = { "o", "x" }, "is", function() require("various-textobjs").subword("inner") end, desc = "inner subword" },
     { mode = { "o", "x" }, "as", function() require("various-textobjs").subword("outer") end, desc = "a subword" },
     { mode = { "o", "x" }, "|", function() require("various-textobjs").column() end, desc = "column down" },
