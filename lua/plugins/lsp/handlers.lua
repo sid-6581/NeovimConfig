@@ -142,53 +142,25 @@ function M.setup(options)
       })
     end,
 
-    rust_analyzer = function()
-      local codelldb = require("mason-registry").get_package("codelldb")
-      local extension_path = codelldb:get_install_path() .. "/extension/"
-      local codelldb_path = extension_path .. "adapter/codelldb"
-      if vim.fn.has("win32") == 1 then codelldb_path = extension_path .. "adapter/codelldb.exe" end
-
-      require("rust-tools").setup({
-        tools = {
-          inlay_hints = {
-            auto = false,
-            max_len_align = false,
-            highlight = "GruvboxBg2",
-          },
-          hover_actions = {
-            border = "single",
-          },
-        },
-        dap = {
-          adapter = {
-            type = "server",
-            port = "13000",
-            host = "127.0.0.1",
-            executable = {
-              command = codelldb_path,
-              args = { "--port", "13000" },
+    rust_analyzer = function(server_name)
+      setup(server_name, {
+        cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+        capabilities = options.capabilities,
+        on_attach = options.on_attach,
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              features = "all",
             },
-          },
-        },
-        server = {
-          cmd = { "rustup", "run", "nightly", "rust-analyzer" },
-          capabilities = options.capabilities,
-          on_attach = options.on_attach,
-          settings = {
-            ["rust-analyzer"] = {
-              cargo = {
-                features = "all",
+            diagnostics = {
+              disabled = { "unresolved-proc-macro" },
+              experimental = {
+                enable = true,
               },
-              diagnostics = {
-                disabled = { "unresolved-proc-macro" },
-                experimental = {
-                  enable = true,
-                },
-              },
-              check = {
-                command = "clippy",
-                extraArgs = { "--no-deps" },
-              },
+            },
+            check = {
+              command = "clippy",
+              extraArgs = { "--no-deps" },
             },
           },
         },

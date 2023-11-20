@@ -31,7 +31,6 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "b0o/schemastore.nvim",
     "nvimtools/none-ls.nvim",
-    "simrat39/rust-tools.nvim",
 
     {
       "folke/neoconf.nvim",
