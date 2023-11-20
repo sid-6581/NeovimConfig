@@ -36,6 +36,7 @@ return {
   dependencies = {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-symbols.nvim",
+    "fdschmidt93/telescope-egrepify.nvim",
     "jvgrootveld/telescope-zoxide",
     "debugloop/telescope-undo.nvim",
     "Marskey/telescope-sg",
@@ -69,7 +70,7 @@ return {
     { "<Leader>fp", function() require("telescope").extensions.repo.list() end, desc = "Projects" },
     { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
     { "<Leader>fs", function() require("telescope.builtin").symbols(cursor_theme({})) end, desc = "Symbols" },
-    { "<Leader>ft", function() require("telescope.builtin").live_grep() end, desc = "Text" },
+    { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text" },
     { "<Leader>fu", function() require("telescope").extensions.undo.undo() end, desc = "Undo" },
     { "<Leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Word" },
     { "<Leader>fy", function() require("telescope").extensions.yank_history.yank_history({}) end, desc = "Yank History" },
@@ -89,6 +90,7 @@ return {
         layout_config = {
           horizontal = {
             preview_width = 0.6,
+            height = 0.8,
             width = 0.9,
           },
         },
@@ -178,6 +180,7 @@ return {
 
     telescope.setup(opts)
     telescope.load_extension("ast_grep")
+    telescope.load_extension("egrepify")
     telescope.load_extension("file_browser")
     telescope.load_extension("fzf")
     telescope.load_extension("repo")
