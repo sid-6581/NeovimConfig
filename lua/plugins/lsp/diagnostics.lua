@@ -52,8 +52,7 @@ function M.on_attach(client, _buf)
   if client.supports_method("textDocument/documentHighlight") then
     vim.cmd([[
       augroup lsp_document_highlight
-        autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorHold,CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
     ]])
