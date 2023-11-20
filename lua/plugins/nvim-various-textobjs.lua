@@ -16,8 +16,8 @@ return {
     { mode = { "o", "x" }, "ak", function() require("various-textobjs").key("outer") end, desc = "a key (assignment or key/value)" },
     { mode = { "o", "x" }, "im", function() require("various-textobjs").chainMember("inner") end, desc = "inner chain member" },
     { mode = { "o", "x" }, "am", function() require("various-textobjs").chainMember("outer") end, desc = "a chain member" },
-    { mode = { "o", "x" }, "il", function() require("various-textobjs").lineCharacterwise("inner") end, desc = "inner line characterwise" },
-    { mode = { "o", "x" }, "al", function() require("various-textobjs").lineCharacterwise("outer") end, desc = "a line characterwise" },
+    { mode = { "o", "x" }, "iL", function() require("various-textobjs").lineCharacterwise("inner") end, desc = "inner line characterwise" },
+    { mode = { "o", "x" }, "aL", function() require("various-textobjs").lineCharacterwise("outer") end, desc = "a line characterwise" },
   },
 
   opts = {

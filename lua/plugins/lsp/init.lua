@@ -3,12 +3,16 @@ return {
   event = { "VeryLazy", "BufReadPre", "BufNewFile" },
   cmd = { "MasonToolsUpdate" },
 
+  keys = {
+    { "<Leader>li", "<CMD>LspInfo<CR>", desc = "LSP info" },
+  },
+
   dependencies = {
     {
       "williamboman/mason.nvim",
 
       keys = {
-        { "<Leader>lI", "<CMD>Mason<CR>", desc = "LSP installer info" },
+        { "<Leader>M", "<CMD>Mason<CR>", desc = "LSP installer info" },
       },
 
       opts = {

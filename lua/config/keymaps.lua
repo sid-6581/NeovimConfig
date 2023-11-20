@@ -5,21 +5,27 @@ end
 
 -- stylua: ignore start
 
--- Misc
-map("i", "<C-s>", "<C-\\><C-o><CMD>w!<CR>", { desc = "Save" })
-map("n", "<BS>", "<CMD>noh<CR>", { desc = "Clear search highlighting" })
-map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
-map("n", "<Esc>", "<CMD>noh<CR><Esc>", { desc = "Clear search highlighting" })
-map("n", "<Leader><Enter>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>k", { desc = "Add blank line on current line" })
+-- Misc 
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
-map("n", "<Leader>Q", "<CMD>qa!<CR>", { desc = "Quit all without saving" })
-map("n", "<Leader>pp", "<CMD>Lazy sync<CR>", { desc = "Lazy sync" })
+map("n", "<Leader>L", "<CMD>Lazy sync<CR>", { desc = "Plugins (Lazy)" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
+map("n", "<BS>", "<CMD>noh<CR>", { desc = "Clear search highlighting" })
+map("n", "<Esc>", "<CMD>noh<CR><Esc>", { desc = "Clear search highlighting" })
+map("i", "<C-s>", "<C-\\><C-o><CMD>w!<CR>", { desc = "Save" })
+map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
+-- map("n", "!", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
+
+-- Adding blank lines
+map("n", "<Leader><Enter>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>k", { desc = "Add blank line on current line" })
 map("n", "[<Space>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>", { desc = "Add blank line above" })
 map("n", "]<Space>", "<CMD>put =repeat(nr2char(10), v:count1)|silent '[-<CR>", { desc = "Add blank line below" })
-map("n", "gX", "<CMD>call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>", { desc = "Open current path or URI" })
+
+-- Better motions with word wrap on
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+
+-- Same functionality as gx, but gx is remapped to something else
+map("n", "gX", "<CMD>call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>", { desc = "Open current path or URI" })
 map("v", "gX", "<CMD>call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>", { desc = "Open current path or URI" })
 
 -- Buffers
@@ -28,49 +34,52 @@ map("n", "<Leader><BS>", function() require("util").close_window_or_buffer() end
 map("n", "<S-h>", "<CMD>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Next buffer" })
 
--- Windows
-map("n", "<C-h>", "<C-W>h", { desc = "Left one window" })
-map("n", "<C-j>", "<C-W>j", { desc = "Up one window" })
-map("n", "<C-k>", "<C-W>k", { desc = "Down one window" })
-map("n", "<C-l>", "<C-W>l", { desc = "Right one window" })
+-- Window opening
 map("n", "<Leader>-", "<CMD>new<CR>", { desc = "Open new file in new split" })
 map("n", "<Leader>.-", "<CMD>new .<CR>", { desc = "Edit current directory in new vplit" })
 map("n", "<Leader>.\\", "<CMD>vnew .<CR>", { desc = "Edit current directory in new vsplit" })
-map("n", "!", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
 map("n", "<Leader><Leader>-", "<CMD>split<CR>", { desc = "Open current file in new split" })
 map("n", "<Leader><Leader>.", "<CMD>e .<CR>", { desc = "Edit current directory" })
 map("n", "<Leader><Leader>\\", "<CMD>vsplit<CR>", { desc = "Open current file in new vsplit" })
 map("n", "<Leader>\\", "<CMD>vnew<CR>", { desc = "Open new file in new vsplit" })
+map("n", "<Leader>wT", "<C-W>T", { desc = "Open current window in new tab" })
+map("n", "<Leader>w]", "<C-W>]", { desc = "Go to identifier in split" })
+map("n", "<Leader>wc", "<C-W>c", { desc = "Close current window" })
+map("n", "<Leader>wo", "<C-W>o", { desc = "Make current window the only one" })
+map("n", "<Leader>wq", "<C-W>q", { desc = "Quit window" })
+map("n", "<Leader>ws", "<C-W>s", { desc = "Split window (horizontal)" })
+map("n", "<Leader>wv", "<C-W>v", { desc = "Split window (vertical)" })
+
+-- Window movements
+map("n", "<C-h>", "<C-W>h", { desc = "Left one window" })
+map("n", "<C-j>", "<C-W>j", { desc = "Up one window" })
+map("n", "<C-k>", "<C-W>k", { desc = "Down one window" })
+map("n", "<C-l>", "<C-W>l", { desc = "Right one window" })
+map("n", "<Leader>wh", "<C-W>h", { desc = "Left one window" })
+map("n", "<Leader>wj", "<C-W>j", { desc = "Up one window" })
+map("n", "<Leader>wk", "<C-W>k", { desc = "Down one window" })
+map("n", "<Leader>wl", "<C-W>l", { desc = "Right one window" })
+map("n", "<Leader>wH", "<C-W>H", { desc = "Move current window to left" })
+map("n", "<Leader>wJ", "<C-W>J", { desc = "Move current window to bottom" })
+map("n", "<Leader>wK", "<C-W>K", { desc = "Move current window to top" })
+map("n", "<Leader>wL", "<C-W>L", { desc = "Move current window to right" })
+map("n", "<Leader>wR", "<C-W>R", { desc = "Rotate windows upwards/leftwards" })
+map("n", "<Leader>wW", "<C-W>W", { desc = "Previous window" })
+map("n", "<Leader>ww", "<C-W><C-W>", { desc = "Next window" })
+map("n", "<Leader>w[", "<C-W>W", { desc = "Previous window" })
+map("n", "<Leader>w]", "<C-W><C-W>", { desc = "Next window" })
+map("n", "<Leader>wr", "<C-W>r", { desc = "Rotate windows downwards/rightwards" })
+map("n", "<Leader>wx", "<C-W>x", { desc = "Exchange current window with next" })
+map("n", "<Leader>wa", "<C-^>", { desc = "Edit alternate buffer in current window" })
+
+-- Window size
 map("n", "<Leader>w,", "<C-W>-", { desc = "Decrease window height" })
 map("n", "<Leader>w.", "<C-W>+", { desc = "Increase window height" })
 map("n", "<Leader>w<Bar>", "<C-W><Bar>", { desc = "Maximize window width" })
 map("n", "<Leader>w<lt>", "<C-W><lt>", { desc = "Decrease window width" })
 map("n", "<Leader>w=", "<C-W>=", { desc = "Make windows equally high and wide" })
 map("n", "<Leader>w>", "<C-W>>", { desc = "Increase window width" })
-map("n", "<Leader>wH", "<C-W>H", { desc = "Move current window to left" })
-map("n", "<Leader>wJ", "<C-W>J", { desc = "Move current window to bottom" })
-map("n", "<Leader>wK", "<C-W>K", { desc = "Move current window to top" })
-map("n", "<Leader>wL", "<C-W>L", { desc = "Move current window to right" })
-map("n", "<Leader>wR", "<C-W>R", { desc = "Rotate windows upwards/leftwards" })
-map("n", "<Leader>wT", "<C-W>T", { desc = "Open current window in new tab" })
-map("n", "<Leader>wW", "<C-W>W", { desc = "Previous window" })
-map("n", "<Leader>w]", "<C-W>]", { desc = "Go to identifier in split" })
 map("n", "<Leader>w_", "<C-W>_", { desc = "Maximize window height" })
-map("n", "<Leader>wa", "<C-^>", { desc = "Edit alternate buffer in current window" })
-map("n", "<Leader>wc", "<C-W>c", { desc = "Close current window" })
-map("n", "<Leader>wh", "<C-W>h", { desc = "Left one window" })
-map("n", "<Leader>wj", "<C-W>j", { desc = "Up one window" })
-map("n", "<Leader>wk", "<C-W>k", { desc = "Down one window" })
-map("n", "<Leader>wl", "<C-W>l", { desc = "Right one window" })
-map("n", "<Leader>wn", "<C-W><C-W>", { desc = "Next window" })
-map("n", "<Leader>wo", "<C-W>o", { desc = "Make current window the only one" })
-map("n", "<Leader>wp", "<C-W>W", { desc = "Previous window" })
-map("n", "<Leader>wq", "<C-W>q", { desc = "Quit window" })
-map("n", "<Leader>wr", "<C-W>r", { desc = "Rotate windows downwards/rightwards" })
-map("n", "<Leader>ws", "<C-W>s", { desc = "Split window (horizontal)" })
-map("n", "<Leader>wv", "<C-W>v", { desc = "Split window (vertical)" })
-map("n", "<Leader>ww", "<C-W><C-W>", { desc = "Next window" })
-map("n", "<Leader>wx", "<C-W>x", { desc = "Exchange current window with next" })
 map("n", "<S-C-Down>", "<CMD>resize -2<CR>", { desc = "Resize window -2" })
 map("n", "<S-C-Left>", "<CMD>vertical resize -2<CR>", { desc = "Vertical resize window -2" })
 map("n", "<S-C-Right>", "<CMD>vertical resize +2<CR>", { desc = "Vertical resize window +2" })
@@ -84,6 +93,8 @@ map("n", "<Leader><Tab><BS>", "<CMD>tabclose<CR>", { desc = "Close tab" })
 map("n", "<Leader><Tab><Tab>", "<CMD>tabnew<CR>", { desc = "New tab" })
 map("n", "<Leader><Tab>h", "<CMD>tabprevious<CR>", { desc = "Previous tab" })
 map("n", "<Leader><Tab>l", "<CMD>tabnext<CR>", { desc = "Next tab" })
+map("n", "<Leader><Tab>[", "<CMD>tabprevious<CR>", { desc = "Previous tab" })
+map("n", "<Leader><Tab>]", "<CMD>tabnext<CR>", { desc = "Next tab" })
 map("n", "<Leader><Tab>q", "<CMD>tabclose<CR>", { desc = "Close tab" })
 
 -- Folds
@@ -95,24 +106,26 @@ map("n", "z3", function() require("util").close_folds_with_level(3) end, { desc 
 map("n", "z4", function() require("util").close_folds_with_level(4) end, { desc = "Close folds with level 4" })
 
 -- Code
-map("n", "<Leader>li", "<CMD>LspInfo<CR>", { desc = "LSP info" })
 map("n", "<Leader>ci", function() vim.show_pos() end, { desc = "Inspect under cursor" })
 map("n", "<Leader>cI", function() vim.treesitter.inspect_tree() end, { desc = "Inspect treesitter tree" })
 
 -- Normal mode
 map("n", ",.", "<C-U>", { desc = "Scroll up" })
 map("n", ",/", "<C-D>", { desc = "Scroll down" })
-map("n", ",P", '"+P', { desc = "Paste from system clipboard" })
 map("n", ",[", "<C-T>", { desc = "Pop tag from stack" })
 map("n", ",]", "<C-]>", { desc = "Jump to tag" })
 map("n", ",cd", "<CMD>cd %:h<CR>", { desc = "Change current working directory to current file directory" })
 map("n", ",do", "<CMD>diffoff<CR>", { desc = "Diff off" })
 map("n", ",dt", "<CMD>diffthis<CR>", { desc = "Diff this" })
 map("n", ",du", "<CMD>diffupdate<CR>", { desc = "Diff update" })
-map("n", ",p", '"+p', { desc = "Paste from system clipboard" })
 map("n", ",r", "<C-R>", { desc = "Redo last change" })
 map("n", ",vb", "<C-V>", { desc = "Visual block mode" })
 map("n", ",x12", ":%!x12pp<CR>:set ft=x12<CR>", { desc = "Format X12 file" })
+
+-- Yank/paste
+map("n", "Y", "_y$", { desc = "Yank line character-wise without indent" })
+map("n", ",P", '"+P', { desc = "Paste from system clipboard" })
+map("n", ",p", '"+p', { desc = "Paste from system clipboard" })
 map("n", "<Leader>Pb", 'i <C-R>" <Esc>', { desc = "Paste before cursor and add space at both ends" })
 map("n", "<Leader>Pe", 'i<C-R>" <Esc>', { desc = "Paste before cursor and add space at end" })
 map("n", "<Leader>Ps", 'i <C-R>"<Esc>', { desc = "Paste before cursor and add space at start" })
@@ -120,7 +133,6 @@ map("n", "<Leader>pb", 'a <C-R>" <Esc>', { desc = "Paste after cursor and add sp
 map("n", "<Leader>pe", 'a<C-R>" <Esc>', { desc = "Paste after cursor and add space at end" })
 map("n", "<Leader>ps", 'a <C-R>"<Esc>', { desc = "Paste after cursor and add space at start" })
 map("n", "<S-Insert>", '"+P', { desc = "Paste from system clipboard" })
-map("n", "Y", "_y$", { desc = "Yank line character-wise without indent" })
 
 -- Motions
 map("n", "b", "<CMD>call search('\\<', 'b')<CR>", { desc = "Previous word" })
