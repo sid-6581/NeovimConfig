@@ -16,9 +16,5 @@ return {
     { "<Leader>gu", function() require("gitsigns").undo_stage_hunk() end, desc = "Undo stage hunk" },
   },
 
-  opts = {
-    preview_config = {
-      border = "single",
-    },
-  },
+  opts = {},
 }
