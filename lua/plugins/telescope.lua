@@ -40,7 +40,6 @@ return {
     "jvgrootveld/telescope-zoxide",
     "debugloop/telescope-undo.nvim",
     "Marskey/telescope-sg",
-    "cljoly/telescope-repo.nvim",
 
     {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -67,7 +66,13 @@ return {
     { "<Leader>fl", function() require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir(), }) end, desc = "Files from current directory" },
     { "<Leader>fn", function() require("telescope").extensions.noice.noice() end, desc = "Noice" },
     { "<Leader>fo", function() require("telescope.builtin").vim_options() end, desc = "Vim options" },
-    { "<Leader>fp", function() require("telescope").extensions.repo.list() end, desc = "Projects" },
+    { "<Leader>fp", function() require("telescope.builtin").find_files({
+      cwd = vim.env.HOME,
+      find_command = { "fd", "--prune", "--hidden", "--case-sensitive", "--absolute-path", "-td", "-x", "echo", "{//}", ";" },
+      file_ignore_patterns = { "%.cache", "%.cargo" },
+      search_file = "^\\.git$",
+      search_dirs = (vim.fn.has("win32") == 1) and { "D:/Code", "~/AppData/Local/nvim-data", "~/AppData/Local/nvim" } or { "~" },
+    }) end, desc = "Projects" },
     { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
     { "<Leader>fs", function() require("telescope.builtin").symbols(cursor_theme({})) end, desc = "Symbols" },
     { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text" },
@@ -162,14 +167,6 @@ return {
           grep_open_files = false,
           lang = nil,
         },
-        repo = {
-          list = {
-            file_ignore_patterns = { "/%.cache/", "/%.cargo/" },
-            search_dirs = (vim.fn.has("win32") == 1)
-                and { "D:/Code", "~/AppData/Local/nvim-data", "~/AppData/Local/nvim" }
-              or { "~" },
-          },
-        },
         undo = {
           use_delta = false,
         },
@@ -185,7 +182,6 @@ return {
     telescope.load_extension("egrepify")
     telescope.load_extension("file_browser")
     telescope.load_extension("fzf")
-    telescope.load_extension("repo")
     telescope.load_extension("scope")
     telescope.load_extension("undo")
     telescope.load_extension("zoxide")
