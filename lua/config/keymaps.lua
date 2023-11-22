@@ -139,8 +139,8 @@ map("n", "b", "<CMD>call search('\\<', 'b')<CR>", { desc = "Previous word" })
 map("n", "e", "<CMD>call search('\\>')<CR>", { desc = "Next end of word" })
 map("n", "ge", "<CMD>call search('\\>', 'b')<CR>", { desc = "Previous end of word" })
 map("n", "w", "<CMD>call search('\\<')<CR>", { desc = "Next word" })
-map("n", "(", "<CMD>call search('\\(\\n\\n\\|\\%^\\)\\s*\\zs\\S', 'b')<CR>", { desc = "Previous start of paragraph" })
-map("n", ")", "<CMD>call search('\\n\\n\\s*\\zs\\S')<CR>", { desc = "Next start of paragraph" })
+map("n", "{", "<CMD>call search('\\(\\n\\n\\|\\%^\\)\\s*\\zs\\S', 'b')<CR>", { desc = "Previous start of paragraph" })
+map("n", "}", "<CMD>call search('\\n\\n\\s*\\zs\\S')<CR>", { desc = "Next start of paragraph" })
 
 -- Insert mode
 map("i", "<A-BS>", "<C-\\><C-o>dB", { desc = "Delete until the previous space" })
