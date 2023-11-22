@@ -131,12 +131,12 @@ return {
 
     opts = {
       windows = {
-        preview = true,
+        preview = false,
         width_focus = 30,
         width_preview = 40,
       },
       options = {
-        use_as_default_explorer = false,
+        use_as_default_explorer = true,
       },
     },
   },
