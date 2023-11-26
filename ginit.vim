@@ -1,5 +1,5 @@
 if exists(':GuiFont')
-  GuiFont! JetBrainsMono\ NFM:h9.5
+  GuiFont! JetBrainsMono\ Nerd\ Font\ Mono:h9.5
 endif
 
 if exists(':GuiRenderLigatures')
@@ -7,6 +7,6 @@ if exists(':GuiRenderLigatures')
 endif
 
 if exists('g:fvim_loaded')
-  set guifont=JetBrainsMono\ NFM:h14
+  set guifont=JetBrainsMono\ Nerd\ Font\ Mono:h14
   FVimFontNoBuiltinSymbols v:true
 endif
