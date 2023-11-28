@@ -118,7 +118,8 @@ map("n", ",dt", "<CMD>diffthis<CR>", { desc = "Diff this" })
 map("n", ",du", "<CMD>diffupdate<CR>", { desc = "Diff update" })
 map("n", ",r", "<C-R>", { desc = "Redo last change" })
 map("n", ",vb", "<C-V>", { desc = "Visual block mode" })
-map("n", ",x12", ":%!x12pp<CR>:set ft=x12<CR>", { desc = "Format X12 file" })
+map("n", ",x12", "<CMD>%!x12pp<CR><CMD>set ft=x12<CR>", { desc = "Format X12 file" })
+map("n", ",cr", "<CMD>%!dos2unix<CR>", { desc = "Convert line endings to CR" })
 
 -- Yank/paste
 map("n", "Y", "_y$", { desc = "Yank line character-wise without indent" })
