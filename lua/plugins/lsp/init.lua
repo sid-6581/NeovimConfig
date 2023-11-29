@@ -82,7 +82,7 @@ return {
       "stylua",
       "taplo",
       "vim-language-server",
-      { "vue-language-server", version = "1.8.22" },
+      "vue-language-server",
       "yaml-language-server",
       "yamlfmt",
       "yamllint",
