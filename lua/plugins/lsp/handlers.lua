@@ -151,6 +151,9 @@ function M.setup(options)
           ["rust-analyzer"] = {
             cargo = {
               features = "all",
+              buildScripts = {
+                useRustcWrapper = false,
+              },
             },
             diagnostics = {
               disabled = { "unresolved-proc-macro" },
