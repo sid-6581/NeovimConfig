@@ -95,6 +95,7 @@ return {
       defaults = {
         winblend = 0,
         layout_config = {
+          prompt_position = "top",
           horizontal = {
             preview_width = 0.6,
             height = 0.8,
