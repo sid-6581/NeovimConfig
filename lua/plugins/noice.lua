@@ -73,6 +73,14 @@ return {
       lsp_doc_border = true,
     },
     views = {
+      cmdline_popup = {
+        position = {
+          row = "30%",
+        },
+        border = {
+          style = "single",
+        },
+      },
       mini = {
         timeout = 5000,
         winblend = 100,

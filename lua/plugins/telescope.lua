@@ -104,7 +104,8 @@ return {
         },
         borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         prompt_prefix = " ",
-        selection_caret = " ",
+        sorting_strategy = "ascending",
+        selection_caret = " ",
         -- path_display = { "smart" },
         vimgrep_arguments = {
           "rg",
