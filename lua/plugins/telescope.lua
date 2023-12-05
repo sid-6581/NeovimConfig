@@ -47,8 +47,8 @@ return {
     },
   },
 
-  -- stylua: ignore
   keys = {
+    -- stylua: ignore start
     { "<Leader>f.", function() require("telescope").extensions.file_browser.file_browser() end, desc = "Browse files" },
     { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find" },
     { "<Leader>fA", function() require("telescope.builtin").ast_grep() end, desc = "ast-grep" },
@@ -66,13 +66,6 @@ return {
     { "<Leader>fl", function() require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir(), }) end, desc = "Files from current directory" },
     { "<Leader>fn", function() require("telescope").extensions.noice.noice() end, desc = "Noice" },
     { "<Leader>fo", function() require("telescope.builtin").vim_options() end, desc = "Vim options" },
-    { "<Leader>fp", function() require("telescope.builtin").find_files({
-      cwd = vim.env.HOME,
-      find_command = { "fd", "--prune", "--hidden", "--case-sensitive", "--absolute-path", "-td", "-x", "echo", "{//}", ";" },
-      file_ignore_patterns = { "%.cache", "%.cargo" },
-      search_file = "^\\.git$",
-      search_dirs = (vim.fn.has("win32") == 1) and { "D:/Code", "~/AppData/Local/nvim-data", "~/AppData/Local/nvim" } or { "~" },
-    }) end, desc = "Projects" },
     { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
     { "<Leader>fs", function() require("telescope.builtin").symbols(cursor_theme({})) end, desc = "Symbols" },
     { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text" },
@@ -86,6 +79,47 @@ return {
     { "<Leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Buffer commits" },
     { "<Leader>gs", function() require("telescope.builtin").git_status() end, desc = "Status" },
     { mode = { "n", "i", "x" }, "<F1>", function() require("telescope.builtin").help_tags() end, desc = "Help" },
+
+    -- stylua: ignore end
+    -- Select directories containing .git in the specified search_dirs.
+    -- The default select action will change the default directory and open oil.
+    {
+      "<Leader>fp",
+      function()
+        require("telescope.builtin").find_files({
+          cwd = vim.env.HOME,
+          find_command = {
+            "fd",
+            "--prune",
+            "--hidden",
+            "--case-sensitive",
+            "--absolute-path",
+            "-td",
+            "-x",
+            "echo",
+            "{//}",
+            ";",
+          },
+          file_ignore_patterns = { "%.cache", "%.cargo" },
+          attach_mappings = function(prompt_bufnr, _map)
+            local actions = require("telescope.actions")
+            local action_state = require("telescope.actions.state")
+            actions.select_default:replace(function()
+              actions.close(prompt_bufnr)
+              local dir = action_state.get_selected_entry()[1]
+              vim.cmd.lcd(dir)
+              require("oil").open(dir)
+            end)
+            return true
+          end,
+          search_file = "^\\.git$",
+          search_dirs = (vim.fn.has("win32") == 1)
+              and { "D:/Code", "~/AppData/Local/nvim-data", "~/AppData/Local/nvim" }
+            or { "~" },
+        })
+      end,
+      desc = "Projects",
+    },
   },
 
   opts = function()
