@@ -94,6 +94,7 @@ return {
             "--hidden",
             "--case-sensitive",
             "--absolute-path",
+            "--no-ignore",
             "-td",
             "-x",
             "echo",
