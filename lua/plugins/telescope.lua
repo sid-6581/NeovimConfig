@@ -115,7 +115,7 @@ return {
           search_file = "^\\.git$",
           search_dirs = (vim.fn.has("win32") == 1)
               and { "D:/Code", "~/AppData/Local/nvim-data", "~/AppData/Local/nvim" }
-            or { "~" },
+            or { "~/" },
         })
       end,
       desc = "Projects",
