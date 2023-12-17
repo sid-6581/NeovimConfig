@@ -47,6 +47,7 @@ vim.opt.number = true
 vim.opt.numberwidth = 4
 vim.opt.pumblend = 10
 vim.opt.pumheight = 15
+vim.opt.redrawtime = 500
 vim.opt.relativenumber = false
 vim.opt.report = 1000
 vim.opt.scrolloff = 8
