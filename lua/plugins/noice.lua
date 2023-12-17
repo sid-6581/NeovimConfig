@@ -80,6 +80,9 @@ return {
         border = {
           style = "single",
         },
+        size = {
+          width = "50%",
+        },
       },
       mini = {
         timeout = 5000,
