@@ -4,7 +4,7 @@ return {
 
   keys = {
     { "<Leader>gd", "<CMD>DiffviewOpen<CR>", desc = "Diffview" },
-    { "<Leader>gh", "<CMD>DiffviewFileHistory<CR>", desc = "File history" },
+    { "<Leader>gh", "<CMD>DiffviewFileHistory %<CR>", desc = "Current file history" },
   },
 
   opts = {},
