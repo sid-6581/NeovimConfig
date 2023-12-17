@@ -9,6 +9,25 @@ M.signs = {
 
 function M.setup()
   vim.diagnostic.config({
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    float = {
+      focusable = false,
+      style = "minimal",
+      border = "single",
+      source = "always",
+      header = "",
+      prefix = "",
+    },
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = M.signs.Error,
+        [vim.diagnostic.severity.WARN] = M.signs.Warn,
+        [vim.diagnostic.severity.HINT] = M.signs.Hint,
+        [vim.diagnostic.severity.INFO] = M.signs.Info,
+      },
+    },
     virtual_text = {
       spacing = 4,
       prefix = function(diagnostic)
@@ -22,17 +41,6 @@ function M.setup()
           return M.signs.Hint
         end
       end,
-    },
-    update_in_insert = false,
-    underline = true,
-    severity_sort = true,
-    float = {
-      focusable = false,
-      style = "minimal",
-      border = "single",
-      source = "always",
-      header = "",
-      prefix = "",
     },
   })
 
