@@ -8,10 +8,6 @@ function M.on_attach(_client, buffer)
 
   -- stylua: ignore start
 
-  map("n", "gl", vim.diagnostic.open_float, { desc = "Show diagnostics" })
-  map("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
-  map("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
-
   map("n", "<Leader>ca", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
   map("n", "<Leader>cf", function() require("plugins.lsp.formatting").format() end, { desc = "Format document" })
   map("n", "<Leader>cl", function() vim.lsp.codelens.run() end, { desc = "Codelens" })
@@ -27,6 +23,7 @@ function M.on_attach(_client, buffer)
   map("n", "K", function() vim.lsp.buf.hover() end, { desc = "Show information" })
   map("n", "gK", function() vim.lsp.buf.signature_help() end, { desc = "Signature Help" })
   map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go to definition" })
+  map("n", "gl", function() vim.diagnostic.open_float() end, { desc = "Show diagnostics" })
   map("v", "<Leader>cf", function() require("plugins.lsp.formatting").format() end, { desc = "Format range" })
   map({ "n", "i" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
 
