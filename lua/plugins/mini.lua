@@ -142,6 +142,23 @@ return {
   },
 
   {
+    "echasnovski/mini.hipatterns",
+    event = "VeryLazy",
+
+    opts = {
+      highlighters = {
+        scriban_block = {
+          pattern = function(_buf_id)
+            if vim.fn.expand("%:e") ~= "sbntxt" then return nil end
+            return "{{[^}]-}}"
+          end,
+          group = "Comment",
+        },
+      },
+    },
+  },
+
+  {
     "echasnovski/mini.move",
     event = "VeryLazy",
 
