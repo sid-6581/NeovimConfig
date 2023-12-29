@@ -43,5 +43,6 @@ return {
 
   opts = {
     fold_virt_text_handler = handler,
+    provider_selector = function(_bufnr, _filetype, _buftype) return { "treesitter", "indent" } end,
   },
 }
