@@ -182,6 +182,8 @@ map("c", "<Down>", function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "
 map("c", "<Up>", function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<Up>" end, { expr = true, desc = "Wildmenu up", silent = false })
 
 -- Toggles
+map("n", "<Leader>uC", function() require("util").toggle("cursorcolumn") end, { desc = "Toggle cursorcolumn" })
+map("n", "<Leader>uc", function() require("util").toggle("cursorline") end, { desc = "Toggle cursorline" })
 map("n", "<Leader>ud", function() require("util").toggle_diagnostics() end, { desc = "Toggle diagnostics" })
 map("n", "<Leader>uf", require("plugins.lsp.formatting").toggle, { desc = "Toggle format on save" })
 map("n", "<Leader>uh", function() vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled(0)) end, { desc = "Toggle inlay hints" })
