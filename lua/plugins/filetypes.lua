@@ -13,4 +13,9 @@ return {
     "vmware-archive/salt-vim",
     ft = "sls",
   },
+
+  {
+    "NoahTheDuke/vim-just",
+    ft = { "just" },
+  },
 }
