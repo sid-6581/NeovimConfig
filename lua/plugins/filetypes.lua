@@ -13,12 +13,4 @@ return {
     "vmware-archive/salt-vim",
     ft = "sls",
   },
-
-  {
-    "IndianBoy42/tree-sitter-just",
-    event = "VeryLazy",
-    ft = "just",
-    config = true,
-    build = ":TSInstall just",
-  },
 }
