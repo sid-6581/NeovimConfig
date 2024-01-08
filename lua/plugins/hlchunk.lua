@@ -5,5 +5,10 @@ return {
     line_num = {
       use_treesitter = true,
     },
+    blank = {
+      chars = {
+        "⋅",
+      },
+    },
   },
 }
