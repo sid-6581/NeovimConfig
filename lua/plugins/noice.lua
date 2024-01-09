@@ -134,6 +134,13 @@ return {
 
   config = function(_, opts)
     require("noice").setup(opts)
+
+    local NoiceScrollbar = require("noice.view.scrollbar")
+    ---@diagnostic disable-next-line: duplicate-set-field
+    NoiceScrollbar.show = function(_self) end
+    ---@diagnostic disable-next-line: duplicate-set-field
+    NoiceScrollbar.update = function(_self) end
+
     vim.api.nvim_set_hl(0, "NoiceVirtualText", { link = "DiagnosticVirtualTextHint" })
   end,
 }
