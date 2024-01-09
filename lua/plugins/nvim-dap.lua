@@ -17,13 +17,39 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
 
+    local codelldb_root = require("mason-registry").get_package("codelldb"):get_install_path() .. "/extension/"
+    local codelldb_path = codelldb_root .. "adapter/codelldb"
+
+    dap.adapters.codelldb = {
+      type = "server",
+      port = "${port}",
+      executable = {
+        command = codelldb_path,
+        args = { "--port", "${port}" },
+      },
+    }
+
+    dap.configurations.rust = {
+      {
+        name = "Launch File",
+        type = "codelldb",
+        request = "launch",
+        program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file") end,
+        cwd = "${workspaceFolder}",
+        stopOnEntry = true,
+      },
+    }
+
     -- stylua: ignore start
     vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
     vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
     -- stylua: ignore end
 
     require("dap.ext.vscode").json_decode = require("neoconf.json.jsonc").decode_jsonc
-    require("dap.ext.vscode").load_launchjs(nil, { rt_lldb = { "rust" } })
+
+    require("dap.ext.vscode").load_launchjs(nil, {
+      codelldb = { "rust", "c", "cpp" },
+    })
 
     dapui.setup(opts)
 

@@ -28,6 +28,7 @@ return {
         zindex = 1,
       },
       hide = {
+        cursorline = true,
         only_win = false,
       },
       render = function(props)
