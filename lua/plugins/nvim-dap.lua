@@ -17,26 +17,31 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
 
-    local codelldb_root = require("mason-registry").get_package("codelldb"):get_install_path() .. "/extension/"
-    local codelldb_path = codelldb_root .. "adapter/codelldb"
-
     dap.adapters.codelldb = {
       type = "server",
       port = "${port}",
       executable = {
-        command = codelldb_path,
+        command = require("mason-registry").get_package("codelldb"):get_install_path() .. "/extension/adapter/codelldb",
         args = { "--port", "${port}" },
       },
     }
 
     dap.configurations.rust = {
       {
-        name = "Launch File",
+        name = "Launch",
         type = "codelldb",
         request = "launch",
-        program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file") end,
+        program = "${workspaceFolder}/target/debug/${workspaceFolderBasename}",
         cwd = "${workspaceFolder}",
         stopOnEntry = true,
+      },
+
+      {
+        name = "Attach to process",
+        type = "codelldb",
+        request = "attach",
+        pid = require("dap.utils").pick_process,
+        args = {},
       },
     }
 
@@ -46,10 +51,6 @@ return {
     -- stylua: ignore end
 
     require("dap.ext.vscode").json_decode = require("neoconf.json.jsonc").decode_jsonc
-
-    require("dap.ext.vscode").load_launchjs(nil, {
-      codelldb = { "rust", "c", "cpp" },
-    })
 
     dapui.setup(opts)
 
@@ -62,7 +63,12 @@ return {
     map("n", "<F10>", function() require("dap").step_over() end, { desc = "Step Over" })
     map("n", "<F11>", function() require("dap").step_into() end, { desc = "Step Into" })
     map("n", "<F12>", function() require("dap").step_out() end, { desc = "Step Out" })
-    map("n", "<F5>", function() require("dap").continue() end, { desc = "Continue" })
+    map("n", "<F5>", function()
+      require("dap.ext.vscode").load_launchjs(nil, {
+        codelldb = { "rust", "c", "cpp" },
+      })
+      require("dap").continue()
+    end, { desc = "Continue" })
     map("n", "<F9>", function() require("dap").toggle_breakpoint() end, { desc = "Toggle Breakpoint" })
     map("n", "<Leader>df", function() widgets.centered_float(widgets.frames) end, { desc = "Debug Frames" })
     map("n", "<Leader>ds", function() widgets.centered_float(widgets.scopes) end, { desc = "Debug Scopes" })
