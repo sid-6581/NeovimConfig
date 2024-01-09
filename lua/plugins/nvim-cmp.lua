@@ -117,7 +117,7 @@ return {
             menu = {
               buffer = "buffer",
               luasnip = "luasnip",
-              nvim_lsp = "lsp",
+              nvim_lsp = "lsp ",
               nvim_lua = "lua",
               path = "path",
               crates = "crates",
