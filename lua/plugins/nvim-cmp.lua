@@ -55,9 +55,13 @@ return {
         popup = {
           border = "single",
         },
+        src = {
+          cmp = {
+            enabled = true,
+          },
+        },
         null_ls = {
           enabled = true,
-          name = "crates.nvim",
         },
       },
     },
@@ -117,12 +121,12 @@ return {
           local result = lspkind.cmp_format({
             mode = "symbol_text",
             menu = {
+              crates = "crates",
               buffer = "buffer",
               luasnip = "luasnip",
               nvim_lsp = "lsp ",
               nvim_lua = "lua",
               path = "path",
-              crates = "crates",
             },
             maxwidth = 100,
             ellipsis_char = "...",
