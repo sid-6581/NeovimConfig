@@ -24,10 +24,6 @@ map("n", "]<Space>", "<CMD>put =repeat(nr2char(10), v:count1)|silent '[-<CR>", {
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
--- Same functionality as gx, but gx is remapped to something else
-map("n", "gX", "<CMD>call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>", { desc = "Open current path or URI" })
-map("v", "gX", "<CMD>call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>", { desc = "Open current path or URI" })
-
 -- Buffers
 map("n", "<Leader><Esc>", function() require("util").close_window_or_buffer() end, { desc = "Delete buffer and close window" })
 map("n", "<Leader><BS>", function() require("util").close_window_or_buffer() end, { desc = "Delete buffer and close window" })

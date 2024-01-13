@@ -189,7 +189,11 @@ return {
   {
     "echasnovski/mini.operators",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      exchange = {
+        prefix = "gX",
+      },
+    },
   },
 
   {
