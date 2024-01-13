@@ -129,7 +129,7 @@ return {
               crates = "crates",
             },
             maxwidth = 100,
-            ellipsis_char = "...",
+            ellipsis_char = "…",
           })(entry, vim_item)
           result.dup = 0
           return result
@@ -162,7 +162,7 @@ return {
           compare.score,
           compare.recently_used,
           compare.locality,
-          -- compare.sort_text,
+          compare.sort_text,
           compare.length,
           compare.order,
         },
