@@ -121,12 +121,12 @@ return {
           local result = lspkind.cmp_format({
             mode = "symbol_text",
             menu = {
-              crates = "crates",
               buffer = "buffer",
               luasnip = "luasnip",
               nvim_lsp = "lsp ",
               nvim_lua = "lua",
               path = "path",
+              crates = "crates",
             },
             maxwidth = 100,
             ellipsis_char = "...",
@@ -169,12 +169,12 @@ return {
       },
 
       sources = cmp.config.sources({
+        { name = "crates" },
         { name = "nvim_lsp", keyword_length = 1 },
         { name = "luasnip" },
         { name = "nvim_lua" },
         { name = "buffer" },
         { name = "path" },
-        { name = "crates" },
       }),
 
       window = {
