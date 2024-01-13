@@ -65,6 +65,8 @@ return {
 
   opts = function()
     local cmp = require("cmp")
+    local compare = require("cmp.config.compare")
+    local types = require("cmp.types")
     local lspkind = require("lspkind")
     local luasnip = require("luasnip")
     local select_opts = { behavior = cmp.SelectBehavior.Select }
@@ -128,6 +130,38 @@ return {
           result.dup = 0
           return result
         end,
+      },
+
+      sorting = {
+        priority_weight = 2,
+        comparators = {
+          function(entry1, entry2)
+            local kind1 = entry1:get_kind() --- @type lsp.CompletionItemKind | number
+            local kind2 = entry2:get_kind() --- @type lsp.CompletionItemKind | number
+            kind1 = kind1 == types.lsp.CompletionItemKind.Text and 100 or kind1
+            kind2 = kind2 == types.lsp.CompletionItemKind.Text and 100 or kind2
+            if kind1 ~= kind2 then
+              if kind1 == types.lsp.CompletionItemKind.Snippet then return false end
+              if kind2 == types.lsp.CompletionItemKind.Snippet then return true end
+              local diff = kind1 - kind2
+              if diff < 0 then
+                return false
+              elseif diff > 0 then
+                return true
+              end
+            end
+            return nil
+          end,
+          compare.offset,
+          compare.exact,
+          -- compare.scopes,
+          compare.score,
+          compare.recently_used,
+          compare.locality,
+          -- compare.sort_text,
+          compare.length,
+          compare.order,
+        },
       },
 
       sources = cmp.config.sources({
