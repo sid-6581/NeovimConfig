@@ -142,11 +142,11 @@ return {
           function(entry1, entry2)
             local kind1 = entry1:get_kind() --- @type lsp.CompletionItemKind | number
             local kind2 = entry2:get_kind() --- @type lsp.CompletionItemKind | number
-            kind1 = kind1 == types.lsp.CompletionItemKind.Text and 100 or kind1
-            kind2 = kind2 == types.lsp.CompletionItemKind.Text and 100 or kind2
             if kind1 ~= kind2 then
               if kind1 == types.lsp.CompletionItemKind.Snippet then return false end
               if kind2 == types.lsp.CompletionItemKind.Snippet then return true end
+              if kind1 == types.lsp.CompletionItemKind.Text then return false end
+              if kind2 == types.lsp.CompletionItemKind.Text then return true end
               local diff = kind1 - kind2
               if diff < 0 then
                 return false
