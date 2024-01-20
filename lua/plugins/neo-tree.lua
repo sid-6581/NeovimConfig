@@ -33,6 +33,10 @@ return {
         -- },
       },
       bind_to_cwd = true,
+      cwd_target = {
+        sidebar = "none",
+        current = "none",
+      },
       follow_current_file = {
         enabled = true,
         leave_dirs_open = true,
