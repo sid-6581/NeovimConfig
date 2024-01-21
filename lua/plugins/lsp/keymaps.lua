@@ -23,7 +23,7 @@ function M.on_attach(_client, buffer)
   map("n", "K", function() vim.lsp.buf.hover() end, { desc = "Show information" })
   map("n", "gK", function() vim.lsp.buf.signature_help() end, { desc = "Signature Help" })
   map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, { desc = "Go to definition" })
-  map("n", "gl", function() vim.diagnostic.open_float() end, { desc = "Show diagnostics" })
+  map("n", "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, { desc = "Show diagnostics" })
   map("v", "<Leader>cf", function() require("plugins.lsp.formatting").format() end, { desc = "Format range" })
   map({ "n", "i" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
 
