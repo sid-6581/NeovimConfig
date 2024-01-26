@@ -76,6 +76,10 @@ return {
     local select_opts = { behavior = cmp.SelectBehavior.Select }
 
     return {
+      completion = {
+        completeopt = "menu,preview",
+      },
+
       snippet = {
         expand = function(args) require("luasnip").lsp_expand(args.body) end,
       },
