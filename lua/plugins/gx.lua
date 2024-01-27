@@ -7,5 +7,7 @@ return {
     vim.g.netrw_nogx = 1 -- disable netrw gx
   end,
 
-  opts = {},
+  opts = {
+    open_browser_app = (vim.fn.has("win32") == 1) and "powershell.exe" or "wslview",
+  },
 }
