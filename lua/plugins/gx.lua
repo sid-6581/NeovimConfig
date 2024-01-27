@@ -8,6 +8,6 @@ return {
   end,
 
   opts = {
-    open_browser_app = (vim.fn.has("win32") == 1) and "powershell.exe" or "wslview",
+    open_browser_app = (vim.fn.has("wsl") == 1) and "wslview" or nil,
   },
 }
