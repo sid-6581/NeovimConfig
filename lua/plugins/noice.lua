@@ -28,18 +28,18 @@ return {
   },
 
   opts = {
-    -- cmdline = {
-    --   view = "cmdline",
-    --   format = {
-    --     cmdline = { conceal = false },
-    --     search_down = { conceal = false },
-    --     search_up = { conceal = false },
-    --     filter = { conceal = false },
-    --     lua = { conceal = false },
-    --     help = { conceal = false },
-    --     input = { conceal = false },
-    --   },
-    -- },
+    cmdline = {
+      view = "cmdline",
+      format = {
+        cmdline = { conceal = false },
+        search_down = { conceal = false },
+        search_up = { conceal = false },
+        filter = { conceal = false },
+        lua = { conceal = false },
+        help = { conceal = false },
+        input = { conceal = false },
+      },
+    },
     lsp = {
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -67,7 +67,7 @@ return {
     },
     presets = {
       bottom_search = true,
-      command_palette = true,
+      command_palette = false,
       long_message_to_split = true,
       inc_rename = false,
       lsp_doc_border = true,
