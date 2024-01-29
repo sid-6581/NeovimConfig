@@ -25,7 +25,7 @@ function M.on_attach(_client, buffer)
   map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, { desc = "Go to definition" })
   map("n", "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, { desc = "Show diagnostics" })
   map("v", "<Leader>cf", function() require("plugins.lsp.formatting").format() end, { desc = "Format range" })
-  map({ "n", "i" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
+  map({ "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
 
   -- stylua: ignore end
 end
