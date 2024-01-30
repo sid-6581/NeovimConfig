@@ -29,6 +29,7 @@ return {
       },
       hide = {
         cursorline = true,
+        focused_win = true,
         only_win = false,
       },
       render = function(props)
