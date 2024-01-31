@@ -4,7 +4,7 @@ return {
   cmd = { "MasonToolsUpdate" },
 
   keys = {
-    { "<Leader>li", "<CMD>LspInfo<CR>", desc = "LSP info" },
+    { "<Leader>lI", "<CMD>LspInfo<CR>", desc = "LSP info" },
   },
 
   dependencies = {
