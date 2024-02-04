@@ -165,6 +165,11 @@ function M.setup(options)
               command = "clippy",
               extraArgs = { "--no-deps" },
             },
+            files = {
+              watcher = {
+                type = "server",
+              },
+            },
           },
         },
       })
