@@ -44,7 +44,6 @@ return {
 
     {
       "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-      enabled = false,
 
       keys = {
         { "<Leader>uL", function() require("lsp_lines").toggle() end, desc = "Toggle LSP lines" },
