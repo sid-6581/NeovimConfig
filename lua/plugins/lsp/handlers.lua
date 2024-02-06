@@ -145,8 +145,6 @@ function M.setup(options)
     rust_analyzer = function(server_name)
       setup(server_name, {
         cmd = { "rustup", "run", "nightly", "rust-analyzer" },
-        capabilities = options.capabilities,
-        on_attach = options.on_attach,
         settings = {
           ["rust-analyzer"] = {
             cargo = {
