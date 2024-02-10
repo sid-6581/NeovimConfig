@@ -196,6 +196,10 @@ function M.setup(options)
 
     volar = function(server_name)
       setup(server_name, {
+        on_attach = function(client, bufnr)
+          client.server_capabilities.semanticTokensProvider = true
+          options.on_attach(client, bufnr)
+        end,
         filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       })
     end,
