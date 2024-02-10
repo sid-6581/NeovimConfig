@@ -197,7 +197,7 @@ function M.setup(options)
     volar = function(server_name)
       setup(server_name, {
         on_attach = function(client, bufnr)
-          vim.lsp.handlers["workspace/semanticTokens/refresh"] = function(_, _, _) return vim.NIL end
+          client.server_capabilities.semanticTokensProvider.full = true
           options.on_attach(client, bufnr)
         end,
         filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
