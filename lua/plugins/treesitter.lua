@@ -58,7 +58,7 @@ return {
 
     highlight = {
       enable = true,
-      disable = { "comment", "help" },
+      disable = { "comment", "help", "dockerfile" },
       additional_vim_regex_highlighting = false,
     },
 
