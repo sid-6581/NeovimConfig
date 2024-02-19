@@ -52,12 +52,14 @@ vim.opt.pumheight = 15
 vim.opt.redrawtime = 500
 vim.opt.relativenumber = false
 vim.opt.report = 1000
+vim.opt.ruler = false
 vim.opt.scrolloff = 8
 vim.opt.selection = "inclusive"
 vim.opt.shell = (vim.fn.has("win32") == 1) and "cmd.exe" or vim.opt.shell
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
 vim.opt.shortmess:append("cIs")
+vim.opt.showcmd = false
 vim.opt.showmode = false
 vim.opt.showtabline = 0
 vim.opt.sidescrolloff = 8
