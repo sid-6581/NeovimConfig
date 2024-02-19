@@ -164,9 +164,7 @@ function M.setup(options)
               extraArgs = { "--no-deps" },
             },
             files = {
-              watcher = {
-                type = "server",
-              },
+              watcher = "server",
             },
           },
         },
