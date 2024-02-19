@@ -7,6 +7,7 @@ return {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "onsails/lspkind.nvim",
@@ -175,6 +176,7 @@ return {
       sources = cmp.config.sources({
         { name = "crates" },
         { name = "nvim_lsp", keyword_length = 1 },
+        { name = "nvim_lsp_signature_help" },
         { name = "luasnip" },
         { name = "nvim_lua" },
         { name = "buffer" },

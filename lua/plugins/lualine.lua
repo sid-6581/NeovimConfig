@@ -4,7 +4,7 @@ return {
 
   config = function()
     local lualine = require("lualine")
-    local noice = require("noice")
+    -- local noice = require("noice")
 
     local custom_theme = vim.deepcopy(require("lualine.themes.gruvbox_dark"))
     custom_theme.normal.c.bg = "Normal"
@@ -91,20 +91,20 @@ return {
           {
             "aerial",
           },
-          {
-            ---@diagnostic disable-next-line: undefined-field
-            noice.api.status.mode.get,
-            ---@diagnostic disable-next-line: undefined-field
-            cond = noice.api.status.mode.has,
-            color = { fg = "#ff9e64" },
-          },
-          {
-            ---@diagnostic disable-next-line: undefined-field
-            noice.api.status.search.get,
-            ---@diagnostic disable-next-line: undefined-field
-            cond = noice.api.status.search.has,
-            color = { fg = "#ff9e64" },
-          },
+          -- {
+          --   ---@diagnostic disable-next-line: undefined-field
+          --   noice.api.status.mode.get,
+          --   ---@diagnostic disable-next-line: undefined-field
+          --   cond = noice.api.status.mode.has,
+          --   color = { fg = "#ff9e64" },
+          -- },
+          -- {
+          --   ---@diagnostic disable-next-line: undefined-field
+          --   noice.api.status.search.get,
+          --   ---@diagnostic disable-next-line: undefined-field
+          --   cond = noice.api.status.search.has,
+          --   color = { fg = "#ff9e64" },
+          -- },
         },
         lualine_x = { diff, diagnostics, "filetype", lsp, spaces, "encoding", fileformat },
         lualine_y = { "location", "selectioncount" },
