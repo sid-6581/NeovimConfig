@@ -69,7 +69,7 @@ function M.on_attach(client, _buf)
     vim.cmd([[
       augroup lsp_codelens_refresh
         autocmd! * <buffer>
-        autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+        autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh({ bufnr = 0 })
       augroup END
     ]])
   end
