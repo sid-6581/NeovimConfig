@@ -16,7 +16,7 @@ return {
     { "<Leader>gu", function() require("gitsigns").undo_stage_hunk() end, desc = "Undo stage hunk" },
   },
 
-  -- opts = {
-  --   sign_priority = 100,
-  -- },
+  opts = {
+    -- sign_priority = 100,
+  },
 }
