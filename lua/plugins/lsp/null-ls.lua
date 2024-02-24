@@ -3,7 +3,6 @@ local M = {}
 function M.setup(options)
   local nls = require("null-ls")
 
-  local code_actions = nls.builtins.code_actions
   local formatting = nls.builtins.formatting
   local diagnostics = nls.builtins.diagnostics
 
