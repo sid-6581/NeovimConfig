@@ -27,8 +27,6 @@ function M.setup(options)
     on_attach = options.on_attach,
 
     sources = {
-      code_actions.shellcheck,
-      diagnostics.flake8,
       diagnostics.hadolint,
       diagnostics.yamllint,
       formatting.black.with({
