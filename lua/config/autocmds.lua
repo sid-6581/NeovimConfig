@@ -32,6 +32,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = {
+    "DiffViewFileHistory",
+  },
+  callback = function(event) vim.keymap.set("n", "q", "<CMD>tabclose<CR>", { buffer = event.buf, silent = true }) end,
+})
+
 -- Turn off filetype indent for vue, because it uses HTML indent which doesn't work with pug
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "vue" },
