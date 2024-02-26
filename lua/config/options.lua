@@ -12,7 +12,8 @@ vim.g.neovide_cursor_vfx_mode = ""
 vim.g.neovide_no_idle = true
 vim.g.neovide_refresh_rate = 120
 vim.g.neovide_remember_window_size = true
-vim.g.neovide_floating_shadow = true
+vim.g.neovide_floating_shadow = false
+vim.g.neovide_scroll_animation_far_lines = 0
 
 vim.opt.autowrite = true
 vim.opt.backup = true
