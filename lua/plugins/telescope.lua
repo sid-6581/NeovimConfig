@@ -141,44 +141,6 @@ return {
         prompt_prefix = " ",
         sorting_strategy = "ascending",
         selection_caret = " ",
-        path_display = (function()
-          local paths = {}
-          return function(_opts, filepath)
-            filepath = require("util").normalize_path(filepath)
-            local final = filepath
-            if #paths ~= 0 then
-              local dirs = vim.split(filepath, "/")
-              local max = 1
-              for _, p in pairs(paths) do
-                if #p > 0 and p ~= filepath then
-                  local _dirs = vim.split(p, "/")
-                  for i = 1, math.min(#dirs, #_dirs) do
-                    if (dirs[i] ~= _dirs[i]) and i > max then
-                      max = i
-                      break
-                    end
-                  end
-                end
-              end
-              if #dirs ~= 0 then
-                if max == 1 and #dirs >= 2 then max = #dirs - 2 end
-                final = ""
-                for k, v in pairs(dirs) do
-                  if k >= max - 1 then final = final .. (#final > 0 and "/" or "") .. v end
-                end
-              end
-            end
-            if not paths[filepath] then
-              paths[filepath] = ""
-              table.insert(paths, filepath)
-            end
-            if final and final ~= filepath then
-              return "../" .. final
-            else
-              return filepath
-            end
-          end
-        end)(),
         vimgrep_arguments = {
           "rg",
           "--color=never",
@@ -247,6 +209,15 @@ return {
 
   config = function(_, opts)
     local telescope = require("telescope")
+    local utils = require("telescope.utils")
+
+    local transform_path = utils.transform_path
+    ---@diagnostic disable-next-line: duplicate-set-field
+    utils.transform_path = function(opts2, path)
+      vim.notify(path)
+      path = require("util").normalize_path(path)
+      return transform_path(opts2, path)
+    end
 
     telescope.setup(opts)
     telescope.load_extension("ast_grep")

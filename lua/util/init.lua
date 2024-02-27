@@ -3,7 +3,8 @@ local M = {}
 -- Normalize a path. Will fix Windows paths.
 ---@param path string
 function M.normalize_path(path)
-  if path:sub(2, 2) == ":" then path = vim.fs.normalize(path):gsub("\\", "/"):gsub("^%l", string.upper) end
+  if path:sub(2, 2) == ":" then path = vim.fs.normalize(path):gsub("^%l", string.upper) end
+  path = path:gsub("\\", "/")
   return path
 end
 
