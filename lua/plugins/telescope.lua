@@ -141,6 +141,7 @@ return {
         prompt_prefix = " ",
         sorting_strategy = "ascending",
         selection_caret = " ",
+        path_display = { "smart" },
         vimgrep_arguments = {
           "rg",
           "--color=never",
