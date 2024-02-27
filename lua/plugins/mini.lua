@@ -111,7 +111,7 @@ return {
     },
 
     opts = {
-      comment = { suffix = "C" },
+      comment = { suffix = "" },
       file = { suffix = "F" },
       treesitter = { suffix = "n" },
       undo = { suffix = "" },
