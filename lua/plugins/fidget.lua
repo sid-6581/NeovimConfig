@@ -6,6 +6,12 @@ return {
       ignore_empty_message = true,
       display = {
         overrides = {
+          lua_ls = {
+            update_hook = function(item)
+              require("fidget.notification").set_content_key(item)
+              if item.annote:match("Searching") then item.hidden = true end
+            end,
+          },
           rust_analyzer = {
             update_hook = function(item)
               require("fidget.notification").set_content_key(item)
