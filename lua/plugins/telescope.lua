@@ -219,6 +219,13 @@ return {
       return transform_path(opts2, path)
     end
 
+    local is_uri = utils.is_uri
+    ---@diagnostic disable-next-line: duplicate-set-field
+    utils.is_uri = function(filename)
+      if filename:sub(2, 2) == ":" then return false end
+      return is_uri(filename)
+    end
+
     telescope.setup(opts)
     telescope.load_extension("ast_grep")
     telescope.load_extension("egrepify")
