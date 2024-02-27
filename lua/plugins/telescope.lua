@@ -214,7 +214,6 @@ return {
     local transform_path = utils.transform_path
     ---@diagnostic disable-next-line: duplicate-set-field
     utils.transform_path = function(opts2, path)
-      vim.notify(path)
       path = require("util").normalize_path(path)
       return transform_path(opts2, path)
     end
