@@ -130,7 +130,7 @@ return {
       defaults = {
         winblend = 0,
         layout_config = {
-          -- prompt_position = "top",
+          prompt_position = "top",
           horizontal = {
             preview_width = 0.6,
             height = 0.8,
@@ -139,7 +139,7 @@ return {
         },
         borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         prompt_prefix = " ",
-        -- sorting_strategy = "ascending",
+        sorting_strategy = "ascending",
         selection_caret = " ",
         -- path_display = { "smart" },
         vimgrep_arguments = {
@@ -203,6 +203,9 @@ return {
           },
           grep_open_files = false,
           lang = nil,
+        },
+        egrepify = {
+          title = false,
         },
         undo = {
           use_delta = false,
