@@ -17,7 +17,8 @@ exe 'syn match x12SubDelimiter "\v\' . b:subdl . '"'
 exe 'syn match x12SegDelimiter "\v\' . b:segdl . '"'
 exe 'syn match x12Segments "\v^\w+"'
 exe 'syn match x12Envelope "\v^(ISA|GS|ST|SE|GE|IEA)"'
-exe 'syn match x12Special "\v^(NM1)"'
+exe 'syn match x12Identifier "\v^(NM1)"'
+exe 'syn match x12Special "\v^(CLM|EB)"'
 
 let b:current_syntax = "x12"
 
@@ -26,4 +27,5 @@ hi def link x12SubDelimiter  PreProc
 hi def link x12SegDelimiter  Operator
 hi def link x12Envelope      Title
 hi def link x12Segments      Type
+hi def link x12Identifier    Identifier
 hi def link x12Special       Special
