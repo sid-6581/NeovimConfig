@@ -33,9 +33,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = {
-    "DiffViewFileHistory",
-  },
+  pattern = { "DiffViewFileHistory", "DiffViewFiles" },
   callback = function(event) vim.keymap.set("n", "q", "<CMD>tabclose<CR>", { buffer = event.buf, silent = true }) end,
 })
 
