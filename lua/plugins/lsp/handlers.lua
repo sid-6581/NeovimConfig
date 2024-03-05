@@ -10,12 +10,46 @@ function M.setup(options)
   require("mason").setup()
   require("mason-lspconfig").setup()
 
+  local lspconfig = require("lspconfig")
+
   local setup = function(server_name, opts)
-    require("lspconfig")[server_name].setup(vim.tbl_deep_extend("force", {
+    lspconfig[server_name].setup(vim.tbl_deep_extend("force", {
       on_attach = options.on_attach,
       capabilities = options.capabilities,
     }, opts))
   end
+
+  setup("rust_analyzer", {
+    cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = {
+          features = "all",
+          buildScripts = {
+            useRustcWrapper = false,
+          },
+        },
+        diagnostics = {
+          disabled = { "unresolved-proc-macro" },
+          experimental = {
+            enable = true,
+          },
+        },
+        check = {
+          command = "clippy",
+          extraArgs = { "--no-deps" },
+        },
+        files = {
+          watcher = "server",
+        },
+      },
+    },
+  })
+
+  setup("volar", {
+    cmd = { "pnpm", "vue-language-server", "--stdio" },
+    filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+  })
 
   require("mason-lspconfig").setup_handlers({
     function(server_name) setup(server_name, {}) end,
@@ -142,35 +176,6 @@ function M.setup(options)
       })
     end,
 
-    rust_analyzer = function(server_name)
-      setup(server_name, {
-        cmd = { "rustup", "run", "nightly", "rust-analyzer" },
-        settings = {
-          ["rust-analyzer"] = {
-            cargo = {
-              features = "all",
-              buildScripts = {
-                useRustcWrapper = false,
-              },
-            },
-            diagnostics = {
-              disabled = { "unresolved-proc-macro" },
-              experimental = {
-                enable = true,
-              },
-            },
-            check = {
-              command = "clippy",
-              extraArgs = { "--no-deps" },
-            },
-            files = {
-              watcher = "server",
-            },
-          },
-        },
-      })
-    end,
-
     taplo = function(server_name)
       local function show_documentation()
         if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
@@ -192,8 +197,17 @@ function M.setup(options)
       })
     end,
 
-    volar = function(server_name)
+    tsserver = function(server_name)
       setup(server_name, {
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = "",
+              languages = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+            },
+          },
+        },
         filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       })
     end,

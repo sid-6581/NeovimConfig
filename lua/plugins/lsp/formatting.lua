@@ -16,6 +16,11 @@ function M.format()
     bufnr = buf,
     filter = function(client)
       if have_nls then return client.name == "null-ls" end
+
+      for _, name in ipairs({ "tsserver" }) do
+        if client.name == name then return end
+      end
+
       return client.name ~= "null-ls"
     end,
   })
