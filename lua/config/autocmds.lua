@@ -17,14 +17,15 @@ end
 -- Use q to close non-editor windows, and hide them from the buffer list
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = {
-    "qf",
+    "PlenaryTestPopup",
     "help",
+    "lspinfo",
     "man",
     "notify",
-    "lspinfo",
+    "qf",
+    "query",
     "spectre_panel",
     "startuptime",
-    "PlenaryTestPopup",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
