@@ -38,7 +38,6 @@ return {
             and vim.fn.reg_executing() == ""
             and vim.fn.reg_recording() == ""
         end,
-        jump_labels = true,
         highlight = {
           backdrop = false,
         },
