@@ -17,6 +17,6 @@ return {
   },
 
   opts = {
-    -- sign_priority = 100,
+    sign_priority = 100,
   },
 }
