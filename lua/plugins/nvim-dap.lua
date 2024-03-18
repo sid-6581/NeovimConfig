@@ -8,7 +8,12 @@ return {
   event = "VeryLazy",
 
   dependencies = {
-    "rcarriga/nvim-dap-ui",
+    {
+      "rcarriga/nvim-dap-ui",
+      dependencies = {
+        "nvim-neotest/nvim-nio",
+      },
+    },
   },
 
   opts = {},
