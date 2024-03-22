@@ -89,6 +89,16 @@ return {
         },
         lualine_c = {
           {
+            function()
+              if vim.b["visual_multi"] then
+                local ret = vim.api.nvim_exec2("call b:VM_Selection.Funcs.infoline()", { output = true })
+                return string.match(ret.output, "M.*")
+              else
+                return ""
+              end
+            end,
+          },
+          {
             "aerial",
           },
           -- {
