@@ -21,6 +21,7 @@ lazy.setup("plugins", {
   },
   ui = {
     border = "single",
+    backdrop = 100,
   },
   checker = {
     enabled = true,
