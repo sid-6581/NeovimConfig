@@ -51,7 +51,7 @@ function M.setup(options)
     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
     init_options = {
       vue = {
-        hybridMode = false,
+        hybridMode = true,
       },
     },
   })
@@ -178,27 +178,6 @@ function M.setup(options)
             },
           },
         },
-      })
-    end,
-
-    taplo = function(server_name)
-      local function show_documentation()
-        if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
-          require("crates").show_popup()
-        else
-          vim.lsp.buf.hover()
-        end
-      end
-
-      setup(server_name, {
-        on_attach = function(client, bufnr)
-          options.on_attach(client, bufnr)
-          vim.keymap.set("n", "K", show_documentation, { buffer = bufnr, desc = "Show Crate Documentation" })
-        end,
-        root_dir = function(fname)
-          return require("lspconfig.util").find_git_ancestor(fname)
-            or require("lspconfig.util").root_pattern("Cargo.toml")(fname)
-        end,
       })
     end,
 

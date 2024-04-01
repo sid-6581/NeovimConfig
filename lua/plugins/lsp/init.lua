@@ -117,7 +117,6 @@ return {
         require("plugins.lsp.keymaps").on_attach(client, bufnr)
       end,
       capabilities = capabilities,
-      flags = { debounce_text_changes = 150 },
     }
 
     require("plugins.lsp.handlers").setup(options)

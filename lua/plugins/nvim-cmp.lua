@@ -48,24 +48,6 @@ return {
         require("luasnip.loaders.from_vscode").load({ paths = { "./snippets" } })
       end,
     },
-
-    {
-      "Saecki/crates.nvim",
-
-      opts = {
-        popup = {
-          border = "single",
-        },
-        src = {
-          cmp = {
-            enabled = true,
-          },
-        },
-        null_ls = {
-          enabled = true,
-        },
-      },
-    },
   },
 
   opts = function()
@@ -174,7 +156,6 @@ return {
       },
 
       sources = cmp.config.sources({
-        { name = "crates" },
         { name = "nvim_lsp", keyword_length = 1 },
         { name = "nvim_lsp_signature_help" },
         { name = "luasnip" },
