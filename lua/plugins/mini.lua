@@ -145,8 +145,8 @@ return {
     opts = {
       windows = {
         preview = false,
-        width_focus = 30,
-        width_preview = 40,
+        width_focus = 50,
+        width_preview = 50,
       },
       options = {
         use_as_default_explorer = false,
