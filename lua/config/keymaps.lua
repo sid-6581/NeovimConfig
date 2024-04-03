@@ -32,10 +32,10 @@ map("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Next buffer" })
 
 -- Window opening
 map("n", "<Leader>-", "<CMD>new<CR>", { desc = "Open new file in new split" })
-map("n", "<Leader>.-", "<CMD>new .<CR>", { desc = "Edit current directory in new vplit" })
-map("n", "<Leader>.\\", "<CMD>vnew .<CR>", { desc = "Edit current directory in new vsplit" })
+map("n", "<Leader>.-", "<CMD>new %:h<CR>", { desc = "Edit current directory in new vplit" })
+map("n", "<Leader>.\\", "<CMD>vnew %:h<CR>", { desc = "Edit current directory in new vsplit" })
 map("n", "<Leader><Leader>-", "<CMD>split<CR>", { desc = "Open current file in new split" })
-map("n", "<Leader><Leader>.", "<CMD>e .<CR>", { desc = "Edit current directory" })
+map("n", "<Leader><Leader>.", "<CMD>e %:h<CR>", { desc = "Edit current directory" })
 map("n", "<Leader><Leader>\\", "<CMD>vsplit<CR>", { desc = "Open current file in new vsplit" })
 map("n", "<Leader>\\", "<CMD>vnew<CR>", { desc = "Open new file in new vsplit" })
 map("n", "<Leader>wT", "<C-W>T", { desc = "Open current window in new tab" })
