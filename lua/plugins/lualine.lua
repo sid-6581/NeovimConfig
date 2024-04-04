@@ -133,11 +133,19 @@ return {
           {
             "buffers",
             show_filename_only = true,
-            filetype_names = { ["neo-tree"] = "" },
-            disabled_buftypes = { "quickfix", "prompt", "neo-tree" },
-            symbols = {
-              alternate_file = "",
+            filetype_names = {
+              ["neo-tree"] = "neo-tree",
+              ["oil"] = "oil",
             },
+            disabled_buftypes = {
+              "neo-tree",
+              "prompt",
+              "quickfix",
+            },
+            symbols = {
+              alternate_file = "",
+            },
+            use_mode_colors = true,
           },
         },
         lualine_b = {},
