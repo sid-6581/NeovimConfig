@@ -152,6 +152,24 @@ return {
         use_as_default_explorer = false,
       },
     },
+
+    config = function(_, opts)
+      require("mini.files").setup(opts)
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "MiniFilesBufferCreate",
+        callback = function()
+          vim.schedule(function()
+            vim.api.nvim_set_option_value("buftype", "acwrite", { scope = "local" })
+            vim.api.nvim_buf_set_name(0, require("mini.files").get_fs_entry(0, 1).path)
+            vim.api.nvim_create_autocmd("BufWriteCmd", {
+              buffer = 0,
+              callback = function() require("mini.files").synchronize() end,
+            })
+          end)
+        end,
+      })
+    end,
   },
 
   {
