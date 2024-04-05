@@ -180,6 +180,10 @@ return {
         find_files = {
           find_command = { "fd", "--hidden", "--exclude", ".git", "--glob", "" },
         },
+        lsp_references = {
+          include_declaration = false,
+          include_current_line = false,
+        },
         keymaps = {
           filter = function(km)
             -- Hide which-key keymaps
