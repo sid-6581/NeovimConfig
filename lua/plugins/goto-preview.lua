@@ -4,12 +4,17 @@ return {
 
   -- stylua: ignore
   keys = {
-    { "<Leader>cpd", function() require("goto-preview").goto_preview_definition({}) end, desc = "Preview definition" },
-    { "<Leader>cpt", function() require("goto-preview").goto_preview_type_definition({}) end, desc = "Preview type definition", },
-    { "<Leader>cpi", function() require("goto-preview").goto_preview_implementation({}) end, desc = "Preview implementation", },
-    { "<Leader>cpP", function() require("goto-preview").close_all_win({}) end, desc = "Close all preview windows" },
-    { "<Leader>cpr", function() require("goto-preview").goto_preview_references({}) end, desc = "Preview references" },
+    { "gpc", function() require("goto-preview").close_all_win({}) end, desc = "Close all preview windows" },
+    { "gpd", function() require("goto-preview").goto_preview_definition({}) end, desc = "Preview definition" },
+    { "gpi", function() require("goto-preview").goto_preview_implementation({}) end, desc = "Preview implementation", },
+    { "gpr", function() require("goto-preview").goto_preview_references({}) end, desc = "Preview references" },
+    { "gpt", function() require("goto-preview").goto_preview_type_definition({}) end, desc = "Preview type definition", },
   },
 
-  opts = {},
+  opts = {
+    border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
+    preview_window_title = {
+      enable = false,
+    },
+  },
 }

@@ -6,9 +6,9 @@ return {
   keys = {
     { mode = { "n", "x" }, "y", "<Plug>(YankyYank)", desc = "Yank text" },
     { mode = { "n", "x" }, "p", "<Plug>(YankyPutAfter)", desc = "Put yanked text after cursor" },
-    { mode = { "n", "x" }, "P", "<Plug>(YankyPutBefore)", desc = "Put yanked text before cursor" },
-    { mode = { "n", "x" }, "gp", "<Plug>(YankyGPutAfter)", desc = "Put yanked text after selection" },
-    { mode = { "n", "x" }, "gP", "<Plug>(YankyGPutBefore)", desc = "Put yanked text before selection" },
+    { mode = { "n", "x" }, "P", "<Plug>(YankyGPutBefore)", desc = "Put yanked text before cursor" },
+    -- { mode = { "n", "x" }, "gp", "<Plug>(YankyGPutAfter)", desc = "Put yanked text after selection" },
+    -- { mode = { "n", "x" }, "gP", "<Plug>(YankyGPutBefore)", desc = "Put yanked text before selection" },
     { "[y", "<Plug>(YankyCycleForward)", desc = "Cycle forward through yank history" },
     { "]y", "<Plug>(YankyCycleBackward)", desc = "Cycle backward through yank history" },
     { "]p", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put indented after cursor (linewise)" },
