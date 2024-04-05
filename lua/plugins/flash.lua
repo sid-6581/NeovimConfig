@@ -6,6 +6,7 @@ return {
   keys = {
     { "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, desc = "Go to treesitter node start" },
     { "gN", function() require("flash").treesitter({ jump = { pos = "end" } }) end, desc = "Go to treesitter node end" },
+    { "gw", function() require("flash").jump({ search = { mode = "search", max_length = 0 }, pattern = "\\<" }) end, desc = "Go to word start" },
     { "<Leader>uF", function()
       vim.notify(require("flash.plugins.search").enabled and "Disabled flash search" or "Enabled flash search")
       require("flash").toggle()
