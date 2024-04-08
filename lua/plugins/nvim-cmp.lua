@@ -56,7 +56,6 @@ return {
     local types = require("cmp.types")
     local lspkind = require("lspkind")
     local luasnip = require("luasnip")
-    local select_opts = { behavior = cmp.SelectBehavior.Select }
 
     return {
       completion = {
@@ -68,20 +67,26 @@ return {
       },
 
       mapping = {
-        ["<C-k>"] = cmp.mapping.select_prev_item(select_opts),
-        ["<C-j>"] = cmp.mapping.select_next_item(select_opts),
-        ["<Up>"] = cmp.mapping.select_prev_item(select_opts),
-        ["<Down>"] = cmp.mapping.select_next_item(select_opts),
+        ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+        ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+        ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+        ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete({}), { "i", "c" }),
-        ["<C-e>"] = cmp.mapping({
+        ["<Esc>"] = cmp.mapping({
           i = cmp.mapping.abort(),
-          c = cmp.mapping.close(),
+          c = function()
+            if cmp.visible() then
+              cmp.abort()
+            else
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-c>", true, true, true), "n", true)
+            end
+          end,
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.confirm({ cmp.ConfirmBehavior.Insert, select = true })
+            cmp.confirm({ select = true })
           elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
           else
@@ -181,12 +186,6 @@ return {
 
     cmp.setup.cmdline("/", {
       mapping = {
-        ["<C-k>"] = { c = cmp.mapping.select_prev_item() },
-        ["<C-j>"] = { c = cmp.mapping.select_next_item() },
-        ["<C-e>"] = cmp.mapping({
-          i = cmp.mapping.abort(),
-          c = cmp.mapping.close(),
-        }),
         ["<Tab>"] = { c = cmp.mapping.confirm({ select = true }) },
       },
       sources = {
@@ -196,17 +195,10 @@ return {
 
     cmp.setup.cmdline(":", {
       mapping = {
-        ["<C-k>"] = { c = cmp.mapping.select_prev_item() },
-        ["<C-j>"] = { c = cmp.mapping.select_next_item() },
-        ["<C-e>"] = cmp.mapping({
-          i = cmp.mapping.abort(),
-          c = cmp.mapping.close(),
-        }),
         ["<Tab>"] = { c = cmp.mapping.confirm({ select = true }) },
       },
       sources = cmp.config.sources({
         { name = "path" },
-      }, {
         { name = "cmdline" },
       }),
     })
