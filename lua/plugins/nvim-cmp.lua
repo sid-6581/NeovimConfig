@@ -75,7 +75,6 @@ return {
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete({}), { "i", "c" }),
-        ["<C-y>"] = cmp.config.disable,
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
@@ -184,7 +183,6 @@ return {
       mapping = {
         ["<C-k>"] = { c = cmp.mapping.select_prev_item() },
         ["<C-j>"] = { c = cmp.mapping.select_next_item() },
-        ["<C-y>"] = { c = cmp.config.disable },
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
@@ -200,7 +198,6 @@ return {
       mapping = {
         ["<C-k>"] = { c = cmp.mapping.select_prev_item() },
         ["<C-j>"] = { c = cmp.mapping.select_next_item() },
-        ["<C-y>"] = { c = cmp.config.disable },
         ["<C-e>"] = cmp.mapping({
           i = cmp.mapping.abort(),
           c = cmp.mapping.close(),
