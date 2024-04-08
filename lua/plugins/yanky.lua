@@ -23,11 +23,17 @@ return {
     { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put before applying a filter" },
   },
 
-  config = function()
+  opts = function()
     local utils = require("yanky.utils")
     local mapping = require("yanky.telescope.mapping")
 
-    require("yanky").setup({
+    return {
+      ring = {
+        sync_with_numbered_registers = false,
+      },
+      system_clipboard = {
+        sync_with_ring = false,
+      },
       highlight = {
         timer = 200,
       },
@@ -48,7 +54,11 @@ return {
           },
         },
       },
-    })
+    }
+  end,
+
+  config = function(_, opts)
+    require("yanky").setup(opts)
     vim.api.nvim_set_hl(0, "YankyPut", { link = "Visual" })
     vim.api.nvim_set_hl(0, "YankyYanked", { link = "Visual" })
   end,
