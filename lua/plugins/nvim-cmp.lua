@@ -59,7 +59,7 @@ return {
 
     return {
       completion = {
-        completeopt = "menu,preview",
+        completeopt = "menu,menuone",
       },
 
       snippet = {
@@ -67,23 +67,13 @@ return {
       },
 
       mapping = {
-        ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-        ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-        ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-        ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+        ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i", "c" }),
+        ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i", "c" }),
+        ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i", "c" }),
+        ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete({}), { "i", "c" }),
-        ["<Esc>"] = cmp.mapping({
-          i = cmp.mapping.abort(),
-          c = function()
-            if cmp.visible() then
-              cmp.abort()
-            else
-              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-c>", true, true, true), "n", true)
-            end
-          end,
-        }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.confirm({ select = true })
