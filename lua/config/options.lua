@@ -57,6 +57,7 @@ vim.opt.ruler = false
 vim.opt.scrolloff = 8
 vim.opt.selection = "inclusive"
 vim.opt.shell = (vim.fn.has("win32") == 1) and "cmd.exe" or vim.opt.shell
+vim.opt.shellslash = true
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
 vim.opt.shortmess:append("cIs")
