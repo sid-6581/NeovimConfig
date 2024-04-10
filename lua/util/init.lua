@@ -83,7 +83,7 @@ function M.close_window_or_buffer()
     vim.api.nvim_win_close(0, false)
     if should_delete_buffer then vim.api.nvim_buf_delete(current_buffer, {}) end
   else
-    require("close_buffers").delete({ type = "this" })
+    require("close_buffers").wipe({ type = "this" })
   end
 end
 

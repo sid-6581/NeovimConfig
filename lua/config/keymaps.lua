@@ -5,7 +5,7 @@ end
 
 -- stylua: ignore start
 
--- Misc 
+-- Misc
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>L", "<CMD>Lazy sync<CR>", { desc = "Plugins (Lazy)" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
@@ -29,15 +29,17 @@ map("n", "<Leader><Esc>", function() require("util").close_window_or_buffer() en
 map("n", "<Leader><BS>", function() require("util").close_window_or_buffer() end, { desc = "Delete buffer and close window" })
 map("n", "<S-h>", "<CMD>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Next buffer" })
+map("n", "<Leader>bl", "<CMD>buflisted<CR>", { desc = "Make buffer listed" })
+map("n", "<Leader>bu", "<CMD>nobuflisted<CR>", { desc = "Make buffer unlisted" })
 
 -- Window opening
-map("n", "<Leader>-", "<CMD>new<CR>", { desc = "Open new file in new split" })
-map("n", "<Leader>.-", "<CMD>new %:h<CR>", { desc = "Edit current directory in new vplit" })
-map("n", "<Leader>.\\", "<CMD>vnew %:h<CR>", { desc = "Edit current directory in new vsplit" })
-map("n", "<Leader><Leader>-", "<CMD>split<CR>", { desc = "Open current file in new split" })
+map("n", "<Leader>-", "<CMD>new<CR>", { desc = "Open new file in split" })
+map("n", "<Leader>.-", "<CMD>new %:h<CR>", { desc = "Edit current directory in vsplit" })
+map("n", "<Leader>.\\", "<CMD>vnew %:h<CR>", { desc = "Edit current directory in vsplit" })
+map("n", "<Leader><Leader>-", "<CMD>split<CR>", { desc = "Open current file in split" })
 map("n", "<Leader><Leader>.", "<CMD>e %:h<CR>", { desc = "Edit current directory" })
-map("n", "<Leader><Leader>\\", "<CMD>vsplit<CR>", { desc = "Open current file in new vsplit" })
-map("n", "<Leader>\\", "<CMD>vnew<CR>", { desc = "Open new file in new vsplit" })
+map("n", "<Leader><Leader>\\", "<CMD>vsplit<CR>", { desc = "Open current file in vsplit" })
+map("n", "<Leader>\\", "<CMD>vnew<CR>", { desc = "Open new file in vsplit" })
 map("n", "<Leader>wT", "<C-W>T", { desc = "Open current window in new tab" })
 map("n", "<Leader>w]", "<C-W>]", { desc = "Go to identifier in split" })
 map("n", "<Leader>wc", "<C-W>c", { desc = "Close current window" })
