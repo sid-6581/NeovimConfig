@@ -5,7 +5,6 @@ return {
     local tools = {
       "ansible-language-server",
       "bash-language-server",
-      "beautysh",
       "black",
       "clangd",
       "codelldb",
@@ -20,6 +19,7 @@ return {
       "lemminx",
       "lua-language-server",
       "pyright",
+      "shfmt",
       "shellcheck",
       "shellharden",
       "stylua",
