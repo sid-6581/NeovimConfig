@@ -74,7 +74,6 @@ return {
 
         -- stylua: ignore start
         map("n", "<Leader>ca", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
-        map("n", "<Leader>cf", function() require("plugins.lsp.formatting").format() end, { desc = "Format document" })
         map("n", "<Leader>cl", function() vim.lsp.codelens.run() end, { desc = "Codelens" })
         map("n", "<Leader>cr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
         map("n", "<Leader>lci", function() require("telescope.builtin").lsp_incoming_calls() end, { desc = "Incoming calls" })
@@ -99,18 +98,6 @@ return {
         map("v", "<Leader>cf", function() require("plugins.lsp.formatting").format() end, { desc = "Format range" })
         map({ "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
         -- stylua: ignore end
-
-        -- Format on save
-        if client.supports_method("textDocument/formatting") then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            group = vim.api.nvim_create_augroup("LspFormat." .. bufnr .. "." .. client.name, {}),
-            buffer = bufnr,
-            callback = function()
-              local formatting = require("plugins.lsp.formatting")
-              if formatting.autoformat then formatting.format() end
-            end,
-          })
-        end
 
         -- Refresh codelens
         if client.supports_method("textDocument/codeLens") then
