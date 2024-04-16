@@ -1,21 +1,11 @@
----@diagnostic disable: missing-fields
-
 local M = {}
 
-function M.on_attach(_client, _bufnr) end
-
-function M.setup(options)
-  require("neoconf").setup({})
-  require("neodev").setup({})
-  require("mason").setup()
-  require("mason-lspconfig").setup()
-
-  local lspconfig = require("lspconfig")
+function M.setup()
+  local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
   local setup = function(server_name, opts)
-    lspconfig[server_name].setup(vim.tbl_deep_extend("force", {
-      on_attach = options.on_attach,
-      capabilities = options.capabilities,
+    require("lspconfig")[server_name].setup(vim.tbl_deep_extend("force", {
+      capabilities = capabilities,
     }, opts))
   end
 
@@ -72,6 +62,15 @@ function M.setup(options)
 
     jsonls = function(server_name)
       setup(server_name, {
+        capabilities = vim.tbl_deep_extend("force", capabilities, {
+          textDocument = {
+            completion = {
+              completionItem = {
+                snippetSupport = true,
+              },
+            },
+          },
+        }),
         settings = {
           json = {
             schemas = require("schemastore").json.schemas(),
