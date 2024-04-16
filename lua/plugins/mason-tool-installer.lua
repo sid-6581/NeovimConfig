@@ -24,7 +24,7 @@ return {
       "shellharden",
       "stylua",
       "taplo",
-      -- "typescript-language-server",
+      "typescript-language-server",
       "vim-language-server",
       "yaml-language-server",
       "yamlfmt",
