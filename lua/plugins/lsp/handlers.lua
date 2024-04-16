@@ -51,7 +51,7 @@ function M.setup(options)
     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
     init_options = {
       vue = {
-        hybridMode = true,
+        hybridMode = false,
       },
     },
   })
@@ -181,20 +181,20 @@ function M.setup(options)
       })
     end,
 
-    tsserver = function(server_name)
-      setup(server_name, {
-        init_options = {
-          plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = "",
-              languages = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-            },
-          },
-        },
-        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-      })
-    end,
+    -- tsserver = function(server_name)
+    --   setup(server_name, {
+    --     init_options = {
+    --       plugins = {
+    --         {
+    --           name = "@vue/typescript-plugin",
+    --           location = "",
+    --           languages = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+    --         },
+    --       },
+    --     },
+    --     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+    --   })
+    -- end,
 
     yamlls = function(server_name)
       setup(server_name, {
