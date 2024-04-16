@@ -187,7 +187,7 @@ function M.setup()
             {
               name = "@vue/typescript-plugin",
               location = "",
-              languages = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+              languages = { "vue" },
             },
           },
         },
