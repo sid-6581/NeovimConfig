@@ -184,14 +184,18 @@ map("c", "<Up>", function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<U
 map("n", "<Leader>uC", function() require("util").toggle("cursorcolumn") end, { desc = "Toggle cursorcolumn" })
 map("n", "<Leader>uc", function() require("util").toggle("cursorline") end, { desc = "Toggle cursorline" })
 map("n", "<Leader>ud", function() require("util").toggle_diagnostics() end, { desc = "Toggle diagnostics" })
-map("n", "<Leader>uf", function() vim.g.disable_autoformat = not vim.g.disable_autoformat end, { desc = "Toggle format on save (global)" })
-map("n", "<Leader>uF", function() vim.b.disable_autoformat = not vim.b.disable_autoformat end, { desc = "Toggle format on save (buffer)" })
+map("n", "<Leader>uf", function()
+  vim.g.disable_autoformat = not vim.g.disable_autoformat
+  vim.notify("Disabled format on save (global)")
+end, { desc = "Toggle format on save (global)" })
+map("n", "<Leader>uF", function()
+  vim.b.disable_autoformat = not vim.b.disable_autoformat
+  vim.notify("Disabled format on save (buffer)")
+end, { desc = "Toggle format on save (buffer)" })
 map("n", "<Leader>uh", function() vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled(0)) end, { desc = "Toggle inlay hints" })
 map("n", "<Leader>uw", function() require("util").toggle("wrap") end, { desc = "Toggle wrap" })
 map("n", "<leader>ul", function() require("util").toggle_number() end, { desc = "Toggle line numbers" })
 map("n", "<leader>ur", function() require("util").toggle("relativenumber") end, { desc = "Toggle relative line numbers" })
 
 -- Command-line mode
-map("c", "<M-h>", "<Left>", { silent = false, desc = "Left" })
-map("c", "<M-l>", "<Right>", { silent = false, desc = "Right" })
 map("c", "<S-Insert>", "<C-R><C-R>+", { desc = "Paste from system clipboard" })
