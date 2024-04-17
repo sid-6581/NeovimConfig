@@ -28,7 +28,6 @@ return {
     },
 
     "williamboman/mason-lspconfig.nvim",
-    "b0o/schemastore.nvim",
 
     {
       "folke/neoconf.nvim",
@@ -38,20 +37,6 @@ return {
     {
       "folke/neodev.nvim",
       opts = {},
-    },
-
-    {
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-
-      keys = {
-        { "<Leader>uL", function() require("lsp_lines").toggle() end, desc = "Toggle LSP lines" },
-      },
-
-      config = function()
-        require("lsp_lines").setup()
-        vim.diagnostic.config({ virtual_lines = false }, require("lazy.core.config").ns)
-        vim.diagnostic.config({ virtual_lines = false })
-      end,
     },
   },
 
