@@ -1,9 +1,10 @@
 return {
   "j-hui/fidget.nvim",
+
   opts = {
     progress = {
-      ignore_done_already = true,
-      ignore_empty_message = true,
+      ignore_done_already = false,
+      ignore_empty_message = false,
       display = {
         overrides = {
           lua_ls = {
