@@ -191,10 +191,9 @@ return {
 
     setup("volar", {
       cmd = { "pnpm", "vue-language-server", "--stdio" },
-      filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       init_options = {
         vue = {
-          hybridMode = true,
+          hybridMode = false,
         },
       },
     })
@@ -344,7 +343,6 @@ return {
               },
             },
           },
-          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         })
       end,
 
