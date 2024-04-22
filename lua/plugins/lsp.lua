@@ -95,7 +95,7 @@ return {
         -- Refresh codelens
         if client.supports_method("textDocument/codeLens") then
           vim.lsp.codelens.refresh()
-          vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+          vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
             group = vim.api.nvim_create_augroup("LspCodeLensRefresh." .. bufnr .. "." .. client.name, {}),
             buffer = bufnr,
             callback = function() vim.lsp.codelens.refresh({ bufnr = 0 }) end,
