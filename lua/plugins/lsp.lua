@@ -105,6 +105,7 @@ return {
     })
 
     -- Configure diagnostics
+
     local signs = {
       Error = "",
       Warn = "",
@@ -153,15 +154,18 @@ return {
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
-    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     -- LSP servers
+
+    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
     local setup = function(server_name, opts)
       require("lspconfig")[server_name].setup(vim.tbl_deep_extend("force", {
         capabilities = capabilities,
       }, opts))
     end
 
+    -- Not managed by mason, so setup is outside.
     setup("rust_analyzer", {
       cmd = { "rustup", "run", "nightly", "rust-analyzer" },
       settings = {
@@ -189,15 +193,17 @@ return {
       },
     })
 
+    -- Not managed by mason, so setup is outside.
     setup("volar", {
       cmd = { "pnpm", "vue-language-server", "--stdio" },
       init_options = {
         vue = {
-          hybridMode = false,
+          hybridMode = true,
         },
       },
     })
 
+    -- Mason-managed servers.
     require("mason-lspconfig").setup_handlers({
       function(server_name) setup(server_name, {}) end,
 
@@ -343,6 +349,7 @@ return {
               },
             },
           },
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         })
       end,
 
