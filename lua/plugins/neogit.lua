@@ -1,6 +1,5 @@
 return {
   "NeogitOrg/neogit",
-  branch = "nightly",
   lazy = true,
 
   keys = {
