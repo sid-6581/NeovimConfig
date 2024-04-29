@@ -44,9 +44,4 @@ return {
       group_empty_dirs = false,
     },
   },
-
-  config = function(_, opts)
-    require("neo-tree").setup(opts)
-    require("neo-tree.utils").path_separator = "/"
-  end,
 }

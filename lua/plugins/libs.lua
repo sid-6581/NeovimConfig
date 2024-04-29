@@ -7,7 +7,7 @@ return {
   {
     "nvim-lua/plenary.nvim",
     event = "VeryLazy",
-    config = function() require("plenary.path").path.sep = "/" end,
+    -- config = function() require("plenary.path").path.sep = "/" end,
   },
 
   {
