@@ -48,9 +48,12 @@ return {
   },
 
   keys = {
-    -- stylua: ignore start
     { "<Leader>f.", function() require("telescope").extensions.file_browser.file_browser() end, desc = "Browse files" },
-    { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find" },
+    {
+      "<Leader>f/",
+      function() require("telescope.builtin").current_buffer_fuzzy_find() end,
+      desc = "Current buffer fuzzy find",
+    },
     { "<Leader>fA", function() require("telescope.builtin").ast_grep() end, desc = "ast-grep" },
     { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands" },
     { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Highlights" },
@@ -61,17 +64,58 @@ return {
     { "<Leader>fc", function() require("telescope.builtin").commands() end, desc = "Commands" },
     { "<Leader>fd", function() require("telescope.builtin").lsp_definitions() end, desc = "LSP definitions" },
     { "<Leader>ff", function() require("telescope.builtin").find_files() end, desc = "Files" },
+    {
+      "<Leader>fF",
+      function()
+        require("telescope.builtin").find_files({
+          find_command = {
+            "fd",
+            "--hidden",
+            "--no-ignore",
+          },
+        })
+      end,
+      desc = "Files (all)",
+    },
     { "<Leader>fH", function() require("telescope.builtin").help_tags() end, desc = "Help" },
     { "<Leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Keymaps" },
-    { "<Leader>fl", function() require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir(), }) end, desc = "Files from current directory" },
+    {
+      "<Leader>fl",
+      function() require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir() }) end,
+      desc = "Files from current directory",
+    },
     { "<Leader>fn", function() require("telescope").extensions.noice.noice() end, desc = "Noice" },
     { "<Leader>fo", function() require("telescope.builtin").vim_options() end, desc = "Vim options" },
     { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
     { "<Leader>fs", function() require("telescope.builtin").symbols(cursor_theme({})) end, desc = "Symbols" },
     { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text" },
+    {
+      "<Leader>fT",
+      function()
+        require("telescope").extensions.egrepify.egrepify({
+          vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--multiline",
+            "--hidden",
+            "--no-ignore",
+          },
+        })
+      end,
+      desc = "Text (all files)",
+    },
     { "<Leader>fu", function() require("telescope").extensions.undo.undo() end, desc = "Undo" },
     { "<Leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Word" },
-    { "<Leader>fy", function() require("telescope").extensions.yank_history.yank_history({}) end, desc = "Yank History" },
+    {
+      "<Leader>fy",
+      function() require("telescope").extensions.yank_history.yank_history({}) end,
+      desc = "Yank History",
+    },
     { "<Leader>fz", function() require("telescope").extensions.zoxide.list() end, desc = "Zoxide" },
     { "<Leader>gS", function() require("telescope.builtin").git_stash() end, desc = "Git stash" },
     { "<Leader>gb", function() require("telescope.builtin").git_branches() end, desc = "Branches" },
@@ -80,7 +124,6 @@ return {
     { "<Leader>gs", function() require("telescope.builtin").git_status() end, desc = "Status" },
     { mode = { "n", "i", "x" }, "<F1>", function() require("telescope.builtin").help_tags() end, desc = "Help" },
 
-    -- stylua: ignore end
     -- Select directories containing .git in the specified search_dirs.
     -- The default select action will change the default directory and open oil.
     {
@@ -178,7 +221,14 @@ return {
           include_extensions = true,
         },
         find_files = {
-          find_command = { "fd", "--hidden", "--exclude", ".git", "--glob", "" },
+          find_command = {
+            "fd",
+            "--hidden",
+            "--exclude",
+            ".git",
+            "--exclude",
+            "node_modules",
+          },
         },
         lsp_references = {
           include_declaration = false,
