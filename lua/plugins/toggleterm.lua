@@ -2,7 +2,7 @@ return {
   "akinsho/toggleterm.nvim",
   event = "VeryLazy",
 
-  -- stylua: ignore
+  -- stylua: ignore start
   keys = {
     { "<Leader>gg", function() _LAZYGIT_TOGGLE() end, desc = "Lazygit" },
     { "<Leader>tf", function() _TERMINAL_TOGGLE() end, desc = "Toggle terminal (float)" },
@@ -14,6 +14,7 @@ return {
     { mode = { "n", "i", "v", "t" }, "<C-=>", function() _TERMINAL_TOGGLE() end, desc = "Toggle terminal (float)" },
     { mode = { "n", "i", "v", "t" }, "<C-|>", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Toggle terminal (vertical)" },
   },
+  -- stylua: ignore end
 
   config = function()
     local shell = (vim.fn.has("win32") == 1)
