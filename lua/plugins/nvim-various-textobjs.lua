@@ -2,7 +2,7 @@ return {
   "chrisgrieser/nvim-various-textobjs",
   event = "VeryLazy",
 
-  -- stylua: ignore
+  -- stylua: ignore start
   keys = {
     { mode = { "o", "x" }, "!", function() require("various-textobjs").diagnostic() end, desc = "diagnostic" },
     { mode = { "o", "x" }, "ii", function() require("various-textobjs").indentation("inner", "inner") end, desc = "indentation level (no line above/below)" },
@@ -19,6 +19,7 @@ return {
     { mode = { "o", "x" }, "iL", function() require("various-textobjs").lineCharacterwise("inner") end, desc = "inner line characterwise" },
     { mode = { "o", "x" }, "aL", function() require("various-textobjs").lineCharacterwise("outer") end, desc = "a line characterwise" },
   },
+  -- stylua: ignore end
 
   opts = {
     lookForwardSmall = 0,

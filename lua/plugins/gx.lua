@@ -1,6 +1,7 @@
 return {
   "chrishrb/gx.nvim",
   event = "VeryLazy",
+
   keys = { { "gX", "<cmd>Browse<cr>", mode = { "n", "x" } } },
 
   init = function()

@@ -1,7 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
   event = { "VeryLazy", "BufReadPre", "BufNewFile" },
-  cmd = { "MasonToolsUpdate" },
 
   keys = {
     { "<Leader>lI", "<CMD>LspInfo<CR>", desc = "LSP info" },

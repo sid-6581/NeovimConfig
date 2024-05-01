@@ -3,6 +3,7 @@ local SymbolKind = vim.lsp.protocol.SymbolKind
 return {
   "Wansmer/symbol-usage.nvim",
   event = "VeryLazy",
+
   opts = {
     kinds = {
       SymbolKind.Function,
