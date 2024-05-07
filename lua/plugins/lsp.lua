@@ -65,7 +65,9 @@ return {
         end
 
         -- stylua: ignore start
+        map("n", "<Leader>ca", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
         map("n", "<Leader>cl", function() vim.lsp.codelens.run() end, { desc = "Codelens" })
+        map("n", "<Leader>cr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
         map("n", "<Leader>lci", function() require("telescope.builtin").lsp_incoming_calls() end, { desc = "Incoming calls" })
         map("n", "<Leader>lco", function() require("telescope.builtin").lsp_outgoing_calls() end, { desc = "Outgoing calls" })
         map("n", "<Leader>lC1", function() vim.notify(vim.inspect(vim.lsp.get_clients()[1])) end, { desc = "View LSP server 1 information" })
