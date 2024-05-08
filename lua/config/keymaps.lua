@@ -177,8 +177,6 @@ map("v", ",/", "<C-D>", { desc = "Scroll down" })
 -- Better wildmenu navigation
 map("c", "<C-j>", function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>" end, { expr = true, desc = "Wildmenu down", silent = false })
 map("c", "<C-k>", function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>" end, { expr = true, desc = "Wildmenu up", silent = false })
-map("c", "<Down>", function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<Down>" end, { expr = true, desc = "Wildmenu down", silent = false })
-map("c", "<Up>", function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<Up>" end, { expr = true, desc = "Wildmenu up", silent = false })
 
 -- Toggles
 map("n", "<Leader>uC", function() require("util").toggle("cursorcolumn") end, { desc = "Toggle cursorcolumn" })
@@ -192,7 +190,7 @@ map("n", "<Leader>uF", function()
   vim.b.disable_autoformat = not vim.b.disable_autoformat
   vim.notify("Disabled format on save (buffer)")
 end, { desc = "Toggle format on save (buffer)" })
-map("n", "<Leader>uh", function() vim.lsp.inlay_hint.enable(0, not vim.lsp.inlay_hint.is_enabled(0)) end, { desc = "Toggle inlay hints" })
+map("n", "<Leader>uh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end, { desc = "Toggle inlay hints" })
 map("n", "<Leader>uw", function() require("util").toggle("wrap") end, { desc = "Toggle wrap" })
 map("n", "<leader>ul", function() require("util").toggle_number() end, { desc = "Toggle line numbers" })
 map("n", "<leader>ur", function() require("util").toggle("relativenumber") end, { desc = "Toggle relative line numbers" })
