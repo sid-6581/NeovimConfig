@@ -34,7 +34,7 @@ map("n", "<Leader>bu", "<CMD>set nobuflisted<CR>", { desc = "Make buffer unliste
 
 -- Window opening
 map("n", "<Leader>-", "<CMD>new<CR>", { desc = "Open new file in split" })
-map("n", "<Leader>.-", "<CMD>new %:h<CR>", { desc = "Edit current directory in vsplit" })
+map("n", "<Leader>.-", "<CMD>new %:h<CR>", { desc = "Edit current directory in split" })
 map("n", "<Leader>.\\", "<CMD>vnew %:h<CR>", { desc = "Edit current directory in vsplit" })
 map("n", "<Leader><Leader>-", "<CMD>split<CR>", { desc = "Open current file in split" })
 map("n", "<Leader><Leader>.", "<CMD>e %:h<CR>", { desc = "Edit current directory" })
