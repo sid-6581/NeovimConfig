@@ -184,11 +184,11 @@ map("n", "<Leader>uc", function() require("util").toggle("cursorline") end, { de
 map("n", "<Leader>ud", function() require("util").toggle_diagnostics() end, { desc = "Toggle diagnostics" })
 map("n", "<Leader>uf", function()
   vim.g.disable_autoformat = not vim.g.disable_autoformat
-  vim.notify("Disabled format on save (global)")
+  vim.notify((vim.g.disable_autoformat and "Disabled" or "Enabled") .. " format on save (global)")
 end, { desc = "Toggle format on save (global)" })
 map("n", "<Leader>uF", function()
   vim.b.disable_autoformat = not vim.b.disable_autoformat
-  vim.notify("Disabled format on save (buffer)")
+  vim.notify((vim.b.disable_autoformat and "Disabled" or "Enabled") .. " format on save (buffer)")
 end, { desc = "Toggle format on save (buffer)" })
 map("n", "<Leader>uh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end, { desc = "Toggle inlay hints" })
 map("n", "<Leader>uw", function() require("util").toggle("wrap") end, { desc = "Toggle wrap" })
