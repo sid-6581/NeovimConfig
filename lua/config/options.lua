@@ -36,7 +36,7 @@ vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.grepprg = "rg --vimgrep"
 vim.opt.ignorecase = true
-vim.opt.inccommand = ""
+vim.opt.inccommand = "nosplit"
 vim.opt.iskeyword:append("-")
 vim.opt.laststatus = 0
 vim.opt.list = true
