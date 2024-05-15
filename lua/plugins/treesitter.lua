@@ -44,6 +44,7 @@ return {
       "query",
       "regex",
       "rust",
+      "scheme",
       "scss",
       "toml",
       "sql",
@@ -58,8 +59,6 @@ return {
 
     highlight = {
       enable = true,
-      disable = { "comment", "help", "dockerfile" },
-      additional_vim_regex_highlighting = false,
     },
 
     incremental_selection = {
@@ -73,12 +72,10 @@ return {
     },
 
     indent = {
-      enable = false,
+      enable = true,
     },
 
     textobjects = {
-      lookahead = false,
-
       select = {
         enable = true,
         lookahead = false,
