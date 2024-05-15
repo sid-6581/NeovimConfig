@@ -168,7 +168,10 @@ map("t", "<C-h>", "<C-\\><C-N><C-w>h", { desc = "Left" })
 map("t", "<C-j>", "<C-\\><C-N><C-w>j", { desc = "Down" })
 map("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "Up" })
 map("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Right" })
+map("t", "<S-Enter>", "<Enter>", { desc = "Insert enter" })
+map("t", "<S-Esc>", "<C-\\><C-N>", { desc = "Go to normal mode" })
 map("t", "<S-Insert>", "<C-\\><C-N>\"+pi", { desc = "Paste from system clipboard" })
+map("t", "<S-Space>", "<Space>", { desc = "Insert space" })
 
 -- Visual mode
 map("v", ",.", "<C-U>", { desc = "Scroll up" })
