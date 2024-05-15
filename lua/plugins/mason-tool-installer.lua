@@ -2,7 +2,7 @@ return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
   event = "VeryLazy",
 
-  cmd = { "MasonToolsUpdate" },
+  cmd = { "MasonToolsUpdate", "MasonToolsUpdateSync" },
 
   opts = function()
     local tools = {
