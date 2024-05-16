@@ -1,4 +1,4 @@
-if vim.fn.exists("g:neovide") ~= 0 then vim.opt.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h9.5" end
+if vim.fn.exists("g:neovide") ~= 0 then vim.opt.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h9.5:#h-full" end
 if vim.fn.exists("g:nvy") ~= 0 then vim.opt.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h9.5" end
 
 vim.g.loaded_perl_provider = 0
