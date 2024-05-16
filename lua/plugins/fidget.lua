@@ -28,6 +28,11 @@ return {
     notification = {
       filter = vim.log.levels.DEBUG,
       override_vim_notify = true,
+      window = {
+        winblend = 0,
+        x_padding = 0,
+        y_padding = 0,
+      },
     },
   },
 }
