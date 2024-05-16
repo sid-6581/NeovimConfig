@@ -13,7 +13,7 @@ return {
     end, desc = "Toggle Flash search" },
     { "n", function() require("flash").treesitter() end, mode = { "o", "x" }, desc = "Treesitter node" },
     { "N", function() require("flash").treesitter_search() end, mode = { "o", "x" }, desc = "Treesitter node search" },
-    { "r", function() require("flash").remote() end, mode = { "o", "x" }, desc = "Remote flash" },
+    { "r", function() require("flash").remote() end, mode = { "o" }, desc = "Remote flash" },
   },
   -- stylua: ignore end
 
@@ -29,38 +29,26 @@ return {
       after = false,
       style = "overlay",
     },
+
     modes = {
       char = {
         enabled = false,
-        config = function(opts)
-          -- autohide flash when in operator-pending mode
-          opts.autohide = vim.fn.mode(true):find("no") and (vim.v.operator == "y" or vim.v.operator == "d")
-          -- disable jump labels when not enabled, when using a count, or when recording/executing registers
-          opts.jump_labels = opts.jump_labels
-            and vim.v.count == 0
-            and vim.fn.reg_executing() == ""
-            and vim.fn.reg_recording() == ""
-        end,
-        highlight = {
-          backdrop = false,
-        },
       },
+
       search = {
         enabled = true,
         incremental = true,
         labels = "ASDFGHJKLQWERTYUIOPZXCVBNM",
-        label = {
-          exclude = "abcdefghijklmnopqrstuvwxyz",
-          uppercase = true,
-          style = "overlay",
-          before = true,
-          after = false,
-        },
       },
-    },
-    remote_op = {
-      restore = true,
-      motion = true,
+
+      treesitter_search = {
+        labels = "ASDFGHJKLQWERTYUIOPZXCVBNM",
+        remote_op = { restore = true, motion = true },
+      },
+
+      remote = {
+        labels = "ASDFGHJKLQWERTYUIOPZXCVBNM",
+      },
     },
   },
 
