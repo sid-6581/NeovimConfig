@@ -4,10 +4,9 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<A-1>", "<CMD>Neotree toggle reveal_force_cwd<CR>", desc = "File explorer" },
-    { "<A-2>", "<CMD>Neotree toggle show buffers<CR>", desc = "Buffer explorer" },
-    { "<A-3>", "<CMD>Neotree toggle show git_status<CR>", desc = "Git explorer" },
-    { "<Leader>E", "<CMD>Neotree reveal_force_cwd<CR>", desc = "Find file in explorer" },
+    { "<A-1>", "<CMD>Neotree toggle left reveal_force_cwd<CR>", desc = "File explorer" },
+    { "<A-2>", "<CMD>Neotree toggle left show buffers<CR>", desc = "Buffer explorer" },
+    { "<A-3>", "<CMD>Neotree toggle left show git_status<CR>", desc = "Git explorer" },
   },
 
   opts = {
