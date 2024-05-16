@@ -2,7 +2,7 @@ return {
   "folke/flash.nvim",
   event = "VeryLazy",
 
-  -- stylua: ignore
+  -- stylua: ignore start
   keys = {
     { "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, desc = "Go to treesitter node start" },
     { "gN", function() require("flash").treesitter({ jump = { pos = "end" } }) end, desc = "Go to treesitter node end" },
@@ -15,6 +15,7 @@ return {
     { "N", function() require("flash").treesitter_search() end, mode = { "o", "x" }, desc = "Treesitter node search" },
     { "r", function() require("flash").remote() end, mode = { "o", "x" }, desc = "Remote flash" },
   },
+  -- stylua: ignore end
 
   opts = {
     search = {
@@ -56,6 +57,10 @@ return {
           after = false,
         },
       },
+    },
+    remote_op = {
+      restore = true,
+      motion = true,
     },
   },
 
