@@ -18,6 +18,7 @@ return {
     { "am", function() require("various-textobjs").chainMember("outer") end, mode = { "o", "x" }, desc = "a chain member" },
     { "iL", function() require("various-textobjs").lineCharacterwise("inner") end, mode = { "o", "x" }, desc = "inner line characterwise" },
     { "aL", function() require("various-textobjs").lineCharacterwise("outer") end, mode = { "o", "x" }, desc = "a line characterwise" },
+    { "R", function() require("various-textobjs").restOfIndentation() end, mode = { "o", "x" }, desc = "rest of indentation" },
   },
   -- stylua: ignore end
 
