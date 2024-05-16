@@ -14,6 +14,7 @@ return {
     { "n", function() require("flash").treesitter() end, mode = { "o", "x" }, desc = "Treesitter node" },
     { "N", function() require("flash").treesitter_search() end, mode = { "o", "x" }, desc = "Treesitter node search" },
     { "r", function() require("flash").remote() end, mode = { "o" }, desc = "Remote flash" },
+    { "r", function() require("flash").remote({ search = { mode = "fuzzy" }, jump = { pos = "range" } }) end, mode = { "v" }, desc = "Remote flash" },
   },
   -- stylua: ignore end
 
@@ -28,6 +29,7 @@ return {
       before = true,
       after = false,
       style = "overlay",
+      reuse = "all",
     },
 
     modes = {
