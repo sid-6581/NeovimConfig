@@ -122,7 +122,7 @@ return {
     { "<Leader>gc", function() require("telescope.builtin").git_commits() end, desc = "Commits" },
     { "<Leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Buffer commits" },
     { "<Leader>gs", function() require("telescope.builtin").git_status() end, desc = "Status" },
-    { mode = { "n", "i", "x" }, "<F1>", function() require("telescope.builtin").help_tags() end, desc = "Help" },
+    { "<F1>", function() require("telescope.builtin").help_tags() end, mode = { "n", "i", "x" }, desc = "Help" },
 
     -- Select directories containing .git in the specified search_dirs.
     -- The default select action will change the default directory and open oil.

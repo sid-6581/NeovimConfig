@@ -10,9 +10,9 @@ return {
     { "<Leader>tm", function() _MC_TOGGLE() end, desc = "Toggle terminal (Midnight Commander)" },
     { "<Leader>tp", function() _PYTHON_TOGGLE() end, desc = "Toggle terminal (Python)" },
     { "<Leader>tv", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Vertical" },
-    { mode = { "n", "i", "v", "t" }, "<C-->", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Toggle terminal (horizontal)" },
-    { mode = { "n", "i", "v", "t" }, "<C-=>", function() _TERMINAL_TOGGLE() end, desc = "Toggle terminal (float)" },
-    { mode = { "n", "i", "v", "t" }, "<C-|>", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Toggle terminal (vertical)" },
+    { "<C-->", function() _TERMINAL_HORIZONTAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Toggle terminal (horizontal)" },
+    { "<C-=>", function() _TERMINAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Toggle terminal (float)" },
+    { "<C-|>", function() _TERMINAL_VERTICAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Toggle terminal (vertical)" },
   },
   -- stylua: ignore end
 

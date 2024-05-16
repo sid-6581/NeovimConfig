@@ -4,9 +4,9 @@ return {
 
   -- stylua: ignore start
   keys = {
-    { mode = { "n", "x" }, "y", "<Plug>(YankyYank)", desc = "Yank text" },
-    { mode = { "n", "x" }, "p", "<Plug>(YankyPutAfter)", desc = "Put yanked text after cursor" },
-    { mode = { "n", "x" }, "P", "<Plug>(YankyGPutBefore)", desc = "Put yanked text before cursor" },
+    { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank text" },
+    { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after cursor" },
+    { "P", "<Plug>(YankyGPutBefore)", mode = { "n", "x" }, desc = "Put yanked text before cursor" },
     -- { mode = { "n", "x" }, "gp", "<Plug>(YankyGPutAfter)", desc = "Put yanked text after selection" },
     -- { mode = { "n", "x" }, "gP", "<Plug>(YankyGPutBefore)", desc = "Put yanked text before selection" },
     { "[y", "<Plug>(YankyCycleForward)", desc = "Cycle forward through yank history" },

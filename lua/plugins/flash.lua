@@ -11,9 +11,9 @@ return {
       vim.notify(require("flash.plugins.search").enabled and "Disabled flash search" or "Enabled flash search")
       require("flash").toggle()
     end, desc = "Toggle Flash search" },
-    { mode = { "o", "x" }, "n", function() require("flash").treesitter() end, desc = "Treesitter node" },
-    { mode = { "o", "x" }, "N", function() require("flash").treesitter_search() end, desc = "Treesitter node search" },
-    { mode = { "o", "x" }, "R", function() require("flash").remote() end, desc = "Remote flash" },
+    { "n", function() require("flash").treesitter() end, mode = { "o", "x" }, desc = "Treesitter node" },
+    { "N", function() require("flash").treesitter_search() end, mode = { "o", "x" }, desc = "Treesitter node search" },
+    { "r", function() require("flash").remote() end, mode = { "o", "x" }, desc = "Remote flash" },
   },
 
   opts = {
@@ -30,6 +30,7 @@ return {
     },
     modes = {
       char = {
+        enabled = false,
         config = function(opts)
           -- autohide flash when in operator-pending mode
           opts.autohide = vim.fn.mode(true):find("no") and (vim.v.operator == "y" or vim.v.operator == "d")

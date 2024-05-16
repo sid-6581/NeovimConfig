@@ -233,12 +233,12 @@ return {
     --   { "<Leader>{", "<Leader>sd{", desc = "Remove surrounding {}", remap = true },
     --   { "<Leader>}", "<Leader>srb{", desc = "Replace surround with { }", remap = true },
     --   { '<Leader>"', '<Leader>srq"', desc = 'Replace surround with ""', remap = true },
-    --   { mode = { "v" }, "<Leader>'", "<Leader>sa'", desc = "Surround with ''", remap = true },
-    --   { mode = { "v" }, "<Leader>)", "<Leader>sa)", desc = "Surround with ()", remap = true },
-    --   { mode = { "v" }, "<Leader>>", "<Leader>sa>", desc = "Surround with <>", remap = true },
-    --   { mode = { "v" }, "<Leader>]", "<Leader>sa]", desc = "Surround with []", remap = true },
-    --   { mode = { "v" }, "<Leader>}", "<Leader>sa{", desc = "Surround with { }", remap = true },
-    --   { mode = { "v" }, '<Leader>"', '<Leader>sa"', desc = 'Surround with ""', remap = true },
+    --   { "<Leader>'", "<Leader>sa'", desc = "Surround with ''", mode = { "v" }, remap = true },
+    --   { "<Leader>)", "<Leader>sa)", desc = "Surround with ()", mode = { "v" }, remap = true },
+    --   { "<Leader>>", "<Leader>sa>", desc = "Surround with <>", mode = { "v" }, remap = true },
+    --   { "<Leader>]", "<Leader>sa]", desc = "Surround with []", mode = { "v" }, remap = true },
+    --   { "<Leader>}", "<Leader>sa{", desc = "Surround with { }", mode = { "v" }, remap = true },
+    --   { '<Leader>"', '<Leader>sa"', desc = 'Surround with ""', mode = { "v" }, remap = true },
     -- },
 
     opts = {

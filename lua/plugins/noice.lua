@@ -4,28 +4,11 @@ return {
   enabled = false,
 
   keys = {
-    {
-      mode = { "n", "i", "s" },
-      "<C-f>",
-      function()
-        if not require("noice.lsp").scroll(1) then return "<C-f>" end
-      end,
-      { desc = "Scroll down (hover)", expr = true },
-    },
-    {
-      mode = { "n", "i", "s" },
-      "<C-b>",
-      function()
-        if not require("noice.lsp").scroll(-1) then return "<C-b>" end
-      end,
-      { desc = "Scroll up (hover)", expr = true },
-    },
-    {
-      mode = { "c" },
-      "<S-Enter>",
-      function() require("noice").redirect(vim.fn.getcmdline() or "") end,
-      { desc = "Redirect cmdline to noice" },
-    },
+    -- stylua: ignore start
+    { "<C-f>", function() if not require("noice.lsp").scroll(1) then return "<C-f>" end end, mode = { "n", "i", "s" }, expr = true, desc = "Scroll down (hover)" },
+    { "<C-b>", function() if not require("noice.lsp").scroll(-1) then return "<C-b>" end end, mode = { "n", "i", "s" }, expr = true, desc = "Scroll up (hover)" },
+    { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline() or "") end, mode = { "c" }, desc = "Redirect cmdline to noice" },
+    -- stylua: ignore end
   },
 
   opts = {
