@@ -44,6 +44,7 @@ return {
             if item.message:match("tbl_islist") then item.hidden = true end
             if item.message:match("tbl_add_reverse_lookup") then item.hidden = true end
             if item.message:match("diagnostic.is_disabled") then item.hidden = true end
+            if item.message:match("buf_get_clients") then item.hidden = true end
           end,
         },
       },
