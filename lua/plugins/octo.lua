@@ -9,5 +9,9 @@ return {
     { "<Leader>gor", "<CMD>Octo repo list<CR>", desc = "Repos" },
   },
 
-  opts = {},
+  opts = {
+    suppress_missing_scope = {
+      projects_v2 = true,
+    },
+  },
 }
