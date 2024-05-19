@@ -54,7 +54,7 @@ return {
       function() require("telescope.builtin").current_buffer_fuzzy_find() end,
       desc = "Current buffer fuzzy find",
     },
-    { "<Leader>fA", function() require("telescope.builtin").ast_grep() end, desc = "ast-grep" },
+    { "<Leader>fA", function() require("telescope").extensions.ast_grep.ast_grep() end, desc = "ast-grep" },
     { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands" },
     { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Highlights" },
     { "<Leader>fM", function() require("telescope.builtin").man_pages() end, desc = "Man pages" },
