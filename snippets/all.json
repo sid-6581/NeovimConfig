@@ -31,6 +31,15 @@
     ],
     "description": "Braces with newline and comma"
   },
+  "{;": {
+    "prefix": "{;",
+    "body": [
+      "{",
+      "\t$1",
+      "};"
+    ],
+    "description": "Braces with newline and semicolon"
+  },
   "[]": {
     "prefix": "[]",
     "body": [
@@ -55,12 +64,21 @@
     "description": "Brackets with newline"
   },
   "[,": {
-    "prefix": "[",
+    "prefix": "[,",
     "body": [
       "[",
       "\t$1",
       "],"
     ],
     "description": "Brackets with newline and comma"
+  },
+  "[;": {
+    "prefix": "[;",
+    "body": [
+      "[",
+      "\t$1",
+      "];"
+    ],
+    "description": "Brackets with newline and semicolon"
   }
 }
