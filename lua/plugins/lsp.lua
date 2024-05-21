@@ -121,9 +121,9 @@ return {
 
     local signs = {
       Error = "",
+      Hint = "",
+      Info = "",
       Warn = "",
-      Hint = "",
-      Info = "",
     }
 
     vim.diagnostic.config({
