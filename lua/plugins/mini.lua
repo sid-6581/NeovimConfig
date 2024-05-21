@@ -112,6 +112,7 @@ return {
     },
 
     opts = {
+      comment = { suffix = "" },
       undo = { suffix = "" },
       yank = { suffix = "" },
     },
