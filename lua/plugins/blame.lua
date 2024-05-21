@@ -2,7 +2,9 @@ return {
   "FabijanZulj/blame.nvim",
   event = "VeryLazy",
 
+  opts = {},
+
   keys = {
-    { "<Leader>gL", "<CMD>ToggleBlame virtual<CR>", desc = "Blame (buffer)" },
+    { "<Leader>gL", "<CMD>BlameToggle virtual<CR>", desc = "Blame (buffer)" },
   },
 }

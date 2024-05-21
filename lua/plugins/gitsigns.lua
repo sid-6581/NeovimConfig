@@ -3,17 +3,17 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "[g", function() require("gitsigns").prev_hunk() end, desc = "Previous git hunk" },
-    { "]g", function() require("gitsigns").next_hunk() end, desc = "Next git hunk" },
-    { "<Leader>gD", function() require("gitsigns").diffthis() end, desc = "Diff" },
-    { "<Leader>gj", function() require("gitsigns").next_hunk() end, desc = "Next hunk" },
-    { "<Leader>gk", function() require("gitsigns").prev_hunk() end, desc = "Prev hunk" },
-    { "<Leader>gl", function() require("gitsigns").blame_line() end, desc = "Blame" },
-    { "<Leader>gp", function() require("gitsigns").preview_hunk() end, desc = "Preview hunk" },
+    { "<Leader>gD", function() require("gitsigns").diffthis() end, desc = "Diff this" },
     { "<Leader>gR", function() require("gitsigns").reset_buffer() end, desc = "Reset buffer" },
-    { "<Leader>gr", function() require("gitsigns").reset_hunk() end, desc = "Reset hunk" },
-    { "<Leader>gS", function() require("gitsigns").stage_hunk() end, desc = "Stage hunk" },
-    { "<Leader>gu", function() require("gitsigns").undo_stage_hunk() end, desc = "Undo stage hunk" },
+    { "<Leader>ghp", function() require("gitsigns").preview_hunk_inline() end, desc = "Preview hunk inline" },
+    { "<Leader>ghr", function() require("gitsigns").reset_hunk() end, desc = "Reset hunk" },
+    { "<Leader>ghs", function() require("gitsigns").stage_hunk() end, desc = "Stage hunk" },
+    { "<Leader>ghu", function() require("gitsigns").undo_stage_hunk() end, desc = "Undo stage hunk" },
+    { "<Leader>gl", function() require("gitsigns").blame_line({ full = true }) end, desc = "Blame line" },
+    { "[H", function() require("gitsigns").nav_hunk("first") end, desc = "First git hunk" },
+    { "[h", function() require("gitsigns").nav_hunk("prev") end, desc = "Previous git hunk" },
+    { "]H", function() require("gitsigns").nav_hunk("last") end, desc = "Last git hunk" },
+    { "]h", function() require("gitsigns").nav_hunk("next") end, desc = "Next git hunk" },
   },
 
   opts = {

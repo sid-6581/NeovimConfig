@@ -132,8 +132,6 @@ return {
       severity_sort = true,
       float = {
         scope = "cursor",
-        focusable = false,
-        style = "minimal",
         border = "single",
         source = true,
         header = "",
@@ -149,24 +147,8 @@ return {
       },
       virtual_text = {
         spacing = 4,
-        prefix = function(diagnostic)
-          if diagnostic.severity == vim.diagnostic.severity.ERROR then
-            return signs.Error
-          elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-            return signs.Warn
-          elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-            return signs.Info
-          else
-            return signs.Hint
-          end
-        end,
       },
     })
-
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
 
     -- LSP servers
 
