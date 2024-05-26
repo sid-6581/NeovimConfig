@@ -8,7 +8,7 @@ return {
     { "<Leader>ghs", function() require("gitsigns").stage_hunk() end, desc = "Stage hunk" },
     { "<Leader>ghu", function() require("gitsigns").undo_stage_hunk() end, desc = "Undo stage hunk" },
     { "<Leader>gl", function() require("gitsigns").blame_line({ full = true }) end, desc = "Blame line" },
-    { "<Leader>gp", function() require("gitsigns").preview_hunk_inline() end, desc = "Preview hunk inline" },
+    { "<Leader>gp", function() require("gitsigns").preview_hunk() end, desc = "Preview hunk" },
     { "<Leader>gr", function() require("gitsigns").reset_hunk() end, desc = "Reset hunk" },
     { "[H", function() require("gitsigns").nav_hunk("first") end, desc = "First git hunk" },
     { "[h", function() require("gitsigns").nav_hunk("prev") end, desc = "Previous git hunk" },
