@@ -3,8 +3,8 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>gd", "<CMD>DiffviewOpen<CR>", desc = "Diffview" },
-    { "<Leader>gh", "<CMD>DiffviewFileHistory %<CR>", desc = "Current file history" },
+    { "<Leader>gdv", "<CMD>DiffviewOpen<CR>", desc = "Diffview" },
+    { "<Leader>gdh", "<CMD>DiffviewFileHistory %<CR>", desc = "Diffview file history" },
   },
 
   opts = {},
