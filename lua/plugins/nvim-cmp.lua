@@ -108,10 +108,14 @@ return {
               path = "path",
               crates = "crates",
             },
-            maxwidth = 100,
             ellipsis_char = "…",
+            show_labelDetails = true,
           })(entry, vim_item)
-          result.dup = 0
+          result.menu = result.menu:gsub("  ", " ")
+          local maxwidth = 40
+          if vim.fn.strchars(result.menu) > maxwidth then
+            result.menu = vim.fn.strcharpart(result.menu, 0, maxwidth) .. "…"
+          end
           return result
         end,
       },
