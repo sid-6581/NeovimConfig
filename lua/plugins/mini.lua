@@ -174,11 +174,11 @@ return {
 
     opts = {
       mappings = {
-        line_left = "<S-Tab>",
-        line_right = "<Tab>",
+        line_left = "",
+        line_right = "",
       },
       options = {
-        reindent_linewise = false,
+        reindent_linewise = true,
       },
     },
   },

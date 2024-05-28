@@ -57,7 +57,6 @@ return {
     { "<Leader>fA", function() require("telescope").extensions.ast_grep.ast_grep() end, desc = "ast-grep" },
     { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands" },
     { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Highlights" },
-    { "<Leader>fM", function() require("telescope.builtin").man_pages() end, desc = "Man pages" },
     { "<Leader>fR", function() require("telescope.builtin").registers() end, desc = "Registers" },
     { "<Leader>fa", function() require("telescope.builtin").builtin() end, desc = "All" },
     { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
@@ -114,7 +113,7 @@ return {
     {
       "<Leader>fy",
       function() require("telescope").extensions.yank_history.yank_history({}) end,
-      desc = "Yank History",
+      desc = "Yank history",
     },
     { "<Leader>fz", function() require("telescope").extensions.zoxide.list() end, desc = "Zoxide" },
     { "<Leader>gS", function() require("telescope.builtin").git_stash() end, desc = "Git stash" },
@@ -239,6 +238,7 @@ return {
             -- Hide which-key keymaps
             return not km.lhs:match("Þ$") and (not km.rhs or not km.rhs:match("which%-key"))
           end,
+          show_plug = false,
         },
         symbols = cursor_theme({}),
       },
