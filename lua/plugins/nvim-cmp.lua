@@ -101,17 +101,17 @@ return {
           local result = lspkind.cmp_format({
             mode = "symbol_text",
             menu = {
-              buffer = "buffer",
-              luasnip = "luasnip",
-              nvim_lsp = "lsp ",
-              nvim_lua = "lua",
-              path = "path",
-              crates = "crates",
+              buffer = "buffer  ",
+              luasnip = "luasnip ",
+              nvim_lsp = "lsp     ",
+              nvim_lua = "lua     ",
+              path = "path    ",
+              crates = "crates  ",
             },
             ellipsis_char = "…",
             show_labelDetails = true,
           })(entry, vim_item)
-          result.menu = result.menu:gsub("  ", " ")
+          -- result.menu = result.menu:gsub("  ", " ")
           local maxwidth = 40
           if vim.fn.strchars(result.menu) > maxwidth then
             result.menu = vim.fn.strcharpart(result.menu, 0, maxwidth) .. "…"
@@ -120,37 +120,37 @@ return {
         end,
       },
 
-      sorting = {
-        priority_weight = 2,
-        comparators = {
-          function(entry1, entry2)
-            local kind1 = entry1:get_kind() --- @type lsp.CompletionItemKind | number
-            local kind2 = entry2:get_kind() --- @type lsp.CompletionItemKind | number
-            if kind1 ~= kind2 then
-              if kind1 == types.lsp.CompletionItemKind.Snippet then return false end
-              if kind2 == types.lsp.CompletionItemKind.Snippet then return true end
-              if kind1 == types.lsp.CompletionItemKind.Text then return false end
-              if kind2 == types.lsp.CompletionItemKind.Text then return true end
-              local diff = kind1 - kind2
-              if diff < 0 then
-                return false
-              elseif diff > 0 then
-                return true
-              end
-            end
-            return nil
-          end,
-          compare.offset,
-          compare.exact,
-          -- compare.scopes,
-          compare.score,
-          compare.recently_used,
-          compare.locality,
-          compare.sort_text,
-          compare.length,
-          compare.order,
-        },
-      },
+      -- sorting = {
+      --   priority_weight = 2,
+      --   comparators = {
+      --     function(entry1, entry2)
+      --       local kind1 = entry1:get_kind() --- @type lsp.CompletionItemKind | number
+      --       local kind2 = entry2:get_kind() --- @type lsp.CompletionItemKind | number
+      --       if kind1 ~= kind2 then
+      --         if kind1 == types.lsp.CompletionItemKind.Snippet then return false end
+      --         if kind2 == types.lsp.CompletionItemKind.Snippet then return true end
+      --         if kind1 == types.lsp.CompletionItemKind.Text then return false end
+      --         if kind2 == types.lsp.CompletionItemKind.Text then return true end
+      --         local diff = kind1 - kind2
+      --         if diff < 0 then
+      --           return false
+      --         elseif diff > 0 then
+      --           return true
+      --         end
+      --       end
+      --       return nil
+      --     end,
+      --     compare.offset,
+      --     compare.exact,
+      --     -- compare.scopes,
+      --     compare.score,
+      --     compare.recently_used,
+      --     compare.locality,
+      --     compare.sort_text,
+      --     compare.length,
+      --     compare.order,
+      --   },
+      -- },
 
       sources = cmp.config.sources({
         { name = "nvim_lsp", keyword_length = 1 },
