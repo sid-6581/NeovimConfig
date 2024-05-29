@@ -48,9 +48,3 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 vim.api.nvim_create_autocmd({ "BufWinEnter", "FileType" }, {
   callback = function() vim.opt.formatoptions:remove({ "c", "r", "o" }) end,
 })
-
--- vim.api.nvim_create_autocmd({ "CmdlineLeave" }, {
---   callback = function()
---     vim.defer_fn(function() vim.cmd('echon ""') end, 2000)
---   end,
--- })

@@ -29,8 +29,7 @@ vim.opt.expandtab = true
 vim.opt.ffs = { "unix", "dos" }
 vim.opt.fileencoding = "utf-8"
 vim.opt.fileformat = "unix"
-vim.opt.fillchars:append("stlnc:")
-vim.opt.fillchars:append("eob: ")
+vim.opt.fillchars:append({ stlnc = "", eob = " " })
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
@@ -42,11 +41,7 @@ vim.opt.inccommand = "nosplit"
 vim.opt.iskeyword:append("-")
 vim.opt.laststatus = 0
 vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("tab:» ")
-vim.opt.listchars:append("extends:…")
-vim.opt.listchars:append("precedes:…")
-vim.opt.listchars:append("nbsp:␣")
+vim.opt.listchars:append({ space = "⋅", tab = "» ", extends = "…", precedes = "…", nbsp = "␣" })
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.numberwidth = 4
@@ -59,10 +54,9 @@ vim.opt.ruler = false
 vim.opt.scrolloff = 8
 vim.opt.selection = "inclusive"
 vim.opt.shell = (vim.fn.has("win32") == 1) and "cmd.exe" or vim.opt.shell
--- if vim.fn.has("win32") == 1 then vim.opt.shellslash = true end
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
-vim.opt.shortmess:append("cIs")
+vim.opt.shortmess:append({ c = true, I = true, s = true })
 vim.opt.showcmd = false
 vim.opt.showmode = false
 vim.opt.showtabline = 0
@@ -83,7 +77,7 @@ vim.opt.undofile = true
 vim.opt.undolevels = 10000
 vim.opt.updatetime = 250
 vim.opt.virtualedit:append("block")
-vim.opt.wildmode = "longest,list:full"
+vim.opt.wildmode = { "longest", "list:full" }
 vim.opt.winblend = 0
 vim.opt.wrap = false
 vim.opt.writebackup = false
