@@ -5,8 +5,8 @@ return {
   opts = {
     workspaces = {
       {
-        name = "personal",
-        path = "~/vaults/personal",
+        name = "Notes",
+        path = "~/vaults/Notes",
       },
       {
         -- Use obsidian for any markdown file
@@ -22,6 +22,8 @@ return {
         },
       },
     },
+    new_notes_location = "current_dir",
+    notes_subdir = nil,
   },
 
   config = function(_, opts)
@@ -31,7 +33,10 @@ return {
 
     vim.api.nvim_create_autocmd({ "FileType" }, {
       pattern = { "markdown" },
-      callback = function() vim.opt_local.conceallevel = 1 end,
+      callback = function()
+        vim.opt_local.conceallevel = 2
+        vim.opt_local.concealcursor = { n = true, c = true }
+      end,
     })
   end,
 }
