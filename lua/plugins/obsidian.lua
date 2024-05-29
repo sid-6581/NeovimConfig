@@ -25,7 +25,7 @@ return {
   },
 
   config = function(_, opts)
-    if vim.fn.isdirectory(opts.workspaces[1].path) == 0 then table.remove(opts.workspaces, 1) end
+    if vim.fn.isdirectory(vim.fn.expand(opts.workspaces[1].path)) == 0 then table.remove(opts.workspaces, 1) end
 
     require("obsidian").setup(opts)
 
