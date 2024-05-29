@@ -107,6 +107,7 @@ return {
               nvim_lua = "lua     ",
               path = "path    ",
               crates = "crates  ",
+              ["vim-dadbod-completion"] = "db      ",
             },
             ellipsis_char = "…",
             show_labelDetails = true,
