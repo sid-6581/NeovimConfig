@@ -353,9 +353,10 @@ return {
           settings = {
             yaml = {
               schemaStore = {
-                url = "https://www.schemastore.org/api/json/catalog.json",
-                enable = true,
+                enable = false,
+                url = "",
               },
+              schemas = require("schemastore").yaml.schemas(),
             },
           },
         })
