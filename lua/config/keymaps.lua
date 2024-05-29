@@ -24,6 +24,12 @@ map("n", "]<Space>", "<CMD>put =repeat(nr2char(10), v:count1)|silent '[-<CR>", {
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
+-- Center screen after scrolling
+map("n", "<C-D>", "<C-D>zz", {})
+map("n", "<C-U>", "<C-U>zz", {})
+map("n", "<C-F>", "<C-F>zz", {})
+map("n", "<C-B>", "<C-B>zz", {})
+
 -- Buffers
 map("n", "<Leader><Esc>", function() require("util").close_window_or_buffer() end, { desc = "Delete buffer and close window" })
 map("n", "<Leader><BS>", function() require("util").close_window_or_buffer() end, { desc = "Delete buffer and close window" })
