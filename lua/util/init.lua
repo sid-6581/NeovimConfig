@@ -71,9 +71,7 @@ function M.close_window_or_buffer()
 
   local multiple_tabs = #vim.api.nvim_list_tabpages() > 1
 
-  local should_close_window = current_tab_has_multiple_windows
-    or not current_buffer_is_listed
-    or multiple_tabs and not multiple_listed_buffers
+  local should_close_window = current_tab_has_multiple_windows or multiple_tabs and not multiple_listed_buffers
 
   local should_delete_buffer = current_buffer_is_listed
     and multiple_listed_buffers
@@ -82,8 +80,10 @@ function M.close_window_or_buffer()
   if should_close_window then
     vim.api.nvim_win_close(0, false)
     if should_delete_buffer then vim.api.nvim_buf_delete(current_buffer, {}) end
+  elseif not current_buffer_is_listed then
+    vim.cmd.bprevious()
   else
-    require("close_buffers").wipe({ type = "this" })
+    require("close_buffers").close({ type = "this" })
   end
 end
 
