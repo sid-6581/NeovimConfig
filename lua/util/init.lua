@@ -51,18 +51,13 @@ end
 -- Closes the window unless it's the only window remaining in the tab page.
 -- If the buffer in the window is not shown in any other window, also close the buffer.
 function M.close_window_or_buffer()
-  local current_tab_has_multiple_windows = #vim.tbl_filter(function(window)
-    local buffer = vim.api.nvim_win_get_buf(window)
-    return vim.fn.buflisted(buffer) == 1
-  end, vim.api.nvim_tabpage_list_wins(0)) > 1
+  local current_tab_has_multiple_windows = #vim.api.nvim_tabpage_list_wins(0) > 1
 
   local current_buffer = vim.api.nvim_get_current_buf()
   local current_buffer_is_listed = vim.fn.buflisted(current_buffer) == 1
 
-  local multiple_listed_buffers = #vim.tbl_filter(
-    function(buffer) return vim.fn.buflisted(buffer) == 1 end,
-    vim.api.nvim_list_bufs()
-  ) > 1
+  local number_of_listed_buffers =
+    #vim.tbl_filter(function(buffer) return vim.fn.buflisted(buffer) == 1 end, vim.api.nvim_list_bufs())
 
   local current_buffer_is_in_multiple_windows = #vim.tbl_filter(
     function(window) return vim.api.nvim_win_get_buf(window) == current_buffer end,
@@ -71,17 +66,18 @@ function M.close_window_or_buffer()
 
   local multiple_tabs = #vim.api.nvim_list_tabpages() > 1
 
-  local should_close_window = current_tab_has_multiple_windows or multiple_tabs and not multiple_listed_buffers
+  local should_close_window = current_tab_has_multiple_windows and number_of_listed_buffers ~= 1
+    or multiple_tabs and number_of_listed_buffers <= 1
 
   local should_delete_buffer = current_buffer_is_listed
-    and multiple_listed_buffers
+    and number_of_listed_buffers > 1
     and not current_buffer_is_in_multiple_windows
 
   if should_close_window then
     vim.api.nvim_win_close(0, false)
     if should_delete_buffer then vim.api.nvim_buf_delete(current_buffer, {}) end
   elseif not current_buffer_is_listed then
-    vim.cmd.bprevious()
+    vim.cmd.bdelete()
   else
     require("close_buffers").delete({ type = "this" })
   end
