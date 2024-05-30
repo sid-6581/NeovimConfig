@@ -17,29 +17,11 @@ return {
 
       dependencies = { "rafamadriz/friendly-snippets" },
 
-      opts = function()
-        -- local ext_opts = {
-        --   active = {
-        --     virt_text = {},
-        --   },
-        --   passive = {
-        --     virt_text = { { "|", "GruvboxBlue" } },
-        --     virt_text_pos = "inline",
-        --     hl_mode = "combine",
-        --   },
-        -- }
-
-        return {
-          history = false,
-          region_check_events = { "CursorMoved", "CursorHold", "InsertEnter" },
-          delete_check_events = { "TextChanged", "InsertLeave" },
-          -- ext_opts = {
-          --   [require("luasnip.util.types").insertNode] = ext_opts,
-          --   [require("luasnip.util.types").choiceNode] = ext_opts,
-          --   [require("luasnip.util.types").exitNode] = ext_opts,
-          -- },
-        }
-      end,
+      opts = {
+        history = false,
+        region_check_events = { "CursorMoved", "CursorHold", "InsertEnter" },
+        delete_check_events = { "TextChanged", "InsertLeave" },
+      },
 
       config = function(_, opts)
         require("luasnip").setup(opts)
@@ -51,9 +33,6 @@ return {
 
   opts = function()
     local cmp = require("cmp")
-    local compare = require("cmp.config.compare")
-    local types = require("cmp.types")
-    local lspkind = require("lspkind")
     local luasnip = require("luasnip")
 
     return {
@@ -98,7 +77,7 @@ return {
       formatting = {
         fields = { "abbr", "kind", "menu" },
         format = function(entry, vim_item)
-          local result = lspkind.cmp_format({
+          local result = require("lspkind").cmp_format({
             mode = "symbol_text",
             menu = {
               buffer = "buffer  ",
@@ -112,7 +91,6 @@ return {
             ellipsis_char = "…",
             show_labelDetails = true,
           })(entry, vim_item)
-          -- result.menu = result.menu:gsub("  ", " ")
           local maxwidth = 40
           if vim.fn.strchars(result.menu) > maxwidth then
             result.menu = vim.fn.strcharpart(result.menu, 0, maxwidth) .. "…"
@@ -120,38 +98,6 @@ return {
           return result
         end,
       },
-
-      -- sorting = {
-      --   priority_weight = 2,
-      --   comparators = {
-      --     function(entry1, entry2)
-      --       local kind1 = entry1:get_kind() --- @type lsp.CompletionItemKind | number
-      --       local kind2 = entry2:get_kind() --- @type lsp.CompletionItemKind | number
-      --       if kind1 ~= kind2 then
-      --         if kind1 == types.lsp.CompletionItemKind.Snippet then return false end
-      --         if kind2 == types.lsp.CompletionItemKind.Snippet then return true end
-      --         if kind1 == types.lsp.CompletionItemKind.Text then return false end
-      --         if kind2 == types.lsp.CompletionItemKind.Text then return true end
-      --         local diff = kind1 - kind2
-      --         if diff < 0 then
-      --           return false
-      --         elseif diff > 0 then
-      --           return true
-      --         end
-      --       end
-      --       return nil
-      --     end,
-      --     compare.offset,
-      --     compare.exact,
-      --     -- compare.scopes,
-      --     compare.score,
-      --     compare.recently_used,
-      --     compare.locality,
-      --     compare.sort_text,
-      --     compare.length,
-      --     compare.order,
-      --   },
-      -- },
 
       sources = cmp.config.sources({
         { name = "nvim_lsp", keyword_length = 1 },
@@ -168,7 +114,7 @@ return {
       },
 
       experimental = {
-        ghost_text = false,
+        ghost_text = true,
       },
     }
   end,
