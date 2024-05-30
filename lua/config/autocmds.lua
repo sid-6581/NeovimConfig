@@ -32,13 +32,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*.scriptease*" },
-  callback = function(event)
-    vim.keymap.set("n", "q", "<CMD>bwipeout<CR>", { buffer = event.buf, silent = true, desc = "Close window" })
-  end,
-})
-
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "DiffViewFileHistory", "DiffViewFiles" },
   callback = function(event) vim.keymap.set("n", "q", "<CMD>tabclose<CR>", { buffer = event.buf, silent = true }) end,
