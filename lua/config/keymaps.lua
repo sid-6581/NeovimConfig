@@ -54,6 +54,7 @@ map("n", "<Leader>wo", "<C-W>o", { desc = "Make current window the only one" })
 map("n", "<Leader>wq", "<C-W>q", { desc = "Quit window" })
 map("n", "<Leader>ws", "<C-W>s", { desc = "Split window (horizontal)" })
 map("n", "<Leader>wv", "<C-W>v", { desc = "Split window (vertical)" })
+map("n", "<Leader>w}", "<C-W>}", { desc = "Go to identifier in preview" })
 
 -- Window movements
 map("n", "<C-h>", "<C-W>h", { desc = "Left one window" })
