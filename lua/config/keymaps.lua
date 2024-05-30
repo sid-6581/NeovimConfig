@@ -146,6 +146,14 @@ map("n", "w", "<CMD>call search('\\<')<CR>", { desc = "Next word" })
 map("n", "{", "<CMD>call search('\\(\\n\\n\\|\\%^\\)\\s*\\zs\\S', 'b')<CR>", { desc = "Previous start of paragraph" })
 map("n", "}", "<CMD>call search('\\n\\n\\s*\\zs\\S')<CR>", { desc = "Next start of paragraph" })
 
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
+map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
+map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
+map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
+map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
+map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
+
 -- Insert mode
 map("i", "<A-BS>", "<C-\\><C-o>dB", { desc = "Delete until the previous space" })
 map("i", "<A-h>", "<Left>", { noremap = false, desc = "Left" })
