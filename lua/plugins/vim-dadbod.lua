@@ -2,6 +2,10 @@ return {
   "kristijanhusak/vim-dadbod-ui",
   event = "VeryLazy",
 
+  keys = {
+    { "<C-Enter>", "<Plug>(DBUI_ExecuteQuery)", mode = { "n", "v" }, ft = "sql", desc = "Execute query" },
+  },
+
   dependencies = {
     "tpope/vim-dadbod",
 
