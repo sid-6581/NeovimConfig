@@ -45,6 +45,7 @@ vim.opt.listchars:append({ space = "⋅", tab = "» ", extends = "…", precedes
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.numberwidth = 4
+vim.opt.previewheight = 20
 vim.opt.pumblend = 0
 vim.opt.pumheight = 15
 vim.opt.redrawtime = 500

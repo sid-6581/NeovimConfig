@@ -1,11 +1,12 @@
 local map = function(mode, lhs, rhs, opts)
-  vim.tbl_deep_extend("force", { silent = true, noremap = true }, opts)
+  opts = vim.tbl_deep_extend("force", { silent = true }, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 -- stylua: ignore start
 
 -- Misc
+map("n", "<S-F1>", "<CMD>WhichKey<CR>", { desc = "Show keys" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>L", "<CMD>Lazy sync<CR>", { desc = "Lazy" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })

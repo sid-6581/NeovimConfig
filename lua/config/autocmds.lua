@@ -28,8 +28,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "startuptime",
   },
   callback = function(event)
-    vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true, desc = "Close window" })
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  pattern = { "*.scriptease*" },
+  callback = function(event)
+    vim.keymap.set("n", "q", "<CMD>bwipeout<CR>", { buffer = event.buf, silent = true, desc = "Close window" })
   end,
 })
 
