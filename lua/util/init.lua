@@ -83,7 +83,7 @@ function M.close_window_or_buffer()
   elseif not current_buffer_is_listed then
     vim.cmd.bprevious()
   else
-    require("close_buffers").close({ type = "this" })
+    require("close_buffers").delete({ type = "this" })
   end
 end
 
