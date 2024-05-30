@@ -11,7 +11,7 @@ return {
       "williamboman/mason.nvim",
 
       keys = {
-        { "<Leader>M", "<CMD>Mason<CR>", desc = "LSP installer info" },
+        { "<Leader>M", "<CMD>Mason<CR>", desc = "Mason" },
       },
 
       opts = {

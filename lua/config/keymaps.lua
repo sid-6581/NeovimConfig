@@ -7,7 +7,7 @@ end
 
 -- Misc
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
-map("n", "<Leader>L", "<CMD>Lazy sync<CR>", { desc = "Plugins (Lazy)" })
+map("n", "<Leader>L", "<CMD>Lazy sync<CR>", { desc = "Lazy" })
 map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
 map("n", "<BS>", "<CMD>noh | echon \"\"<CR>", { desc = "Clear search highlighting" })
 map("n", "<Esc>", "<CMD>noh | echon \"\"<CR><Esc>", { desc = "Clear search highlighting" })
