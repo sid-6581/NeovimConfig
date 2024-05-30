@@ -4,8 +4,8 @@ return {
 
   cmd = { "MasonToolsUpdate", "MasonToolsUpdateSync" },
 
-  opts = function()
-    local tools = {
+  opts = {
+    ensure_installed = {
       "ansible-language-server",
       "bash-language-server",
       "black",
@@ -32,18 +32,16 @@ return {
       "yaml-language-server",
       "yamlfmt",
       "yamllint",
-    }
+      vim.fn.has("win32") == 1 and "powershell-editor-services" or nil,
+      vim.fn.has("win32") == 1 and "omnisharp" or nil,
+    },
+    auto_update = true,
+    run_on_start = true,
+    start_delay = 0,
+  },
 
-    if vim.fn.has("win32") == 1 then
-      table.insert(tools, "powershell-editor-services")
-      table.insert(tools, "omnisharp")
-    end
-
-    return {
-      ensure_installed = tools,
-      auto_update = true,
-      run_on_start = true,
-      start_delay = 3000,
-    }
+  config = function(_, opts)
+    require("mason-tool-installer").setup(opts)
+    require("mason-tool-installer").run_on_start()
   end,
 }

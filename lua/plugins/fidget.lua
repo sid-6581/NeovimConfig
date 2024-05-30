@@ -1,6 +1,6 @@
 return {
   "j-hui/fidget.nvim",
-  priority = 997,
+  priority = 999, -- High priority because it hijacks notifications
 
   opts = {
     progress = {

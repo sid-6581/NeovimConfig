@@ -30,4 +30,19 @@ return {
     vim.g.db_ui_use_nerd_fonts = 1
     vim.g.db_ui_use_nvim_notify = 1
   end,
+
+  config = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "dbout" },
+      callback = function()
+        vim.opt_local.winfixheight = false
+        vim.cmd.wincmd("=")
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "dbui" },
+      callback = function() vim.opt_local.winfixheight = false end,
+    })
+  end,
 }

@@ -8,6 +8,7 @@ return {
   event = "VeryLazy",
 
   dependencies = {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     {
       "rcarriga/nvim-dap-ui",
       dependencies = {
