@@ -215,5 +215,6 @@ map("n", "<Leader>uw", function() require("util").toggle("wrap") end, { desc = "
 map("n", "<leader>ul", function() require("util").toggle_number() end, { desc = "Toggle line numbers" })
 map("n", "<leader>ur", function() require("util").toggle("relativenumber") end, { desc = "Toggle relative line numbers" })
 
--- Command-line mode
-map("c", "<S-Insert>", "<C-R><C-R>+", { desc = "Paste from system clipboard" })
+-- Cmdline mode
+map("c", "<S-Insert>", "<C-R><C-R>+", { desc = "Paste from system clipboard", silent = false })
+map("c", "<C-BS>", "<C-w>", { desc = "Delete previous word", silent = false })
