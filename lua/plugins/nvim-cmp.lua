@@ -3,7 +3,6 @@ return {
   event = { "VeryLazy", "InsertEnter" },
 
   dependencies = {
-    "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lsp-signature-help",
@@ -34,6 +33,8 @@ return {
   opts = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+
+    cmp.register_source("cmdline", require("util.cmp_cmdline").new())
 
     return {
       completion = {
