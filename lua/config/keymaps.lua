@@ -39,7 +39,7 @@ map("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Next buffer" })
 map("n", "<Leader>bl", "<CMD>set buflisted<CR>", { desc = "Make buffer listed" })
 map("n", "<Leader>bu", "<CMD>set nobuflisted<CR>", { desc = "Make buffer unlisted" })
 
--- Window opening
+-- Window opening/closing
 map("n", "<Leader>-", "<CMD>new<CR>", { desc = "Open new file in split" })
 map("n", "<Leader>.-", "<CMD>new %:h<CR>", { desc = "Edit current directory in split" })
 map("n", "<Leader>.\\", "<CMD>vnew %:h<CR>", { desc = "Edit current directory in vsplit" })
@@ -54,6 +54,7 @@ map("n", "<Leader>wo", "<C-W>o", { desc = "Make current window the only one" })
 map("n", "<Leader>wq", "<C-W>q", { desc = "Quit window" })
 map("n", "<Leader>ws", "<C-W>s", { desc = "Split window (horizontal)" })
 map("n", "<Leader>wv", "<C-W>v", { desc = "Split window (vertical)" })
+map("n", "<Leader>wz", "<C-W>z", { desc = "Close preview window" })
 map("n", "<Leader>w}", "<C-W>}", { desc = "Go to identifier in preview" })
 
 -- Window movements

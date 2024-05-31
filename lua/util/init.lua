@@ -25,7 +25,7 @@ function M.close_folds_with_level(level)
   while line <= line_count do
     if vim.fn.foldlevel(line) == level then
       vim.api.nvim_win_set_cursor(0, { line, 0 })
-      vim.cmd("norm! zc")
+      vim.cmd.normal({ "zc", bang = true })
       local end_line = vim.fn.foldclosedend(line)
       line = end_line > 0 and (end_line + 1) or (line + 1)
     else
@@ -41,9 +41,9 @@ function M.close_text_object_folds(textobject)
   vim.api.nvim_win_set_cursor(0, { 1, 0 })
   while true do
     local cursor = vim.api.nvim_win_get_cursor(0)
-    vim.cmd({ cmd = "TSTextobjectGotoNextStart", args = { textobject } })
+    vim.cmd.TSTextobjectGotoNextStart(textobject)
     if vim.deep_equal(cursor, vim.api.nvim_win_get_cursor(0)) then break end
-    vim.cmd("norm! zc")
+    vim.cmd.normal({ "zc", bang = true })
   end
   if win_view then vim.fn.winrestview(win_view) end
 end
