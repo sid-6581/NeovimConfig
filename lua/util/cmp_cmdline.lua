@@ -139,8 +139,6 @@ local definitions = {
       --   if not string.find(item.label, fixed_input, 1, true) then item.label = fixed_input .. item.label end
       -- end
 
-      vim.notify(vim.inspect(items))
-
       -- fix trailing slash for path like item
       if option.treat_trailing_slash then
         for _, item in ipairs(items) do
