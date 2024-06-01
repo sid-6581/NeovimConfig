@@ -152,7 +152,6 @@ return {
           },
         },
       },
-      extensions = { "neo-tree", "quickfix" },
     })
 
     require("lualine").refresh()
