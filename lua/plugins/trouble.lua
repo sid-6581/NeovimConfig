@@ -4,15 +4,10 @@ return {
 
   opts = {
     use_diagnostic_signs = true,
-    win = {
-      size = 20,
-    },
-    preview = {
-      type = "split",
-      relative = "win",
-      position = "right",
-      size = 0.5,
-      scratch = true,
+    modes = {
+      symbols = {
+        win = { size = 30 },
+      },
     },
   },
 
