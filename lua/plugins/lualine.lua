@@ -4,7 +4,6 @@ return {
 
   config = function()
     local lualine = require("lualine")
-    -- local noice = require("noice")
 
     local custom_theme = vim.deepcopy(require("lualine.themes.gruvbox_dark"))
     custom_theme.normal.c.bg = "Normal"
@@ -13,60 +12,6 @@ return {
     custom_theme.command.c = custom_theme.normal.c
     custom_theme.replace.c = custom_theme.normal.c
     custom_theme.inactive.c = custom_theme.normal.c
-
-    local diagnostics = {
-      "diagnostics",
-      sources = { "nvim_diagnostic", "nvim_lsp" },
-      sections = { "error", "warn", "info", "hint" },
-      symbols = {
-        error = " ",
-        hint = " ",
-        info = " ",
-        warn = " ",
-      },
-      colored = true,
-      update_in_insert = true,
-      always_visible = false,
-    }
-
-    local diff = {
-      "diff",
-      colored = true,
-      symbols = { added = " ", modified = " ", removed = " " },
-    }
-
-    local branch = {
-      "branch",
-      icons_enabled = true,
-      icon = "",
-    }
-
-    local fileformat = {
-      "fileformat",
-      symbols = {
-        unix = "lf",
-        dos = "crlf",
-        mac = "cr",
-      },
-    }
-
-    local spaces = function() return vim.api.nvim_get_option_value("shiftwidth", { scope = "local" }) .. " spaces" end
-
-    local lsp = {
-      function()
-        local msg = "-"
-        local buf_ft = vim.api.nvim_get_option_value("filetype", { scope = "local" })
-        local clients = vim.lsp.get_clients()
-        if next(clients) == nil then return msg end
-        for _, client in ipairs(clients) do
-          ---@diagnostic disable-next-line: undefined-field
-          local filetypes = client.config.filetypes
-          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then return client.name end
-        end
-        return msg
-      end,
-      icon = "",
-    }
 
     lualine.setup({
       options = {
@@ -81,7 +26,14 @@ return {
         },
       },
       sections = {
-        lualine_a = { "hostname", branch },
+        lualine_a = {
+          "hostname",
+          {
+            "branch",
+            icons_enabled = true,
+            icon = "",
+          },
+        },
         lualine_b = {
           {
             "filename",
@@ -106,22 +58,55 @@ return {
           {
             "aerial",
           },
-          -- {
-          --   ---@diagnostic disable-next-line: undefined-field
-          --   noice.api.status.mode.get,
-          --   ---@diagnostic disable-next-line: undefined-field
-          --   cond = noice.api.status.mode.has,
-          --   color = { fg = "#ff9e64" },
-          -- },
-          -- {
-          --   ---@diagnostic disable-next-line: undefined-field
-          --   noice.api.status.search.get,
-          --   ---@diagnostic disable-next-line: undefined-field
-          --   cond = noice.api.status.search.has,
-          --   color = { fg = "#ff9e64" },
-          -- },
         },
-        lualine_x = { diff, diagnostics, "filetype", lsp, spaces, "encoding", fileformat },
+        lualine_x = {
+          {
+            "diff",
+            colored = true,
+            symbols = { added = " ", modified = " ", removed = " " },
+          },
+          {
+            "diagnostics",
+            sources = { "nvim_diagnostic", "nvim_lsp" },
+            sections = { "error", "warn", "info", "hint" },
+            symbols = {
+              error = " ",
+              hint = " ",
+              info = " ",
+              warn = " ",
+            },
+            colored = true,
+            update_in_insert = true,
+            always_visible = false,
+          },
+          "filetype",
+          {
+            function()
+              local msg = "-"
+              local buf_ft = vim.api.nvim_get_option_value("filetype", { scope = "local" })
+              local clients = vim.lsp.get_clients()
+              if next(clients) == nil then return msg end
+              for _, client in ipairs(clients) do
+                ---@diagnostic disable-next-line: undefined-field
+                local filetypes = client.config.filetypes
+                if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then return client.name end
+              end
+              return msg
+            end,
+            icon = "",
+          },
+          function() return vim.api.nvim_get_option_value("shiftwidth", { scope = "local" }) .. " spaces" end,
+          function() return vim.api.nvim_get_option_value("buftype", { scope = "local" }) end,
+          "encoding",
+          {
+            "fileformat",
+            symbols = {
+              unix = "lf",
+              dos = "crlf",
+              mac = "cr",
+            },
+          },
+        },
         lualine_y = { "location", "selectioncount" },
         lualine_z = { "progress" },
       },

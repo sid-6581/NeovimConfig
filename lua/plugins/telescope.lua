@@ -83,7 +83,6 @@ return {
       function() require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir() }) end,
       desc = "Files from current directory",
     },
-    { "<Leader>fn", function() require("telescope").extensions.noice.noice() end, desc = "Noice" },
     { "<Leader>fo", function() require("telescope.builtin").vim_options() end, desc = "Vim options" },
     { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
     { "<Leader>fs", function() require("telescope.builtin").symbols(cursor_theme({})) end, desc = "Symbols" },
