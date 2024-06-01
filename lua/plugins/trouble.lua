@@ -4,16 +4,48 @@ return {
 
   opts = {
     use_diagnostic_signs = true,
+    win = {
+      size = 20,
+    },
+    preview = {
+      type = "split",
+      relative = "win",
+      position = "right",
+      size = 0.5,
+      scratch = true,
+    },
   },
 
-  -- stylua: ignore start
   keys = {
-    { "<Leader>xx", function() require("trouble").toggle() end, desc = "Toggle trouble" },
-    { "<Leader>xw", function() require("trouble").toggle("workspace_diagnostics") end, desc = "Toggle workspace diagnostics", },
-    { "<Leader>xd", function() require("trouble").toggle("document_diagnostics") end, desc = "Toggle document diagnostics", },
-    { "<Leader>xl", function() require("trouble").toggle("loclist") end, desc = "Toggle loc list" },
-    { "<Leader>xq", function() require("trouble").toggle("quickfix") end, desc = "Toggle quickfix" },
-    { "<Leader>xr", function() require("trouble").toggle("lsp_references") end, desc = "Toggle references" },
+    {
+      "<leader>xx",
+      "<CMD>Trouble diagnostics toggle<CR>",
+      desc = "Diagnostics (Trouble)",
+    },
+    {
+      "<leader>xX",
+      "<CMD>Trouble diagnostics toggle filter.buf=0<CR>",
+      desc = "Buffer diagnostics (Trouble)",
+    },
+    {
+      "<leader>xs",
+      "<CMD>Trouble symbols toggle focus=false<CR>",
+      desc = "Symbols (Trouble)",
+    },
+    {
+      "<leader>xl",
+      "<CMD>Trouble lsp toggle focus=false win.position=right<CR>",
+      desc = "LSP definitions / references / ... (Trouble)",
+    },
+    {
+      "<leader>xL",
+      "<CMD>Trouble loclist toggle<CR>",
+      desc = "Location list (Trouble)",
+    },
+    {
+      "<leader>xQ",
+      "<CMD>Trouble qflist toggle<CR>",
+      desc = "Quickfix list (Trouble)",
+    },
   },
-  -- stylua: ignore end
 }
