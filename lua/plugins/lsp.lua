@@ -34,8 +34,18 @@ return {
     },
 
     {
-      "folke/neodev.nvim",
-      opts = {},
+      "folke/lazydev.nvim",
+      ft = "lua",
+
+      dependencies = {
+        { "Bilal2453/luvit-meta" }, -- optional `vim.uv` typings
+      },
+
+      opts = {
+        library = {
+          vim.env.LAZY .. "/luvit-meta/library",
+        },
+      },
     },
   },
 
