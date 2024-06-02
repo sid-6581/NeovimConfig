@@ -34,17 +34,8 @@ return {
     },
 
     {
-      "folke/lazydev.nvim",
-
-      dependencies = {
-        { "Bilal2453/luvit-meta" }, -- optional `vim.uv` typings
-      },
-
-      opts = {
-        library = {
-          vim.env.LAZY .. "/luvit-meta/library",
-        },
-      },
+      "folke/neodev.nvim",
+      opts = {},
     },
   },
 
@@ -248,8 +239,7 @@ return {
           settings = {
             Lua = {
               completion = {
-                callSnippet = "Both",
-                workspaceWord = true,
+                workspaceWord = false,
               },
               diagnostics = {
                 groupSeverity = {
