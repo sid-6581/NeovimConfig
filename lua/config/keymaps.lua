@@ -9,7 +9,7 @@ end
 map("n", "<S-F1>", "<CMD>WhichKey<CR>", { desc = "Show keys" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>L", "<CMD>Lazy sync<CR>", { desc = "Lazy" })
-map("n", "<Leader>qq", "<CMD>qa<CR>", { desc = "Quit all" })
+map("n", "<Leader>q", "<CMD>qa<CR>", { desc = "Quit all" })
 map("n", "<BS>", "<CMD>noh | echon \"\"<CR>", { desc = "Clear search highlighting" })
 map("n", "<Esc>", "<CMD>noh | echon \"\"<CR><Esc>", { desc = "Clear search highlighting" })
 map("i", "<C-s>", "<C-\\><C-o><CMD>w!<CR>", { desc = "Save" })
