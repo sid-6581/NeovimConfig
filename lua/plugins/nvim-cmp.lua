@@ -135,6 +135,17 @@ return {
     })
 
     cmp.setup.cmdline(":", {
+      ---@diagnostic disable-next-line: missing-fields
+      formatting = {
+        fields = { "abbr", "menu" },
+        format = function(entry, vim_item)
+          return require("lspkind").cmp_format({
+            mode = "symbol_text",
+            menu = { cmdline = "" },
+            show_labelDetails = true,
+          })(entry, vim_item)
+        end,
+      },
       mapping = {
         ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { "c" }),
         ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { "c" }),
