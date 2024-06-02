@@ -102,16 +102,6 @@ local definitions = {
         end
       end
 
-      -- Support `lua vim.treesitter._get|` or `'<,'>del|` completion.
-      -- In this case, the `vim.fn.getcompletion` will return only `get_query` for `vim.treesitter.get_|`.
-      -- We should detect `vim.treesitter.` and `get_query` separately.
-      -- TODO: The `\h\w*` was choosed by huristic. We should consider more suitable detection.
-      local fixed_input
-      do
-        local suffix_pos = vim.regex([[\h\w*$]]):match_str(arglead)
-        fixed_input = string.sub(arglead, 1, suffix_pos or #arglead)
-      end
-
       -- The `vim.fn.getcompletion` does not return `*no*cursorline` option.
       -- cmp-cmdline corrects `no` prefix for option name.
       local is_option_name_completion = OPTION_NAME_COMPLETION_REGEX:match_str(cmdline) ~= nil
@@ -134,18 +124,13 @@ local definitions = {
         end
       end
 
-      -- fix label with `fixed_input`
-      -- for _, item in ipairs(items) do
-      --   if not string.find(item.label, fixed_input, 1, true) then item.label = fixed_input .. item.label end
-      -- end
-
       -- fix trailing slash for path like item
       if option.treat_trailing_slash then
         for _, item in ipairs(items) do
           local is_target = string.match(item.label, [=[[/\]$]=])
-          is_target = is_target and not (string.match(item.label, [=[~[/\]]=]))
-          is_target = is_target and not (string.match(item.label, [=[%.[/\]]=]))
-          is_target = is_target and not (string.match(item.label, [=[%.%.[/\]]=]))
+          is_target = is_target and not (string.match(item.label, [=[~[/\]$]=]))
+          is_target = is_target and not (string.match(item.label, [=[%.[/\]$]=]))
+          is_target = is_target and not (string.match(item.label, [=[%.%.[/\]$]=]))
           if is_target then item.label = item.label:sub(1, -2) end
         end
       end

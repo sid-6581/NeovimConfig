@@ -79,6 +79,7 @@ vim.opt.undolevels = 10000
 vim.opt.updatetime = 250
 vim.opt.virtualedit:append("block")
 vim.opt.wildmode = { "longest", "list:full" }
+vim.opt.wildoptions = { "pum", "fuzzy" }
 vim.opt.winblend = 0
 vim.opt.wrap = false
 vim.opt.writebackup = false
