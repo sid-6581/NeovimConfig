@@ -242,6 +242,55 @@ return {
         })
       end,
 
+      lua_ls = function(server_name)
+        setup(server_name, {
+          single_file_support = true,
+          settings = {
+            Lua = {
+              completion = {
+                callSnippet = "Both",
+                workspaceWord = true,
+              },
+              diagnostics = {
+                groupSeverity = {
+                  strong = "Warning",
+                  strict = "Warning",
+                },
+                groupFileStatus = {
+                  ["ambiguity"] = "Opened",
+                  ["await"] = "Opened",
+                  ["codestyle"] = "None",
+                  ["duplicate"] = "Opened",
+                  ["global"] = "Opened",
+                  ["luadoc"] = "Opened",
+                  ["redefined"] = "Opened",
+                  ["strict"] = "Opened",
+                  ["strong"] = "Opened",
+                  ["type-check"] = "Opened",
+                  ["unbalanced"] = "Opened",
+                  ["unused"] = "Opened",
+                },
+                unusedLocalExclude = { "_*" },
+              },
+              format = {
+                enable = false,
+                defaultConfig = {
+                  indent_style = "space",
+                  indent_size = "2",
+                  continuation_indent_size = "2",
+                },
+              },
+              telemetry = {
+                enable = false,
+              },
+              workspace = {
+                checkThirdParty = false,
+              },
+            },
+          },
+        })
+      end,
+
       omnisharp = function(server_name)
         setup(server_name, {
           settings = {
