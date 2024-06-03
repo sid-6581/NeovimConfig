@@ -32,11 +32,6 @@ return {
       "folke/neoconf.nvim",
       config = false,
     },
-
-    {
-      "folke/neodev.nvim",
-      opts = {},
-    },
   },
 
   config = function()
@@ -233,32 +228,17 @@ return {
 
       lua_ls = function(server_name)
         setup(server_name, {
-          single_file_support = true,
           settings = {
             Lua = {
               completion = {
                 workspaceWord = false,
               },
               diagnostics = {
-                groupSeverity = {
-                  strong = "Warning",
-                  strict = "Warning",
-                },
-                groupFileStatus = {
-                  ["ambiguity"] = "Opened",
-                  ["await"] = "Opened",
-                  ["codestyle"] = "None",
-                  ["duplicate"] = "Opened",
-                  ["global"] = "Opened",
-                  ["luadoc"] = "Opened",
-                  ["redefined"] = "Opened",
-                  ["strict"] = "Opened",
-                  ["strong"] = "Opened",
-                  ["type-check"] = "Opened",
-                  ["unbalanced"] = "Opened",
-                  ["unused"] = "Opened",
-                },
                 unusedLocalExclude = { "_*" },
+                globals = {
+                  "vim",
+                  "require",
+                },
               },
               format = {
                 enable = false,
@@ -270,9 +250,6 @@ return {
               },
               telemetry = {
                 enable = false,
-              },
-              workspace = {
-                checkThirdParty = false,
               },
             },
           },

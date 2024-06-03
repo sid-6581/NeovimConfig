@@ -3,6 +3,5 @@
   "Lua.diagnostics.disable": [
     "no-unknown",
     "incomplete-signature-doc"
-  ],
-  "workspace.checkThirdParty": "Disable"
+  ]
 }
