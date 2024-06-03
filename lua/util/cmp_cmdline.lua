@@ -10,7 +10,7 @@ source.new = function()
   return self
 end
 
-source.get_trigger_characters = function() return { " ", "#", "&", "-", ".", "/", "\\", "~" } end
+source.get_trigger_characters = function() return { " ", "#", "&", "-", ".", "/", "\\" } end
 
 source.complete = function(_self, request, callback)
   local input = request.context.cursor_before_line
@@ -22,7 +22,9 @@ source.complete = function(_self, request, callback)
     table.insert(completions, {
       label = item,
       labelDetails = { description = type },
+      insertText = type == "file" and vim.fn.fnameescape(item) or nil,
     })
+
     if type == "option" and is_boolean_option(item) then
       table.insert(completions, {
         label = "no" .. item,
