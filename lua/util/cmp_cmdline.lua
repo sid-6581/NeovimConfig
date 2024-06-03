@@ -10,7 +10,7 @@ source.new = function()
   return self
 end
 
-source.get_trigger_characters = function() return { " ", "#", "&", "-", ".", "/", "\\" } end
+source.get_trigger_characters = function() return { " ", "#", "&", "-", ".", "/", "\\", "~" } end
 
 source.complete = function(_self, request, callback)
   local input = request.context.cursor_before_line

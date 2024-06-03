@@ -150,7 +150,7 @@ return {
       mapping = {
         ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { "c" }),
         ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { "c" }),
-        ["<Tab>"] = { c = cmp.mapping.confirm({ select = true }) },
+        ["<Tab>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "c" }),
       },
       sources = cmp.config.sources({
         { name = "cmdline" },
