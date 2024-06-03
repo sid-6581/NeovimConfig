@@ -3,7 +3,6 @@ return {
   event = { "VeryLazy", "InsertEnter" },
 
   dependencies = {
-    "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-buffer",
@@ -67,7 +66,6 @@ return {
               buffer = "buffer  ",
               luasnip = "luasnip ",
               nvim_lsp = "lsp     ",
-              nvim_lua = "lua     ",
               path = "path    ",
               crates = "crates  ",
               ["vim-dadbod-completion"] = "db      ",
@@ -87,7 +85,6 @@ return {
         { name = "nvim_lsp", keyword_length = 1 },
         { name = "nvim_lsp_signature_help" },
         { name = "luasnip" },
-        { name = "nvim_lua" },
         { name = "buffer" },
         { name = "path" },
       }),
