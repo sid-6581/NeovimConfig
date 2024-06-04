@@ -151,8 +151,10 @@ return {
             actions.select_default:replace(function()
               actions.close(prompt_bufnr)
               local dir = action_state.get_selected_entry()[1]
-              vim.cmd.lcd(dir)
-              require("oil").open(dir)
+              vim.cmd.tcd(dir)
+              require("neo-tree.command").execute({
+                action = "show",
+              })
             end)
             return true
           end,
