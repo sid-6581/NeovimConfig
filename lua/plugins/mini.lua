@@ -70,19 +70,23 @@ return {
         q = "Quote `, \", '",
         t = "Tag",
       }
+
       local a = vim.deepcopy(i)
+
       for k, v in pairs(a) do
         a[k] = v:gsub(" including.*", "")
       end
 
       local ic = vim.deepcopy(i)
       local ac = vim.deepcopy(a)
+
       for key, name in pairs({ n = "Next", l = "Last" }) do
-        ---@diagnostic disable-next-line: assign-type-mismatch
+        --- @diagnostic disable-next-line: assign-type-mismatch
         i[key] = vim.tbl_extend("force", { name = "Inside " .. name .. " textobject" }, ic)
-        ---@diagnostic disable-next-line: assign-type-mismatch
+        --- @diagnostic disable-next-line: assign-type-mismatch
         a[key] = vim.tbl_extend("force", { name = "Around " .. name .. " textobject" }, ac)
       end
+
       require("which-key").register({
         mode = { "o", "x" },
         i = i,
@@ -160,11 +164,16 @@ return {
         hack = { pattern = "%f[%w]()HACK()%f[%W]", group = "MiniHipatternsHack" },
         todo = { pattern = "%f[%w]()TODO()%f[%W]", group = "MiniHipatternsTodo" },
         note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
+
         scriban_block = {
           pattern = function(_buf_id)
-            if vim.fn.expand("%:e") ~= "sbntxt" then return nil end
+            if vim.fn.expand("%:e") ~= "sbntxt" then
+              return nil
+            end
+
             return "{{[^}]-}}"
           end,
+
           group = "Comment",
         },
       },
@@ -199,6 +208,7 @@ return {
     opts = function()
       local gen_hook = require("mini.splitjoin").gen_hook
       local brackets = { brackets = { "%b{}" } }
+
       return {
         mappings = {
           toggle = "gS",

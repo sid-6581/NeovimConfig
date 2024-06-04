@@ -1,5 +1,10 @@
-if vim.fn.exists("g:neovide") ~= 0 then vim.opt.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h9.5:#h-full" end
-if vim.fn.exists("g:nvy") ~= 0 then vim.opt.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h9.5" end
+if vim.fn.exists("g:neovide") ~= 0 then
+  vim.opt.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h9.5:#h-full"
+end
+
+if vim.fn.exists("g:nvy") ~= 0 then
+  vim.opt.guifont = "JetBrainsMono\\ Nerd\\ Font\\ Mono:h9.5"
+end
 
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
@@ -91,12 +96,14 @@ vim.filetype.add({
 })
 
 -- Redirect all prints to vim.notify
----@diagnostic disable-next-line: missing-global-doc
+--- @diagnostic disable-next-line: missing-global-doc
 print = function(...)
   local print_safe_args = {}
   local _ = { ... }
+
   for i = 1, #_ do
     table.insert(print_safe_args, tostring(_[i]))
   end
-  vim.notify(table.concat(print_safe_args, " "), "info")
+
+  vim.notify(table.concat(print_safe_args, " "), vim.log.levels.INFO)
 end

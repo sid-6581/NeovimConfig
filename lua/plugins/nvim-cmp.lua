@@ -35,6 +35,7 @@ return {
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-c>"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete({}), { "i", "c" }),
+
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.confirm({ select = true })
@@ -44,6 +45,7 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if not cmp.visible() and luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
@@ -59,6 +61,7 @@ return {
 
       formatting = {
         fields = { "abbr", "kind", "menu" },
+
         format = function(entry, vim_item)
           local result = require("lspkind").cmp_format({
             mode = "symbol_text",
@@ -77,6 +80,7 @@ return {
           if vim.fn.strchars(result.menu) > maxwidth then
             result.menu = vim.fn.strcharpart(result.menu, 0, maxwidth) .. "…"
           end
+
           return result
         end,
       },
@@ -115,7 +119,7 @@ return {
     })
 
     cmp.setup.cmdline(":", {
-      ---@diagnostic disable-next-line: missing-fields
+      --- @diagnostic disable-next-line: missing-fields
       formatting = {
         fields = { "abbr", "menu" },
         format = function(entry, vim_item)

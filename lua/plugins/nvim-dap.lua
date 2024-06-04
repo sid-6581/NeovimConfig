@@ -51,10 +51,11 @@ return {
       },
     }
 
-    -- stylua: ignore start
     vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-    vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
-    -- stylua: ignore end
+    vim.fn.sign_define(
+      "DapBreakpointCondition",
+      { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" }
+    )
 
     require("dap.ext.vscode").json_decode = require("neoconf.json.jsonc").decode_jsonc
 
@@ -70,11 +71,11 @@ return {
     map("n", "<F11>", function() require("dap").step_into() end, { desc = "Step Into" })
     map("n", "<F12>", function() require("dap").step_out() end, { desc = "Step Out" })
     map("n", "<F5>", function()
-      require("dap.ext.vscode").load_launchjs(nil, {
-        codelldb = { "rust", "c", "cpp" },
-      })
+      require("dap.ext.vscode").load_launchjs(nil, { codelldb = { "rust", "c", "cpp" } })
       require("dap").continue()
-    end, { desc = "Continue" })
+    end, {
+      desc = "Continue"
+    })
     map("n", "<F9>", function() require("dap").toggle_breakpoint() end, { desc = "Toggle Breakpoint" })
     map("n", "<Leader>df", function() widgets.centered_float(widgets.frames) end, { desc = "Debug Frames" })
     map("n", "<Leader>ds", function() widgets.centered_float(widgets.scopes) end, { desc = "Debug Scopes" })

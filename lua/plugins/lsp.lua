@@ -41,8 +41,7 @@ return {
 
     -- Visual settings
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-    vim.lsp.handlers["textDocument/signatureHelp"] =
-      vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
     require("lspconfig.ui.windows").default_options.border = "single"
     vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
     vim.api.nvim_set_hl(0, "LspReferenceText", {})
@@ -59,7 +58,6 @@ return {
           vim.keymap.set(mode, lhs, rhs, opts)
         end
 
-        -- stylua: ignore start
         map("n", "<Leader>ca", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
         map("n", "<Leader>cl", function() vim.lsp.codelens.run() end, { desc = "Codelens" })
         map("n", "<Leader>cr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
@@ -82,7 +80,6 @@ return {
         map("n", "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, { desc = "Show diagnostics" })
         map("v", "<Leader>cf", function() require("plugins.lsp.formatting").format() end, { desc = "Format range" })
         map({ "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
-        -- stylua: ignore end
 
         -- Refresh codelens
         if client.supports_method("textDocument/codeLens") then
@@ -123,13 +120,7 @@ return {
       update_in_insert = false,
       underline = true,
       severity_sort = true,
-      float = {
-        scope = "cursor",
-        border = "single",
-        source = true,
-        header = "",
-        prefix = "",
-      },
+      float = { scope = "cursor", border = "single", source = true, header = "", prefix = "" },
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = signs.Error,
@@ -138,9 +129,7 @@ return {
           [vim.diagnostic.severity.INFO] = signs.Info,
         },
       },
-      virtual_text = {
-        spacing = 4,
-      },
+      virtual_text = { spacing = 4 },
     })
 
     -- LSP servers
@@ -148,9 +137,7 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     local setup = function(server_name, opts)
-      require("lspconfig")[server_name].setup(vim.tbl_deep_extend("force", {
-        capabilities = capabilities,
-      }, opts))
+      require("lspconfig")[server_name].setup(vim.tbl_deep_extend("force", { capabilities = capabilities }, opts))
     end
 
     -- Not managed by mason, so setup is outside.
@@ -198,10 +185,7 @@ return {
       eslint = function(server_name)
         setup(server_name, {
           on_attach = function(_client, bufnr)
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              buffer = bufnr,
-              command = "EslintFixAll",
-            })
+            vim.api.nvim_create_autocmd("BufWritePre", { buffer = bufnr, command = "EslintFixAll" })
           end,
         })
       end,
@@ -235,13 +219,10 @@ return {
               },
               diagnostics = {
                 unusedLocalExclude = { "_*" },
-                globals = {
-                  "vim",
-                  "require",
-                },
+                globals = { "vim", "require" },
               },
               format = {
-                enable = false,
+                enable = true,
                 defaultConfig = {
                   indent_style = "space",
                   indent_size = "2",
@@ -293,19 +274,6 @@ return {
         })
       end,
 
-      pyright = function(server_name)
-        setup(server_name, {
-          settings = {
-            python = {
-              analysis = {
-                typeCheckingMode = "basic",
-                useLibraryCodeForTypes = true,
-              },
-            },
-          },
-        })
-      end,
-
       tsserver = function(server_name)
         setup(server_name, {
           init_options = {
@@ -325,10 +293,7 @@ return {
         setup(server_name, {
           settings = {
             yaml = {
-              schemaStore = {
-                enable = false,
-                url = "",
-              },
+              schemaStore = { enable = false, url = "" },
               schemas = require("schemastore").yaml.schemas(),
             },
           },

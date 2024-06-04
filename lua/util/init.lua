@@ -1,9 +1,12 @@
 local M = {}
 
 -- Normalize a path. Will fix Windows paths.
----@param path string
+--- @param path string
 function M.normalize_path(path)
-  if path:sub(2, 2) == ":" then path = vim.fs.normalize(path):gsub("^%l", string.upper) end
+  if path:sub(2, 2) == ":" then
+    path = vim.fs.normalize(path):gsub("^%l", string.upper)
+  end
+
   path = path:gsub("\\", "/")
   return path
 end
@@ -11,9 +14,11 @@ end
 -- Clean oldfiles. Normalize paths, remove junk.
 function M.clean_oldfiles()
   local oldfiles = {}
+
   for _, path in ipairs(vim.v.oldfiles) do
     oldfiles[#oldfiles + 1] = M.normalize_path(path)
   end
+
   vim.v.oldfiles = oldfiles
 end
 
@@ -22,6 +27,7 @@ function M.close_folds_with_level(level)
   local win_view = vim.fn.winsaveview()
   local line_count = vim.api.nvim_buf_line_count(0)
   local line = 1
+
   while line <= line_count do
     if vim.fn.foldlevel(line) == level then
       vim.api.nvim_win_set_cursor(0, { line, 0 })
@@ -32,6 +38,7 @@ function M.close_folds_with_level(level)
       line = line + 1
     end
   end
+
   if win_view then vim.fn.winrestview(win_view) end
 end
 
@@ -42,9 +49,14 @@ function M.close_text_object_folds(textobject)
   while true do
     local cursor = vim.api.nvim_win_get_cursor(0)
     vim.cmd.TSTextobjectGotoNextStart(textobject)
-    if vim.deep_equal(cursor, vim.api.nvim_win_get_cursor(0)) then break end
+
+    if vim.deep_equal(cursor, vim.api.nvim_win_get_cursor(0)) then
+      break
+    end
+
     vim.cmd.normal({ "zc", bang = true })
   end
+
   if win_view then vim.fn.winrestview(win_view) end
 end
 
@@ -88,8 +100,8 @@ function M.close_window_or_buffer()
 end
 
 -- Toggle a built-in option
----@param silent boolean?
----@param values? {[1]:any, [2]:any}
+--- @param silent boolean?
+--- @param values? {[1]:any, [2]:any}
 function M.toggle(option, silent, values)
   if values then
     if vim.opt_local[option]:get() == values[1] then
@@ -97,9 +109,12 @@ function M.toggle(option, silent, values)
     else
       vim.opt_local[option] = values[1]
     end
+
     return vim.notify("Set " .. option .. " to " .. vim.opt_local[option]:get())
   end
+
   vim.opt_local[option] = not vim.opt_local[option]:get()
+
   if not silent then
     if vim.opt_local[option]:get() then
       vim.notify("Enabled " .. option)
@@ -110,6 +125,7 @@ function M.toggle(option, silent, values)
 end
 
 M.diagnostics_enabled = true
+
 function M.toggle_diagnostics()
   M.diagnostics_enabled = not M.diagnostics_enabled
   if M.diagnostics_enabled then
@@ -122,6 +138,7 @@ function M.toggle_diagnostics()
 end
 
 M.number_enabled = { number = true, relativenumber = true }
+
 function M.toggle_number()
   if vim.opt_local.number:get() or vim.opt_local.relativenumber:get() then
     M.number_enabled = { number = vim.opt_local.number:get(), relativenumber = vim.opt_local.relativenumber:get() }

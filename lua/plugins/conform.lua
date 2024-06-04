@@ -13,8 +13,6 @@ return {
     end,
 
     formatters_by_ft = {
-      lua = { "stylua" },
-      python = { "isort", "black" },
       hcl = { "packer_fmt" },
       bash = { "shellharden" },
       sh = { "shellharden" },

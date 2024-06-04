@@ -5,6 +5,8 @@ M.mod_hl = function(hl_name, opts)
   for k, v in pairs(opts) do
     hl_def[k] = v
   end
+
+  --- @diagnostic disable-next-line: param-type-mismatch
   vim.api.nvim_set_hl(0, hl_name, hl_def)
 end
 

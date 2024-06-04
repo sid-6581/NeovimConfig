@@ -6,10 +6,14 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, { comma
 -- Normalize paths for Windows buffers
 if vim.fn.has("win32") == 1 then
   vim.api.nvim_create_autocmd({ "BufRead" }, {
-    callback = function() vim.api.nvim_buf_set_name(0, util.normalize_path(vim.api.nvim_buf_get_name(0))) end,
+    callback = function()
+      vim.api.nvim_buf_set_name(0, util.normalize_path(vim.api.nvim_buf_get_name(0)))
+    end,
   })
   vim.api.nvim_create_autocmd({ "VimLeavePre" }, {
-    callback = function() util.clean_oldfiles() end,
+    callback = function()
+      util.clean_oldfiles()
+    end,
   })
   util.clean_oldfiles()
 end

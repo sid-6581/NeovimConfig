@@ -5,6 +5,7 @@ require("config.autocmds")
 require("config.keymaps")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -14,7 +15,8 @@ if not vim.uv.fs_stat(lazypath) then
     lazypath,
   })
 end
----@diagnostic disable-next-line: undefined-field
+
+--- @diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {

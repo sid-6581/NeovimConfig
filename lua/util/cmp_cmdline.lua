@@ -10,9 +10,9 @@ source.new = function()
   return self
 end
 
-source.get_trigger_characters = function() return { " ", "#", "&", "-", ".", "/", "\\", "~" } end
+function source:get_trigger_characters() return { " ", "#", "&", "-", ".", "/", "\\", "~" } end
 
-source.complete = function(_self, request, callback)
+function source:complete(request, callback)
   local input = request.context.cursor_before_line
   local type = vim.fn.getcmdcompltype()
   local items = vim.fn.getcompletion(input, "cmdline")
@@ -38,5 +38,7 @@ source.complete = function(_self, request, callback)
     isIncomplete = false,
   })
 end
+
+function source:resolve(completion_item, callback) callback(completion_item) end
 
 return source

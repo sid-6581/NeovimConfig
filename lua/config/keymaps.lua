@@ -3,21 +3,24 @@ local map = function(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
 
--- stylua: ignore start
-
 -- Misc
 map("n", "<S-F1>", "<CMD>WhichKey<CR>", { desc = "Show keys" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>L", "<CMD>Lazy sync<CR>", { desc = "Lazy" })
 map("n", "<Leader>q", "<CMD>qa<CR>", { desc = "Quit all" })
-map("n", "<BS>", "<CMD>noh | echon \"\"<CR>", { desc = "Clear search highlighting" })
-map("n", "<Esc>", "<CMD>noh | echon \"\"<CR><Esc>", { desc = "Clear search highlighting" })
+map("n", "<BS>", '<CMD>noh | echon ""<CR>', { desc = "Clear search highlighting" })
+map("n", "<Esc>", '<CMD>noh | echon ""<CR><Esc>', { desc = "Clear search highlighting" })
 map("i", "<C-s>", "<C-\\><C-o><CMD>w!<CR>", { desc = "Save" })
 map("n", "<C-s>", "<CMD>w!<CR>", { desc = "Save" })
 -- map("n", "!", '"=nr2char(getchar())<CR>P', { desc = "Insert one character" })
 
 -- Adding blank lines
-map("n", "<Leader><Enter>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>k", { desc = "Add blank line on current line" })
+map(
+  "n",
+  "<Leader><Enter>",
+  "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>k",
+  { desc = "Add blank line on current line" }
+)
 map("n", "[<Space>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>", { desc = "Add blank line above" })
 map("n", "]<Space>", "<CMD>put =repeat(nr2char(10), v:count1)|silent '[-<CR>", { desc = "Add blank line below" })
 
@@ -32,8 +35,18 @@ map("n", "<C-F>", "<C-F>zz", {})
 map("n", "<C-B>", "<C-B>zz", {})
 
 -- Buffers
-map("n", "<Leader><Esc>", function() require("util").close_window_or_buffer() end, { desc = "Delete buffer and close window" })
-map("n", "<Leader><BS>", function() require("util").close_window_or_buffer() end, { desc = "Delete buffer and close window" })
+map(
+  "n",
+  "<Leader><Esc>",
+  function() require("util").close_window_or_buffer() end,
+  { desc = "Delete buffer and close window" }
+)
+map(
+  "n",
+  "<Leader><BS>",
+  function() require("util").close_window_or_buffer() end,
+  { desc = "Delete buffer and close window" }
+)
 map("n", "q", function() require("util").close_window_or_buffer() end, { desc = "Delete buffer and close window" })
 map("n", "<S-h>", "<CMD>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Next buffer" })
@@ -104,8 +117,18 @@ map("n", "<Leader><Tab>]", "<CMD>tabnext<CR>", { desc = "Next tab" })
 map("n", "<Leader><Tab>q", "<CMD>tabclose<CR>", { desc = "Close tab" })
 
 -- Folds
-map("n", "zff", function() require("util").close_text_object_folds("@function.outer") end, { desc = "Close folds for functions" })
-map("n", "zfc", function() require("util").close_text_object_folds("@class.outer") end, { desc = "Close folds for classes" })
+map(
+  "n",
+  "zff",
+  function() require("util").close_text_object_folds("@function.outer") end,
+  { desc = "Close folds for functions" }
+)
+map(
+  "n",
+  "zfc",
+  function() require("util").close_text_object_folds("@class.outer") end,
+  { desc = "Close folds for classes" }
+)
 map("n", "z1", function() require("util").close_folds_with_level(1) end, { desc = "Close folds with level 1" })
 map("n", "z2", function() require("util").close_folds_with_level(2) end, { desc = "Close folds with level 2" })
 map("n", "z3", function() require("util").close_folds_with_level(3) end, { desc = "Close folds with level 3" })
@@ -171,7 +194,7 @@ map("i", "<C-BS>", "<C-w>", { desc = "Delete previous word" })
 map("i", "<C-Enter>", "<Esc>m`o<Esc>``a", { desc = "Insert blank line below" })
 map("i", "<C-S-Enter>", "<Esc>m`O<Esc>``a", { desc = "Insert blank line above" })
 map("i", "<Esc>", "<Esc>`^", { desc = "Exit insert mode" })
-map("i", "<S-Insert>", '<C-r><C-o>+', { desc = "Paste from system clipboard" })
+map("i", "<S-Insert>", "<C-r><C-o>+", { desc = "Paste from system clipboard" })
 map("i", "<S-Tab>", "<C-d>", { desc = "Unindent line" })
 
 -- Visual and select mode
@@ -192,7 +215,7 @@ map("t", "<C-k>", "<C-\\><C-N><C-w>k", { desc = "Up" })
 map("t", "<C-l>", "<C-\\><C-N><C-w>l", { desc = "Right" })
 map("t", "<S-Enter>", "<Enter>", { desc = "Insert enter" })
 map("t", "<S-Esc>", "<C-\\><C-N>", { desc = "Go to normal mode" })
-map("t", "<S-Insert>", "<C-\\><C-N>\"+pi", { desc = "Paste from system clipboard" })
+map("t", "<S-Insert>", '<C-\\><C-N>"+pi', { desc = "Paste from system clipboard" })
 map("t", "<S-Space>", "<Space>", { desc = "Insert space" })
 
 -- Visual mode
@@ -200,8 +223,18 @@ map("v", ",.", "<C-U>", { desc = "Scroll up" })
 map("v", ",/", "<C-D>", { desc = "Scroll down" })
 
 -- Better wildmenu navigation
-map("c", "<C-j>", function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>" end, { expr = true, desc = "Wildmenu down", silent = false })
-map("c", "<C-k>", function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>" end, { expr = true, desc = "Wildmenu up", silent = false })
+map(
+  "c",
+  "<C-j>",
+  function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>" end,
+  { expr = true, desc = "Wildmenu down", silent = false }
+)
+map(
+  "c",
+  "<C-k>",
+  function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>" end,
+  { expr = true, desc = "Wildmenu up", silent = false }
+)
 
 -- Toggles
 map("n", "<Leader>uC", function() require("util").toggle("cursorcolumn") end, { desc = "Toggle cursorcolumn" })
@@ -215,10 +248,20 @@ map("n", "<Leader>uF", function()
   vim.b.disable_autoformat = not vim.b.disable_autoformat
   vim.notify((vim.b.disable_autoformat and "Disabled" or "Enabled") .. " format on save (buffer)")
 end, { desc = "Toggle format on save (buffer)" })
-map("n", "<Leader>uh", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end, { desc = "Toggle inlay hints" })
+map(
+  "n",
+  "<Leader>uh",
+  function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end,
+  { desc = "Toggle inlay hints" }
+)
 map("n", "<Leader>uw", function() require("util").toggle("wrap") end, { desc = "Toggle wrap" })
 map("n", "<leader>ul", function() require("util").toggle_number() end, { desc = "Toggle line numbers" })
-map("n", "<leader>ur", function() require("util").toggle("relativenumber") end, { desc = "Toggle relative line numbers" })
+map(
+  "n",
+  "<leader>ur",
+  function() require("util").toggle("relativenumber") end,
+  { desc = "Toggle relative line numbers" }
+)
 
 -- Cmdline mode
 map("c", "<S-Insert>", "<C-R><C-R>+", { desc = "Paste from system clipboard", silent = false })

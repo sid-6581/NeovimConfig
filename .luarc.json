@@ -1,7 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
-  "Lua.diagnostics.disable": [
-    "no-unknown",
-    "incomplete-signature-doc"
-  ]
+  "diagnostics": {
+    "disable": [
+      "no-unknown",
+      "incomplete-signature-doc"
+    ],
+    "neededFileStatus": {
+      "codestyle-check": "Any"
+    }
+  }
 }
