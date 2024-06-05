@@ -29,7 +29,6 @@ return {
             brackets = { "%b()", "%b[]", "%b{}", "%b<>", "%||" },
             separator = "%s*[,;]%s*",
           }),
-          c = gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
           F = gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
           o = gen_spec.treesitter({
             a = { "@block.outer", "@conditional.outer", "@loop.outer" },
@@ -63,7 +62,6 @@ return {
         _ = "Underscore",
         a = "Argument",
         b = "Balanced ), ], }",
-        c = "Class",
         f = "Function call",
         F = "Function",
         o = "Block, conditional, loop",
