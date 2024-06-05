@@ -76,9 +76,8 @@ return {
         map("n", "<Leader>lS", function() require("telescope.builtin").lsp_document_symbols() end, { desc = "Document symbols" })
         map("n", "K", function() vim.lsp.buf.hover() end, { desc = "Show information" })
         map("n", "gK", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
-        map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, { desc = "Go to definition" })
+        map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go to definition" })
         map("n", "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, { desc = "Show diagnostics" })
-        map("v", "<Leader>cf", function() require("plugins.lsp.formatting").format() end, { desc = "Format range" })
         map({ "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
 
         -- Refresh codelens

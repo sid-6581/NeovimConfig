@@ -3,7 +3,6 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader><Tab>O", "<CMD>tabnew | cd ~/vaults/Notes | Neotree<CR>", desc = "Obsidian (new tab)" },
     { "<Leader>O", "<CMD>cd ~/vaults/Notes | Neotree<CR>", desc = "Obsidian" },
   },
 

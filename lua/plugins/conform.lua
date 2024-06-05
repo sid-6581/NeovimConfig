@@ -3,12 +3,16 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>cf", function() require("conform").format() end, desc = "Format document" },
+    { "<Leader>cf", function() require("conform").format() end, mode = { "c", "v" }, desc = "Format document" },
   },
 
   opts = {
     format_on_save = function(bufnr)
-      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return end
+      if
+        vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+        return
+      end
+
       return { timeout_ms = 500, lsp_fallback = true }
     end,
 
