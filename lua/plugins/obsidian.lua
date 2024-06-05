@@ -26,6 +26,7 @@ return {
         },
       },
     },
+    disable_frontmatter = true,
     new_notes_location = "current_dir",
     notes_subdir = nil,
   },
