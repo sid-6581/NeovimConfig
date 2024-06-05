@@ -1,6 +1,5 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  branch = "main",
   event = "VeryLazy",
 
   keys = {
@@ -20,7 +19,7 @@ return {
       width = 40,
     },
     filesystem = {
-      hijack_netrw_behavior = "disabled",
+      hijack_netrw_behavior = "open_default",
       use_libuv_file_watcher = true,
       filtered_items = {
         visible = false,
