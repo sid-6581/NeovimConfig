@@ -2,6 +2,10 @@ return {
   "shellRaining/hlchunk.nvim",
   event = { "BufReadPre", "BufReadPre" },
 
+  keys = {
+    { "cc", mode = { "o", "x" }, desc = "Code chunk" },
+  },
+
   opts = {
     chunk = {
       enable = true,
@@ -21,4 +25,3 @@ return {
     },
   },
 }
-

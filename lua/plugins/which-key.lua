@@ -11,7 +11,8 @@ return {
       group = "",
     },
     defaults = {
-      ["gp"] = { name = "Goto Preview" },
+      ["g"] = { name = "Goto/operators" },
+      ["gp"] = { name = "Goto preview" },
       ["]"] = { name = "Next" },
       ["["] = { name = "Prev" },
       ["<Leader><Tab>"] = { name = "Tabs" },
@@ -24,9 +25,10 @@ return {
       ["<Leader>go"] = { name = "Octo" },
       ["<Leader>o"] = { name = "Overseer" },
       ["<Leader>t"] = { name = "Terminal" },
-      ["<Leader>u"] = { name = "UI/Toggles" },
+      ["<Leader>u"] = { name = "UI/toggles" },
       ["<Leader>w"] = { name = "Windows" },
-      ["<Leader>x"] = { name = "Diagnostics/Quickfix" },
+      ["<Leader>x"] = { name = "Diagnostics/quickfix" },
+      ["c"] = { name = "Code", mode = { "o", "x" } },
     },
   },
 

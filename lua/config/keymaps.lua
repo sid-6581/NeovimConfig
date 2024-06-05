@@ -4,7 +4,7 @@ local map = function(mode, lhs, rhs, opts)
 end
 
 -- Misc
-map("n", "<S-F1>", "<CMD>WhichKey<CR>", { desc = "Show keys" })
+map({ "n", "v" }, "<S-F1>", "<CMD>WhichKey<CR>", { desc = "Show keys" })
 map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>L", "<CMD>Lazy sync<CR>", { desc = "Lazy" })
 map("n", "<Leader>q", "<CMD>qa<CR>", { desc = "Quit all" })
