@@ -152,7 +152,7 @@ return {
               actions.close(prompt_bufnr)
               local dir = action_state.get_selected_entry()[1]
               vim.cmd.tcd(dir)
-              require("neo-tree.command").execute({})
+              require("neo-tree.command").execute({ action = "show" })
             end)
             return true
           end,
