@@ -12,13 +12,13 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
--- vim.g.neovide_cursor_animation_length = 0
--- vim.g.neovide_cursor_vfx_mode = ""
+vim.g.neovide_cursor_animation_length = 0
+vim.g.neovide_cursor_vfx_mode = ""
 vim.g.neovide_floating_shadow = false
 -- vim.g.neovide_no_idle = true
 -- vim.g.neovide_refresh_rate = 120
 vim.g.neovide_remember_window_size = true
--- vim.g.neovide_scroll_animation_far_lines = 0
+vim.g.neovide_scroll_animation_far_lines = 0
 -- vim.g.neovide_underline_stroke_scale = 0.5
 -- vim.g.neovide_unlink_border_highlights = false
 
