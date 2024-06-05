@@ -26,6 +26,12 @@ return {
         },
       },
     },
+    ui = {
+      checkboxes = {
+        [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+        ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+      },
+    },
     disable_frontmatter = true,
     new_notes_location = "current_dir",
     notes_subdir = nil,
