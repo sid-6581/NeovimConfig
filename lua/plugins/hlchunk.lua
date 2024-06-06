@@ -11,6 +11,8 @@ return {
       enable = true,
       notify = false,
       textobject = "cc",
+      duration = 0,
+      delay = 0,
     },
     line_num = {
       enable = true,
