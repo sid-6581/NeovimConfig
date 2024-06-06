@@ -3,15 +3,15 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>gg", function() _LAZYGIT_TOGGLE() end, desc = "Lazygit" },
-    { "<Leader>tf", function() _TERMINAL_TOGGLE() end, desc = "Toggle terminal (float)" },
-    { "<Leader>th", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Toggle terminal (horizontal)" },
-    { "<Leader>tm", function() _MC_TOGGLE() end, desc = "Toggle terminal (Midnight Commander)" },
-    { "<Leader>tp", function() _PYTHON_TOGGLE() end, desc = "Toggle terminal (Python)" },
-    { "<Leader>tv", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Vertical" },
     { "<C-->", function() _TERMINAL_HORIZONTAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Toggle terminal (horizontal)" },
     { "<C-=>", function() _TERMINAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Toggle terminal (float)" },
     { "<C-|>", function() _TERMINAL_VERTICAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Toggle terminal (vertical)" },
+    { "<Leader>gg", function() _LAZYGIT_TOGGLE() end, desc = "Lazygit" },
+    { "<Leader>tf", function() _TERMINAL_TOGGLE() end, desc = "Toggle terminal (float)" },
+    { "<Leader>th", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Toggle terminal (horizontal)" },
+    { "<Leader>tp", function() _PYTHON_TOGGLE() end, desc = "Toggle terminal (Python)" },
+    { "<Leader>tv", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Vertical" },
+    { "<Leader>ty", function() _YAZI_TOGGLE() end, desc = "Toggle terminal (Yazi)" },
   },
 
   config = function()
@@ -119,16 +119,16 @@ return {
       python:toggle()
     end
 
-    local mc
-    function _MC_TOGGLE()
-      if mc == nil then
-        mc = Terminal:new({
+    local yazi
+    function _YAZI_TOGGLE()
+      if yazi == nil then
+        yazi = Terminal:new({
           count = 95,
-          cmd = "mc",
+          cmd = "yazi",
           hidden = true,
-          on_exit = function() mc = nil end,
+          on_exit = function() yazi = nil end,
         })
-        mc:toggle()
+        yazi:toggle()
       end
     end
   end,
