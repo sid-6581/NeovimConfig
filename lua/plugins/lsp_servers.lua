@@ -101,11 +101,7 @@ return {
           },
         },
 
-        ruff = {
-          on_attach = function(client, _bufnr)
-            client.server_capabilities.hoverProvider = false
-          end,
-        },
+        ruff = {},
 
         rust_analyzer = {
           cmd = { "rustup", "run", "nightly", "rust-analyzer" },
