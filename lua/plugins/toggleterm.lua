@@ -50,7 +50,6 @@ return {
     local Terminal = require("toggleterm.terminal").Terminal
 
     local terminal
-    --- @diagnostic disable-next-line: missing-global-doc
     function _TERMINAL_TOGGLE()
       if terminal == nil then
         terminal = Terminal:new({
@@ -64,7 +63,6 @@ return {
     end
 
     local terminal_horizontal
-    --- @diagnostic disable-next-line: missing-global-doc
     function _TERMINAL_HORIZONTAL_TOGGLE()
       if terminal_horizontal == nil then
         terminal_horizontal = Terminal:new({
@@ -79,7 +77,6 @@ return {
     end
 
     local terminal_vertical
-    --- @diagnostic disable-next-line: missing-global-doc
     function _TERMINAL_VERTICAL_TOGGLE()
       if terminal_vertical == nil then
         terminal_vertical = Terminal:new({
@@ -94,7 +91,6 @@ return {
     end
 
     local lazygit
-    --- @diagnostic disable-next-line: missing-global-doc
     function _LAZYGIT_TOGGLE()
       if lazygit == nil then
         lazygit = Terminal:new({
@@ -110,7 +106,6 @@ return {
     end
 
     local python
-    --- @diagnostic disable-next-line: missing-global-doc
     function _PYTHON_TOGGLE()
       if python == nil then
         python = Terminal:new({
@@ -125,7 +120,6 @@ return {
     end
 
     local mc
-    --- @diagnostic disable-next-line: missing-global-doc
     function _MC_TOGGLE()
       if mc == nil then
         mc = Terminal:new({
