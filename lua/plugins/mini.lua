@@ -209,9 +209,9 @@ return {
 
       return {
         mappings = {
-          toggle = "gS",
-          join = "<Leader>cj",
-          split = "<Leader>cs",
+          toggle = "",
+          join = "gJ",
+          split = "gS",
         },
         detect = {
           separator = "[,;]",
