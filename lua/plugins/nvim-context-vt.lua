@@ -4,5 +4,6 @@ return {
 
   opts = {
     prefix = "",
+    disable_virtual_lines = true,
   },
 }

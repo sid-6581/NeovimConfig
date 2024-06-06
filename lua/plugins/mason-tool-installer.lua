@@ -18,6 +18,8 @@ return {
       "json-lsp",
       "lemminx",
       "lua-language-server",
+      "pyright",
+      "ruff",
       "shfmt",
       "shellcheck",
       "shellharden",

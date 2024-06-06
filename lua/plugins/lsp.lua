@@ -34,7 +34,7 @@ return {
     },
   },
 
-  config = function()
+  config = function(_, opts)
     require("neoconf").setup({})
     require("mason").setup()
     require("mason-lspconfig").setup()
@@ -131,172 +131,34 @@ return {
       virtual_text = { spacing = 4 },
     })
 
-    -- LSP servers
+    -- Set up LSP servers
 
-    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    local capabilities = vim.tbl_deep_extend(
+      "force",
+      {},
+      vim.lsp.protocol.make_client_capabilities(),
+      require("cmp_nvim_lsp").default_capabilities()
+    )
 
-    local setup = function(server_name, opts)
-      require("lspconfig")[server_name].setup(vim.tbl_deep_extend("force", { capabilities = capabilities }, opts))
+    local setup = function(server_name)
+      local server_opts = vim.tbl_deep_extend(
+        "force",
+        { capabilities = vim.deepcopy(capabilities) },
+        opts.servers[server_name] or {}
+      )
+      require("lspconfig")[server_name].setup(server_opts)
     end
 
-    -- Not managed by mason, so setup is outside.
-    setup("rust_analyzer", {
-      cmd = { "rustup", "run", "nightly", "rust-analyzer" },
-      settings = {
-        ["rust-analyzer"] = {
-          cargo = {
-            features = "all",
-            buildScripts = {
-              useRustcWrapper = false,
-            },
-          },
-          diagnostics = {
-            disabled = { "unresolved-proc-macro" },
-            experimental = {
-              enable = true,
-            },
-          },
-          check = {
-            command = "clippy",
-            extraArgs = { "--no-deps" },
-          },
-          files = {
-            watcher = "server",
-          },
-        },
-      },
-    })
+    for name, _ in pairs(opts.servers) do
+      setup(name)
+    end
 
-    -- Not managed by mason, so setup is outside.
-    setup("volar", {
-      cmd = { "pnpm", "vue-language-server", "--stdio" },
-      init_options = {
-        vue = {
-          hybridMode = true,
-        },
-      },
-    })
-
-    -- Mason-managed servers.
+    -- Let Mason set up servers we haven't explicitly set up above.
     require("mason-lspconfig").setup_handlers({
-      function(server_name) setup(server_name, {}) end,
-
-      eslint = function(server_name)
-        setup(server_name, {
-          on_attach = function(_client, bufnr)
-            vim.api.nvim_create_autocmd("BufWritePre", { buffer = bufnr, command = "EslintFixAll" })
-          end,
-        })
-      end,
-
-      jsonls = function(server_name)
-        setup(server_name, {
-          capabilities = vim.tbl_deep_extend("force", capabilities, {
-            textDocument = {
-              completion = {
-                completionItem = {
-                  snippetSupport = true,
-                },
-              },
-            },
-          }),
-          settings = {
-            json = {
-              schemas = require("schemastore").json.schemas(),
-              validate = { enable = true },
-            },
-          },
-        })
-      end,
-
-      lua_ls = function(server_name)
-        setup(server_name, {
-          settings = {
-            Lua = {
-              completion = {
-                workspaceWord = false,
-              },
-              diagnostics = {
-                unusedLocalExclude = { "_*" },
-                globals = { "vim", "require" },
-              },
-              format = {
-                enable = true,
-                defaultConfig = {
-                  indent_style = "space",
-                  indent_size = "2",
-                  continuation_indent_size = "2",
-                },
-              },
-              telemetry = {
-                enable = false,
-              },
-            },
-          },
-        })
-      end,
-
-      omnisharp = function(server_name)
-        setup(server_name, {
-          settings = {
-            csharp = {
-              format = {
-                enable = true,
-              },
-            },
-            omnisharp = {
-              enableDecompilationSupport = true,
-              enabledEditorConfigSupport = true,
-              enableImportCompletion = true,
-              enableRoslynAnalyzers = true,
-              organizeImportsOnFormat = true,
-            },
-          },
-        })
-      end,
-
-      powershell_es = function(server_name)
-        setup(server_name, {
-          settings = {
-            powershell = {
-              codeFormatting = {
-                autoCorrectAliases = true,
-                avoidSemicolonsAsLineTerminators = true,
-                preset = "OTBS",
-                trimWhitespaceAroundPipe = true,
-                useConstantStrings = true,
-                useCorrectCasing = true,
-                whitespaceBetweenParameters = true,
-              },
-            },
-          },
-        })
-      end,
-
-      tsserver = function(server_name)
-        setup(server_name, {
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = "",
-                languages = { "vue" },
-              },
-            },
-          },
-          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-        })
-      end,
-
-      yamlls = function(server_name)
-        setup(server_name, {
-          settings = {
-            yaml = {
-              schemaStore = { enable = false, url = "" },
-              schemas = require("schemastore").yaml.schemas(),
-            },
-          },
-        })
+      function(server_name)
+        if not opts.servers[server_name] then
+          setup(server_name)
+        end
       end,
     })
   end,
