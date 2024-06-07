@@ -119,8 +119,8 @@ return {
     })
 
     cmp.setup.cmdline(":", {
-      --- @diagnostic disable-next-line: missing-fields
       formatting = {
+        expandable_indicator = true,
         fields = { "abbr", "menu" },
         format = function(entry, vim_item)
           return require("lspkind").cmp_format({

@@ -96,7 +96,6 @@ vim.filetype.add({
 })
 
 -- Redirect all prints to vim.notify
---- @diagnostic disable-next-line: missing-global-doc
 print = function(...)
   local print_safe_args = {}
   local _ = { ... }
