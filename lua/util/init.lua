@@ -63,24 +63,17 @@ end
 -- Deletes the buffer unless it's displayed in multiple windows.
 -- If the window still exists after deleting the buffer, close the window if there are no other listed buffers.
 function M.close_window_or_buffer()
-  local current_buffer = vim.api.nvim_get_current_buf()
-  local current_window = vim.api.nvim_get_current_win()
-
-  local current_buffer_is_in_multiple_windows = #vim.tbl_filter(
-    function(window) return vim.api.nvim_win_get_buf(window) == current_buffer end,
-    vim.api.nvim_list_wins()
-  ) > 1
-
-  local multiple_listed_buffers = #vim.tbl_filter(
-    function(buffer) return vim.fn.buflisted(buffer) == 1 end,
-    vim.api.nvim_list_bufs()
-  ) > 1
+  local buf_info = vim.fn.getbufinfo("%")[1]
+  local win_info = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1]
+  local current_buffer_is_in_multiple_windows = #buf_info.windows > 1
+  local multiple_listed_buffers = #vim.fn.getbufinfo({ buflisted = 1 }) > 1
 
   if not current_buffer_is_in_multiple_windows then
-    vim.api.nvim_buf_delete(current_buffer, {})
+    vim.cmd.bprevious()
+    vim.api.nvim_buf_delete(buf_info.bufnr, {})
   end
 
-  if not multiple_listed_buffers and vim.api.nvim_win_is_valid(current_window) then
+  if not multiple_listed_buffers and vim.api.nvim_win_is_valid(win_info.winid) then
     vim.cmd.quit()
   end
 end
