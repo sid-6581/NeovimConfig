@@ -12,6 +12,7 @@ vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.neovide_confirm_quit = false
 vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_cursor_vfx_mode = ""
 vim.g.neovide_floating_shadow = false
