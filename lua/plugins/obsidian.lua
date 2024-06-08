@@ -32,9 +32,16 @@ return {
         ["x"] = { char = "✔", hl_group = "ObsidianDone" },
       },
     },
-    disable_frontmatter = true,
+    disable_frontmatter = false,
     new_notes_location = "current_dir",
     notes_subdir = nil,
+    daily_notes = {
+      folder = "Daily Notes",
+      template = "Daily Note Template.md",
+    },
+    templates = {
+      folder = "Templates",
+    },
   },
 
   config = function(_, opts)
