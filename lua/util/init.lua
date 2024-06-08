@@ -67,9 +67,10 @@ function M.close_window_or_buffer()
   local win_info = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1]
   local current_buffer_is_in_multiple_windows = #buf_info.windows > 1
   local multiple_listed_buffers = #vim.fn.getbufinfo({ buflisted = 1 }) > 1
+  local multiple_windows = #vim.fn.gettabinfo()
 
   if not current_buffer_is_in_multiple_windows then
-    if multiple_listed_buffers then
+    if multiple_listed_buffers and not multiple_windows then
       vim.cmd.bprevious()
     end
 
