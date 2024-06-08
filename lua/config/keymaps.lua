@@ -5,7 +5,7 @@ end
 
 -- Misc
 map({ "n", "v" }, "<S-F1>", "<CMD>WhichKey<CR>", { desc = "Show keys" })
-map("n", "<Leader>C", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
+map("n", "<C-,>", "<CMD>:e $MYVIMRC<CR>", { desc = "Edit configuration" })
 map("n", "<Leader>L", "<CMD>Lazy sync<CR>", { desc = "Lazy" })
 map("n", "<Leader>q", "<CMD>qa<CR>", { desc = "Quit all" })
 map("n", "<BS>", '<CMD>noh | echon ""<CR>', { desc = "Clear search highlighting" })
