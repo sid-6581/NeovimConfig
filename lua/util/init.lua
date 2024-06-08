@@ -69,7 +69,10 @@ function M.close_window_or_buffer()
   local multiple_listed_buffers = #vim.fn.getbufinfo({ buflisted = 1 }) > 1
 
   if not current_buffer_is_in_multiple_windows then
-    vim.cmd.bprevious()
+    if multiple_listed_buffers then
+      vim.cmd.bprevious()
+    end
+
     vim.api.nvim_buf_delete(buf_info.bufnr, {})
   end
 
