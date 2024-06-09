@@ -73,14 +73,14 @@ function M.close_window_or_buffer()
     vim.cmd.quit()
   end
 
-  buf_info = vim.fn.getbufinfo("%")[1]
-  local is_no_name_buf = buf_info.loaded
-    and buf_info.listed
-    and buf_info.name == ""
-    and vim.api.nvim_get_option_value("buftype", { buf = buf_info.bufnr }) == ""
-    and vim.api.nvim_get_option_value("filetype", { buf = buf_info.bufnr }) == ""
+  local new_buf_info = vim.fn.getbufinfo("%")[1]
+  local is_no_name_buf = new_buf_info.loaded
+    and new_buf_info.listed
+    and new_buf_info.name == ""
+    and vim.api.nvim_get_option_value("buftype", { buf = new_buf_info.bufnr }) == ""
+    and vim.api.nvim_get_option_value("filetype", { buf = new_buf_info.bufnr }) == ""
 
-  if winid == vim.api.nvim_get_current_win() and is_no_name_buf then
+  if winid == vim.api.nvim_get_current_win() and is_no_name_buf and buf_info.listed == 1 then
     vim.cmd.quit()
   end
 end
