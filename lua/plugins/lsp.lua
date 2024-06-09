@@ -53,9 +53,9 @@ return {
 
         if not client then return end
 
-        local map = function(mode, lhs, rhs, opts)
-          opts = vim.tbl_deep_extend("force", { buffer = bufnr, silent = true, noremap = true }, opts)
-          vim.keymap.set(mode, lhs, rhs, opts)
+        local map = function(mode, lhs, rhs, map_opts)
+          map_opts = vim.tbl_deep_extend("force", { buffer = bufnr, silent = true }, map_opts)
+          vim.keymap.set(mode, lhs, rhs, map_opts)
         end
 
         map("n", "<Leader>ca", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
@@ -91,7 +91,7 @@ return {
           vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
             group = vim.api.nvim_create_augroup("LspCodeLensRefresh." .. bufnr .. "." .. client.name, {}),
             buffer = bufnr,
-            callback = function() vim.lsp.codelens.refresh({ bufnr = 0 }) end,
+            callback = function() vim.lsp.codelens.refresh({ bufnr = bufnr }) end,
           })
         end
 

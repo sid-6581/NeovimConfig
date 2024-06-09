@@ -104,16 +104,8 @@ return {
     event = "VeryLazy",
 
     keys = {
-      {
-        "]e",
-        function() require("mini.bracketed").diagnostic("forward", { severity = vim.diagnostic.severity.ERROR }) end,
-        desc = "Error forward",
-      },
-      {
-        "[e",
-        function() require("mini.bracketed").diagnostic("backward", { severity = vim.diagnostic.severity.ERROR }) end,
-        desc = "Error backward",
-      },
+      { "]e", function() require("mini.bracketed").diagnostic("forward", { severity = vim.diagnostic.severity.ERROR }) end, desc = "Error forward" },
+      { "[e", function() require("mini.bracketed").diagnostic("backward", { severity = vim.diagnostic.severity.ERROR }) end, desc = "Error backward" },
     },
 
     opts = {
@@ -128,16 +120,8 @@ return {
     event = "VeryLazy",
 
     keys = {
-      {
-        "<leader>fm",
-        function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end,
-        desc = "Open mini.files (directory of current file)",
-      },
-      {
-        "<leader>fM",
-        function() require("mini.files").open(vim.loop.cwd(), true) end,
-        desc = "Open mini.files (cwd)",
-      },
+      { "<leader>fm", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open mini.files (file dir)" },
+      { "<leader>fM", function() require("mini.files").open(vim.loop.cwd(), true) end, desc = "Open mini.files (cwd)" },
     },
 
     opts = {
