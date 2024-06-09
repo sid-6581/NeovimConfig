@@ -18,29 +18,6 @@ if vim.fn.has("win32") == 1 then
   util.clean_oldfiles()
 end
 
--- Use q to close non-editor windows, and hide them from the buffer list
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = {
-    "PlenaryTestPopup",
-    "help",
-    "lspinfo",
-    "man",
-    "notify",
-    "qf",
-    "query",
-    "spectre_panel",
-    "startuptime",
-  },
-  callback = function(event)
-    vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true, desc = "Close window" })
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "DiffViewFileHistory", "DiffViewFiles" },
-  callback = function(event) vim.keymap.set("n", "q", "<CMD>tabclose<CR>", { buffer = event.buf, silent = true }) end,
-})
-
 -- Turn off filetype indent for vue, because it uses HTML indent which doesn't work with pug
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "vue" },

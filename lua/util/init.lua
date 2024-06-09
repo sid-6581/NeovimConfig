@@ -1,6 +1,6 @@
 local M = {}
 
--- Normalize a path. Will fix Windows paths.
+-- Normalizes a path. Will fix Windows paths.
 --- @param path string
 function M.normalize_path(path)
   if path:sub(2, 2) == ":" then
@@ -22,7 +22,7 @@ function M.clean_oldfiles()
   vim.v.oldfiles = oldfiles
 end
 
--- Close all folds with a given fold level. Does not close folds inside the fold recursively.
+-- Closes all folds with a given fold level. Does not close folds inside the fold recursively.
 function M.close_folds_with_level(level)
   local win_view = vim.fn.winsaveview()
   local line_count = vim.api.nvim_buf_line_count(0)
@@ -42,7 +42,7 @@ function M.close_folds_with_level(level)
   if win_view then vim.fn.winrestview(win_view) end
 end
 
--- Close all folds with a given treesitter textobject. Does not close folds inside the fold recursively.
+-- Closes all folds with a given treesitter textobject. Does not close folds inside the fold recursively.
 function M.close_text_object_folds(textobject)
   local win_view = vim.fn.winsaveview()
   vim.api.nvim_win_set_cursor(0, { 1, 0 })
@@ -60,24 +60,27 @@ function M.close_text_object_folds(textobject)
   if win_view then vim.fn.winrestview(win_view) end
 end
 
--- Deletes the buffer unless it's displayed in multiple windows.
--- If the window still exists after deleting the buffer, close the window if there are no other listed buffers.
+-- Deletes the current buffer unless it's displayed in multiple windows.
+-- If the buffer is displayed in multiple windows, the current window is closed.
+-- If the window still exists after deleting the buffer, close the window if the current buffer is a no name buffer.
 function M.close_window_or_buffer()
   local buf_info = vim.fn.getbufinfo("%")[1]
-  local win_info = vim.fn.getwininfo(vim.api.nvim_get_current_win())[1]
-  local current_buffer_is_in_multiple_windows = #buf_info.windows > 1
-  local multiple_listed_buffers = #vim.fn.getbufinfo({ buflisted = 1 }) > 1
-  local multiple_windows = #vim.fn.gettabinfo()
+  local winid = vim.api.nvim_get_current_win()
 
-  if not current_buffer_is_in_multiple_windows then
-    if multiple_listed_buffers and not multiple_windows then
-      vim.cmd.bprevious()
-    end
-
+  if #buf_info.windows <= 1 then
     vim.api.nvim_buf_delete(buf_info.bufnr, {})
+  else
+    vim.cmd.quit()
   end
 
-  if not multiple_listed_buffers and vim.api.nvim_win_is_valid(win_info.winid) then
+  buf_info = vim.fn.getbufinfo("%")[1]
+  local is_no_name_buf = buf_info.loaded
+    and buf_info.listed
+    and buf_info.name == ""
+    and vim.api.nvim_get_option_value("buftype", { buf = buf_info.bufnr }) == ""
+    and vim.api.nvim_get_option_value("filetype", { buf = buf_info.bufnr }) == ""
+
+  if winid == vim.api.nvim_get_current_win() and is_no_name_buf then
     vim.cmd.quit()
   end
 end
@@ -104,19 +107,6 @@ function M.toggle(option, silent, values)
     else
       vim.notify("Disabled " .. option)
     end
-  end
-end
-
-M.diagnostics_enabled = true
-
-function M.toggle_diagnostics()
-  M.diagnostics_enabled = not M.diagnostics_enabled
-  if M.diagnostics_enabled then
-    vim.diagnostic.enable(true)
-    vim.notify("Enabled diagnostics")
-  else
-    vim.diagnostic.enable(false)
-    vim.notify("Disabled diagnostics")
   end
 end
 

@@ -70,6 +70,9 @@ map("n", "<Leader>ws", "<C-W>s", { desc = "Split window (horizontal)" })
 map("n", "<Leader>wv", "<C-W>v", { desc = "Split window (vertical)" })
 map("n", "<Leader>wz", "<C-W>z", { desc = "Close preview window" })
 map("n", "<Leader>w}", "<C-W>}", { desc = "Go to identifier in preview" })
+map("n", "<Leader>wx", "<C-W>x", { desc = "Exchange current window with next" })
+map("n", "<Leader>wa", "<C-^>", { desc = "Edit alternate buffer in current window" })
+map("n", "<Leader>wA", "<C-W>^", { desc = "Edit alternate buffer in split" })
 
 -- Window movements
 map("n", "<C-h>", "<C-W>h", { desc = "Left one window" })
@@ -88,8 +91,6 @@ map("n", "<Leader>wR", "<C-W>R", { desc = "Rotate windows upwards/leftwards" })
 map("n", "<Leader>wW", "<C-W>W", { desc = "Previous window" })
 map("n", "<Leader>ww", "<C-W><C-W>", { desc = "Next window" })
 map("n", "<Leader>wr", "<C-W>r", { desc = "Rotate windows downwards/rightwards" })
-map("n", "<Leader>wx", "<C-W>x", { desc = "Exchange current window with next" })
-map("n", "<Leader>wa", "<C-^>", { desc = "Edit alternate buffer in current window" })
 
 -- Window size
 map("n", "<Leader>w<Bar>", "<C-W><Bar>", { desc = "Maximize window width" })
@@ -222,47 +223,20 @@ map("t", "<S-Space>", "<Space>", { desc = "Insert space" })
 map("v", ",.", "<C-U>", { desc = "Scroll up" })
 map("v", ",/", "<C-D>", { desc = "Scroll down" })
 
--- Better wildmenu navigation
-map(
-  "c",
-  "<C-j>",
-  function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>" end,
-  { expr = true, desc = "Wildmenu down", silent = false }
-)
-map(
-  "c",
-  "<C-k>",
-  function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>" end,
-  { expr = true, desc = "Wildmenu up", silent = false }
-)
-
 -- Toggles
 map("n", "<Leader>uC", function() require("util").toggle("cursorcolumn") end, { desc = "Toggle cursorcolumn" })
 map("n", "<Leader>uc", function() require("util").toggle("cursorline") end, { desc = "Toggle cursorline" })
-map("n", "<Leader>ud", function() require("util").toggle_diagnostics() end, { desc = "Toggle diagnostics" })
-map("n", "<Leader>uf", function()
-  vim.g.disable_autoformat = not vim.g.disable_autoformat
-  vim.notify((vim.g.disable_autoformat and "Disabled" or "Enabled") .. " format on save (global)")
-end, { desc = "Toggle format on save (global)" })
-map("n", "<Leader>uF", function()
-  vim.b.disable_autoformat = not vim.b.disable_autoformat
-  vim.notify((vim.b.disable_autoformat and "Disabled" or "Enabled") .. " format on save (buffer)")
-end, { desc = "Toggle format on save (buffer)" })
-map(
-  "n",
-  "<Leader>uh",
-  function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({})) end,
-  { desc = "Toggle inlay hints" }
-)
+map("n", "<Leader>ud", function()
+  local enabled = vim.diagnostic.is_enabled()
+  vim.notify((enabled and "Disabled" or "Enabled") .. " diagnostics")
+  vim.diagnostic.enable(not enabled)
+end, { desc = "Toggle diagnostics" })
 map("n", "<Leader>uw", function() require("util").toggle("wrap") end, { desc = "Toggle wrap" })
 map("n", "<leader>ul", function() require("util").toggle_number() end, { desc = "Toggle line numbers" })
-map(
-  "n",
-  "<leader>ur",
-  function() require("util").toggle("relativenumber") end,
-  { desc = "Toggle relative line numbers" }
-)
+map("n", "<leader>ur", function() require("util").toggle("relativenumber") end, { desc = "Toggle relative line numbers" })
 
 -- Cmdline mode
 map("c", "<S-Insert>", "<C-R><C-R>+", { desc = "Paste from system clipboard", silent = false })
 map("c", "<C-BS>", "<C-w>", { desc = "Delete previous word", silent = false })
+map("c", "<C-j>", function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>" end, { expr = true, desc = "Wildmenu down", silent = false })
+map("c", "<C-k>", function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>" end, { expr = true, desc = "Wildmenu up", silent = false })
