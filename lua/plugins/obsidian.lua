@@ -58,7 +58,6 @@ return {
       pattern = { "markdown" },
       callback = function()
         vim.opt_local.conceallevel = 2
-        vim.opt_local.concealcursor = { n = true, c = true }
       end,
     })
   end,
