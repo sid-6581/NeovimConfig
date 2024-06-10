@@ -37,7 +37,7 @@ return {
         ["x"] = { char = "✔", hl_group = "ObsidianDone" },
       },
     },
-    disable_frontmatter = false,
+    disable_frontmatter = true,
     new_notes_location = "current_dir",
     notes_subdir = nil,
     daily_notes = {
