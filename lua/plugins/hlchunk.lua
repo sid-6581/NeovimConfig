@@ -20,6 +20,9 @@ return {
     },
     indent = {
       enable = true,
+      exclude_filetypes = {
+        fidget = true,
+      },
     },
     blank = {
       enable = true,
