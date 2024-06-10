@@ -19,10 +19,11 @@ return {
       use_treesitter = true,
     },
     indent = {
-      enable = true,
+      enable = false,
       exclude_filetypes = {
         fidget = true,
         dbout = true,
+        markdown = true,
       },
     },
     blank = {

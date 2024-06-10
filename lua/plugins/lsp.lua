@@ -85,27 +85,41 @@ return {
         map("n", "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, { desc = "Show diagnostics" })
         map({ "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
 
+        local augroup_suffix = bufnr .. "." .. client.name
+
         -- Refresh codelens
         if client.supports_method("textDocument/codeLens") then
           vim.lsp.codelens.refresh({ bufnr = bufnr })
           vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
-            group = vim.api.nvim_create_augroup("LspCodeLensRefresh." .. bufnr .. "." .. client.name, {}),
+            group = vim.api.nvim_create_augroup("LspCodeLensRefresh." .. augroup_suffix, {}),
             buffer = bufnr,
-            callback = function() vim.lsp.codelens.refresh({ bufnr = bufnr }) end,
+            callback = function()
+              if vim.lsp.buf_is_attached(bufnr, client.id) then
+                vim.lsp.codelens.refresh({ bufnr = bufnr })
+              end
+            end,
           })
         end
 
         -- Document highlights
         if client.supports_method("textDocument/documentHighlight") then
           vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-            group = vim.api.nvim_create_augroup("LspDocumentHighlight." .. bufnr .. "." .. client.name, {}),
+            group = vim.api.nvim_create_augroup("LspDocumentHighlight." .. augroup_suffix, {}),
             buffer = bufnr,
-            callback = function() vim.lsp.buf.document_highlight() end,
+            callback = function()
+              if vim.lsp.buf_is_attached(bufnr, client.id) then
+                vim.lsp.buf.document_highlight()
+              end
+            end,
           })
           vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-            group = vim.api.nvim_create_augroup("LspClearReferences." .. bufnr .. "." .. client.name, {}),
+            group = vim.api.nvim_create_augroup("LspClearReferences." .. augroup_suffix, {}),
             buffer = bufnr,
-            callback = function() vim.lsp.buf.clear_references() end,
+            callback = function()
+              if vim.lsp.buf_is_attached(bufnr, client.id) then
+                vim.lsp.buf.clear_references()
+              end
+            end,
           })
         end
       end,
