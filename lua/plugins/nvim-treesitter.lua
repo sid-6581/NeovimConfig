@@ -76,13 +76,6 @@ return {
     },
 
     textobjects = {
-      select = {
-        enable = true,
-        lookahead = false,
-        include_surrounding_whitespace = true,
-        keymaps = {},
-      },
-
       swap = {
         enable = true,
         swap_next = {
