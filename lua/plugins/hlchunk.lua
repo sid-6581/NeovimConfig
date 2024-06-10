@@ -22,6 +22,7 @@ return {
       enable = true,
       exclude_filetypes = {
         fidget = true,
+        dbout = true,
       },
     },
     blank = {
