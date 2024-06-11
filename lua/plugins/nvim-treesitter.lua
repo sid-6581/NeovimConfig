@@ -76,21 +76,21 @@ return {
     },
 
     textobjects = {
-      swap = {
-        enable = true,
-        swap_next = {
-          ["<A-l>"] = {
-            query = { "@parameter.inner", "@statement.outer", "@*" },
-            desc = "Swap with next node",
-          },
-        },
-        swap_previous = {
-          ["<A-h>"] = {
-            query = { "@parameter.inner", "@statement.outer", "@*" },
-            desc = "Swap with previous node",
-          },
-        },
-      },
+      -- swap = {
+      --   enable = true,
+      --   swap_next = {
+      --     ["<A-l>"] = {
+      --       query = { "@parameter.inner", "@statement.outer", "@*" },
+      --       desc = "Swap with next node",
+      --     },
+      --   },
+      --   swap_previous = {
+      --     ["<A-h>"] = {
+      --       query = { "@parameter.inner", "@statement.outer", "@*" },
+      --       desc = "Swap with previous node",
+      --     },
+      --   },
+      -- },
     },
   },
 
