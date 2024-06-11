@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>O", "<CMD>cd ~/vaults/Notes | Neotree<CR>", desc = "Obsidian" },
+    { "<Leader>O", "<CMD>cd ~/vaults/Notes | Neotree show<CR>", desc = "Obsidian" },
   },
 
   opts = {
