@@ -10,7 +10,6 @@ return {
     chunk = {
       enable = true,
       notify = false,
-      textobject = "cc",
       duration = 0,
       delay = 0,
     },
