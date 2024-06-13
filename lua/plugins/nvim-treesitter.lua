@@ -6,6 +6,7 @@ return {
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "nushell/tree-sitter-nu",
   },
 
   opts = {
@@ -38,6 +39,7 @@ return {
       "make",
       "markdown",
       "markdown_inline",
+      "nu",
       "pug",
       "python",
       "r",
