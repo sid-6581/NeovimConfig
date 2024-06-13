@@ -60,27 +60,51 @@ function M.close_text_object_folds(textobject)
   if win_view then vim.fn.winrestview(win_view) end
 end
 
--- Deletes the current buffer unless it's displayed in multiple windows.
--- If the buffer is displayed in multiple windows, the current window is closed.
--- If the window still exists after deleting the buffer, close the window if the current buffer is a no name buffer.
-function M.close_window_or_buffer()
-  local buf_info = vim.fn.getbufinfo("%")[1]
-  local winid = vim.api.nvim_get_current_win()
+-- Gets the winids of the non-floating windows in the current tab page.
+--- @return integer[]
+function M.get_non_floating_windows()
+  local tabpage = vim.api.nvim_get_current_tabpage()
+  local all_windows = vim.api.nvim_tabpage_list_wins(tabpage)
 
-  if #buf_info.windows <= 1 then
-    vim.api.nvim_buf_delete(buf_info.bufnr, {})
-  else
-    vim.cmd.quit()
-  end
+  return vim.tbl_filter(
+    function(winid)
+      return vim.api.nvim_win_get_config(winid).relative == ""
+    end,
+    all_windows
+  )
+end
 
-  local new_buf_info = vim.fn.getbufinfo("%")[1]
-  local is_no_name_buf = new_buf_info.loaded
+-- Checks if a buffer is a no name buffer.
+--- @param bufnr integer
+function M.is_no_name_buffer(bufnr)
+  local new_buf_info = vim.fn.getbufinfo(bufnr)[1]
+  return new_buf_info.loaded
     and new_buf_info.listed
     and new_buf_info.name == ""
     and vim.api.nvim_get_option_value("buftype", { buf = new_buf_info.bufnr }) == ""
     and vim.api.nvim_get_option_value("filetype", { buf = new_buf_info.bufnr }) == ""
+end
 
-  if winid == vim.api.nvim_get_current_win() and is_no_name_buf and buf_info.listed == 1 then
+-- Smart buffer closing.
+-- If the current tab page contains multiple non-floating windows, close the current window.
+-- If the buffer that was in the closed window wasn't originally displayed in multiple windows, wipe the buffer.
+-- If we're now left with a no-name buffer, quit the window (see :q).
+function M.close_window_or_buffer()
+  local buf_info = vim.fn.getbufinfo("%")[1]
+  local bufnr = vim.api.nvim_get_current_buf()
+  local windows = M.get_non_floating_windows()
+
+  -- Close the current window if there are multiple non-floating windows in the current tab page.
+  if #windows > 1 then
+    vim.api.nvim_win_close(0, false)
+  end
+
+  -- If the buffer wasn't originally shown in multiple windows, and it survived the window closing, wipe it.
+  if vim.api.nvim_buf_is_valid(bufnr) and #buf_info.windows == 1 then
+    vim.api.nvim_buf_delete(bufnr, {})
+  end
+
+  if M.is_no_name_buffer(vim.api.nvim_get_current_buf()) and buf_info.listed == 1 then
     vim.cmd.quit()
   end
 end
