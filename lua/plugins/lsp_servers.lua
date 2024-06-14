@@ -54,6 +54,9 @@ return {
           },
         },
 
+        nushell = {
+        },
+
         omnisharp = {
           settings = {
             csharp = {
