@@ -138,7 +138,13 @@ return {
       update_in_insert = false,
       underline = true,
       severity_sort = true,
-      float = { scope = "cursor", border = "single", source = true, header = "", prefix = "" },
+      float = {
+        scope = "cursor",
+        border = "single",
+        source = true,
+        header = "",
+        prefix = "",
+      },
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = signs.Error,
