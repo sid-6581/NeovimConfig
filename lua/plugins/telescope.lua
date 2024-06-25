@@ -87,7 +87,15 @@ return {
     },
     { "<Leader>fo", function() require("telescope.builtin").vim_options() end, desc = "Vim options" },
     { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
-    { "<Leader>fs", function() require("telescope.builtin").symbols(cursor_theme({})) end, desc = "Symbols" },
+    {
+      "<Leader>fs",
+      function()
+        require("telescope.builtin").symbols(cursor_theme({
+          sources = { "emoji", "gitmoji", "nerd" },
+        }))
+      end,
+      desc = "Symbols"
+    },
     { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text" },
     {
       "<Leader>fT",
