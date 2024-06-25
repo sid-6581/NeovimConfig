@@ -1,6 +1,6 @@
 return {
   "epwalsh/obsidian.nvim",
-  event = "VeryLazy",
+  event = { "VeryLazy", "BufEnter" },
 
   keys = {
     { "<Leader>O", "<CMD>cd ~/vaults/Notes | Neotree show<CR>", desc = "Obsidian" },
