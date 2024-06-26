@@ -15,9 +15,7 @@ return {
   },
 
   config = function()
-    local shell = (vim.fn.has("win32") == 1)
-      and "C:/msys64/usr/bin/env CHERE_INVOKING=enabled_from_arguments MSYSTEM=UCRT64 MSYS2_PATH_TYPE=inherit /usr/bin/zsh -li"
-      or vim.o.shell
+    local shell = "nu"
 
     require("toggleterm").setup({
       size = function(term)
