@@ -27,7 +27,7 @@ require("lazy").setup("plugins", {
   },
   headless = {
     process = false,
-    log = true,
+    log = false,
     task = false,
     colors = true,
   },
