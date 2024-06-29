@@ -1,6 +1,7 @@
 return {
   "chrishrb/gx.nvim",
   event = "VeryLazy",
+  submodules = false,
 
   keys = {
     { "gX", "<CMD>Browse<CR>", mode = { "n", "x" }, desc = "Browse" },

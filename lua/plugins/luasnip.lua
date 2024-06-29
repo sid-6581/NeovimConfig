@@ -1,6 +1,7 @@
 return {
   "L3MON4D3/LuaSnip",
   event = "VeryLazy",
+  submodules = false,
 
   dependencies = { "rafamadriz/friendly-snippets" },
 

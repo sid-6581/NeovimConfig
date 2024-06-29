@@ -25,6 +25,12 @@ require("lazy").setup("plugins", {
   install = {
     colorscheme = { "gruvbox" },
   },
+  headless = {
+    process = false,
+    log = true,
+    task = false,
+    colors = true,
+  },
   ui = {
     border = "single",
     backdrop = 100,
