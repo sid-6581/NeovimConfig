@@ -107,7 +107,7 @@ return {
             group = vim.api.nvim_create_augroup("LspDocumentHighlight." .. augroup_suffix, {}),
             buffer = bufnr,
             callback = function()
-              if vim.lsp.buf_is_attached(bufnr, client.id) then
+              if vim.api.nvim_buf_is_valid(bufnr) and vim.lsp.buf_is_attached(bufnr, client.id) then
                 vim.lsp.buf.document_highlight()
               end
             end,
@@ -116,7 +116,7 @@ return {
             group = vim.api.nvim_create_augroup("LspClearReferences." .. augroup_suffix, {}),
             buffer = bufnr,
             callback = function()
-              if vim.lsp.buf_is_attached(bufnr, client.id) then
+              if vim.api.nvim_buf_is_valid(bufnr) and vim.lsp.buf_is_attached(bufnr, client.id) then
                 vim.lsp.buf.clear_references()
               end
             end,
