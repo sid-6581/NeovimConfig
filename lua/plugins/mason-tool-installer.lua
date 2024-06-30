@@ -20,6 +20,7 @@ return {
       "lua-language-server",
       "pyright",
       "ruff",
+      "rust-analyzer",
       "shfmt",
       "shellcheck",
       "shellharden",

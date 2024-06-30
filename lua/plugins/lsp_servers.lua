@@ -107,7 +107,6 @@ return {
         ruff = {},
 
         rust_analyzer = {
-          cmd = { "rustup", "run", "nightly", "rust-analyzer" },
           settings = {
             ["rust-analyzer"] = {
               cargo = {
@@ -128,6 +127,9 @@ return {
               },
               files = {
                 watcher = "server",
+              },
+              rustfmt = {
+                extraArgs = { "+nightly" },
               },
             },
           },
