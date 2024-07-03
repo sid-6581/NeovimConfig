@@ -93,6 +93,9 @@ vim.filetype.add({
   },
 })
 
+--- @diagnostic disable-next-line: duplicate-set-field
+vim.deprecate = function() end
+
 -- Redirect all prints to vim.notify
 print = function(...)
   local print_safe_args = {}
