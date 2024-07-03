@@ -94,7 +94,7 @@ return {
           sources = { "emoji", "gitmoji", "nerd" },
         }))
       end,
-      desc = "Symbols"
+      desc = "Symbols",
     },
     { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text" },
     {
@@ -166,8 +166,8 @@ return {
           end,
           search_file = "^\\.git$",
           search_dirs = (vim.fn.has("win32") == 1)
-            and { "D:/Code", "~/AppData/Local/nvim-data", "~/AppData/Local/nvim" }
-            or { "~/" },
+            and { "D:/Code", vim.fn.expand("~/.local/share/nvim-data") }
+            or { vim.fn.expand("~/") },
         })
       end,
       desc = "Projects",
