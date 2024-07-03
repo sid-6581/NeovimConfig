@@ -17,9 +17,11 @@ return {
           rust_analyzer = {
             update_hook = function(item)
               require("fidget.notification").set_content_key(item)
-              if item.annote:match("clippy") then item.hidden = true end
-              if item.annote:match("Roots") then item.hidden = true end
-              if item.annote:match("Loading") then item.hidden = true end
+              if item.annote:match("clippy")
+                or item.annote:match("Roots")
+                or item.annote:match("Loading") then
+                item.hidden = true
+              end
             end,
           },
         },
@@ -41,11 +43,13 @@ return {
           update_hook = function(item)
             require("fidget.notification").set_content_key(item)
             -- Hide deprecation related messages.
-            if item.message:match("tbl_islist") then item.hidden = true end
-            if item.message:match("tbl_add_reverse_lookup") then item.hidden = true end
-            if item.message:match("diagnostic.is_disabled") then item.hidden = true end
-            if item.message:match("buf_get_clients") then item.hidden = true end
-            if item.message:match("requires a list") then item.hidden = true end
+            if item.message:match("tbl_islist")
+              or item.message:match("tbl_add_reverse_lookup")
+              or item.message:match("diagnostic.is_disabled")
+              or item.message:match("buf_get_clients")
+              or item.message:match("requires a list") then
+              item.hidden = true
+            end
           end,
         },
       },
