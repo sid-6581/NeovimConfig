@@ -11,11 +11,6 @@ return {
   },
 
   {
-    "nvim-tree/nvim-web-devicons",
-    event = "VeryLazy",
-  },
-
-  {
     "tpope/vim-repeat",
     event = "VeryLazy",
   },

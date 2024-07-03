@@ -1,6 +1,6 @@
 return {
   "ellisonleao/gruvbox.nvim",
-  priority = 1000,
+  priority = 2000,
 
   config = function()
     local colors = require("util.colors").colors
