@@ -26,6 +26,9 @@ return {
           },
         },
       },
+      lsp = {
+        progress_ringbuf_size = 2048,
+      },
     },
     notification = {
       filter = vim.log.levels.DEBUG,
