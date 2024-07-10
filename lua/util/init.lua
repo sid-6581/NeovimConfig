@@ -91,7 +91,6 @@ end
 -- If we're now left with a no-name buffer, quit the window (see :q).
 function M.close_window_or_buffer()
   local buf_info = vim.fn.getbufinfo("%")[1]
-  local bufnr = vim.api.nvim_get_current_buf()
   local windows = M.get_non_floating_windows()
 
   -- Close the current window if there are multiple non-floating windows in the current tab page.
@@ -100,8 +99,8 @@ function M.close_window_or_buffer()
   end
 
   -- If the buffer wasn't originally shown in multiple windows, and it survived the window closing, wipe it.
-  if vim.api.nvim_buf_is_valid(bufnr) and #buf_info.windows == 1 then
-    vim.api.nvim_buf_delete(bufnr, {})
+  if vim.api.nvim_buf_is_valid(buf_info.bufnr) and #buf_info.windows == 1 then
+    vim.api.nvim_buf_delete(buf_info.bufnr, {})
   end
 
   if M.is_no_name_buffer(vim.api.nvim_get_current_buf()) and buf_info.listed == 1 then
