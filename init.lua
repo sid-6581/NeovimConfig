@@ -1,7 +1,5 @@
 -- vim.lsp.set_log_level("debug")
 
-vim.opt.verbose = 1
-
 require("config.options")
 require("config.autocmds")
 require("config.keymaps")
