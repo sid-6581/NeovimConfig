@@ -38,6 +38,7 @@ return {
           {
             "filename",
             newfile_status = true,
+            path = 1,
             symbols = {
               modified = "●",
               readonly = "",
@@ -66,6 +67,11 @@ return {
             symbols = { added = " ", modified = " ", removed = " " },
           },
           {
+            function()
+              return vim.trim(vim.fn.execute("verbose pwd"))
+            end,
+          },
+          {
             "diagnostics",
             sources = { "nvim_diagnostic", "nvim_lsp" },
             sections = { "error", "warn", "info", "hint" },
@@ -86,11 +92,13 @@ return {
               local buf_ft = vim.api.nvim_get_option_value("filetype", { scope = "local" })
               local clients = vim.lsp.get_clients()
               if next(clients) == nil then return msg end
+
               for _, client in ipairs(clients) do
-                ---@diagnostic disable-next-line: undefined-field
+                --- @diagnostic disable-next-line: undefined-field
                 local filetypes = client.config.filetypes
                 if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then return client.name end
               end
+
               return msg
             end,
             icon = "",
@@ -122,7 +130,7 @@ return {
         lualine_a = {
           {
             "buffers",
-            show_filename_only = true,
+            show_filename_only = false,
             filetype_names = {
               ["neo-tree"] = "neo-tree",
               ["oil"] = "oil",
