@@ -27,7 +27,6 @@ return {
       },
       sections = {
         lualine_a = {
-          "hostname",
           {
             "branch",
             icons_enabled = true,
@@ -35,6 +34,7 @@ return {
           },
         },
         lualine_b = {
+          "cwd",
           {
             "filename",
             newfile_status = true,
@@ -48,28 +48,17 @@ return {
         lualine_c = {
           {
             function()
-              if vim.b["visual_multi"] then
-                local ret = vim.api.nvim_exec2("call b:VM_Selection.Funcs.infoline()", { output = true })
-                return string.match(ret.output, "M.*")
-              else
-                return ""
-              end
+              return vim.api.nvim_exec2("call b:VM_Selection.Funcs.infoline()", { output = true }).output:match("M.*")
             end,
+            cond = function() return vim.b.visual_multi ~= 0 end,
           },
-          {
-            "aerial",
-          },
+          "aerial",
         },
         lualine_x = {
           {
             "diff",
             colored = true,
             symbols = { added = " ", modified = " ", removed = " " },
-          },
-          {
-            function()
-              return vim.trim(vim.fn.execute("verbose pwd"))
-            end,
           },
           {
             "diagnostics",
@@ -86,23 +75,7 @@ return {
             always_visible = false,
           },
           "filetype",
-          {
-            function()
-              local msg = "-"
-              local buf_ft = vim.api.nvim_get_option_value("filetype", { scope = "local" })
-              local clients = vim.lsp.get_clients()
-              if next(clients) == nil then return msg end
-
-              for _, client in ipairs(clients) do
-                --- @diagnostic disable-next-line: undefined-field
-                local filetypes = client.config.filetypes
-                if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then return client.name end
-              end
-
-              return msg
-            end,
-            icon = "",
-          },
+          "lsp",
           function() return vim.api.nvim_get_option_value("shiftwidth", { scope = "local" }) .. " spaces" end,
           function() return vim.api.nvim_get_option_value("buftype", { scope = "local" }) end,
           "encoding",
