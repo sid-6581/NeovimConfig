@@ -75,9 +75,9 @@ return {
             always_visible = false,
           },
           "filetype",
+          function() return vim.api.nvim_get_option_value("buftype", { scope = "local" }) end,
           "lsp",
           function() return vim.api.nvim_get_option_value("shiftwidth", { scope = "local" }) .. " spaces" end,
-          function() return vim.api.nvim_get_option_value("buftype", { scope = "local" }) end,
           "encoding",
           {
             "fileformat",
