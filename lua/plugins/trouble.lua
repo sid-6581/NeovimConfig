@@ -11,12 +11,14 @@ return {
           i = {
             ["<C-q>"] = {
               function(prompt_bufnr) require("trouble.sources.telescope").open(prompt_bufnr) end,
+              type = "action",
               opts = { desc = "Open in quickfix [trouble]" },
             },
           },
           n = {
             ["<C-q>"] = {
               function(prompt_bufnr) require("trouble.sources.telescope").open(prompt_bufnr) end,
+              type = "action",
               opts = { desc = "Open in quickfix [trouble]" },
             },
           },
@@ -42,13 +44,51 @@ return {
     { "<leader>xL", "<CMD>Trouble loclist toggle<CR>", desc = "Location list [trouble]" },
     { "<leader>xQ", "<CMD>Trouble qflist toggle<CR>", desc = "Quickfix list [trouble]" },
 
-    --- @diagnostic disable-next-line: missing-parameter
-    { "]t", function() require("trouble").next() end, desc = "Next item [trouble]" },
-    --- @diagnostic disable-next-line: missing-parameter
-    { "[t", function() require("trouble").prev() end, desc = "Previous item [trouble]" },
-    --- @diagnostic disable-next-line: missing-parameter
-    { "]T", function() require("trouble").last() end, desc = "Next item [trouble]" },
-    --- @diagnostic disable-next-line: missing-parameter
-    { "[T", function() require("trouble").first() end, desc = "Previous item [trouble]" },
+    --- @diagnostic disable: missing-parameter
+    {
+      "]t",
+      function()
+        if require("trouble").is_open() then
+          require("trouble").next()
+        else
+          require("mini.bracketed").quickfix("forward")
+        end
+      end,
+      desc = "Next item [trouble/quickfix]",
+    },
+    {
+      "[t",
+      function()
+        if require("trouble").is_open() then
+          require("trouble").prev()
+        else
+          require("mini.bracketed").quickfix("backward")
+        end
+      end,
+      desc = "Previous item [trouble/quickfix]",
+    },
+    {
+      "]T",
+      function()
+        if require("trouble").is_open() then
+          require("trouble").last()
+        else
+          require("mini.bracketed").quickfix("last")
+        end
+      end,
+      desc = "Last item [trouble/quickfix]",
+    },
+    {
+      "[T",
+      function()
+        if require("trouble").is_open() then
+          require("trouble").first()
+        else
+          require("mini.bracketed").quickfix("first")
+        end
+      end,
+      desc = "First item [trouble/quickfix]",
+    },
   },
+  --- @diagnostic enable: missing-parameter
 }

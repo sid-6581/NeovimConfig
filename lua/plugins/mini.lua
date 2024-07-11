@@ -121,6 +121,7 @@ return {
 
     opts = {
       comment = { suffix = "" },
+      quickfix = { suffix = "" },
       treesitter = { suffix = "" },
       undo = { suffix = "" },
       yank = { suffix = "" },
