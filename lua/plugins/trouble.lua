@@ -44,12 +44,12 @@ return {
     { "<leader>xL", "<CMD>Trouble loclist toggle<CR>", desc = "Location list [trouble]" },
     { "<leader>xQ", "<CMD>Trouble qflist toggle<CR>", desc = "Quickfix list [trouble]" },
 
-    --- @diagnostic disable: missing-parameter
+    --- @diagnostic disable: missing-parameter,missing-fields
     {
       "]q",
       function()
         if require("trouble").is_open() then
-          require("trouble").next()
+          require("trouble").next({ jump = true })
         else
           require("mini.bracketed").quickfix("forward")
         end
@@ -60,7 +60,7 @@ return {
       "[q",
       function()
         if require("trouble").is_open() then
-          require("trouble").prev()
+          require("trouble").prev({ jump = true })
         else
           require("mini.bracketed").quickfix("backward")
         end
@@ -71,7 +71,7 @@ return {
       "]Q",
       function()
         if require("trouble").is_open() then
-          require("trouble").last()
+          require("trouble").last({ jump = true })
         else
           require("mini.bracketed").quickfix("last")
         end
@@ -82,7 +82,7 @@ return {
       "[Q",
       function()
         if require("trouble").is_open() then
-          require("trouble").first()
+          require("trouble").first({ jump = true })
         else
           require("mini.bracketed").quickfix("first")
         end
@@ -90,5 +90,5 @@ return {
       desc = "First item [trouble/quickfix]",
     },
   },
-  --- @diagnostic enable: missing-parameter
+  --- @diagnostic enable: missing-parameter,missing-fields
 }
