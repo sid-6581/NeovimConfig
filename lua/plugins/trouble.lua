@@ -46,7 +46,7 @@ return {
 
     --- @diagnostic disable: missing-parameter
     {
-      "]t",
+      "]q",
       function()
         if require("trouble").is_open() then
           require("trouble").next()
@@ -57,7 +57,7 @@ return {
       desc = "Next item [trouble/quickfix]",
     },
     {
-      "[t",
+      "[q",
       function()
         if require("trouble").is_open() then
           require("trouble").prev()
@@ -68,7 +68,7 @@ return {
       desc = "Previous item [trouble/quickfix]",
     },
     {
-      "]T",
+      "]Q",
       function()
         if require("trouble").is_open() then
           require("trouble").last()
@@ -79,7 +79,7 @@ return {
       desc = "Last item [trouble/quickfix]",
     },
     {
-      "[T",
+      "[Q",
       function()
         if require("trouble").is_open() then
           require("trouble").first()
