@@ -51,11 +51,7 @@ return {
 
   keys = {
     { "<Leader>f.", function() require("telescope").extensions.file_browser.file_browser() end, desc = "Browse files" },
-    {
-      "<Leader>f/",
-      function() require("telescope.builtin").current_buffer_fuzzy_find() end,
-      desc = "Current buffer fuzzy find",
-    },
+    { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find" },
     { "<Leader>fA", function() require("telescope").extensions.ast_grep.ast_grep() end, desc = "ast-grep" },
     { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands" },
     { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Highlights" },
@@ -119,11 +115,7 @@ return {
     },
     { "<Leader>fu", function() require("telescope").extensions.undo.undo() end, desc = "Undo" },
     { "<Leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Word" },
-    {
-      "<Leader>fy",
-      function() require("telescope").extensions.yank_history.yank_history({}) end,
-      desc = "Yank history",
-    },
+    { "<Leader>fy", function() require("telescope").extensions.yank_history.yank_history({}) end, desc = "Yank history" },
     { "<Leader>fz", function() require("telescope").extensions.zoxide.list() end, desc = "Zoxide" },
     { "<Leader>gS", function() require("telescope.builtin").git_stash() end, desc = "Git stash" },
     { "<Leader>gb", function() require("telescope.builtin").git_branches() end, desc = "Branches" },
@@ -213,13 +205,13 @@ return {
             ["<C-p>"] = actions.cycle_history_prev,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
-            ["<C-y>e"] = yank_all_entries,
-            ["<C-y>p"] = yank_preview_lines,
+            ["<C-y>e"] = { yank_all_entries, opts = { desc = "Yank all entries" } },
+            ["<C-y>p"] = { yank_preview_lines, opts = { desc = "Yank preview lines" } },
           },
           n = {
             ["<F1>"] = actions.which_key,
-            ["<C-y>e"] = yank_all_entries,
-            ["<C-y>p"] = yank_preview_lines,
+            ["<C-y>e"] = { yank_all_entries, opts = { desc = "Yank all entries" } },
+            ["<C-y>p"] = { yank_preview_lines, opts = { desc = "Yank preview lines" } },
           },
         },
       },

@@ -81,7 +81,8 @@ return {
         end, { desc = "Toggle inlay hints" })
         map("n", "K", function() vim.lsp.buf.hover() end, { desc = "Show information" })
         map("n", "gK", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
-        map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go to definition" })
+        -- map("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go to definition" })
+        map("n", "gd", "<CMD>Trouble lsp_definitions auto_jump=true focus=true first<CR>", { desc = "Go to definition [trouble]" })
         map("n", "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, { desc = "Show diagnostics" })
         map({ "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
 

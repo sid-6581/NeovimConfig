@@ -2,21 +2,53 @@ return {
   "folke/trouble.nvim",
   event = "VeryLazy",
 
-  opts = {
-    use_diagnostic_signs = true,
-    modes = {
-      symbols = {
-        win = { size = 30 },
+  dependencies = {
+    "nvim-telescope/telescope.nvim",
+
+    opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ["<C-q>"] = {
+              function(prompt_bufnr) require("trouble.sources.telescope").open(prompt_bufnr) end,
+              opts = { desc = "Open in quickfix [trouble]" },
+            },
+          },
+          n = {
+            ["<C-q>"] = {
+              function(prompt_bufnr) require("trouble.sources.telescope").open(prompt_bufnr) end,
+              opts = { desc = "Open in quickfix [trouble]" },
+            },
+          },
+        },
       },
     },
   },
 
+  opts = {
+    use_diagnostic_signs = true,
+    -- warn_no_results = false,
+    -- open_no_results = true,
+    win = {
+      size = 0.2,
+    },
+  },
+
   keys = {
-    { "<leader>xx", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics (Trouble)" },
-    { "<leader>xX", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer diagnostics (Trouble)" },
-    { "<leader>xs", "<CMD>Trouble symbols toggle focus=false<CR>", desc = "Symbols (Trouble)" },
-    { "<leader>xl", "<CMD>Trouble lsp toggle focus=false win.position=right<CR>", desc = "LSP definitions / references / ... (Trouble)" },
-    { "<leader>xL", "<CMD>Trouble loclist toggle<CR>", desc = "Location list (Trouble)" },
-    { "<leader>xQ", "<CMD>Trouble qflist toggle<CR>", desc = "Quickfix list (Trouble)" },
+    { "<leader>xx", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics [trouble]" },
+    { "<leader>xX", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer diagnostics [trouble]" },
+    { "<leader>xs", "<CMD>Trouble symbols toggle focus=false<CR>", desc = "Symbols [trouble]" },
+    { "<leader>xl", "<CMD>Trouble lsp toggle focus=false win.position=right<CR>", desc = "LSP definitions / references / ... [trouble]" },
+    { "<leader>xL", "<CMD>Trouble loclist toggle<CR>", desc = "Location list [trouble]" },
+    { "<leader>xQ", "<CMD>Trouble qflist toggle<CR>", desc = "Quickfix list [trouble]" },
+
+    --- @diagnostic disable-next-line: missing-parameter
+    { "]t", function() require("trouble").next() end, desc = "Next item [trouble]" },
+    --- @diagnostic disable-next-line: missing-parameter
+    { "[t", function() require("trouble").prev() end, desc = "Previous item [trouble]" },
+    --- @diagnostic disable-next-line: missing-parameter
+    { "]T", function() require("trouble").last() end, desc = "Next item [trouble]" },
+    --- @diagnostic disable-next-line: missing-parameter
+    { "[T", function() require("trouble").first() end, desc = "Previous item [trouble]" },
   },
 }
