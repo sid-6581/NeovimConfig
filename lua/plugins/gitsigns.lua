@@ -4,10 +4,11 @@ return {
 
   keys = {
     { "<Leader>gR", function() require("gitsigns").reset_buffer() end, desc = "Reset buffer" },
-    { "<Leader>gdt", function() require("gitsigns").diffthis() end, desc = "Diff this" },
+    { "<Leader>gdt", function() require("gitsigns").diffthis(nil, { split = "belowright" }) end, desc = "Diff this" },
     { "<Leader>ghs", function() require("gitsigns").stage_hunk() end, desc = "Stage hunk" },
     { "<Leader>ghu", function() require("gitsigns").undo_stage_hunk() end, desc = "Undo stage hunk" },
     { "<Leader>gl", function() require("gitsigns").blame_line({ full = true }) end, desc = "Blame line" },
+    { "<Leader>gL", function() require("gitsigns").blame() end, desc = "Blame file" },
     { "<Leader>gp", function() require("gitsigns").preview_hunk() end, desc = "Preview hunk" },
     { "<Leader>gr", function() require("gitsigns").reset_hunk() end, desc = "Reset hunk" },
     {
