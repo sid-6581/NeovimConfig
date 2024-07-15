@@ -13,6 +13,26 @@ return {
     icons = {
       separator = " ",
     },
+    replace = {
+      key = {
+        function(key)
+          local inner = key:match("^<(.*)>$")
+          if not inner then
+            return key
+          end
+
+          local parts = vim.split(inner, "-", { plain = true })
+          local config = require("which-key.config").options
+
+          parts[1] = config.icons.keys[parts[1]] or parts[1]
+          if parts[2] and parts[3] then
+            parts[2] = config.icons.keys[parts[2]] or parts[2]
+          end
+
+          return table.concat(parts, "")
+        end,
+      },
+    },
     spec = {
       { "<Leader>", group = "Leader" },
       { "<Leader><Tab>", group = "Tabs" },
