@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  commit = "7e348da",
   event = { "VeryLazy", "InsertEnter" },
 
   dependencies = {
