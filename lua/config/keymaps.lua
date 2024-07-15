@@ -35,18 +35,6 @@ map("n", "<C-F>", "<C-F>zz", {})
 map("n", "<C-B>", "<C-B>zz", {})
 
 -- Buffers
-map(
-  "n",
-  "<Leader><Esc>",
-  function() require("util").close_window_or_buffer() end,
-  { desc = "Delete buffer and close window" }
-)
-map(
-  "n",
-  "<Leader><BS>",
-  function() require("util").close_window_or_buffer() end,
-  { desc = "Delete buffer and close window" }
-)
 map("n", "q", function() require("util").close_window_or_buffer() end, { desc = "Delete buffer and close window" })
 map("n", "<S-h>", "<CMD>bprevious<CR>", { desc = "Previous buffer" })
 map("n", "<S-l>", "<CMD>bnext<CR>", { desc = "Next buffer" })

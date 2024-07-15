@@ -3,37 +3,29 @@ return {
   event = "VeryLazy",
 
   opts = {
-    window = {
-      border = "single", -- none, single, double, shadow
-      winblend = 0,
-    },
+    preset = "modern",
     icons = {
       group = "",
     },
-    defaults = {
-      ["g"] = { name = "Goto/operators" },
-      ["gp"] = { name = "Goto preview" },
-      ["]"] = { name = "Next" },
-      ["["] = { name = "Prev" },
-      ["<Leader><Tab>"] = { name = "Tabs" },
-      ["<Leader>b"] = { name = "Buffers" },
-      ["<Leader>c"] = { name = "Code" },
-      ["<Leader>d"] = { name = "Debug" },
-      ["<Leader>f"] = { name = "Find" },
-      ["<Leader>l"] = { name = "LSP" },
-      ["<Leader>g"] = { name = "Git" },
-      ["<Leader>go"] = { name = "Octo" },
-      ["<Leader>o"] = { name = "Overseer" },
-      ["<Leader>t"] = { name = "Terminal" },
-      ["<Leader>u"] = { name = "UI/toggles" },
-      ["<Leader>w"] = { name = "Windows" },
-      ["<Leader>x"] = { name = "Diagnostics/quickfix" },
-      ["c"] = { name = "Code", mode = { "o", "x" } },
+    spec = {
+      { "<Leader><Tab>", group = "Tabs" },
+      { "<Leader>b", group = "Buffers" },
+      { "<Leader>c", group = "Code" },
+      { "<Leader>d", group = "Debug" },
+      { "<Leader>f", group = "Find" },
+      { "<Leader>g", group = "Git" },
+      { "<Leader>go", group = "Octo" },
+      { "<Leader>l", group = "LSP" },
+      { "<Leader>o", group = "Overseer" },
+      { "<Leader>t", group = "Terminal" },
+      { "<Leader>u", group = "UI/toggles" },
+      { "<Leader>w", group = "Windows" },
+      { "<Leader>x", group = "Diagnostics/quickfix" },
+      { "[", group = "Prev" },
+      { "]", group = "Next" },
+      { "g", group = "Goto/operators" },
+      { "gp", group = "Goto preview" },
+      { "c", group = "Code", mode = { "o", "x" } },
     },
   },
-
-  config = function(_, opts)
-    require("which-key").setup(opts)
-    require("which-key").register(opts.defaults)
-  end,
 }
