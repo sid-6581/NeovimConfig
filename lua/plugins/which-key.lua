@@ -55,4 +55,14 @@ return {
       { "c", group = "Code", mode = { "o", "x" } },
     },
   },
+
+  config = function(_, opts)
+    require("which-key").setup(opts)
+
+    local old_norm = require("which-key.util").norm
+    --- @diagnostic disable-next-line: duplicate-set-field
+    require("which-key.util").norm = function(lhs)
+      return lhs == "<C-J>" and lhs or old_norm(lhs)
+    end
+  end,
 }
