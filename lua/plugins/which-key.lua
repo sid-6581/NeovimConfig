@@ -4,10 +4,17 @@ return {
 
   opts = {
     preset = "modern",
+    sort = { "order", "group", "alphanum", "mod", "lower", "icase" },
+    win = {
+      wo = {
+        winblend = 0,
+      },
+    },
     icons = {
-      group = "",
+      separator = " ",
     },
     spec = {
+      { "<Leader>", group = "Leader" },
       { "<Leader><Tab>", group = "Tabs" },
       { "<Leader>b", group = "Buffers" },
       { "<Leader>c", group = "Code" },

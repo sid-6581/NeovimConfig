@@ -50,40 +50,45 @@ return {
       callback = function(args)
         local bufnr = args.buf
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-
         if not client then return end
 
-        local map = function(mode, lhs, rhs, map_opts)
-          map_opts = vim.tbl_deep_extend("force", { buffer = bufnr, silent = true }, map_opts)
-          vim.keymap.set(mode, lhs, rhs, map_opts)
-        end
-
-        map("n", "<Leader>ca", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
-        map("n", "<Leader>cl", function() vim.lsp.codelens.run() end, { desc = "Codelens" })
-        map("n", "<Leader>cr", function() vim.lsp.buf.rename() end, { desc = "Rename" })
-        map("n", "<Leader>lci", function() require("telescope.builtin").lsp_incoming_calls() end, { desc = "Incoming calls" })
-        map("n", "<Leader>lco", function() require("telescope.builtin").lsp_outgoing_calls() end, { desc = "Outgoing calls" })
-        map("n", "<Leader>lC", "<CMD>0Verbose =vim.lsp.get_clients()<CR>", { desc = "View LSP details" })
-        map("n", "<Leader>ld", function() require("telescope.builtin").diagnostics() end, { desc = "Workspace diagnostics" })
-        map("n", "<Leader>lD", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end, { desc = "Document diagnostics" })
-        map("n", "<Leader>li", function() require("telescope.builtin").lsp_implementations() end, { desc = "Implementations" })
-        map("n", "<Leader>lr", function() require("telescope.builtin").lsp_references() end, { desc = "References" })
-        map("n", "<Leader>lR", function()
-          vim.lsp.stop_client(vim.lsp.get_clients())
-          vim.schedule(function() vim.cmd.edit() end)
-        end, { desc = "Restart LSP servers" })
-        map("n", "<Leader>ls", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, { desc = "Workspace symbols" })
-        map("n", "<Leader>lS", function() require("telescope.builtin").lsp_document_symbols() end, { desc = "Document symbols" })
-        map("n", "<Leader>uh", function()
-          local enabled = vim.lsp.inlay_hint.is_enabled({})
-          vim.notify((enabled and "Disabled" or "Enabled") .. " inlay hints")
-          vim.lsp.inlay_hint.enable(not enabled)
-        end, { desc = "Toggle inlay hints" })
-        map("n", "K", function() vim.lsp.buf.hover() end, { desc = "Show information" })
-        map("n", "gK", function() vim.lsp.buf.signature_help() end, { desc = "Signature help" })
-        map("n", "gd", function() require("telescope.builtin").lsp_definitions() end, { desc = "Go to definition" })
-        map("n", "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, { desc = "Show diagnostics" })
-        map({ "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, { desc = "Code action" })
+        require("which-key").add({
+          buffer = bufnr,
+          { "<Leader>ca", function() vim.lsp.buf.code_action() end, desc = "Code action" },
+          { "<Leader>cl", function() vim.lsp.codelens.run() end, desc = "Codelens" },
+          { "<Leader>cr", function() vim.lsp.buf.rename() end, desc = "Rename" },
+          { "<Leader>lci", function() require("telescope.builtin").lsp_incoming_calls() end, desc = "Incoming calls" },
+          { "<Leader>lco", function() require("telescope.builtin").lsp_outgoing_calls() end, desc = "Outgoing calls" },
+          { "<Leader>lC", "<CMD>0Verbose =vim.lsp.get_clients()<CR>", desc = "View LSP details" },
+          { "<Leader>ld", function() require("telescope.builtin").diagnostics() end, desc = "Workspace diagnostics" },
+          { "<Leader>lD", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end, desc = "Document diagnostics" },
+          { "<Leader>li", function() require("telescope.builtin").lsp_implementations() end, desc = "Implementations" },
+          { "<Leader>lr", function() require("telescope.builtin").lsp_references() end, desc = "References" },
+          {
+            "<Leader>lR",
+            function()
+              vim.lsp.stop_client(vim.lsp.get_clients())
+              vim.schedule(function() vim.cmd.edit() end)
+            end,
+            desc = "Restart LSP servers",
+          },
+          { "<Leader>ls", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = "Workspace symbols" },
+          { "<Leader>lS", function() require("telescope.builtin").lsp_document_symbols() end, desc = "Document symbols" },
+          {
+            "<Leader>uh",
+            function()
+              local enabled = vim.lsp.inlay_hint.is_enabled({})
+              vim.notify((enabled and "Disabled" or "Enabled") .. " inlay hints")
+              vim.lsp.inlay_hint.enable(not enabled)
+            end,
+            desc = "Toggle inlay hints",
+          },
+          { "K", function() vim.lsp.buf.hover() end, desc = "Show information" },
+          { "gK", function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
+          { "gd", function() require("telescope.builtin").lsp_definitions() end, desc = "Go to definition" },
+          { "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, desc = "Show diagnostics" },
+          { mode = { "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, desc = "Code action" },
+        })
 
         local augroup_suffix = bufnr .. "." .. client.name
 

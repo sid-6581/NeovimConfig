@@ -1,8 +1,6 @@
 -- vim.lsp.set_log_level("debug")
 
 require("config.options")
-require("config.autocmds")
-require("config.keymaps")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -53,3 +51,6 @@ require("lazy").setup("plugins", {
     },
   },
 })
+
+require("config.autocmds")
+require("config.keymaps")
