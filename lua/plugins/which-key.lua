@@ -41,8 +41,6 @@ return {
             local parts = vim.split(inner, "-", { plain = true })
             parts[1] = Config.icons.keys[parts[1]] or parts[1]
             if parts[2] and parts[3] then
-              vim.print(key)
-              vim.print(parts[2])
               parts[2] = Config.icons.keys[parts[2]] or parts[2]
             end
 
@@ -50,6 +48,9 @@ return {
           end, keys)
           return table.concat(ret, "")
         end,
+      },
+      desc = {
+        { "<Plug>%(?([^)]*)%)?", "%1" },
       },
     },
     spec = {

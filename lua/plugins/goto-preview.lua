@@ -11,7 +11,7 @@ return {
   },
 
   opts = {
-    border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" }, -- Border characters of the floating window
+    border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
     preview_window_title = {
       enable = false,
     },

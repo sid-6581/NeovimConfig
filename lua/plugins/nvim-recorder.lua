@@ -4,6 +4,7 @@ return {
 
   opts = {
     slots = { "q", "w" },
+    useNerdfontIcons = false,
     mapping = {
       startStopRecording = "Q",
       playMacro = "@",
@@ -11,7 +12,6 @@ return {
       editMacro = "cq",
       deleteAllMacros = "dq",
       yankMacro = "yq",
-      -- This should be a string you don't use in insert mode during a macro
       addBreakPoint = "##",
     },
   },
