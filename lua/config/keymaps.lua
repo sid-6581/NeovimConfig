@@ -1,3 +1,8 @@
+if not pcall(require, "which-key") then
+  vim.notify("Keymaps not set, please install which-key")
+  return
+end
+
 require("which-key").add({
   -- Normal mode
   {
