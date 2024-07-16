@@ -2,10 +2,20 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
 
+  keys = {
+    { mode = { "n", "v" }, "<S-F1>", "<CMD>WhichKey<CR>", desc = "Open [which-key]" },
+  },
+
   opts = {
     preset = "helix",
     sort = { "order", "group", "alphanum", "mod", "lower", "icase" },
     win = {
+      width = {
+        max = 100,
+      },
+      height = {
+        max = 0.95,
+      },
       wo = {
         winblend = 0,
       },
