@@ -6,22 +6,22 @@ return {
     {
       "<A-l>",
       function() require("sibling-swap").swap_with_right() end,
-      desc = "Treesitter node swap with right [sibling-swap]",
+      desc = "Swap right [sibling-swap]",
     },
     {
       "<A-h>",
       function() require("sibling-swap").swap_with_left() end,
-      desc = "Treesitter node swap with left [sibling-swap]",
+      desc = "Swap left [sibling-swap]",
     },
     {
       "<S-A-l>",
       function() require("sibling-swap").swap_with_right_with_opp() end,
-      desc = "Treesitter node swap with rights with opposite [sibling-swap]",
+      desc = "Swap right (opposite) [sibling-swap]",
     },
     {
       "<S-A-h>",
       function() require("sibling-swap").swap_with_left_with_opp() end,
-      desc = "Treesitter node swap with left with opposite [sibling-swap]",
+      desc = "Swap left (opposite) [sibling-swap]",
     },
   },
 

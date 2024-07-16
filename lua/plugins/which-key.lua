@@ -15,15 +15,8 @@ return {
     end,
     win = {
       border = "single",
-      height = {
-        max = 0.90,
-      },
-      wo = {
-        winblend = 0,
-      },
-    },
-    layout = {
-      width = { max = 120 },
+      height = { max = 0.90 },
+      wo = { winblend = 0 },
     },
     icons = {
       separator = " ",
@@ -221,7 +214,7 @@ return {
         { "<Leader>ur", function() require("util").toggle("relativenumber") end, desc = "Toggle relative line numbers [keymaps]" },
 
         -- Yank/paste
-        { "Y", "_y$", desc = "Yank line character-wise without indent [keymaps]" },
+        { "Y", "_y$", desc = "Yank line characters [keymaps]" },
         { ",P", '"+P', desc = "Paste from system clipboard [keymaps]" },
         { ",p", '"+p', desc = "Paste from system clipboard [keymaps]" },
         { "<Leader>Pb", 'i <C-R>" <Esc>', desc = "Paste before cursor and add space at both ends [keymaps]" },
@@ -307,14 +300,14 @@ return {
           function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>" end,
           expr = true,
           desc = "Wildmenu down [keymaps]",
-          silent = false
+          silent = false,
         },
         {
           "<C-k>",
           function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>" end,
           expr = true,
           desc = "Wildmenu up [keymaps]",
-          silent = false
+          silent = false,
         },
       },
     },
