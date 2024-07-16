@@ -62,7 +62,7 @@ return {
 
     cmp.register_source("cmdline", require("util.cmp_cmdline").new())
 
-    opts = {
+    local opts = {
       completion = {
         completeopt = "menu,menuone",
       },
