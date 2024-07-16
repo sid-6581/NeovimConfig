@@ -12,7 +12,7 @@ return {
     { "<Leader>]", "csb]", remap = true, desc = "Replace surround with [] [surround]" },
     { "<Leader>{", "ds{", remap = true, desc = "Remove surrounding {} [surround]" },
     { "<Leader>}", "csb{", remap = true, desc = "Replace surround with { } [surround]" },
-    { '<Leader>"', 'csq"', remap = true, desc = 'Replace surround with ""' },
+    { '<Leader>"', 'csq"', remap = true, desc = 'Replace surround with "" [surround]' },
     { mode = { "v" }, "<Leader>'", "S'", remap = true, desc = "Surround with '' [surround]" },
     { mode = { "v" }, "<Leader>)", "S)", remap = true, desc = "Surround with () [surround]" },
     { mode = { "v" }, "<Leader>>", "S>", remap = true, desc = "Surround with <> [surround]" },
