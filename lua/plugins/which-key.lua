@@ -300,10 +300,22 @@ return {
       -- Cmdline mode
       {
         mode = "c",
-        { "<S-Insert>", "<C-R><C-R>+", desc = "Paste from system clipboard", silent = false },
-        { "<C-BS>", "<C-w>", desc = "Delete previous word", silent = false },
-        { "<C-j>", function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>" end, expr = true, desc = "Wildmenu down", silent = false },
-        { "<C-k>", function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>" end, expr = true, desc = "Wildmenu up", silent = false },
+        { "<S-Insert>", "<C-R><C-R>+", desc = "Paste from system clipboard [keymaps]", silent = false },
+        { "<C-BS>", "<C-w>", desc = "Delete previous word [keymaps]", silent = false },
+        {
+          "<C-j>",
+          function() return vim.fn.wildmenumode() == 1 and "<C-n>" or "<C-j>" end,
+          expr = true,
+          desc = "Wildmenu down [keymaps]",
+          silent = false
+        },
+        {
+          "<C-k>",
+          function() return vim.fn.wildmenumode() == 1 and "<C-p>" or "<C-k>" end,
+          expr = true,
+          desc = "Wildmenu up [keymaps]",
+          silent = false
+        },
       },
     },
   },
