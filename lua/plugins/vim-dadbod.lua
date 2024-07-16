@@ -3,8 +3,8 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>D", "<CMD>DBUI<CR>", desc = "Dadbod" },
-    { "<C-Enter>", "<Plug>(DBUI_ExecuteQuery)", mode = { "n", "v" }, ft = "sql", desc = "Execute query" },
+    { "<Leader>D", "<CMD>DBUI<CR>", desc = "Open [dadbod]" },
+    { "<C-Enter>", "<Plug>(DBUI_ExecuteQuery)", mode = { "n", "v" }, ft = "sql", desc = "Execute query [dadbod]" },
   },
 
   dependencies = {

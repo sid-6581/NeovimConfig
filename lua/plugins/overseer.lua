@@ -3,8 +3,8 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>oo", "<CMD>OverseerToggle<CR>", desc = "Overseer toggle" },
-    { "<Leader>or", "<CMD>OverseerRun<CR>", desc = "Overseer run" },
+    { "<Leader>oo", "<CMD>OverseerToggle<CR>", desc = "Toggle [overseer]" },
+    { "<Leader>or", "<CMD>OverseerRun<CR>", desc = "Run [overseer]" },
   },
 
   opts = {

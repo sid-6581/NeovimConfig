@@ -3,9 +3,7 @@ return {
   event = "VeryLazy",
 
   config = function()
-    local lint = require("lint")
-
-    lint.linters_by_ft = {
+    require("lint").linters_by_ft = {
       dockerfile = { "hadolint" },
       yaml = { "yamllint" },
     }

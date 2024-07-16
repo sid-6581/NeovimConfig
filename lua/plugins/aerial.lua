@@ -77,7 +77,7 @@ return {
   },
 
   keys = {
-    { "<Leader>co", function() require("aerial").toggle({ focus = false }) end, desc = "Symbols outline" },
+    { "<Leader>co", function() require("aerial").toggle({ focus = false }) end, desc = "Symbols outline [aerial]" },
   },
 
   config = function(_, opts)

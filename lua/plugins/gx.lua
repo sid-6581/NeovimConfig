@@ -4,7 +4,7 @@ return {
   submodules = false,
 
   keys = {
-    { "gX", "<CMD>Browse<CR>", mode = { "n", "x" }, desc = "Browse" },
+    { "gX", "<CMD>Browse<CR>", mode = { "n", "x" }, desc = "Browse [gx]" },
   },
 
   opts = {

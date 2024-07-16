@@ -3,11 +3,11 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "gpc", function() require("goto-preview").close_all_win({}) end, desc = "Close all preview windows" },
-    { "gpd", function() require("goto-preview").goto_preview_definition({}) end, desc = "Preview definition" },
-    { "gpi", function() require("goto-preview").goto_preview_implementation({}) end, desc = "Preview implementation" },
-    { "gpr", function() require("goto-preview").goto_preview_references({}) end, desc = "Preview references" },
-    { "gpt", function() require("goto-preview").goto_preview_type_definition({}) end, desc = "Preview type definition" },
+    { "gpc", function() require("goto-preview").close_all_win({}) end, desc = "Close all preview windows [goto-preview]" },
+    { "gpd", function() require("goto-preview").goto_preview_definition({}) end, desc = "Preview definition [goto-preview]" },
+    { "gpi", function() require("goto-preview").goto_preview_implementation({}) end, desc = "Preview implementation [goto-preview]" },
+    { "gpr", function() require("goto-preview").goto_preview_references({}) end, desc = "Preview references [goto-preview]" },
+    { "gpt", function() require("goto-preview").goto_preview_type_definition({}) end, desc = "Preview type definition [goto-preview]" },
   },
 
   opts = {

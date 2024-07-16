@@ -3,20 +3,20 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, desc = "Go to treesitter node start" },
-    { "gN", function() require("flash").treesitter({ jump = { pos = "end" } }) end, desc = "Go to treesitter node end" },
-    { "gw", function() require("flash").jump({ search = { mode = "search", max_length = 0 }, pattern = "\\<" }) end, desc = "Go to word start" },
+    { "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, desc = "Go to treesitter node start [flash]" },
+    { "gN", function() require("flash").treesitter({ jump = { pos = "end" } }) end, desc = "Go to treesitter node end [flash]" },
+    { "gw", function() require("flash").jump({ search = { mode = "search", max_length = 0 }, pattern = "\\<" }) end, desc = "Go to word start [flash]" },
     {
       "<Leader>u/",
       function()
         vim.notify(require("flash.plugins.search").enabled and "Disabled flash search" or "Enabled flash search")
         require("flash").toggle()
       end,
-      desc = "Toggle Flash search",
+      desc = "Toggle Flash search [flash]",
     },
-    { "n", function() require("flash").treesitter() end, mode = { "o", "x" }, desc = "Treesitter node" },
-    { "N", function() require("flash").treesitter_search() end, mode = { "o", "x" }, desc = "Treesitter node search" },
-    { "r", function() require("flash").remote() end, mode = { "o" }, desc = "Remote flash" },
+    { "n", function() require("flash").treesitter() end, mode = { "o", "x" }, desc = "Treesitter node [flash]" },
+    { "N", function() require("flash").treesitter_search() end, mode = { "o", "x" }, desc = "Treesitter node search [flash]" },
+    { "r", function() require("flash").remote() end, mode = { "o" }, desc = "Remote [flash]" },
   },
 
   opts = {

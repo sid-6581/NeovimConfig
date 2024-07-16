@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>uL", function() require("lsp_lines").toggle() end, desc = "Toggle LSP lines" },
+    { "<Leader>uL", function() require("lsp_lines").toggle() end, desc = "Toggle LSP lines [lsp_lines]" },
   },
 
   config = function()

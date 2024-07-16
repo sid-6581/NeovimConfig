@@ -3,11 +3,11 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>ba", function() require("close_buffers").wipe({ type = "all" }) end, desc = "Delete all buffers" },
-    { "<Leader>bd", function() require("close_buffers").wipe({ type = "this" }) end, desc = "Delete buffer" },
-    { "<Leader>bh", function() require("close_buffers").wipe({ type = "hidden" }) end, desc = "Delete hidden buffers" },
-    { "<Leader>bo", function() require("close_buffers").wipe({ type = "other" }) end, desc = "Delete other buffers" },
-    { "<S-Esc>", function() require("close_buffers").wipe({ type = "this" }) end, desc = "Delete buffer" },
+    { "<Leader>ba", function() require("close_buffers").wipe({ type = "all" }) end, desc = "Delete all buffers [close-buffers]" },
+    { "<Leader>bd", function() require("close_buffers").wipe({ type = "this" }) end, desc = "Delete buffer [close-buffers]" },
+    { "<Leader>bh", function() require("close_buffers").wipe({ type = "hidden" }) end, desc = "Delete hidden buffers [close-buffers]" },
+    { "<Leader>bo", function() require("close_buffers").wipe({ type = "other" }) end, desc = "Delete other buffers [close-buffers]" },
+    { "<S-Esc>", function() require("close_buffers").wipe({ type = "this" }) end, desc = "Delete buffer [close-buffers]" },
   },
 
   opts = {

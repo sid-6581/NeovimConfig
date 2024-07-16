@@ -42,12 +42,12 @@ return {
   },
 
   keys = {
-    { "zR", function() require("ufo").openAllFolds() end, desc = "Open all folds" },
-    { "zM", function() require("ufo").closeAllFolds() end, desc = "Close all folds" },
-    { "zr", function() require("ufo").openFoldsExceptKinds() end, desc = "Open folds except specified kinds" },
-    { "zm", function() require("ufo").closeFoldsWith() end, desc = "Close folds with a higher level" },
-    { "]z", function() require("ufo").goNextClosedFold() end, desc = "Go to next closed fold" },
-    { "[z", function() require("ufo").goPreviousClosedFold() end, desc = "Go to previous closed fold" },
+    { "zR", function() require("ufo").openAllFolds() end, desc = "Open all folds [ufo]" },
+    { "zM", function() require("ufo").closeAllFolds() end, desc = "Close all folds [ufo]" },
+    { "zr", function() require("ufo").openFoldsExceptKinds() end, desc = "Open folds except specified kinds [ufo]" },
+    { "zm", function() require("ufo").closeFoldsWith() end, desc = "Close folds with a higher level [ufo]" },
+    { "]z", function() require("ufo").goNextClosedFold() end, desc = "Go to next closed fold [ufo]" },
+    { "[z", function() require("ufo").goPreviousClosedFold() end, desc = "Go to previous closed fold [ufo]" },
   },
 
   opts = {

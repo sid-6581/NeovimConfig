@@ -5,7 +5,6 @@ require("which-key").add({
   {
     mode = "n",
     { "<C-,>", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration" },
-    { "<Leader>L", "<CMD>Lazy sync<CR>", desc = "Lazy" },
     { "<Leader>q", "<CMD>qa<CR>", desc = "Quit all" },
     { "<BS>", '<CMD>noh | echon ""<CR>', desc = "Clear search highlighting" },
     { "<Esc>", '<CMD>noh | echon ""<CR><Esc>', desc = "Clear search highlighting" },

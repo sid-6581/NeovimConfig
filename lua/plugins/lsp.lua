@@ -3,7 +3,7 @@ return {
   event = { "VeryLazy", "BufReadPre", "BufNewFile" },
 
   keys = {
-    { "<Leader>lI", "<CMD>LspInfo<CR>", desc = "LSP info" },
+    { "<Leader>lI", "<CMD>LspInfo<CR>", desc = "LSP info [lspconfig]" },
   },
 
   dependencies = {
@@ -11,7 +11,7 @@ return {
       "williamboman/mason.nvim",
 
       keys = {
-        { "<Leader>M", "<CMD>Mason<CR>", desc = "Mason" },
+        { "<Leader>M", "<CMD>Mason<CR>", desc = "Open [mason]" },
       },
 
       opts = {
@@ -54,16 +54,16 @@ return {
 
         require("which-key").add({
           buffer = bufnr,
-          { "<Leader>ca", function() vim.lsp.buf.code_action() end, desc = "Code action" },
-          { "<Leader>cl", function() vim.lsp.codelens.run() end, desc = "Codelens" },
-          { "<Leader>cr", function() vim.lsp.buf.rename() end, desc = "Rename" },
-          { "<Leader>lci", function() require("telescope.builtin").lsp_incoming_calls() end, desc = "Incoming calls" },
-          { "<Leader>lco", function() require("telescope.builtin").lsp_outgoing_calls() end, desc = "Outgoing calls" },
+          { "<Leader>ca", function() vim.lsp.buf.code_action() end, desc = "Code action [lsp]" },
+          { "<Leader>cl", function() vim.lsp.codelens.run() end, desc = "Codelens [lsp]" },
+          { "<Leader>cr", function() vim.lsp.buf.rename() end, desc = "Rename [lsp]" },
+          { "<Leader>lci", function() require("telescope.builtin").lsp_incoming_calls() end, desc = "Incoming calls [telescope]" },
+          { "<Leader>lco", function() require("telescope.builtin").lsp_outgoing_calls() end, desc = "Outgoing calls [telescope]" },
           { "<Leader>lC", "<CMD>0Verbose =vim.lsp.get_clients()<CR>", desc = "View LSP details" },
-          { "<Leader>ld", function() require("telescope.builtin").diagnostics() end, desc = "Workspace diagnostics" },
-          { "<Leader>lD", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end, desc = "Document diagnostics" },
-          { "<Leader>li", function() require("telescope.builtin").lsp_implementations() end, desc = "Implementations" },
-          { "<Leader>lr", function() require("telescope.builtin").lsp_references() end, desc = "References" },
+          { "<Leader>ld", function() require("telescope.builtin").diagnostics() end, desc = "Workspace diagnostics [telescope]" },
+          { "<Leader>lD", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end, desc = "Document diagnostics [telescope]" },
+          { "<Leader>li", function() require("telescope.builtin").lsp_implementations() end, desc = "Implementations [telescope]" },
+          { "<Leader>lr", function() require("telescope.builtin").lsp_references() end, desc = "References [telescope]" },
           {
             "<Leader>lR",
             function()
@@ -72,8 +72,8 @@ return {
             end,
             desc = "Restart LSP servers",
           },
-          { "<Leader>ls", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = "Workspace symbols" },
-          { "<Leader>lS", function() require("telescope.builtin").lsp_document_symbols() end, desc = "Document symbols" },
+          { "<Leader>ls", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = "Workspace symbols [telescope]" },
+          { "<Leader>lS", function() require("telescope.builtin").lsp_document_symbols() end, desc = "Document symbols [telescope]" },
           {
             "<Leader>uh",
             function()
@@ -81,13 +81,13 @@ return {
               vim.notify((enabled and "Disabled" or "Enabled") .. " inlay hints")
               vim.lsp.inlay_hint.enable(not enabled)
             end,
-            desc = "Toggle inlay hints",
+            desc = "Toggle inlay hints [lsp]",
           },
-          { "K", function() vim.lsp.buf.hover() end, desc = "Show information" },
-          { "gK", function() vim.lsp.buf.signature_help() end, desc = "Signature help" },
-          { "gd", function() require("telescope.builtin").lsp_definitions() end, desc = "Go to definition" },
-          { "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, desc = "Show diagnostics" },
-          { mode = { "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, desc = "Code action" },
+          { "K", function() vim.lsp.buf.hover() end, desc = "Show information [lsp]" },
+          { "gK", function() vim.lsp.buf.signature_help() end, desc = "Signature help [lsp]" },
+          { "gd", function() require("telescope.builtin").lsp_definitions() end, desc = "Go to definition [telescope]" },
+          { "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, desc = "Show diagnostics [diagnostic]" },
+          { mode = { "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, desc = "Code action [lsp]" },
         })
 
         local augroup_suffix = bufnr .. "." .. client.name

@@ -50,17 +50,17 @@ return {
   },
 
   keys = {
-    { "<Leader>f.", function() require("telescope").extensions.file_browser.file_browser() end, desc = "Browse files" },
-    { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find" },
-    { "<Leader>fA", function() require("telescope").extensions.ast_grep.ast_grep() end, desc = "ast-grep" },
-    { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands" },
-    { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Highlights" },
-    { "<Leader>fR", function() require("telescope.builtin").registers() end, desc = "Registers" },
-    { "<Leader>fa", function() require("telescope.builtin").builtin() end, desc = "All" },
-    { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
-    { "<Leader>fc", function() require("telescope.builtin").commands() end, desc = "Commands" },
-    { "<Leader>fd", function() require("telescope.builtin").lsp_definitions() end, desc = "LSP definitions" },
-    { "<Leader>ff", function() require("telescope.builtin").find_files() end, desc = "Files" },
+    { "<Leader>f.", function() require("telescope").extensions.file_browser.file_browser() end, desc = "Browse files [telescope]" },
+    { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find [telescope]" },
+    { "<Leader>fA", function() require("telescope").extensions.ast_grep.ast_grep() end, desc = "ast-grep [telescope]" },
+    { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands [telescope]" },
+    { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Highlights [telescope]" },
+    { "<Leader>fR", function() require("telescope.builtin").registers() end, desc = "Registers [telescope]" },
+    { "<Leader>fa", function() require("telescope.builtin").builtin() end, desc = "All [telescope]" },
+    { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers [telescope]" },
+    { "<Leader>fc", function() require("telescope.builtin").commands() end, desc = "Commands [telescope]" },
+    { "<Leader>fd", function() require("telescope.builtin").lsp_definitions() end, desc = "LSP definitions [telescope]" },
+    { "<Leader>ff", function() require("telescope.builtin").find_files() end, desc = "Files [telescope]" },
     {
       "<Leader>fF",
       function()
@@ -74,25 +74,21 @@ return {
       end,
       desc = "Files (all)",
     },
-    { "<Leader>fH", function() require("telescope.builtin").help_tags() end, desc = "Help" },
-    { "<Leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Keymaps" },
+    { "<Leader>fH", function() require("telescope.builtin").help_tags() end, desc = "Help [telescope]" },
+    { "<Leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Keymaps [telescope]" },
     {
       "<Leader>fl",
       function() require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir() }) end,
-      desc = "Files from current directory",
+      desc = "Files from current directory [telescope]",
     },
-    { "<Leader>fo", function() require("telescope.builtin").vim_options() end, desc = "Vim options" },
-    { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files" },
+    { "<Leader>fo", function() require("telescope.builtin").vim_options() end, desc = "Vim options [telescope]" },
+    { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files [telescope]" },
     {
       "<Leader>fs",
-      function()
-        require("telescope.builtin").symbols(cursor_theme({
-          sources = { "emoji", "gitmoji", "nerd" },
-        }))
-      end,
-      desc = "Symbols",
+      function() require("telescope.builtin").symbols(cursor_theme({ sources = { "emoji", "gitmoji", "nerd" } })) end,
+      desc = "Symbols [telescope]",
     },
-    { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text" },
+    { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text [telescope]" },
     {
       "<Leader>fT",
       function()
@@ -111,18 +107,18 @@ return {
           },
         })
       end,
-      desc = "Text (all files)",
+      desc = "Text (all files) [telescope]",
     },
-    { "<Leader>fu", function() require("telescope").extensions.undo.undo() end, desc = "Undo" },
-    { "<Leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Word" },
-    { "<Leader>fy", function() require("telescope").extensions.yank_history.yank_history({}) end, desc = "Yank history" },
-    { "<Leader>fz", function() require("telescope").extensions.zoxide.list() end, desc = "Zoxide" },
-    { "<Leader>gS", function() require("telescope.builtin").git_stash() end, desc = "Git stash" },
-    { "<Leader>gb", function() require("telescope.builtin").git_branches() end, desc = "Branches" },
-    { "<Leader>gc", function() require("telescope.builtin").git_commits() end, desc = "Commits" },
-    { "<Leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Buffer commits" },
-    { "<Leader>gs", function() require("telescope.builtin").git_status() end, desc = "Status" },
-    { "<F1>", function() require("telescope.builtin").help_tags() end, mode = { "n", "i", "x" }, desc = "Help" },
+    { "<Leader>fu", function() require("telescope").extensions.undo.undo() end, desc = "Undo [telescope]" },
+    { "<Leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Word [telescope]" },
+    { "<Leader>fy", function() require("telescope").extensions.yank_history.yank_history({}) end, desc = "Yank history [telescope]" },
+    { "<Leader>fz", function() require("telescope").extensions.zoxide.list() end, desc = "Zoxide [telescope]" },
+    { "<Leader>gS", function() require("telescope.builtin").git_stash() end, desc = "Git stash [telescope]" },
+    { "<Leader>gb", function() require("telescope.builtin").git_branches() end, desc = "Branches [telescope]" },
+    { "<Leader>gc", function() require("telescope.builtin").git_commits() end, desc = "Commits [telescope]" },
+    { "<Leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Buffer commits [telescope]" },
+    { "<Leader>gs", function() require("telescope.builtin").git_status() end, desc = "Status [telescope]" },
+    { "<F1>", function() require("telescope.builtin").help_tags() end, mode = { "n", "i", "x" }, desc = "Help [telescope]" },
 
     -- Select directories containing .git in the specified search_dirs.
     -- The default select action will change the default directory and open oil.
@@ -162,7 +158,7 @@ return {
             or { vim.fn.expand("~/") },
         })
       end,
-      desc = "Projects",
+      desc = "Projects [telescope]",
     },
   },
 
@@ -198,18 +194,18 @@ return {
         },
         mappings = {
           i = {
-            ["<Esc>"] = actions.close,
+            ["<Esc>"] = { actions.close, type = "action", opts = { desc = "Close" } },
             ["<C-c>"] = false,
-            ["<F1>"] = actions.which_key,
-            ["<C-n>"] = actions.cycle_history_next,
-            ["<C-p>"] = actions.cycle_history_prev,
-            ["<C-j>"] = actions.move_selection_next,
-            ["<C-k>"] = actions.move_selection_previous,
+            ["<F1>"] = { actions.which_key, type = "action", opts = { desc = "Help" } },
+            ["<C-n>"] = { actions.cycle_history_next, type = "action", opts = { desc = "Next history" } },
+            ["<C-p>"] = { actions.cycle_history_prev, type = "action", opts = { desc = "Previous history" } },
+            ["<C-j>"] = { actions.move_selection_next, type = "action", opts = { desc = "Next selection" } },
+            ["<C-k>"] = { actions.move_selection_previous, type = "action", opts = { desc = "Previous selection" } },
             ["<C-y>e"] = { yank_all_entries, type = "action", opts = { desc = "Yank all entries" } },
             ["<C-y>p"] = { yank_preview_lines, type = "action", opts = { desc = "Yank preview lines" } },
           },
           n = {
-            ["<F1>"] = actions.which_key,
+            ["<F1>"] = { actions.which_key, type = "action", opts = { desc = "Help" } },
             ["<C-y>e"] = { yank_all_entries, type = "action", opts = { desc = "Yank all entries" } },
             ["<C-y>p"] = { yank_preview_lines, type = "action", opts = { desc = "Yank preview lines" } },
           },

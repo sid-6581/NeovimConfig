@@ -3,14 +3,11 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>gR", function() require("gitsigns").reset_buffer() end, desc = "Reset buffer" },
-    { "<Leader>gdt", function() require("gitsigns").diffthis(nil, { split = "belowright" }) end, desc = "Diff this" },
-    { "<Leader>ghs", function() require("gitsigns").stage_hunk() end, desc = "Stage hunk" },
-    { "<Leader>ghu", function() require("gitsigns").undo_stage_hunk() end, desc = "Undo stage hunk" },
-    { "<Leader>gl", function() require("gitsigns").blame_line({ full = true }) end, desc = "Blame line" },
-    { "<Leader>gL", function() require("gitsigns").blame() end, desc = "Blame file" },
-    { "<Leader>gp", function() require("gitsigns").preview_hunk() end, desc = "Preview hunk" },
-    { "<Leader>gr", function() require("gitsigns").reset_hunk() end, desc = "Reset hunk" },
+    { "<Leader>gR", function() require("gitsigns").reset_buffer() end, desc = "Git reset buffer [gitsigns]" },
+    { "<Leader>gl", function() require("gitsigns").blame_line({ full = true }) end, desc = "Git blame line [gitsigns]" },
+    { "<Leader>gL", function() require("gitsigns").blame() end, desc = "Git blame file [gitsigns]" },
+    { "<Leader>gp", function() require("gitsigns").preview_hunk() end, desc = "Git preview hunk [gitsigns]" },
+    { "<Leader>gr", function() require("gitsigns").reset_hunk() end, desc = "Git reset hunk [gitsigns]" },
     {
       "]c",
       function()
@@ -20,7 +17,7 @@ return {
           require("gitsigns").nav_hunk("next")
         end
       end,
-      desc = "Next diff/git hunk",
+      desc = "Next diff/git hunk [gitsigns]",
     },
     {
       "[c",
@@ -31,10 +28,10 @@ return {
           require("gitsigns").nav_hunk("prev")
         end
       end,
-      desc = "Previous diff/git hunk",
+      desc = "Previous diff/git hunk [gitsigns]",
     },
-    { "[C", function() require("gitsigns").nav_hunk("first") end, desc = "First git hunk" },
-    { "]C", function() require("gitsigns").nav_hunk("last") end, desc = "Last git hunk" },
+    { "[C", function() require("gitsigns").nav_hunk("first") end, desc = "First git hunk [gitsigns]" },
+    { "]C", function() require("gitsigns").nav_hunk("last") end, desc = "Last git hunk [gitsigns]" },
   },
 
   opts = {

@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<leader>S", function() require("spectre").toggle() end, desc = "Replace in files (Spectre)" },
+    { "<leader>S", function() require("spectre").toggle() end, desc = "Replace in files [spectre]" },
   },
 
   opts = {},

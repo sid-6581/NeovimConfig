@@ -3,10 +3,26 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<A-l>", function() require("sibling-swap").swap_with_right() end, desc = "Treesitter node swap with right" },
-    { "<A-h>", function() require("sibling-swap").swap_with_left() end, desc = "Treesitter node swap with left" },
-    { "<S-A-l>", function() require("sibling-swap").swap_with_right_with_opp() end, desc = "Treesitter node swap with rights with opposite" },
-    { "<S-A-h>", function() require("sibling-swap").swap_with_left_with_opp() end, desc = "Treesitter node swap with left with opposite" },
+    {
+      "<A-l>",
+      function() require("sibling-swap").swap_with_right() end,
+      desc = "Treesitter node swap with right [sibling-swap]",
+    },
+    {
+      "<A-h>",
+      function() require("sibling-swap").swap_with_left() end,
+      desc = "Treesitter node swap with left [sibling-swap]",
+    },
+    {
+      "<S-A-l>",
+      function() require("sibling-swap").swap_with_right_with_opp() end,
+      desc = "Treesitter node swap with rights with opposite [sibling-swap]",
+    },
+    {
+      "<S-A-h>",
+      function() require("sibling-swap").swap_with_left_with_opp() end,
+      desc = "Treesitter node swap with left with opposite [sibling-swap]",
+    },
   },
 
   opts = {

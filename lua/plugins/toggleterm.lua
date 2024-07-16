@@ -3,15 +3,15 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<C-->", function() _TERMINAL_HORIZONTAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Toggle terminal (horizontal)" },
-    { "<C-=>", function() _TERMINAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Toggle terminal (float)" },
-    { "<C-|>", function() _TERMINAL_VERTICAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Toggle terminal (vertical)" },
-    { "<Leader>gg", function() _LAZYGIT_TOGGLE() end, desc = "Lazygit" },
-    { "<Leader>tf", function() _TERMINAL_TOGGLE() end, desc = "Toggle terminal (float)" },
-    { "<Leader>th", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Toggle terminal (horizontal)" },
-    { "<Leader>tp", function() _PYTHON_TOGGLE() end, desc = "Toggle terminal (Python)" },
-    { "<Leader>tv", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Vertical" },
-    { "<Leader>ty", function() _YAZI_TOGGLE() end, desc = "Toggle terminal (Yazi)" },
+    { "<C-->", function() _TERMINAL_HORIZONTAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Horizontal terminal [toggleterm]" },
+    { "<C-=>", function() _TERMINAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Float terminal [toggleterm]" },
+    { "<C-|>", function() _TERMINAL_VERTICAL_TOGGLE() end, mode = { "n", "i", "v", "t" }, desc = "Vertical terminal [toggleterm]" },
+    { "<Leader>gg", function() _LAZYGIT_TOGGLE() end, desc = "Lazygit [toggleterm]" },
+    { "<Leader>tf", function() _TERMINAL_TOGGLE() end, desc = "Float terminal [toggleterm]" },
+    { "<Leader>th", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Horizontal terminal [toggleterm]" },
+    { "<Leader>tp", function() _PYTHON_TOGGLE() end, desc = "Python [toggleterm]" },
+    { "<Leader>tv", function() _TERMINAL_VERTICAL_TOGGLE() end, desc = "Vertical terminal [toggleterm]" },
+    { "<Leader>ty", function() _YAZI_TOGGLE() end, desc = "Yazi [toggleterm]" },
   },
 
   config = function()
