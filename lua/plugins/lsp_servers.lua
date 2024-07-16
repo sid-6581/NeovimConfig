@@ -50,6 +50,9 @@ return {
               telemetry = {
                 enable = false,
               },
+              workspace = {
+                preloadFileSize = 2000,
+              },
             },
           },
         },
