@@ -10,6 +10,7 @@ return {
   opts = {
     preset = "helix",
     sort = { "alphanum", "case", "mod", "order" },
+    expand = 3,
     delay = function(ctx)
       return ctx.plugin and 0 or 250
     end,
