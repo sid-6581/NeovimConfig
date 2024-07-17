@@ -6,39 +6,7 @@ return {
     { "<Leader>lI", "<CMD>LspInfo<CR>", desc = "LSP info [lspconfig]" },
   },
 
-  dependencies = {
-    {
-      "williamboman/mason.nvim",
-
-      keys = {
-        { "<Leader>M", "<CMD>Mason<CR>", desc = "Open [mason]" },
-      },
-
-      opts = {
-        ui = {
-          border = "single",
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
-        },
-      },
-    },
-
-    "williamboman/mason-lspconfig.nvim",
-
-    {
-      "folke/neoconf.nvim",
-      config = false,
-    },
-  },
-
   config = function(_, opts)
-    require("neoconf").setup({})
-    require("mason").setup()
-    require("mason-lspconfig").setup()
-
     -- Visual settings
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })

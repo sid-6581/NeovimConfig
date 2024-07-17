@@ -3,7 +3,7 @@ return {
   event = { "VeryLazy", "BufEnter" },
 
   keys = {
-    { "<Leader>O", "<CMD>cd ~/vaults/Notes | Neotree show<CR>", desc = "Open [obsidian]" },
+    { "<Leader>O", "<CMD>cd ~/vaults/Notes | Neotree show<CR>", desc = "Notes [obsidian]" },
   },
 
   opts = {

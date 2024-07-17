@@ -9,7 +9,7 @@ return {
 
   opts = {
     preset = "helix",
-    sort = { "order", "group", "alphanum", "mod" },
+    sort = { "alphanum", "case", "mod", "order" },
     delay = function(ctx)
       return ctx.plugin and 0 or 250
     end,
@@ -60,7 +60,7 @@ return {
     },
     replace = {
       desc = {
-        { "<Plug>%(?([^)]*)%)?", "%1" },
+        -- { "<Plug>%(?([^)]*)%)?", "%1" },
         { "([^%[]*) %[.*%]", "%1" },
       },
     },

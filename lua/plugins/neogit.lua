@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>N", "<CMD>Neogit<CR>", desc = "Open [neogit]" },
+    { "<Leader>N", "<CMD>Neogit<CR>", desc = "Git [neogit]" },
   },
 
   opts = {
