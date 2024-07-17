@@ -9,7 +9,7 @@ return {
 
   opts = {
     preset = "helix",
-    sort = { "alphanum", "case", "mod", "order" },
+    sort = { "order", "alphanum", "mod", "case" },
     expand = 3,
     delay = function(ctx)
       return ctx.plugin and 0 or 250
@@ -37,7 +37,7 @@ return {
         { pattern = "%[goto%-preview%]", icon = " goto-preview", color = "orange" },
         { pattern = "%[keymaps%]", icon = "⌨️ keymaps", color = "azure" },
         { pattern = "%[lazy%]", icon = "󰒲 lazy", color = "grey" },
-        { pattern = "%[lsp%]", icon = " lsp", color = "orange" },
+        { pattern = "%[lsp%]", icon = "󰌘 lsp", color = "orange" },
         { pattern = "%[mason%]", icon = "󱌢 mason", color = "grey" },
         { pattern = "%[neo%-tree%]", icon = "󰙅 neo-tree", color = "grey" },
         { pattern = "%[neogit%]", icon = "󰊢 neogit", color = "orange" },
@@ -74,7 +74,7 @@ return {
       { "<Leader>f", group = "Find" },
       { "<Leader>g", group = "Git" },
       { "<Leader>go", group = "Octo" },
-      { "<Leader>l", group = "LSP" },
+      { "<Leader>l", group = "LSP", icon = { icon = "󰌘 ", color = "orange" } },
       { "<Leader>o", group = "Overseer" },
       { "<Leader>t", group = "Terminal" },
       { "<Leader>u", group = "UI/toggles" },
@@ -231,12 +231,12 @@ return {
         { "Y", "_y$", desc = "Yank line characters [keymaps]" },
         { ",P", '"+P', desc = "Paste from system clipboard [keymaps]" },
         { ",p", '"+p', desc = "Paste from system clipboard [keymaps]" },
-        { "<Leader>Pb", 'i <C-R>" <Esc>', desc = "Paste before cursor and add space at both ends [keymaps]" },
-        { "<Leader>Pe", 'i<C-R>" <Esc>', desc = "Paste before cursor and add space at end [keymaps]" },
-        { "<Leader>Ps", 'i <C-R>"<Esc>', desc = "Paste before cursor and add space at start [keymaps]" },
-        { "<Leader>pb", 'a <C-R>" <Esc>', desc = "Paste after cursor and add space at both ends [keymaps]" },
-        { "<Leader>pe", 'a<C-R>" <Esc>', desc = "Paste after cursor and add space at end [keymaps]" },
-        { "<Leader>ps", 'a <C-R>"<Esc>', desc = "Paste after cursor and add space at start [keymaps]" },
+        -- { "<Leader>Pb", 'i <C-R>" <Esc>', desc = "Paste before cursor and add space at both ends [keymaps]" },
+        -- { "<Leader>Pe", 'i<C-R>" <Esc>', desc = "Paste before cursor and add space at end [keymaps]" },
+        -- { "<Leader>Ps", 'i <C-R>"<Esc>', desc = "Paste before cursor and add space at start [keymaps]" },
+        -- { "<Leader>pb", 'a <C-R>" <Esc>', desc = "Paste after cursor and add space at both ends [keymaps]" },
+        -- { "<Leader>pe", 'a<C-R>" <Esc>', desc = "Paste after cursor and add space at end [keymaps]" },
+        -- { "<Leader>ps", 'a <C-R>"<Esc>', desc = "Paste after cursor and add space at start [keymaps]" },
         { "<S-Insert>", '"+P', desc = "Paste from system clipboard [keymaps]" },
 
         -- Motions

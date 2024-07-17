@@ -3,7 +3,7 @@ return {
   event = { "VeryLazy", "BufReadPre", "BufNewFile" },
 
   keys = {
-    { "<Leader>lI", "<CMD>LspInfo<CR>", desc = "LSP info [lspconfig]" },
+    { "<Leader>lI", "<CMD>LspInfo<CR>", desc = "LSP info [lsp]" },
   },
 
   config = function(_, opts)
@@ -27,7 +27,7 @@ return {
           { "<Leader>cr", function() vim.lsp.buf.rename() end, desc = "Rename [lsp]" },
           { "<Leader>lci", function() require("telescope.builtin").lsp_incoming_calls() end, desc = "Incoming calls [telescope]" },
           { "<Leader>lco", function() require("telescope.builtin").lsp_outgoing_calls() end, desc = "Outgoing calls [telescope]" },
-          { "<Leader>lC", "<CMD>0Verbose =vim.lsp.get_clients()<CR>", desc = "View LSP details" },
+          { "<Leader>lC", "<CMD>0Verbose =vim.lsp.get_clients()<CR>", desc = "View LSP details [lsp]" },
           { "<Leader>ld", function() require("telescope.builtin").diagnostics() end, desc = "Workspace diagnostics [telescope]" },
           { "<Leader>lD", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end, desc = "Document diagnostics [telescope]" },
           { "<Leader>li", function() require("telescope.builtin").lsp_implementations() end, desc = "Implementations [telescope]" },
@@ -38,7 +38,7 @@ return {
               vim.lsp.stop_client(vim.lsp.get_clients())
               vim.schedule(function() vim.cmd.edit() end)
             end,
-            desc = "Restart LSP servers",
+            desc = "Restart LSP servers [lsp]",
           },
           { "<Leader>ls", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = "Workspace symbols [telescope]" },
           { "<Leader>lS", function() require("telescope.builtin").lsp_document_symbols() end, desc = "Document symbols [telescope]" },
