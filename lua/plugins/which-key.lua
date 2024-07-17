@@ -8,15 +8,21 @@ return {
   },
 
   opts = {
-    preset = "helix",
+    preset = "modern",
     sort = { "order", "alphanum", "mod", "case" },
     expand = 3,
     delay = function(ctx)
       return ctx.plugin and 0 or 250
     end,
+    filter = function(mapping)
+      if mapping.rhs and type(mapping.rhs) == "string" and mapping.rhs:match("VM%-") then
+        mapping.desc = mapping.rhs .. " [visual-multi]"
+      end
+
+      return true
+    end,
     win = {
       border = "single",
-      height = { max = 0.90 },
       wo = { winblend = 0 },
     },
     icons = {
@@ -27,7 +33,7 @@ return {
         { pattern = "%[cliff%]", icon = "↕️ cliff", color = "yellow" },
         { pattern = "%[close%-buffers%]", icon = " close-buffers", color = "red" },
         { pattern = "%[conform%]", icon = "󰦨 conform", color = "green" },
-        { pattern = "%[crates%]", icon = " crates", color = "orange" },
+        { pattern = "%[crates%]", icon = "󱘗 crates", color = "orange" },
         { pattern = "%[dadbod%]", icon = " dadbod", color = "grey" },
         { pattern = "%[dap%]", icon = "󰃤 dap", color = "red" },
         { pattern = "%[dial%]", icon = "󰦒 dial", color = "green" },
@@ -55,8 +61,7 @@ return {
         { pattern = "%[which%-key%]", icon = "⌨️ which-key", color = "azure" },
         { pattern = "%[yanky%]", icon = "󰅇 yanky", color = "yellow" },
         { pattern = "%[various%-textobjs%]", icon = " various-textobjs", color = "yellow" },
-        { pattern = "VM%-", icon = "﫦visual-multi", color = "green" },
-        { pattern = "ai", icon = "", color = "grey" },
+        { pattern = "%[visual%-multi%]", icon = "﫦visual-multi", color = "yellow" },
       },
     },
     replace = {
@@ -81,12 +86,16 @@ return {
       { "<Leader>w", group = "Windows" },
       { "<Leader>x", group = "Diagnostics/quickfix" },
       { ",", group = "Misc" },
+      { "`", group = "Marks" },
+      { "'", group = "Marks" },
+      { "\"", group = "Registers" },
       { "[", group = "Previous" },
       { "]", group = "Next" },
       { "g", group = "Goto/operators" },
       { "gp", group = "Goto preview" },
       { "c", group = "Code", mode = { "o", "x" } },
       { "z", group = "Fold/scroll" },
+      { "<C-W>", group = "Window" },
 
       -- Normal mode
       {
@@ -326,4 +335,9 @@ return {
       },
     },
   },
+
+  config = function(_, opts)
+    require("which-key.icons").rules = {}
+    require("which-key").setup(opts)
+  end,
 }

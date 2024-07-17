@@ -235,7 +235,7 @@ return {
             -- Hide which-key keymaps
             return not km.lhs:match("Þ$") and (not km.rhs or not km.rhs:match("which%-key"))
           end,
-          show_plug = false,
+          show_plug = true,
         },
         symbols = cursor_theme({}),
       },
