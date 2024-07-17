@@ -15,6 +15,8 @@ return {
     use_popups_for_input = false,
     window = {
       mappings = {
+        ["/"] = "none",
+        ["F"] = "fuzzy_finder",
         ["Z"] = "expand_all_nodes",
       },
       width = 40,

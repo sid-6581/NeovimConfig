@@ -92,6 +92,7 @@ return {
       {
         mode = "n",
         { "<Leader>L", "<CMD>Lazy sync<CR>", desc = "Plugins [lazy]" },
+        { "<Leader>C", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration [keymaps]" },
         { "<C-,>", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration [keymaps]" },
         { "<Leader>q", "<CMD>qa<CR>", desc = "Quit all [keymaps]" },
         { "<BS>", '<CMD>noh | echon ""<CR>', desc = "Clear search highlighting [keymaps]" },
