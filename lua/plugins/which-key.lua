@@ -4,7 +4,7 @@ return {
   lazy = false,
 
   keys = {
-    { mode = { "n", "v" }, "<S-F1>", "<CMD>WhichKey<CR>", desc = "Show keys [which-key]" },
+    { mode = { "n", "v" }, "<F2>", "<CMD>WhichKey<CR>", desc = "Show keys [which-key]" },
   },
 
   opts = {
