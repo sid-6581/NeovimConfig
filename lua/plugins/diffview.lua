@@ -13,7 +13,7 @@ return {
     require("diffview").setup(opts)
 
     vim.api.nvim_create_autocmd({ "FileType" }, {
-      pattern = { "DiffViewFileHistory", "DiffViewFiles" },
+      pattern = { "DiffviewFileHistory", "DiffviewFiles" },
       callback = function(event)
         require("which-key").add({ "q", "<CMD>tabclose<CR>", buffer = event.buf, desc = "Close tab [diffview]" })
       end,
