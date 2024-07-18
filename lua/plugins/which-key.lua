@@ -14,15 +14,29 @@ return {
     delay = function(ctx)
       return ctx.plugin and 0 or 250
     end,
+
     filter = function(mapping)
-      if mapping.rhs and type(mapping.rhs) == "string" and mapping.rhs:match("VM%-") then
-        mapping.desc = mapping.rhs .. " [visual-multi]"
+      if mapping.rhs and type(mapping.rhs) == "string" then
+        if mapping.rhs:match("VM%-") then
+          mapping.desc = mapping.rhs .. " [visual-multi]"
+        end
+
+        local _, _, mini_plugin = mapping.rhs:find("Mini(%u%a+)")
+        if mini_plugin then
+          mapping.desc = mapping.desc .. " [mini." .. mini_plugin:lower() .. "]"
+        end
+      end
+
+      if mapping.lhs == "<Plug>fugitive:" then
+        return false
       end
 
       return true
     end,
+
     win = {
       border = "single",
+      width = { max = math.huge },
       wo = { winblend = 0 },
     },
     icons = {
@@ -44,6 +58,12 @@ return {
         { pattern = "%[lazy%]", icon = "󰒲 lazy", color = "grey" },
         { pattern = "%[lsp%]", icon = "󰌘 lsp", color = "orange" },
         { pattern = "%[mason%]", icon = "󱌢 mason", color = "grey" },
+        { pattern = "%[mini.ai%]", icon = "󰓾 mini.ai", color = "yellow" },
+        { pattern = "%[mini.align%]", icon = " mini.align", color = "yellow" },
+        { pattern = "%[mini.bracketed%]", icon = "󰅪 mini.bracketed", color = "yellow" },
+        { pattern = "%[mini.splitjoin%]", icon = " mini.splitjoin", color = "yellow" },
+        { pattern = "%[mini.operators%]", icon = " mini.operators", color = "yellow" },
+        { pattern = "%[mini.move%]", icon = " mini.move", color = "yellow" },
         { pattern = "%[neo%-tree%]", icon = "󰙅 neo-tree", color = "grey" },
         { pattern = "%[neogit%]", icon = "󰊢 neogit", color = "orange" },
         { pattern = "%[obsidian%]", icon = "󰺿 obsidian", color = "grey" },
@@ -58,7 +78,7 @@ return {
         { pattern = "%[treesj%]", icon = " treesj", color = "green" },
         { pattern = "%[trouble%]", icon = "󰙅 trouble", color = "red" },
         { pattern = "%[ufo%]", icon = " ufo", color = "yellow" },
-        { pattern = "%[which%-key%]", icon = "⌨️ which-key", color = "azure" },
+        { pattern = "%[which%-key%]", icon = "⌨️ ", color = "azure" },
         { pattern = "%[yanky%]", icon = "󰅇 yanky", color = "yellow" },
         { pattern = "%[various%-textobjs%]", icon = " various-textobjs", color = "yellow" },
         { pattern = "%[visual%-multi%]", icon = "﫦visual-multi", color = "yellow" },
@@ -178,10 +198,10 @@ return {
         { "<S-C-Left>", "<CMD>vertical resize -2<CR>", desc = "Decrease window width [which-key]" },
         { "<S-C-Right>", "<CMD>vertical resize +2<CR>", desc = "Increase window width [which-key]" },
         { "<S-C-Up>", "<CMD>resize +2<CR>", desc = "Increase window height [which-key]" },
-        { "<A-_>", "<CMD>resize -2<CR>", desc = "Decrease window height [which-key]" },
-        { "<A-<>", "<CMD>vertical resize -2<CR>", desc = "Decrease window width [which-key]" },
-        { "<A->>", "<CMD>vertical resize +2<CR>", desc = "Increase window width [which-key]" },
-        { "<A-+>", "<CMD>resize +2<CR>", desc = "Increase window height [which-key]" },
+        -- { "<A-_>", "<CMD>resize -2<CR>", desc = "Decrease window height [which-key]" },
+        -- { "<A-<>", "<CMD>vertical resize -2<CR>", desc = "Decrease window width [which-key]" },
+        -- { "<A->>", "<CMD>vertical resize +2<CR>", desc = "Increase window width [which-key]" },
+        -- { "<A-+>", "<CMD>resize +2<CR>", desc = "Increase window height [which-key]" },
 
         -- Tabs
         { "<C-S-h>", "gT", desc = "Previous tab [which-key]" },

@@ -33,7 +33,7 @@ return {
     },
     render = function(props)
       local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":.")
-      local icon, color = MiniIcons.get("file", filename)
+      local icon, color = require("mini.icons").get("file", filename)
       return {
         { icon, group = color },
         { " " },

@@ -54,7 +54,7 @@ return {
           require("mini.bracketed").quickfix("forward")
         end
       end,
-      desc = "Next item [trouble/quickfix]",
+      desc = "Next item [trouble]",
     },
     {
       "[q",
@@ -65,7 +65,7 @@ return {
           require("mini.bracketed").quickfix("backward")
         end
       end,
-      desc = "Previous item [trouble/quickfix]",
+      desc = "Previous item [trouble]",
     },
     {
       "]Q",
@@ -76,7 +76,7 @@ return {
           require("mini.bracketed").quickfix("last")
         end
       end,
-      desc = "Last item [trouble/quickfix]",
+      desc = "Last item [trouble]",
     },
     {
       "[Q",
@@ -87,7 +87,7 @@ return {
           require("mini.bracketed").quickfix("first")
         end
       end,
-      desc = "First item [trouble/quickfix]",
+      desc = "First item [trouble]",
     },
   },
   --- @diagnostic enable: missing-parameter,missing-fields
