@@ -41,7 +41,7 @@ return {
     },
     icons = {
       separator = " ",
-      group = "",
+      group = "﬌ ",
       rules = {
         { pattern = "%[aerial%]", icon = "󱘎 aerial", color = "orange" },
         { pattern = "%[cliff%]", icon = "↕️ cliff", color = "yellow" },
