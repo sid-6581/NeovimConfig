@@ -214,6 +214,8 @@ return {
         -- Tabs
         { "<C-S-h>", "gT", desc = "Previous tab [which-key]" },
         { "<C-S-l>", "gt", desc = "Next tab [which-key]" },
+        { "[t", "gT", desc = "Previous tab [which-key]" },
+        { "]t", "gt", desc = "Next tab [which-key]" },
         { "<C-S-t>", "<CMD>tabnew<CR>", desc = "Open new tab [which-key]" },
         { "<Leader><Tab><BS>", "<CMD>tabclose<CR>", desc = "Close tab [which-key]" },
         { "<Leader><Tab><Tab>", "<CMD>tabnew<CR>", desc = "New tab [which-key]" },
