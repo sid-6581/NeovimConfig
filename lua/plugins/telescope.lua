@@ -50,6 +50,8 @@ return {
   },
 
   keys = {
+    { "<F1>", function() require("telescope.builtin").help_tags() end, mode = { "n", "i", "v", "x", "o", "t" }, desc = "Help [telescope]" },
+    { "<F3>", function() require("telescope.builtin").keymaps() end, mode = { "n", "i", "v", "x", "o", "t" }, desc = "Keymaps [telescope]" },
     { "<Leader>f.", function() require("telescope").extensions.file_browser.file_browser() end, desc = "Browse files [telescope]" },
     { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find [telescope]" },
     { "<Leader>fA", function() require("telescope").extensions.ast_grep.ast_grep() end, desc = "ast-grep [telescope]" },
@@ -118,7 +120,6 @@ return {
     { "<Leader>gc", function() require("telescope.builtin").git_commits() end, desc = "Commits [telescope]" },
     { "<Leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Buffer commits [telescope]" },
     { "<Leader>gs", function() require("telescope.builtin").git_status() end, desc = "Status [telescope]" },
-    { "<F1>", function() require("telescope.builtin").help_tags() end, mode = { "n", "i", "x" }, desc = "Help [telescope]" },
 
     -- Select directories containing .git in the specified search_dirs.
     -- The default select action will change the default directory and open oil.

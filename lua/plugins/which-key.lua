@@ -4,7 +4,7 @@ return {
   lazy = false,
 
   keys = {
-    { mode = { "n", "v" }, "<F2>", "<CMD>WhichKey<CR>", desc = "Show keys [which-key]" },
+    { "<F2>", "<CMD>WhichKey<CR>", mode = { "n", "i", "v", "x", "o", "t" }, desc = "Show keys [which-key]" },
   },
 
   opts = {
@@ -19,11 +19,18 @@ return {
       if mapping.rhs and type(mapping.rhs) == "string" then
         if mapping.rhs:match("VM%-") then
           mapping.desc = mapping.rhs .. " [visual-multi]"
+          return true
+        end
+
+        if mapping.rhs:match("nvim%-surround") then
+          mapping.desc = mapping.rhs .. " [surround]"
+          return true
         end
 
         local _, _, mini_plugin = mapping.rhs:find("Mini(%u%a+)")
         if mini_plugin then
           mapping.desc = mapping.desc .. " [mini." .. mini_plugin:lower() .. "]"
+          return true
         end
       end
 
@@ -110,8 +117,8 @@ return {
       { "`", group = "Marks" },
       { "'", group = "Marks" },
       { "\"", group = "Registers" },
-      { "[", group = "Previous" },
-      { "]", group = "Next" },
+      { "[", group = "Previous", mode = { "n", "v", "x", "o" } },
+      { "]", group = "Next", mode = { "n", "v", "x", "o" } },
       { "g", group = "Goto/operators" },
       { "gp", group = "Goto preview" },
       { "c", group = "Code", mode = { "o", "x" } },
