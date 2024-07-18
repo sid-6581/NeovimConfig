@@ -26,7 +26,7 @@ return {
         end
       end,
       autochdir = true,
-      open_mapping = "<C-\\><C-\\>",
+      open_mapping = false,
       shading_factor = 2,
       start_in_insert = true,
       dir = vim.fn.getcwd(),
