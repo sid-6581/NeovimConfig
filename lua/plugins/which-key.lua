@@ -4,7 +4,7 @@ return {
   lazy = false,
 
   keys = {
-    { mode = { "n", "v" }, "<S-F1>", "<CMD>WhichKey<CR>", desc = "Open [which-key]" },
+    { mode = { "n", "v" }, "<S-F1>", "<CMD>WhichKey<CR>", desc = "Show keys [which-key]" },
   },
 
   opts = {
@@ -41,7 +41,7 @@ return {
     },
     icons = {
       separator = " ",
-      group = "﬌ ",
+      group = "󱡠 ",
       rules = {
         { pattern = "%[aerial%]", icon = "󱘎 aerial", color = "orange" },
         { pattern = "%[cliff%]", icon = "↕️ cliff", color = "yellow" },
@@ -80,9 +80,9 @@ return {
         { pattern = "%[trouble%]", icon = "󰙅 trouble", color = "red" },
         { pattern = "%[ufo%]", icon = " ufo", color = "yellow" },
         { pattern = "%[which%-key%]", icon = "⌨️ ", color = "azure" },
-        { pattern = "%[yanky%]", icon = "󰅇 yanky", color = "yellow" },
+        { pattern = "%[yanky%]", icon = "󰆏 yanky", color = "yellow" },
         { pattern = "%[various%-textobjs%]", icon = " various-textobjs", color = "yellow" },
-        { pattern = "%[visual%-multi%]", icon = "﫦visual-multi", color = "yellow" },
+        { pattern = "%[visual%-multi%]", icon = " visual-multi", color = "yellow" },
       },
     },
     replace = {
