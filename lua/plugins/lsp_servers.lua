@@ -131,13 +131,20 @@ return {
               files = {
                 watcher = "server",
               },
+              hover = {
+                actions = {
+                  references = {
+                    enable = true,
+                  },
+                },
+              },
               rustfmt = {
                 extraArgs = { "+nightly" },
               },
               inlayHints = {
-                maxLength = 100,
+                maxLength = 200,
                 bindingModeHints = {
-                  enable = true,
+                  enable = false,
                 },
                 chainingHints = {
                   enable = true,
@@ -150,13 +157,14 @@ return {
                   enable = true,
                 },
                 closureReturnTypeHints = {
-                  enable = true,
-                },
-                discriminantHints = {
                   enable = "always",
+                },
+                closureStyle = "rust_analyzer",
+                discriminantHints = {
+                  enable = "never",
                 },
                 expressionAdjustmentHints = {
-                  enable = "always",
+                  enable = "never",
                 },
                 genericParameterHints = {
                   const = {
@@ -169,15 +177,21 @@ return {
                     enable = true,
                   },
                 },
-                lifetimeElisionHints = {
-                  enable = "always",
-                  useParameterNames = true,
-                },
-                rangeExclusiveHints = {
+                implicitDrops = {
                   enable = true,
                 },
+                lifetimeElisionHints = {
+                  enable = "skip_trivial",
+                  useParameterNames = true,
+                },
+                parameterHints = {
+                  enable = true,
+                },
+                rangeExclusiveHints = {
+                  enable = false,
+                },
                 reborrowHints = {
-                  enable = "always",
+                  enable = "never",
                 },
               },
             },
