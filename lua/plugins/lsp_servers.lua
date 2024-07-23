@@ -134,6 +134,52 @@ return {
               rustfmt = {
                 extraArgs = { "+nightly" },
               },
+              inlayHints = {
+                maxLength = 100,
+                bindingModeHints = {
+                  enable = true,
+                },
+                chainingHints = {
+                  enable = true,
+                },
+                closingBraceHints = {
+                  enable = true,
+                  minLines = 0,
+                },
+                closureCaptureHints = {
+                  enable = true,
+                },
+                closureReturnTypeHints = {
+                  enable = true,
+                },
+                discriminantHints = {
+                  enable = "always",
+                },
+                expressionAdjustmentHints = {
+                  enable = "always",
+                },
+                genericParameterHints = {
+                  const = {
+                    enable = true,
+                  },
+                  lifetime = {
+                    enable = true,
+                  },
+                  type = {
+                    enable = true,
+                  },
+                },
+                lifetimeElisionHints = {
+                  enable = "always",
+                  useParameterNames = true,
+                },
+                rangeExclusiveHints = {
+                  enable = true,
+                },
+                reborrowHints = {
+                  enable = "always",
+                },
+              },
             },
           },
         },
