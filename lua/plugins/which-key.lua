@@ -130,7 +130,7 @@ return {
       { "gp", group = "Goto preview" },
       { "c", group = "Code", mode = { "o", "x" } },
       { "z", group = "Fold/scroll" },
-      { "<C-W>", group = "Window" },
+      { "<C-w>", group = "Windows" },
 
       -- Normal mode
       {
