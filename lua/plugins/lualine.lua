@@ -89,7 +89,13 @@ return {
           },
         },
         lualine_y = { "location", "selectioncount" },
-        lualine_z = { "progress" },
+        lualine_z = {
+          "progress",
+          {
+            "mode",
+            fmt = function(str) return str:sub(1, 1) end,
+          },
+        },
       },
       inactive_sections = {
         lualine_a = {},
