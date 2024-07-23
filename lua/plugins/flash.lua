@@ -3,9 +3,6 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "gn", function() require("flash").treesitter({ jump = { pos = "start" } }) end, desc = "Go to treesitter node start [flash]" },
-    { "gN", function() require("flash").treesitter({ jump = { pos = "end" } }) end, desc = "Go to treesitter node end [flash]" },
-    { "gw", function() require("flash").jump({ search = { mode = "search", max_length = 0 }, pattern = "\\<" }) end, desc = "Go to word start [flash]" },
     {
       "<Leader>u/",
       function()
@@ -14,9 +11,39 @@ return {
       end,
       desc = "Toggle Flash search [flash]",
     },
-    { "n", function() require("flash").treesitter() end, mode = { "o", "x" }, desc = "Treesitter node [flash]" },
-    { "N", function() require("flash").treesitter_search() end, mode = { "o", "x" }, desc = "Treesitter node search [flash]" },
-    { "r", function() require("flash").remote() end, mode = { "o" }, desc = "Remote [flash]" },
+    {
+      "gn",
+      function() require("flash").treesitter({ jump = { pos = "end" } }) end,
+      desc = "Go to treesitter node end [flash]",
+    },
+    {
+      "gN",
+      function() require("flash").treesitter({ jump = { pos = "start" } }) end,
+      desc = "Go to treesitter node start [flash]",
+    },
+    {
+      "gw",
+      function() require("flash").jump({ search = { mode = "search", max_length = 0 }, pattern = "\\<" }) end,
+      desc = "Go to word start [flash]",
+    },
+    {
+      "n",
+      function() require("flash").treesitter() end,
+      mode = { "o", "x" },
+      desc = "Treesitter node [flash]",
+    },
+    {
+      "N",
+      function() require("flash").treesitter_search() end,
+      mode = { "o", "x" },
+      desc = "Treesitter node search [flash]",
+    },
+    {
+      "r",
+      function() require("flash").remote() end,
+      mode = { "o" },
+      desc = "Remote [flash]",
+    },
   },
 
   opts = {
