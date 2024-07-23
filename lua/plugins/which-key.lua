@@ -137,6 +137,7 @@ return {
         mode = "n",
         { "<Leader>L", "<CMD>Lazy sync<CR>", desc = "Plugins [lazy]" },
         { "<Leader>C", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration [which-key]" },
+        { "<Leader>W", function() require("which-key").show({ keys = "<C-W>", loop = true }) end, desc = "Windows (hydra mode)" },
         { "<C-,>", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration [which-key]" },
         { "<Leader>q", "<CMD>qa<CR>", desc = "Quit all [which-key]" },
         { "<BS>", '<CMD>noh | echon ""<CR>', desc = "Clear search highlighting [which-key]" },
