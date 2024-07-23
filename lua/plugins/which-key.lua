@@ -34,7 +34,7 @@ return {
         end
       end
 
-      if mapping.lhs == "<Plug>fugitive:" then
+      if mapping.lhs:find("<Plug>") then
         return false
       end
 
@@ -46,6 +46,7 @@ return {
       width = { max = math.huge },
       wo = { winblend = 0 },
     },
+
     icons = {
       separator = " ",
       group = "󱡠 ",
@@ -92,12 +93,14 @@ return {
         { pattern = "%[visual%-multi%]", icon = " visual-multi", color = "yellow" },
       },
     },
+
     replace = {
       desc = {
-        { "<Plug>%(?([^)]*)%)?", "%1" },
+        { "([^<]*)<Plug>%(?([^)]*)%)?", "%1%2" },
         { "([^%[]*) %[.*%]", "%1" },
       },
     },
+
     spec = {
       { "<Leader>", group = "Leader" },
       { "<Leader><Tab>", group = "Tabs" },
