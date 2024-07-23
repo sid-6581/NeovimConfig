@@ -1,3 +1,6 @@
+local util = require("util")
+local winbuf = require("util.winbuf")
+
 return {
   "folke/which-key.nvim",
   priority = 1000,
@@ -161,7 +164,7 @@ return {
         { "<C-B>", "<C-B>zz", hidden = true, desc = "Page backwards and center [which-key]" },
 
         -- Buffers
-        { "q", function() require("util").close_window_or_buffer() end, desc = "Delete buffer and close window [which-key]" },
+        { "q", function() winbuf.close_window_or_buffer() end, desc = "Delete buffer and close window [which-key]" },
         { "<S-h>", "<CMD>bprevious<CR>", desc = "Previous buffer [which-key]" },
         { "<S-l>", "<CMD>bnext<CR>", desc = "Next buffer [which-key]" },
         { "<Leader>bl", "<CMD>set buflisted<CR>", desc = "Make buffer listed [which-key]" },
@@ -187,6 +190,16 @@ return {
         { "<Leader>wx", "<C-W>x", desc = "Exchange current window with next [which-key]" },
         { "<Leader>wa", "<C-^>", desc = "Edit alternate buffer in current window [which-key]" },
         { "<Leader>wA", "<C-W>^", desc = "Edit alternate buffer in split [which-key]" },
+        {
+          "<A-->",
+          function()
+            winbuf.run_for_tab_windows(
+              function(winid) return not winbuf.window_has_normal_buffer(winid) end,
+              function(winid) vim.api.nvim_win_close(winid, false) end
+            )
+          end,
+          desc = "Close all non-editor windows",
+        },
 
         -- Window movements
         { "<C-h>", "<C-W>h", desc = "Left one window [which-key]" },
@@ -234,12 +247,12 @@ return {
         { "<Leader><Tab>q", "<CMD>tabclose<CR>", desc = "Close tab [which-key]" },
 
         -- Folds
-        { "zff", function() require("util").close_text_object_folds("@function.outer") end, desc = "Close folds for functions [which-key]" },
-        { "zfc", function() require("util").close_text_object_folds("@class.outer") end, desc = "Close folds for classes [which-key]" },
-        { "z1", function() require("util").close_folds_with_level(1) end, desc = "Close folds with level 1 [which-key]" },
-        { "z2", function() require("util").close_folds_with_level(2) end, desc = "Close folds with level 2 [which-key]" },
-        { "z3", function() require("util").close_folds_with_level(3) end, desc = "Close folds with level 3 [which-key]" },
-        { "z4", function() require("util").close_folds_with_level(4) end, desc = "Close folds with level 4 [which-key]" },
+        { "zff", function() util.close_text_object_folds("@function.outer") end, desc = "Close folds for functions [which-key]" },
+        { "zfc", function() util.close_text_object_folds("@class.outer") end, desc = "Close folds for classes [which-key]" },
+        { "z1", function() util.close_folds_with_level(1) end, desc = "Close folds with level 1 [which-key]" },
+        { "z2", function() util.close_folds_with_level(2) end, desc = "Close folds with level 2 [which-key]" },
+        { "z3", function() util.close_folds_with_level(3) end, desc = "Close folds with level 3 [which-key]" },
+        { "z4", function() util.close_folds_with_level(4) end, desc = "Close folds with level 4 [which-key]" },
 
         -- Code
         { "<Leader>ci", function() vim.show_pos() end, desc = "Inspect under cursor [which-key]" },
@@ -259,8 +272,8 @@ return {
         { ",cr", "<CMD>%!dos2unix<CR>", desc = "Convert line endings to CR [which-key]" },
 
         -- Toggles
-        { "<Leader>uC", function() require("util").toggle("cursorcolumn") end, desc = "Toggle cursorcolumn [which-key]" },
-        { "<Leader>uc", function() require("util").toggle("cursorline") end, desc = "Toggle cursorline [which-key]" },
+        { "<Leader>uC", function() util.toggle("cursorcolumn") end, desc = "Toggle cursorcolumn [which-key]" },
+        { "<Leader>uc", function() util.toggle("cursorline") end, desc = "Toggle cursorline [which-key]" },
         {
           "<Leader>ud",
           function()
@@ -270,9 +283,9 @@ return {
           end,
           desc = "Toggle diagnostics",
         },
-        { "<Leader>uw", function() require("util").toggle("wrap") end, desc = "Toggle wrap [which-key]" },
-        { "<Leader>ul", function() require("util").toggle_number() end, desc = "Toggle line numbers [which-key]" },
-        { "<Leader>ur", function() require("util").toggle("relativenumber") end, desc = "Toggle relative line numbers [which-key]" },
+        { "<Leader>uw", function() util.toggle("wrap") end, desc = "Toggle wrap [which-key]" },
+        { "<Leader>ul", function() util.toggle_number() end, desc = "Toggle line numbers [which-key]" },
+        { "<Leader>ur", function() util.toggle("relativenumber") end, desc = "Toggle relative line numbers [which-key]" },
 
         -- Yank/paste
         { "Y", "_y$", desc = "Yank line characters [which-key]" },
