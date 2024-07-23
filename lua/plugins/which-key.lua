@@ -10,7 +10,11 @@ return {
   opts = {
     preset = "modern",
     sort = { "order", "alphanum", "mod", "case" },
-    expand = 3,
+
+    -- expand = function(node)
+    --   return not node.desc
+    -- end,
+
     delay = function(ctx)
       return ctx.plugin and 0 or 250
     end,
