@@ -124,6 +124,13 @@ return {
                   enable = true,
                 },
               },
+              procMacro = {
+                ignored = {
+                  ["tracing-attributes"] = {
+                    "instrument",
+                  },
+                },
+              },
               check = {
                 command = "clippy",
                 extraArgs = { "--no-deps" },
