@@ -118,9 +118,17 @@ return {
                   useRustcWrapper = false,
                 },
               },
+              completion = {
+                fullFunctionSignatures = {
+                  enable = true,
+                },
+              },
               diagnostics = {
                 disabled = { "unresolved-proc-macro" },
                 experimental = {
+                  enable = true,
+                },
+                styleLints = {
                   enable = true,
                 },
               },
