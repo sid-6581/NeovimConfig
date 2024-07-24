@@ -14,9 +14,9 @@ return {
     preset = "modern",
     sort = { "order", "alphanum", "mod", "case" },
 
-    -- expand = function(node)
-    --   return not node.desc
-    -- end,
+    expand = function(node)
+      return not node.desc
+    end,
 
     delay = function(ctx)
       return ctx.plugin and 0 or 250
