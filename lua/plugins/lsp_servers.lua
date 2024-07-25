@@ -137,6 +137,9 @@ return {
                   ["tracing-attributes"] = {
                     "instrument",
                   },
+                  ["async-trait"] = {
+                    "async_trait",
+                  },
                 },
               },
               check = {
