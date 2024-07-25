@@ -1,5 +1,24 @@
 local M = {}
 
+-- Gets all buffers filtered by some predicate.
+--- @param predicate? fun(winid: integer): boolean Predicate
+--- @return integer[]: Table of filtered buffer numbers
+function M.get_buffers(predicate)
+  return vim.tbl_filter(
+    predicate or function() return true end,
+    vim.api.nvim_list_bufs()
+  )
+end
+
+-- Calls a function on each buffer that matches a predicate.
+--- @param predicate? fun(bufnr: integer): boolean Predicate
+--- @param func fun(bufnr: integer) Function to run for window
+function M.run_for_buffers(predicate, func)
+  for _, bufnr in ipairs(M.get_buffers(predicate)) do
+    func(bufnr)
+  end
+end
+
 -- Gets the IDs of the windows in the current tab page filtered by some predicate.
 --- @param predicate? fun(winid: integer): boolean Predicate
 --- @return integer[]: Table of filtered window IDs
@@ -38,6 +57,7 @@ function M.is_no_name_buffer(bufnr)
   return vim.api.nvim_buf_is_loaded(bufnr)
     and vim.api.nvim_buf_get_name(bufnr) == ""
     and vim.api.nvim_get_option_value("buflisted", opts) == true
+    and vim.api.nvim_get_option_value("modified", opts) == false
     and vim.api.nvim_get_option_value("buftype", opts) == ""
     and vim.api.nvim_get_option_value("filetype", opts) == ""
 end
