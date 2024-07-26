@@ -114,9 +114,9 @@ return {
             ["rust-analyzer"] = {
               cargo = {
                 features = "all",
-                buildScripts = {
-                  useRustcWrapper = false,
-                },
+                -- buildScripts = {
+                --   useRustcWrapper = false,
+                -- },
               },
               completion = {
                 fullFunctionSignatures = {
@@ -124,7 +124,6 @@ return {
                 },
               },
               diagnostics = {
-                disabled = { "unresolved-proc-macro" },
                 experimental = {
                   enable = true,
                 },
