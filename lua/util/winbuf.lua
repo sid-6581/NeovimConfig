@@ -91,7 +91,7 @@ function M.close_window_or_buffer()
 
   -- If the buffer wasn't originally shown in multiple windows, and it survived the window closing, wipe it.
   if vim.api.nvim_buf_is_valid(buf_info.bufnr) and #buf_info.windows == 1 then
-    vim.api.nvim_buf_delete(buf_info.bufnr, {})
+    vim.cmd.bdelete(buf_info.bufnr)
   end
 
   if M.is_no_name_buffer(vim.api.nvim_get_current_buf()) and buf_info.listed == 1 then

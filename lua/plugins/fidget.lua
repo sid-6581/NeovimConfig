@@ -50,6 +50,7 @@ return {
               or item.message:match("tbl_add_reverse_lookup")
               or item.message:match("diagnostic.is_disabled")
               or item.message:match("buf_get_clients")
+              or item.message:match("supports symbols")
               or item.message:match("requires a list") then
               item.hidden = true
             end
