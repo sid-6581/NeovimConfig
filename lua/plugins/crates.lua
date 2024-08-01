@@ -9,6 +9,12 @@ return {
       completion = true,
       hover = true,
     },
+    completion = {
+      crates = {
+        enabled = true,
+        min_chars = 1,
+      },
+    },
     popup = {
       border = "single",
     },
