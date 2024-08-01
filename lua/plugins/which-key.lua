@@ -87,7 +87,7 @@ return {
         { pattern = "%[oil%]", icon = "󰙅 oil", color = "purple" },
         { pattern = "%[overseer%]", icon = " overseer", color = "purple" },
         { pattern = "%[sibling%-swap%]", icon = " sibling-swap", color = "green" },
-        { pattern = "%[spectre%]", icon = "󰛔 spectre", color = "green" },
+        { pattern = "%[grug%-far%]", icon = "󰛔 grug-far", color = "green" },
         { pattern = "%[surround%]", icon = "󰅲 surround", color = "green" },
         { pattern = "%[telescope%]", icon = " telescope", color = "cyan" },
         { pattern = "%[toggleterm%]", icon = "  toggleterm", color = "purple" },
