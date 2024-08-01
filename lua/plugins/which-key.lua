@@ -88,6 +88,7 @@ return {
         { pattern = "%[overseer%]", icon = " overseer", color = "purple" },
         { pattern = "%[sibling%-swap%]", icon = " sibling-swap", color = "green" },
         { pattern = "%[grug%-far%]", icon = "󰛔 grug-far", color = "green" },
+        { pattern = "%[rip%-substitute%]", icon = "󰛔 rip-substitute", color = "green" },
         { pattern = "%[surround%]", icon = "󰅲 surround", color = "green" },
         { pattern = "%[telescope%]", icon = " telescope", color = "cyan" },
         { pattern = "%[toggleterm%]", icon = "  toggleterm", color = "purple" },
