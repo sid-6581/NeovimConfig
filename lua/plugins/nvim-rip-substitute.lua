@@ -1,5 +1,7 @@
 return {
-  "chrisgrieser/nvim-rip-substitute",
+  -- "chrisgrieser/nvim-rip-substitute",
+  "sid-6581/nvim-rip-substitute",
+  branch = "fix-float",
   event = "VeryLazy",
 
   keys = {
@@ -9,7 +11,10 @@ return {
   opts = {
     popupWin = {
       title = "Search/Replace",
-      position = "top",
+      position = "bottom",
+    },
+    keymaps = {
+      abort = "<Esc>",
     },
   },
 }
