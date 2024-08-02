@@ -3,10 +3,23 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<A-1>", "<CMD>Neotree toggle left reveal_force_cwd<CR>", desc = "File explorer [neo-tree]" },
+    {
+      "<A-1>",
+      function()
+        require("neo-tree.command").execute({
+          action = "focus",
+          source = "filesystem",
+          position = "left",
+          toggle = true,
+          reveal_force_cwd = true,
+          dir = vim.fn.getcwd(),
+        })
+      end,
+      -- "<CMD>Neotree toggle left reveal_force_cwd<CR>",
+      desc = "File explorer [neo-tree]",
+    },
     { "<A-2>", "<CMD>Neotree toggle left show buffers<CR>", desc = "Buffer explorer [neo-tree]" },
     { "<A-3>", "<CMD>Neotree toggle left show git_status<CR>", desc = "Git explorer [neo-tree]" },
-    { "<Leader>E", "<CMD>Neotree reveal_force_cwd<CR>", desc = "Find file in explorer [neo-tree]" },
   },
 
   opts = {
@@ -18,6 +31,9 @@ return {
         ["/"] = "none",
         ["F"] = "fuzzy_finder",
         ["Z"] = "expand_all_nodes",
+        ["<C-S>"] = "open_split",
+        ["<C-V>"] = "open_vsplit",
+        ["<C-T>"] = "open_tabnew",
       },
       width = 40,
     },
