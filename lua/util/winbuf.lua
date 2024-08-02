@@ -19,6 +19,35 @@ function M.run_for_buffers(predicate, func)
   end
 end
 
+-- Gets the IDs of all windows filtered by some predicate.
+--- @param predicate? fun(winid: integer): boolean Predicate
+--- @return integer[]: Table of filtered window IDs
+function M.get_windows(predicate)
+  return vim.tbl_filter(
+    predicate or function() return true end,
+    vim.api.nvim_list_wins()
+  )
+end
+
+-- Gets the IDs of all windows with a buffer.
+--- @return integer[]: Table of windows with buffer
+function M.get_windows_with_buffer(bufnr)
+  return M.get_windows(
+    function(winid)
+      return vim.api.nvim_win_get_buf(winid) == bufnr
+    end
+  )
+end
+
+-- Calls a function on each window that matches a predicate.
+--- @param predicate? fun(winid: integer): boolean Predicate
+--- @param func fun(winid: integer) Function to run for window
+function M.run_for_windows(predicate, func)
+  for _, winid in ipairs(M.get_windows(predicate)) do
+    func(winid)
+  end
+end
+
 -- Gets the IDs of the windows in the current tab page filtered by some predicate.
 --- @param predicate? fun(winid: integer): boolean Predicate
 --- @return integer[]: Table of filtered window IDs
@@ -38,21 +67,11 @@ function M.run_for_tab_windows(predicate, func)
   end
 end
 
--- Gets the IDs of the non-floating windows in the current tab page.
---- @return integer[]
-function M.get_non_floating_windows()
-  return vim.tbl_filter(
-    function(winid)
-      return vim.api.nvim_win_get_config(winid).relative == ""
-    end,
-    vim.api.nvim_tabpage_list_wins(0)
-  )
-end
-
 -- Checks if a buffer is a no name buffer.
---- @param bufnr integer
+--- @param bufnr? integer
 --- @return boolean
 function M.is_no_name_buffer(bufnr)
+  bufnr = bufnr or vim.api.nvim_get_current_buf()
   local opts = { buf = bufnr }
   return vim.api.nvim_buf_is_loaded(bufnr)
     and vim.api.nvim_buf_get_name(bufnr) == ""
@@ -77,24 +96,22 @@ function M.window_has_normal_buffer(winid)
 end
 
 -- Smart buffer closing.
--- If the current tab page contains multiple non-floating windows, close the current window.
--- If the buffer that was in the closed window wasn't originally displayed in multiple windows, wipe the buffer.
--- If we're now left with a no-name buffer, quit the window (see :q).
 function M.close_window_or_buffer()
-  local buf_info = vim.fn.getbufinfo("%")[1]
-  local windows = M.get_non_floating_windows()
+  local bufnr = vim.api.nvim_get_current_buf()
 
-  -- Close the current window if there are multiple non-floating windows in the current tab page.
-  if #windows > 1 then
-    vim.api.nvim_win_close(0, false)
-  end
+  if M.window_has_normal_buffer(0) then
+    local windows_with_buffer = M.get_windows(
+      function(winid)
+        return vim.api.nvim_win_get_buf(winid) == bufnr
+      end
+    )
 
-  -- If the buffer wasn't originally shown in multiple windows, and it survived the window closing, wipe it.
-  if vim.api.nvim_buf_is_valid(buf_info.bufnr) and #buf_info.windows == 1 then
-    vim.cmd.bdelete(buf_info.bufnr)
-  end
-
-  if M.is_no_name_buffer(vim.api.nvim_get_current_buf()) and buf_info.listed == 1 then
+    if #windows_with_buffer > 1 then
+      vim.cmd.quit()
+    else
+      vim.cmd.bdelete()
+    end
+  else
     vim.cmd.quit()
   end
 end
