@@ -1,7 +1,5 @@
 return {
-  -- "chrisgrieser/nvim-rip-substitute",
-  "sid-6581/nvim-rip-substitute",
-  branch = "fix-float",
+  "chrisgrieser/nvim-rip-substitute",
   event = "VeryLazy",
 
   keys = {
