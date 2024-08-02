@@ -14,5 +14,8 @@ return {
     keymaps = {
       abort = "<Esc>",
     },
+    regexOptions = {
+      casing = "smart-case",
+    },
   },
 }
