@@ -141,19 +141,25 @@ return {
             "{//}",
             ";",
           },
+
           file_ignore_patterns = { "%.cache", "%.cargo" },
+
           attach_mappings = function(prompt_bufnr, _map)
             local actions = require("telescope.actions")
             local action_state = require("telescope.actions.state")
+
             actions.select_default:replace(function()
               actions.close(prompt_bufnr)
               local dir = action_state.get_selected_entry()[1]
-              vim.cmd.tcd(dir)
-              require("neo-tree.command").execute({ action = "show" })
+              vim.cmd.lcd(dir)
+              require("neo-tree.command").execute({ action = "show", dir = dir })
             end)
+
             return true
           end,
+
           search_file = "^\\.git$",
+
           search_dirs = (vim.fn.has("win32") == 1)
             and { "D:/Code", vim.fn.expand("~/.local/share/nvim-data") }
             or { vim.fn.expand("~/") },
