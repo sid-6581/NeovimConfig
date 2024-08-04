@@ -154,6 +154,13 @@ return {
         { "<C-s>", "<CMD>w!<CR>", desc = "Save [which-key]" },
         { "<C-g>", "2<C-g>", desc = "Print current file name [which-key]" },
 
+        {
+          "Q",
+          function() return vim.cmd.normal({ vim.fn.reg_recording() == "" and "qq" or "q", bang = true }) end,
+          desc = "Start/stop macro recording [which-key]"
+        },
+        { "@", "Q", desc = "Play macro [which-key]" },
+
         -- Adding blank lines
         { "<Leader><Enter>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>k", desc = "Add blank line on current line [which-key]" },
         { "[<Space>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>", desc = "Add blank line above [which-key]" },
