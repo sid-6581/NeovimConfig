@@ -11,9 +11,6 @@ return {
       title = "Search/Replace",
       position = "bottom",
     },
-    keymaps = {
-      abort = "<Esc>",
-    },
     regexOptions = {
       casing = "smart-case",
     },
