@@ -155,9 +155,9 @@ return {
         { "<C-g>", "2<C-g>", desc = "Print current file name [which-key]" },
 
         {
-          "Q",
+          "<C-Q>",
           function() return vim.cmd.normal({ vim.fn.reg_recording() == "" and "qq" or "q", bang = true }) end,
-          desc = "Start/stop macro recording [which-key]"
+          desc = "Start/stop macro recording [which-key]",
         },
         { "@", "Q", desc = "Play macro [which-key]" },
 
