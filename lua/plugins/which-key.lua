@@ -12,7 +12,7 @@ return {
 
   opts = {
     preset = "modern",
-    sort = { "order", "alphanum", "mod", "case" },
+    sort = { "order", "alphanum" },
 
     expand = function(node)
       return not node.desc
@@ -103,6 +103,11 @@ return {
     },
 
     replace = {
+      key = {
+        function(key)
+          return key
+        end,
+      },
       desc = {
         { "([^<]*)<Plug>%(?([^)]*)%)?", "%1%2" },
         { "([^%[]*) %[.*%]", "%1" },
