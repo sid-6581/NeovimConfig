@@ -50,9 +50,9 @@ vim.api.nvim_create_autocmd({
   "BufWinEnter",
 }, {
   callback = function()
-    winbuf.run_for_buffers(
+    winbuf.buffers_run(
       function(bufnr)
-        return winbuf.is_no_name_buffer(bufnr) and vim.api.nvim_get_option_value("bufhidden", { buf = bufnr }) == true
+        return winbuf.is_no_name(bufnr) and vim.api.nvim_get_option_value("bufhidden", { buf = bufnr }) == true
       end,
       function(bufnr)
         vim.api.nvim_buf_delete(bufnr, { force = true })

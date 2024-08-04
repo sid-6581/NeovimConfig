@@ -194,8 +194,8 @@ return {
         {
           "<A-->",
           function()
-            winbuf.run_for_tab_windows(
-              function(winid) return not winbuf.window_has_normal_buffer(winid) end,
+            winbuf.tab_windows_run(
+              function(winid) return not winbuf.has_normal_buffer(winid) end,
               function(winid) vim.api.nvim_win_close(winid, false) end
             )
           end,
