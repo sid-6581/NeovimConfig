@@ -51,9 +51,7 @@ vim.api.nvim_create_autocmd({
 }, {
   callback = function()
     winbuf.buffers_run(
-      function(bufnr)
-        return winbuf.is_no_name(bufnr) and vim.api.nvim_get_option_value("bufhidden", { buf = bufnr }) == true
-      end,
+      { noname = true, hidden = true },
       function(bufnr)
         vim.api.nvim_buf_delete(bufnr, { force = true })
       end
