@@ -151,6 +151,11 @@ return {
             actions.select_default:replace(function()
               actions.close(prompt_bufnr)
               local dir = action_state.get_selected_entry()[1]
+
+              if not require("util.winbuf").buf_filter({ noname = true }) then
+                vim.cmd.tabnew()
+              end
+
               vim.cmd.lcd(dir)
               require("neo-tree.command").execute({ action = "show", dir = dir })
             end)

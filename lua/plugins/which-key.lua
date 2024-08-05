@@ -147,6 +147,19 @@ return {
         { "<Leader>L", "<CMD>Lazy sync<CR>", desc = "Plugins [lazy]" },
         { "<Leader>C", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration [which-key]" },
         { "<Leader>W", function() require("which-key").show({ keys = "<C-W>", loop = true }) end, desc = "Windows (hydra mode)" },
+        {
+          "<Leader>O",
+          function()
+            if not require("util.winbuf").buf_filter({ noname = true }) then
+              vim.cmd.tabnew()
+            end
+
+            local dir = "~/vaults/Notes"
+            vim.cmd.lcd(dir)
+            require("neo-tree.command").execute({ action = "show", dir = dir })
+          end,
+          desc = "Notes [obsidian]",
+        },
         { "<C-,>", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration [which-key]" },
         { "<Leader>q", "<CMD>qa<CR>", desc = "Quit all [which-key]" },
         { "<BS>", '<CMD>noh | echon ""<CR>', desc = "Clear search highlighting [which-key]" },
