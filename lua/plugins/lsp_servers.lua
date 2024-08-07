@@ -127,6 +127,10 @@ return {
                 },
               },
               diagnostics = {
+                disabled = {
+                  "unresolved-proc-macro",
+                  "macro-error",
+                },
                 experimental = {
                   enable = true,
                 },
