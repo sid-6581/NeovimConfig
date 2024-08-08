@@ -47,24 +47,24 @@ return {
       },
     }
 
-    dap.configurations.rust = {
-      {
-        name = "Launch",
-        type = "codelldb",
-        request = "launch",
-        program = "${workspaceFolder}/target/debug/${workspaceFolderBasename}",
-        cwd = "${workspaceFolder}",
-        stopOnEntry = true,
-      },
-
-      {
-        name = "Attach to process",
-        type = "codelldb",
-        request = "attach",
-        pid = require("dap.utils").pick_process,
-        args = {},
-      },
-    }
+    -- dap.configurations.rust = {
+    --   {
+    --     name = "Launch",
+    --     type = "codelldb",
+    --     request = "launch",
+    --     program = "${workspaceFolder}/target/debug/${workspaceFolderBasename}",
+    --     cwd = "${workspaceFolder}",
+    --     stopOnEntry = true,
+    --   },
+    --
+    --   {
+    --     name = "Attach to process",
+    --     type = "codelldb",
+    --     request = "attach",
+    --     pid = require("dap.utils").pick_process,
+    --     args = {},
+    --   },
+    -- }
 
     vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
     vim.fn.sign_define(

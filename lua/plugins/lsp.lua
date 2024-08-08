@@ -154,7 +154,7 @@ return {
     -- Let Mason set up servers we haven't explicitly set up above.
     require("mason-lspconfig").setup_handlers({
       function(server_name)
-        if not opts.servers[server_name] then
+        if not opts.servers[server_name] and server_name ~= "rust_analyzer" then
           setup(server_name)
         end
       end,
