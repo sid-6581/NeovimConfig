@@ -19,6 +19,7 @@ return {
       "css",
       "diff",
       "dockerfile",
+      "editorconfig",
       "git_rebase",
       "gitattributes",
       "gitignore",
@@ -58,6 +59,8 @@ return {
       "yaml",
       "zig",
     },
+
+    auto_install = true,
 
     highlight = {
       enable = true,
