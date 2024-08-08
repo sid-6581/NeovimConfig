@@ -1,6 +1,6 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
-  ft = "markdown",
+  event = "VeryLazy",
 
   opts = {
     code = {
