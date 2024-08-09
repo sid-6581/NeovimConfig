@@ -27,15 +27,6 @@ return {
     },
   },
 
-  opts = {
-    use_diagnostic_signs = true,
-    -- warn_no_results = false,
-    -- open_no_results = true,
-    win = {
-      size = 0.2,
-    },
-  },
-
   keys = {
     { "<leader>xx", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics [trouble]" },
     { "<leader>xX", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer diagnostics [trouble]" },
@@ -88,6 +79,15 @@ return {
         end
       end,
       desc = "First item [trouble]",
+    },
+  },
+
+  opts = {
+    use_diagnostic_signs = true,
+    -- warn_no_results = false,
+    -- open_no_results = true,
+    win = {
+      size = 0.2,
     },
   },
   --- @diagnostic enable: missing-parameter,missing-fields

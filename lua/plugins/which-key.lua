@@ -92,6 +92,7 @@ return {
         { pattern = "%[surround%]", icon = "󰅲 surround", color = "green" },
         { pattern = "%[telescope%]", icon = " telescope", color = "cyan" },
         { pattern = "%[toggleterm%]", icon = "  toggleterm", color = "purple" },
+        { pattern = "%[tssorter%]", icon = "  tssorter", color = "green" },
         { pattern = "%[treesj%]", icon = " treesj", color = "green" },
         { pattern = "%[trouble%]", icon = "󰙅 trouble", color = "red" },
         { pattern = "%[ufo%]", icon = " ufo", color = "yellow" },
