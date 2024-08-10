@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd({
 
 -- Delete hidden no name buffers every time a new one is opened
 vim.api.nvim_create_autocmd({
-  "BufWinEnter",
+  "BufLeave",
 }, {
   callback = function()
     winbuf.buffers_run(
