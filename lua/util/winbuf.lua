@@ -31,6 +31,8 @@ function M.buf_filter(filter, bufnr)
     return false
   end
 
+  local bufinfo = vim.fn.getbufinfo(bufnr)[1]
+
   if filter.normal ~= nil then
     if filter.normal ~= (vim.api.nvim_get_option_value("buftype", opts) == "") then
       return false
@@ -38,23 +40,23 @@ function M.buf_filter(filter, bufnr)
   end
 
   if filter.listed ~= nil then
-    if filter.listed ~= vim.api.nvim_get_option_value("buflisted", opts) then
+    if filter.listed ~= bufinfo.listed then
       return false
     end
   end
 
   if filter.hidden ~= nil then
-    if filter.hidden ~= vim.fn.getbufinfo(bufnr)[1].hidden then
+    if filter.hidden ~= bufinfo.hidden then
       return false
     end
   end
 
   if filter.noname ~= nil then
     if filter.noname ~= (
-        vim.api.nvim_buf_is_loaded(bufnr)
-        and vim.api.nvim_buf_get_name(bufnr) == ""
-        and vim.api.nvim_get_option_value("buflisted", opts) == true
-        and vim.api.nvim_get_option_value("modified", opts) == false
+        bufinfo.loaded
+        and bufinfo.name == ""
+        and bufinfo.listed == true
+        and bufinfo.changed == false
         and vim.api.nvim_get_option_value("buftype", opts) == ""
         and vim.api.nvim_get_option_value("filetype", opts) == ""
       ) then
