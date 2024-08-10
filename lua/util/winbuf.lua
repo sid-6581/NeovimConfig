@@ -40,23 +40,23 @@ function M.buf_filter(filter, bufnr)
   end
 
   if filter.listed ~= nil then
-    if filter.listed ~= bufinfo.listed then
+    if filter.listed ~= (bufinfo.listed == 1) then
       return false
     end
   end
 
   if filter.hidden ~= nil then
-    if filter.hidden ~= bufinfo.hidden then
+    if filter.hidden ~= (bufinfo.hidden == 1) then
       return false
     end
   end
 
   if filter.noname ~= nil then
     if filter.noname ~= (
-        bufinfo.loaded
+        bufinfo.loaded == 1
         and bufinfo.name == ""
-        and bufinfo.listed == true
-        and bufinfo.changed == false
+        and bufinfo.listed == 1
+        and bufinfo.changed == 0
         and vim.api.nvim_get_option_value("buftype", opts) == ""
         and vim.api.nvim_get_option_value("filetype", opts) == ""
       ) then
@@ -134,7 +134,7 @@ end
 
 -- Smart buffer closing.
 function M.close_window_or_buffer()
-  -- If the windows doesn't have a normal buffer, we just close it.
+  -- If the window doesn't have a normal buffer, we just close it.
   if not M.win_filter({ buf = { normal = true } }) then
     vim.cmd.quit()
     return
