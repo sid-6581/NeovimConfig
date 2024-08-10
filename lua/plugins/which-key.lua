@@ -35,7 +35,7 @@ return {
         end
 
         local _, _, mini_plugin = mapping.rhs:find("Mini(%u%a+)")
-        if mini_plugin then
+        if mini_plugin and mapping.desc then
           mapping.desc = mapping.desc .. " [mini." .. mini_plugin:lower() .. "]"
           return true
         end
