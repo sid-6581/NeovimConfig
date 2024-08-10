@@ -27,6 +27,10 @@ function M.buf_filter(filter, bufnr)
   bufnr = bufnr or vim.api.nvim_get_current_buf()
   local opts = { buf = bufnr }
 
+  if not vim.api.nvim_buf_is_valid(bufnr) then
+    return false
+  end
+
   if filter.normal ~= nil then
     if filter.normal ~= (vim.api.nvim_get_option_value("buftype", opts) == "") then
       return false
@@ -40,7 +44,7 @@ function M.buf_filter(filter, bufnr)
   end
 
   if filter.hidden ~= nil then
-    if filter.hidden ~= (vim.fn.bufwinid(bufnr) == -1) then
+    if filter.hidden ~= vim.fn.getbufinfo(bufnr)[1].hidden then
       return false
     end
   end
@@ -66,6 +70,11 @@ end
 --- @param winid? integer
 function M.win_filter(filter, winid)
   winid = winid or vim.api.nvim_get_current_win()
+
+  if not vim.api.nvim_win_is_valid(winid) then
+    return false
+  end
+
   local bufnr = vim.api.nvim_win_get_buf(winid)
 
   if filter.normal ~= nil then
