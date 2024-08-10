@@ -194,7 +194,7 @@ return {
         { "q", function() winbuf.close_window_or_buffer() end, desc = "Delete buffer/close window [which-key]" },
         { "<S-h>", "<CMD>bprevious<CR>", desc = "Previous buffer [which-key]" },
         { "<S-l>", "<CMD>bnext<CR>", desc = "Next buffer [which-key]" },
-        { "<Leader>ba", "<CMD>%bdelete<CR>", desc = "Delete all buffers [which-key]" },
+        { "<Leader>ba", "<CMD>%bdelete|lua MiniStarter.open()<CR>", desc = "Delete all buffers [which-key]" },
         { "<Leader>bl", "<CMD>set buflisted<CR>", desc = "Make buffer listed [which-key]" },
         {
           "<Leader>bh",
