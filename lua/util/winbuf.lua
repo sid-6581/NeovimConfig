@@ -40,7 +40,7 @@ function M.buf_filter(filter, bufnr)
   end
 
   if filter.hidden ~= nil then
-    if filter.hidden ~= vim.api.nvim_get_option_value("bufhidden", opts) then
+    if filter.hidden ~= (vim.fn.bufwinid(bufnr) == -1) then
       return false
     end
   end

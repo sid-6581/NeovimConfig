@@ -60,7 +60,6 @@ return {
       rules = {
         { pattern = "%[aerial%]", icon = "󱘎 aerial", color = "orange" },
         { pattern = "%[cliff%]", icon = "↕️ cliff", color = "yellow" },
-        { pattern = "%[close%-buffers%]", icon = " close-buffers", color = "red" },
         { pattern = "%[conform%]", icon = "󰦨 conform", color = "green" },
         { pattern = "%[crates%]", icon = "󱘗 crates", color = "orange" },
         { pattern = "%[dadbod%]", icon = " dadbod", color = "purple" },
@@ -76,6 +75,7 @@ return {
         { pattern = "%[mini.ai%]", icon = "󰓾 mini.ai", color = "yellow" },
         { pattern = "%[mini.align%]", icon = " mini.align", color = "green" },
         { pattern = "%[mini.bracketed%]", icon = "󰅪 mini.bracketed", color = "yellow" },
+        { pattern = "%[mini.bufremove%]", icon = " mini.bufremove", color = "red" },
         { pattern = "%[mini.files%]", icon = "󰙅 mini.files", color = "purple" },
         { pattern = "%[mini.splitjoin%]", icon = " mini.splitjoin", color = "green" },
         { pattern = "%[mini.operators%]", icon = " mini.operators", color = "yellow" },
@@ -191,10 +191,37 @@ return {
         { "<C-B>", "<C-B>zz", hidden = true, desc = "Page backwards and center [which-key]" },
 
         -- Buffers
-        { "q", function() winbuf.close_window_or_buffer() end, desc = "Delete buffer and close window [which-key]" },
+        { "q", function() winbuf.close_window_or_buffer() end, desc = "Delete buffer/close window [which-key]" },
         { "<S-h>", "<CMD>bprevious<CR>", desc = "Previous buffer [which-key]" },
         { "<S-l>", "<CMD>bnext<CR>", desc = "Next buffer [which-key]" },
+        { "<Leader>ba", "<CMD>%bdelete<CR>", desc = "Delete all buffers [which-key]" },
         { "<Leader>bl", "<CMD>set buflisted<CR>", desc = "Make buffer listed [which-key]" },
+        {
+          "<Leader>bh",
+          function()
+            winbuf.buffers_run(
+              { normal = true, hidden = true, listed = true },
+              function(bufnr)
+                vim.cmd.bdelete(bufnr)
+              end
+            )
+          end,
+          desc = "Delete hidden buffers [which-key]",
+        },
+        {
+          "<Leader>bo",
+          function()
+            winbuf.buffers_run(
+              { normal = true, listed = true },
+              function(bufnr)
+                if bufnr ~= vim.api.nvim_get_current_buf() then
+                  vim.cmd.bdelete(bufnr)
+                end
+              end
+            )
+          end,
+          desc = "Delete other buffers [which-key]",
+        },
         { "<Leader>bu", "<CMD>set nobuflisted<CR>", desc = "Make buffer unlisted [which-key]" },
 
         -- Window opening/closing
