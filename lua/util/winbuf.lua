@@ -148,7 +148,13 @@ function M.close_window_or_buffer()
   if #windows_with_buffer > 1 then
     vim.cmd.quit()
   else
-    vim.cmd.bdelete()
+    -- If there's only one window on this tab page we have to be careful, we can't just delete
+    -- the buffer, because that can also close the tab page.
+    if #M.windows({ tabpage = 0 }) == 1 then
+      require("mini.bufremove").delete()
+    else
+      vim.cmd.bdelete()
+    end
   end
 
   -- If we are now left with a tab page with a single window containing a no name buffer, we close it.
