@@ -3,13 +3,13 @@ return {
   event = "VeryLazy",
 
   opts = {
-    modes = { "n", "i", "no", "c" },
-    hybrid_modes = { "i" },
+    -- modes = { "n", "no" },
+    hybrid_modes = { "n" },
 
     callbacks = {
       on_enable = function(_, win)
         vim.wo[win].conceallevel = 2
-        vim.wo[win].concealcursor = "nc"
+        vim.wo[win].concealcursor = "c"
       end,
     },
   },
