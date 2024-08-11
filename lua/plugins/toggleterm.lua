@@ -20,9 +20,9 @@ return {
     require("toggleterm").setup({
       size = function(term)
         if term.direction == "horizontal" then
-          return vim.o.lines * 0.4
+          return math.floor(vim.o.lines * 0.4)
         elseif term.direction == "vertical" then
-          return vim.o.columns * 0.4
+          return math.floor(vim.o.columns * 0.4)
         end
       end,
       autochdir = true,
@@ -40,6 +40,8 @@ return {
         },
       },
       float_opts = {
+        width = function() return vim.o.columns - 2 end,
+        height = function() return vim.o.lines - 4 - vim.o.cmdheight end,
         border = "single",
         winblend = 0,
       },
