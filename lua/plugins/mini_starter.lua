@@ -17,6 +17,7 @@ return {
         ]],
 
       evaluate_single = true,
+      query_updaters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-.",
 
       items = {
         {
