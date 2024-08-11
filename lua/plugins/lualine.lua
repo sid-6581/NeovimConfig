@@ -109,7 +109,7 @@ return {
         lualine_a = {
           {
             "buffers",
-            show_filename_only = false,
+            show_filename_only = true,
             filetype_names = {
               ["neo-tree"] = "neo-tree",
               ["oil"] = "oil",
