@@ -184,8 +184,8 @@ return {
           prompt_position = "top",
           horizontal = {
             preview_width = 0.6,
-            height = 0.8,
-            width = 0.9,
+            height = 0.95,
+            width = 0.95,
           },
         },
         borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
@@ -278,24 +278,6 @@ return {
 
   config = function(_, opts)
     local telescope = require("telescope")
-    local utils = require("telescope.utils")
-
-    local transform_path = utils.transform_path
-    --- @diagnostic disable-next-line: duplicate-set-field
-    utils.transform_path = function(opts2, path)
-      path = require("util").normalize_path(path)
-      return transform_path(opts2, path)
-    end
-
-    local is_uri = utils.is_uri
-    --- @diagnostic disable-next-line: duplicate-set-field
-    utils.is_uri = function(filename)
-      if filename:sub(2, 2) == ":" then
-        return false
-      end
-
-      return is_uri(filename)
-    end
 
     telescope.setup(opts)
     telescope.load_extension("ast_grep")

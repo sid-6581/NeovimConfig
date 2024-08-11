@@ -80,6 +80,7 @@ return {
         { pattern = "%[mini.splitjoin%]", icon = " mini.splitjoin", color = "green" },
         { pattern = "%[mini.operators%]", icon = " mini.operators", color = "yellow" },
         { pattern = "%[mini.move%]", icon = " mini.move", color = "green" },
+        { pattern = "%[mini.visits%]", icon = " mini.visits", color = "cyan" },
         { pattern = "%[neo%-tree%]", icon = "󰙅 neo-tree", color = "purple" },
         { pattern = "%[neogit%]", icon = "󰊢 neogit", color = "orange" },
         { pattern = "%[obsidian%]", icon = "󰺿 obsidian", color = "purple" },
@@ -165,8 +166,8 @@ return {
         { "<Leader>q", "<CMD>qa<CR>", desc = "Quit all [which-key]" },
         { "<BS>", '<CMD>noh | echon ""<CR>', desc = "Clear search highlighting [which-key]" },
         { "<Esc>", '<CMD>noh | echon ""<CR><Esc>', desc = "Clear search highlighting [which-key]" },
-        { "<C-s>", "<CMD>w!<CR>", desc = "Save [which-key]" },
-        { "<C-g>", "2<C-g>", desc = "Print current file name [which-key]" },
+        { "<C-S>", "<CMD>w!<CR>", desc = "Save [which-key]" },
+        { "<C-G>", "2<C-g>", desc = "Print current file name [which-key]" },
 
         {
           "<C-Q>",
@@ -194,7 +195,7 @@ return {
         { "q", function() winbuf.close_window_or_buffer() end, desc = "Delete buffer/close window [which-key]" },
         { "<S-h>", "<CMD>bprevious<CR>", desc = "Previous buffer [which-key]" },
         { "<S-l>", "<CMD>bnext<CR>", desc = "Next buffer [which-key]" },
-        { "<Leader>ba", "<CMD>%bdelete|lua MiniStarter.open()<CR>", desc = "Delete all buffers [which-key]" },
+        { "Q", "<CMD>%bdelete|lua MiniStarter.open()<CR>", desc = "Delete all buffers [which-key]" },
         { "<Leader>bl", "<CMD>set buflisted<CR>", desc = "Make buffer listed [which-key]" },
         {
           "<Leader>bh",

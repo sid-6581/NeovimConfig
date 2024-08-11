@@ -11,9 +11,30 @@ return {
           { name = "Edit new buffer", action = "enew", section = "Builtin actions" },
           { name = "Configuration", action = "e $MYVIMRC", section = "Builtin actions" },
           { name = "Open project", action = "call feedkeys(' fp')", section = "Builtin actions" },
+          { name = "Notes (Obsidian)", action = "call feedkeys(' O')", section = "Builtin actions" },
           { name = "Quit Neovim", action = "qall", section = "Builtin actions" },
         },
-        starter.sections.recent_files(20, false),
+
+        vim.list_slice(
+          vim.tbl_map(
+            function(path)
+              path = vim.fn.fnamemodify(path, ":~")
+              return {
+                name = path,
+                action = function()
+                  vim.cmd.enew()
+                  vim.cmd.lcd(path)
+                  require("neo-tree.command").execute({ action = "show", dir = path })
+                end,
+                section = "Projects",
+              }
+            end,
+            vim.tbl_keys(require("mini.visits").get_index())
+          ),
+          1, 10
+        ),
+
+        starter.sections.recent_files(10, false),
       },
       content_hooks = {
         starter.gen_hook.adding_bullet(),
