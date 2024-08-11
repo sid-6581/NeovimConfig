@@ -11,8 +11,5 @@ return {
       title = "Search/Replace",
       position = "bottom",
     },
-    regexOptions = {
-      casing = "smart-case",
-    },
   },
 }

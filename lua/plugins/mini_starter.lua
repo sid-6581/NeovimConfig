@@ -15,14 +15,18 @@ return {
    ░   ░ ░     ░  ░ ░ ░ ▒        ░  ░ ▒ ░░      ░
          ░ ░   ░      ░ ░        ░    ░         ░
         ]],
+
       evaluate_single = true,
+
       items = {
         {
-          { name = "Edit new buffer", action = "enew", section = "Builtin actions" },
-          { name = "Configuration", action = "e $MYVIMRC", section = "Builtin actions" },
-          { name = "Open project", action = "call feedkeys(' fp')", section = "Builtin actions" },
-          { name = "Notes (Obsidian)", action = "call feedkeys(' O')", section = "Builtin actions" },
-          { name = "Quit Neovim", action = "qall", section = "Builtin actions" },
+          { name = "Edit new buffer", action = "enew", section = "Actions" },
+          { name = "Configuration", action = "e $MYVIMRC", section = "Actions" },
+          { name = "Open project", action = "call feedkeys(' fp')", section = "Actions" },
+          { name = "Find files", action = "call feedkeys(' ff')", section = "Actions" },
+          { name = "Search text", action = "call feedkeys(' ft')", section = "Actions" },
+          (vim.fn.has("win32") == 1) and { name = "Notes (Obsidian)", action = "call feedkeys(' O')", section = "Actions" } or nil,
+          { name = "Quit Neovim", action = "qall", section = "Actions" },
         },
 
         vim.list_slice(
@@ -48,7 +52,7 @@ return {
       },
       content_hooks = {
         starter.gen_hook.adding_bullet(),
-        starter.gen_hook.indexing("all", { "Builtin actions" }),
+        starter.gen_hook.indexing("all", { "Actions" }),
         starter.gen_hook.aligning("center", "center"),
       },
     })
