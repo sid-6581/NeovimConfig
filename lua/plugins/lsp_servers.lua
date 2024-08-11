@@ -6,7 +6,16 @@ return {
       servers = {
         eslint = {
           on_attach = function(_client, bufnr)
-            vim.api.nvim_create_autocmd("BufWritePre", { buffer = bufnr, command = "EslintFixAll" })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = bufnr,
+              callback = function()
+                if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                  return
+                end
+
+                vim.cmd("EslintFixAll")
+              end,
+            })
           end,
         },
 
@@ -61,6 +70,18 @@ return {
         },
 
         nushell = {
+          on_attach = function(_client, bufnr)
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = bufnr,
+              callback = function()
+                if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+                  return
+                end
+
+                vim.cmd.normal("mzgg=G`z")
+              end,
+            })
+          end,
         },
 
         omnisharp = {
