@@ -4,13 +4,13 @@ return {
 
   opts = {
     -- modes = { "n", "no" },
-    hybrid_modes = { "n" },
+    -- hybrid_modes = { "i" },
 
-    callbacks = {
-      on_enable = function(_, win)
-        vim.wo[win].conceallevel = 2
-        vim.wo[win].concealcursor = "c"
-      end,
-    },
+    -- callbacks = {
+    --   on_enable = function(_, win)
+    --     vim.wo[win].conceallevel = 2
+    --     vim.wo[win].concealcursor = "c"
+    --   end,
+    -- },
   },
 }
