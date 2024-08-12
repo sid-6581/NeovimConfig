@@ -39,7 +39,7 @@ return {
                 action = function()
                   vim.cmd.enew()
                   vim.cmd.lcd(path)
-                  require("neo-tree.command").execute({ action = "show", dir = vim.fn.expand(path) })
+                  require("neo-tree.command").execute({ action = "focus", dir = vim.fn.expand(path) })
                 end,
                 section = "Projects",
               }
