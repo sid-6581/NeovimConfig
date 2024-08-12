@@ -39,9 +39,7 @@ return {
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-symbols.nvim",
     "fdschmidt93/telescope-egrepify.nvim",
-    "jvgrootveld/telescope-zoxide",
     "debugloop/telescope-undo.nvim",
-    "Marskey/telescope-sg",
 
     {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -54,7 +52,6 @@ return {
     { "<F3>", function() require("telescope.builtin").keymaps() end, mode = { "n", "i", "v", "x", "o", "t" }, desc = "Keymaps [telescope]" },
     { "<Leader>f.", function() require("telescope").extensions.file_browser.file_browser() end, desc = "Browse files [telescope]" },
     { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find [telescope]" },
-    { "<Leader>fA", function() require("telescope").extensions.ast_grep.ast_grep() end, desc = "ast-grep [telescope]" },
     { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands [telescope]" },
     { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Highlights [telescope]" },
     { "<Leader>fR", function() require("telescope.builtin").registers() end, desc = "Registers [telescope]" },
@@ -114,7 +111,6 @@ return {
     { "<Leader>fu", function() require("telescope").extensions.undo.undo() end, desc = "Undo [telescope]" },
     { "<Leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Word [telescope]" },
     { "<Leader>fy", function() require("telescope").extensions.yank_history.yank_history({}) end, desc = "Yank history [telescope]" },
-    { "<Leader>fz", function() require("telescope").extensions.zoxide.list() end, desc = "Zoxide [telescope]" },
     { "<Leader>gS", function() require("telescope.builtin").git_stash() end, desc = "Git stash [telescope]" },
     { "<Leader>gb", function() require("telescope.builtin").git_branches() end, desc = "Branches [telescope]" },
     { "<Leader>gc", function() require("telescope.builtin").git_commits() end, desc = "Commits [telescope]" },
@@ -258,14 +254,6 @@ return {
       },
 
       extensions = {
-        ast_grep = {
-          command = {
-            "ast-grep",
-            "--json=stream",
-          },
-          grep_open_files = false,
-          lang = nil,
-        },
         egrepify = {
           title = false,
         },
@@ -280,13 +268,10 @@ return {
     local telescope = require("telescope")
 
     telescope.setup(opts)
-    telescope.load_extension("ast_grep")
     telescope.load_extension("egrepify")
     telescope.load_extension("file_browser")
     telescope.load_extension("fzf")
-    telescope.load_extension("scope")
     telescope.load_extension("undo")
-    telescope.load_extension("zoxide")
 
     vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "WinSeparator" })
     vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "WinSeparator" })
