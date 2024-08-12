@@ -13,10 +13,4 @@ return {
       end,
     },
   },
-
-  config = function(_, opts)
-    require("markview").setup(opts)
-    vim.o.conceallevel = 0
-    vim.o.concealcursor = ""
-  end,
 }
