@@ -114,11 +114,6 @@ return {
               ["neo-tree"] = "neo-tree",
               ["oil"] = "oil",
             },
-            disabled_buftypes = {
-              "neo-tree",
-              "prompt",
-              "quickfix",
-            },
             symbols = {
               alternate_file = "",
             },
