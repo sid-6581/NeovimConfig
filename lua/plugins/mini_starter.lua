@@ -23,10 +23,10 @@ return {
         {
           { name = "Edit new buffer", action = "enew", section = "Actions" },
           { name = "Configuration", action = "e $MYVIMRC", section = "Actions" },
-          { name = "Projects", action = "call feedkeys(' fp')", section = "Actions" },
-          { name = "Find files", action = "call feedkeys(' ff')", section = "Actions" },
-          { name = "Search text", action = "call feedkeys(' ft')", section = "Actions" },
-          (vim.fn.has("win32") == 1) and { name = "Notes (Obsidian)", action = "call feedkeys(' O')", section = "Actions" } or nil,
+          { name = "Projects", action = "enew|call feedkeys(' fp')", section = "Actions" },
+          { name = "Find files", action = "enew|call feedkeys(' ff')", section = "Actions" },
+          { name = "Search text", action = "enew|call feedkeys(' ft')", section = "Actions" },
+          (vim.fn.has("win32") == 1) and { name = "Notes (Obsidian)", action = "enew|call feedkeys(' O')", section = "Actions" } or nil,
           { name = "Quit", action = "qall", section = "Actions" },
         },
 
