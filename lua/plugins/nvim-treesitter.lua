@@ -60,8 +60,6 @@ return {
       "zig",
     },
 
-    auto_install = true,
-
     highlight = {
       enable = true,
     },
