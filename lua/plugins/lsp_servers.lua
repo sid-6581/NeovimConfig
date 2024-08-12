@@ -46,6 +46,7 @@ return {
               completion = {
                 workspaceWord = false,
                 postfix = ".",
+                keywordSnippet = "Disable",
               },
               diagnostics = {
                 unusedLocalExclude = { "_*" },
