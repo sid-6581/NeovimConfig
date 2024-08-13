@@ -75,11 +75,7 @@ return {
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = bufnr,
               callback = function()
-                if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-                  return
-                end
-
-                vim.cmd.normal("mzgg=G`z")
+                require("util.indent").indent_buffer()
               end,
             })
           end,
