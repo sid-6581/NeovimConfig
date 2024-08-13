@@ -24,7 +24,6 @@ return {
 
   opts = {
     close_if_last_window = true,
-    enable_cursor_hijack = true,
     popup_border_style = "single",
     use_popups_for_input = false,
     window = {
