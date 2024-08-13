@@ -24,12 +24,11 @@ return {
 
   opts = {
     close_if_last_window = true,
+    enable_cursor_hijack = true,
     popup_border_style = "single",
     use_popups_for_input = false,
     window = {
       mappings = {
-        ["/"] = "none",
-        ["F"] = "fuzzy_finder",
         ["Z"] = "expand_all_nodes",
         ["<C-S>"] = "open_split",
         ["<C-V>"] = "open_vsplit",
@@ -38,6 +37,13 @@ return {
       width = 40,
     },
     filesystem = {
+      window = {
+        mappings = {
+          ["/"] = "none",
+          ["F"] = "fuzzy_finder",
+        },
+        width = 40,
+      },
       hijack_netrw_behavior = "open_default",
       use_libuv_file_watcher = true,
       filtered_items = {
