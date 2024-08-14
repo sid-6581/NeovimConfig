@@ -15,8 +15,6 @@ return {
   },
 
   config = function()
-    local shell = "nu"
-
     require("toggleterm").setup({
       size = function(term)
         if term.direction == "horizontal" then
@@ -31,7 +29,7 @@ return {
       start_in_insert = true,
       dir = vim.fn.getcwd(),
       direction = "float",
-      shell = shell,
+      shell = "nu",
       persist_size = false,
       persist_mode = false,
       highlights = {
