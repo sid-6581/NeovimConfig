@@ -131,6 +131,7 @@ return {
         ruff = {},
 
         rust_analyzer = {
+          cmd = { vim.fn.expand("~/.local/bin/rust-analyzer") },
           settings = {
             ["rust-analyzer"] = {
               cargo = {
