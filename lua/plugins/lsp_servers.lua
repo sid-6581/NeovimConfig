@@ -75,7 +75,7 @@ return {
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = bufnr,
               callback = function()
-                require("util.indent").indent_buffer()
+                require("util.format").indent_buffer()
               end,
             })
           end,

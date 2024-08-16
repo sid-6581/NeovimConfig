@@ -338,6 +338,22 @@ return {
           end,
           desc = "Toggle diagnostics",
         },
+        {
+          "<Leader>uf",
+          function()
+            require("util.format").toggle_autoformat()
+            vim.notify((require("util.format").autoformat_enabled() and "Enabled" or "Disabled") .. " format on save (global)")
+          end,
+          desc = "Toggle format on save (global) [which-key]",
+        },
+        {
+          "<Leader>uF",
+          function()
+            require("util.format").toggle_autoformat(0)
+            vim.notify((require("util.format").autoformat_enabled(0) and "Enabled" or "Disabled") .. " format on save (global)")
+          end,
+          desc = "Toggle format on save (buffer) [which-key]",
+        },
         { "<Leader>uw", function() util.toggle("wrap") end, desc = "Toggle wrap [which-key]" },
         { "<Leader>ul", function() util.toggle_number() end, desc = "Toggle line numbers [which-key]" },
         { "<Leader>ur", function() util.toggle("relativenumber") end, desc = "Toggle relative line numbers [which-key]" },
