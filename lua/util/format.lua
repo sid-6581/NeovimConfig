@@ -12,11 +12,11 @@ M.toggle_autoformat = function(bufnr)
 end
 
 -- Checks if autoformatting is enabled.
---- @param bufnr? integer: Buffer number to check autoformat for (0 for current buffer), or nil to check global setting.
+--- @param bufnr? integer: Buffer number to check autoformat for (0 or nil for current buffer).
 --- @return boolean: true if autoformatting is enabled
 M.autoformat_enabled = function(bufnr)
-  bufnr = bufnr == 0 and vim.api.nvim_get_current_buf() or bufnr
-  return bufnr and (not vim.b[bufnr].disable_autoformat) or (not vim.g.disable_autoformat)
+  bufnr = (bufnr == nil or bufnr == 0) and vim.api.nvim_get_current_buf() or bufnr
+  return not (vim.b[bufnr].disable_autoformat or vim.g.disable_autoformat)
 end
 
 -- Reformats the current buffer by running indentexpr on it. Will not do anything if autoformat is disabled.
