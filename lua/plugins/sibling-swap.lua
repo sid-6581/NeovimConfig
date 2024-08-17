@@ -26,7 +26,7 @@ return {
   },
 
   opts = {
-    highlight_node_at_cursor = true,
+    highlight_node_at_cursor = false,
     use_default_keymaps = false,
   },
 }

@@ -37,6 +37,9 @@ require("lazy").setup("plugins", {
   checker = {
     enabled = true,
   },
+  dev = {
+    path = vim.fn.has("win32") == 1 and "D:/Code/Forks" or "~/code/forks",
+  },
   performance = {
     rtp = {
       reset = false,
