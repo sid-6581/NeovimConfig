@@ -27,7 +27,7 @@ return {
           { name = "File search", action = "enew|call feedkeys(' ff')", section = "Actions" },
           { name = "Text search", action = "enew|call feedkeys(' ft')", section = "Actions" },
           { name = "Git", action = "enew|call feedkeys(' gg')", section = "Actions" },
-          (vim.fn.has("win32") == 1) and { name = "Obsidian", action = "enew|call feedkeys(' O')", section = "Actions" } or nil,
+          vim.fn.has("win32") == 1 and { name = "Obsidian", action = "enew|call feedkeys(' O')", section = "Actions" } or nil,
           { name = "Quit", action = "qall", section = "Actions" },
         },
 

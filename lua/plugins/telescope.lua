@@ -161,7 +161,7 @@ return {
 
           search_file = "^\\.git$",
 
-          search_dirs = (vim.fn.has("win32") == 1)
+          search_dirs = vim.fn.has("win32") == 1
             and { "D:/Code", vim.fn.expand("~/.local/share/nvim-data") }
             or { vim.fn.expand("~/") },
         })
