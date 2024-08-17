@@ -5,6 +5,7 @@ return {
 
   keys = {
     { "gX", "<CMD>Browse<CR>", mode = { "n", "x" }, desc = "Browse [gx]" },
+    { "<C-CR>", "<CMD>Browse<CR>", mode = { "n", "x" }, desc = "Browse [gx]" },
   },
 
   opts = {

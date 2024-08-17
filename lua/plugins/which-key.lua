@@ -69,6 +69,7 @@ return {
         { pattern = "%[flash%]", icon = "󰉁 flash", color = "cyan" },
         { pattern = "%[gitsigns%]", icon = "󰊢 gitsigns", color = "orange" },
         { pattern = "%[goto%-preview%]", icon = " goto-preview", color = "orange" },
+        { pattern = "%[gx%]", icon = " gx", color = "purple" },
         { pattern = "%[lazy%]", icon = "󰒲 lazy", color = "purple" },
         { pattern = "%[lsp%]", icon = "󰌘 lsp", color = "orange" },
         { pattern = "%[mason%]", icon = "󱌢 mason", color = "purple" },
