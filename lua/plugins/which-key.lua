@@ -289,8 +289,8 @@ return {
         -- { "<A-+>", "<CMD>resize +2<CR>", desc = "Increase window height [which-key]" },
 
         -- Tabs
-        { "<S-A-h>", "gT", desc = "Previous tab [which-key]" },
-        { "<S-A-l>", "gt", desc = "Next tab [which-key]" },
+        { "<A-H>", "gT", desc = "Previous tab [which-key]" },
+        { "<A-L>", "gt", desc = "Next tab [which-key]" },
         { "[t", "gT", desc = "Previous tab [which-key]" },
         { "]t", "gt", desc = "Next tab [which-key]" },
         { "<C-S-t>", "<CMD>tabnew<CR>", desc = "Open new tab [which-key]" },
@@ -399,6 +399,7 @@ return {
         { "<A-j>", "<Down>", noremap = false, desc = "Down [which-key]" },
         { "<A-k>", "<Up>", noremap = false, desc = "Up [which-key]" },
         { "<A-l>", "<Right>", noremap = false, desc = "Right [which-key]" },
+        { "<A-p>", "<C-o>P", noremap = false, desc = "Paste [which-key]" },
         { "<C-BS>", "<C-w>", desc = "Delete previous word [which-key]" },
         { "<C-Enter>", "<Esc>m`o<Esc>``a", desc = "Insert blank line below [which-key]" },
         { "<C-S-Enter>", "<Esc>m`O<Esc>``a", desc = "Insert blank line above [which-key]" },
