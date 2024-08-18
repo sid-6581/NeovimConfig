@@ -24,7 +24,14 @@ return {
     formatters_by_ft = {
       bash = { "shellharden" },
       hcl = { "packer_fmt" },
-      lua = { "stylua", lsp_format = "prefer" },
+      lua = function(bufnr)
+        return vim.api.nvim_buf_call(bufnr, function()
+          return #vim.fs.find(
+            { ".stylua.toml" },
+            { limit = 1, type = "file", path = vim.fn.expand("%:p:h"), upward = true }
+          ) > 0 and { "stylua" } or {}
+        end)
+      end,
       sh = { "shellharden" },
       yaml = { "yamlfmt" },
     },
