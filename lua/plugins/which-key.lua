@@ -289,8 +289,8 @@ return {
         -- { "<A-+>", "<CMD>resize +2<CR>", desc = "Increase window height [which-key]" },
 
         -- Tabs
-        { "<C-S-h>", "gT", desc = "Previous tab [which-key]" },
-        { "<C-S-l>", "gt", desc = "Next tab [which-key]" },
+        { "<S-A-h>", "gT", desc = "Previous tab [which-key]" },
+        { "<S-A-l>", "gt", desc = "Next tab [which-key]" },
         { "[t", "gT", desc = "Previous tab [which-key]" },
         { "]t", "gt", desc = "Next tab [which-key]" },
         { "<C-S-t>", "<CMD>tabnew<CR>", desc = "Open new tab [which-key]" },
