@@ -4,6 +4,9 @@ return {
   ft = "markdown",
 
   opts = {
+    modes = { "n", "i", "no", "c" },
+    hybrid_modes = { "n", "i" },
+
     headings = {
       shift_width = 0,
       heading_1 = {
