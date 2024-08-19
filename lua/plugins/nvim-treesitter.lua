@@ -70,30 +70,11 @@ return {
         init_selection = "<CR>",
         node_decremental = "<S-CR>",
         node_incremental = "<CR>",
-        scope_incremental = "<Tab>",
       },
     },
 
     indent = {
       enable = true,
-    },
-
-    textobjects = {
-      -- swap = {
-      --   enable = true,
-      --   swap_next = {
-      --     ["<A-l>"] = {
-      --       query = { "@parameter.inner", "@statement.outer", "@*" },
-      --       desc = "Swap with next node",
-      --     },
-      --   },
-      --   swap_previous = {
-      --     ["<A-h>"] = {
-      --       query = { "@parameter.inner", "@statement.outer", "@*" },
-      --       desc = "Swap with previous node",
-      --     },
-      --   },
-      -- },
     },
   },
 
