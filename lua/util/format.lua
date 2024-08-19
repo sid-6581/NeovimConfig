@@ -6,8 +6,10 @@ M.toggle_autoformat = function(bufnr)
   bufnr = bufnr == 0 and vim.api.nvim_get_current_buf() or bufnr
   if not bufnr then
     vim.g.disable_autoformat = not vim.g.disable_autoformat
+    vim.notify((require("util.format").autoformat_enabled() and "Enabled" or "Disabled") .. " format on save (global)")
   else
     vim.b[bufnr].disable_autoformat = not vim.b[bufnr].disable_autoformat
+    vim.notify((require("util.format").autoformat_enabled(bufnr) and "Enabled" or "Disabled") .. " format on save (buffer)")
   end
 end
 

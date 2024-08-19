@@ -339,43 +339,21 @@ return {
           end,
           desc = "Toggle diagnostics",
         },
-        {
-          "<Leader>uf",
-          function()
-            require("util.format").toggle_autoformat()
-            vim.notify((require("util.format").autoformat_enabled() and "Enabled" or "Disabled") .. " format on save (global)")
-          end,
-          desc = "Toggle format on save (global) [which-key]",
-        },
-        {
-          "<Leader>uF",
-          function()
-            require("util.format").toggle_autoformat(0)
-            vim.notify((require("util.format").autoformat_enabled(0) and "Enabled" or "Disabled") .. " format on save (global)")
-          end,
-          desc = "Toggle format on save (buffer) [which-key]",
-        },
+        { "<Leader>uf", function() require("util.format").toggle_autoformat() end, desc = "Toggle format on save (global) [which-key]" },
+        { "<Leader>uF", function() require("util.format").toggle_autoformat(0) end, desc = "Toggle format on save (buffer) [which-key]" },
         { "<Leader>uw", function() util.toggle("wrap") end, desc = "Toggle wrap [which-key]" },
         { "<Leader>ul", function() util.toggle_number() end, desc = "Toggle line numbers [which-key]" },
         { "<Leader>ur", function() util.toggle("relativenumber") end, desc = "Toggle relative line numbers [which-key]" },
 
         -- Yank/paste
         { "Y", "_y$", desc = "Yank line characters [which-key]" },
-        { ",P", '"+P', desc = "Paste from system clipboard [which-key]" },
-        { ",p", '"+p', desc = "Paste from system clipboard [which-key]" },
-        -- { "<Leader>Pb", 'i <C-R>" <Esc>', desc = "Paste before cursor and add space at both ends [which-key]" },
-        -- { "<Leader>Pe", 'i<C-R>" <Esc>', desc = "Paste before cursor and add space at end [which-key]" },
-        -- { "<Leader>Ps", 'i <C-R>"<Esc>', desc = "Paste before cursor and add space at start [which-key]" },
-        -- { "<Leader>pb", 'a <C-R>" <Esc>', desc = "Paste after cursor and add space at both ends [which-key]" },
-        -- { "<Leader>pe", 'a<C-R>" <Esc>', desc = "Paste after cursor and add space at end [which-key]" },
-        -- { "<Leader>ps", 'a <C-R>"<Esc>', desc = "Paste after cursor and add space at start [which-key]" },
         { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
 
         -- Motions
-        { "b", "<CMD>call search('\\<', 'b')<CR>", desc = "Previous word [which-key]" },
-        { "e", "<CMD>call search('\\>')<CR>", desc = "Next end of word [which-key]" },
-        { "ge", "<CMD>call search('\\>', 'b')<CR>", desc = "Previous end of word [which-key]" },
-        { "w", "<CMD>call search('\\<')<CR>", desc = "Next word [which-key]" },
+        -- { "b", "<CMD>call search('\\<', 'b')<CR>", desc = "Previous word [which-key]" },
+        -- { "e", "<CMD>call search('\\>')<CR>", desc = "Next end of word [which-key]" },
+        -- { "ge", "<CMD>call search('\\>', 'b')<CR>", desc = "Previous end of word [which-key]" },
+        -- { "w", "<CMD>call search('\\<')<CR>", desc = "Next word [which-key]" },
         { "{", "[{", desc = "Previous unmatched { [which-key]" },
         { "}", "]}", desc = "Next unmatched } [which-key]" },
         { "(", "[(", desc = "Previous unmatched ( [which-key]" },
@@ -393,30 +371,28 @@ return {
       -- Insert mode
       {
         mode = "i",
+        { "<Esc>", "<Esc>`^", desc = "Exit insert mode [which-key]" },
         { "<C-s>", "<C-\\><C-o><CMD>w!<CR>", desc = "Save [which-key]" },
         { "<A-BS>", "<C-\\><C-o>dB", desc = "Delete until the previous space [which-key]" },
+        { "<C-BS>", "<C-w>", desc = "Delete previous word [which-key]" },
         { "<A-h>", "<Left>", noremap = false, desc = "Left [which-key]" },
         { "<A-j>", "<Down>", noremap = false, desc = "Down [which-key]" },
         { "<A-k>", "<Up>", noremap = false, desc = "Up [which-key]" },
         { "<A-l>", "<Right>", noremap = false, desc = "Right [which-key]" },
         { "<A-p>", "<C-o>P", noremap = false, desc = "Paste [which-key]" },
-        { "<C-BS>", "<C-w>", desc = "Delete previous word [which-key]" },
         { "<C-Enter>", "<Esc>m`o<Esc>``a", desc = "Insert blank line below [which-key]" },
         { "<C-S-Enter>", "<Esc>m`O<Esc>``a", desc = "Insert blank line above [which-key]" },
-        { "<Esc>", "<Esc>`^", desc = "Exit insert mode [which-key]" },
         { "<S-Insert>", "<C-r><C-o>+", desc = "Paste from system clipboard [which-key]" },
-        { "<S-Tab>", "<C-d>", desc = "Unindent line [which-key]" },
       },
 
       -- Visual and select mode
       {
         mode = "v",
-        { ",y", '"+y', desc = "Yank to system clipboard [which-key]" },
         { "<C-Insert>", '"+y', desc = "Yank to system clipboard [which-key]" },
+        { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
         { "<Leader>sl", ":sort i<CR>", desc = "Sort lines [which-key]" },
         { "<Leader>sn", ":sort in<CR>", desc = "Sort lines by number [which-key]" },
         { "<Leader>su", ":sort iu<CR>", desc = "Sort lines unique [which-key]" },
-        { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
         { "<lt>", "<lt>gv", desc = "Decrease indent [which-key]" },
         { ">", ">gv", desc = "Increase indent [which-key]" },
         { "p", '"_dP', desc = "Paste [which-key]" },
@@ -432,9 +408,9 @@ return {
         { "<C-k>", "<C-\\><C-N><C-w>k", desc = "Up [which-key]" },
         { "<C-l>", "<C-\\><C-N><C-w>l", desc = "Right [which-key]" },
         { "<S-Enter>", "<Enter>", desc = "Insert enter [which-key]" },
+        { "<S-Space>", "<Space>", desc = "Insert space [which-key]" },
         { "<S-Esc>", "<C-\\><C-N>", desc = "Go to normal mode [which-key]" },
         { "<S-Insert>", '<C-\\><C-N>"+pi', desc = "Paste from system clipboard [which-key]" },
-        { "<S-Space>", "<Space>", desc = "Insert space [which-key]" },
       },
 
       -- Cmdline mode
