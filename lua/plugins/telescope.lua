@@ -58,7 +58,6 @@ return {
     { "<Leader>fa", function() require("telescope.builtin").builtin() end, desc = "All [telescope]" },
     { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers [telescope]" },
     { "<Leader>fc", function() require("telescope.builtin").commands() end, desc = "Commands [telescope]" },
-    { "<Leader>fd", function() require("telescope.builtin").lsp_definitions() end, desc = "LSP definitions [telescope]" },
     { "<Leader>ff", function() require("telescope.builtin").find_files() end, desc = "Files [telescope]" },
     {
       "<Leader>fF",
@@ -71,7 +70,7 @@ return {
           },
         })
       end,
-      desc = "Files (all)",
+      desc = "Files (all) [telescope]",
     },
     { "<Leader>fH", function() require("telescope.builtin").help_tags() end, desc = "Help [telescope]" },
     { "<Leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Keymaps [telescope]" },
@@ -239,9 +238,13 @@ return {
             "node_modules",
           },
         },
+        lsp_definitions = {
+          jump_type = "never",
+        },
         lsp_references = {
           include_declaration = false,
           include_current_line = false,
+          jump_type = "never",
         },
         keymaps = {
           show_plug = true,

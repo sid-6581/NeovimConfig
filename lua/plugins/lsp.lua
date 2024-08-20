@@ -28,8 +28,7 @@ return {
           { "<Leader>lci", function() require("telescope.builtin").lsp_incoming_calls() end, desc = "Incoming calls [telescope]" },
           { "<Leader>lco", function() require("telescope.builtin").lsp_outgoing_calls() end, desc = "Outgoing calls [telescope]" },
           { "<Leader>lC", "<CMD>0Verbose =vim.lsp.get_clients()<CR>", desc = "View LSP details [lsp]" },
-          { "<Leader>ld", function() require("telescope.builtin").diagnostics() end, desc = "Workspace diagnostics [telescope]" },
-          { "<Leader>lD", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end, desc = "Document diagnostics [telescope]" },
+          { "<Leader>ld", function() require("telescope.builtin").lsp_definitions() end, desc = "LSP definitions [telescope]" },
           { "<Leader>li", function() require("telescope.builtin").lsp_implementations() end, desc = "Implementations [telescope]" },
           { "<Leader>lr", function() require("telescope.builtin").lsp_references() end, desc = "References [telescope]" },
           {
