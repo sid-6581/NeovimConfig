@@ -91,6 +91,7 @@ return {
         { pattern = "%[helpview%]", icon = "󰋖 helpview", color = "blue" },
         { pattern = "%[lazy%]", icon = "󰒲 lazy", color = "purple" },
         { pattern = "%[lsp%]", icon = "󰌘 lsp", color = "orange" },
+        { pattern = "%[luasnip%]", icon = " luasnip", color = "green" },
         { pattern = "%[markview%]", icon = " markview", color = "blue" },
         { pattern = "%[mason%]", icon = "󱌢 mason", color = "purple" },
         { pattern = "%[mini.ai%]", icon = "󰓾 mini.ai", color = "yellow" },

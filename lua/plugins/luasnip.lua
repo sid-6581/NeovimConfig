@@ -3,6 +3,25 @@ return {
   event = "VeryLazy",
   submodules = false,
 
+  keys = {
+    {
+      "<A-u>",
+      function()
+        if require("luasnip").in_snippet() then
+          local snip = require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()].parent.snippet
+          local from, to = snip:get_buf_position()
+          vim.api.nvim_buf_set_text(0, from[1], from[2], to[1], to[2], {})
+          vim.fn.setpos(".", { 0, from[1] + 1, from[2] + 1 })
+          require("luasnip").unlink_current()
+        else
+          vim.cmd.normal("u")
+        end
+      end,
+      mode = { "i" },
+      desc = "Undo snippet expansion [luasnip]",
+    },
+  },
+
   dependencies = {
     "rafamadriz/friendly-snippets",
   },
