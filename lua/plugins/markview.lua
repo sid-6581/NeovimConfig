@@ -4,7 +4,22 @@ return {
   ft = "markdown",
 
   keys = {
-    { "<Leader>um", "<CMD>Markview toggleAll<CR>", desc = "Toggle markview (global) [markview]" },
+    {
+      "<Leader>uvm",
+      function()
+        require("markview").commands.toggleAll()
+        vim.notify("Toggled markview (global)")
+      end,
+      desc = "Toggle markview (global) [markview]",
+    },
+    {
+      "<Leader>uvM",
+      function()
+        require("markview").commands.toggle()
+        vim.notify("Toggled markview (buffer)")
+      end,
+      desc = "Toggle markview (buffer) [markview]",
+    },
   },
 
   opts = {

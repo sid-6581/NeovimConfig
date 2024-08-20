@@ -33,6 +33,7 @@ return {
         end)
       end,
       sh = { "shellharden" },
+      sql = { "sqlfluff" },
       yaml = { "yamlfmt" },
     },
   },

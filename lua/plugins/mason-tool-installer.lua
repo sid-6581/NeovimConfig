@@ -23,6 +23,7 @@ return {
       "shellcheck",
       "shellharden",
       "shfmt",
+      "sqlfluff",
       "stylua",
       "taplo",
       "typescript-language-server",
