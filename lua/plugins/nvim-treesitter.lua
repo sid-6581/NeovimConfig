@@ -75,7 +75,7 @@ return {
 
     textsubjects = {
       enable = true,
-      prev_selection = "-",
+      prev_selection = "<S-CR>",
       keymaps = {
         ["<CR>"] = { "textsubjects-smart", desc = "Select node [treesitter-textsubjects]" },
         [";"] = { "textsubjects-container-outer", desc = "Select outer container [treesitter-textsubjects]" },
