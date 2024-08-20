@@ -2,7 +2,6 @@ return {
   "stevearc/quicker.nvim",
   event = "VeryLazy",
 
-  --- @module "quicker"
   --- @type quicker.SetupOptions
   opts = {
     keys = {
@@ -20,6 +19,6 @@ return {
         end,
         desc = "Collapse quickfix context",
       },
-    }
+    },
   },
 }

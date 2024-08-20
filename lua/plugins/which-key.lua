@@ -12,11 +12,12 @@ return {
 
   opts = {
     preset = "modern",
+
     sort = {
       "order",
       "alphanum",
       function(item)
-        return item.key:find("^<.*>$") and 1000 or 0
+        return item.raw_key:find("^<.*>$") and 1 or 0
       end,
     },
 
@@ -126,9 +127,7 @@ return {
 
     replace = {
       key = {
-        function(key)
-          return key
-        end,
+        { "<NL>", "<C-J>" },
       },
       desc = {
         { "([^<]*)<Plug>%(?([^)]*)%)?", "%1%2" },
@@ -273,7 +272,7 @@ return {
               function(winid) vim.api.nvim_win_close(winid, false) end
             )
           end,
-          desc = "Close all non-editor windows",
+          desc = "Close all non-editor windows [which-key]",
         },
 
         -- Window movements
