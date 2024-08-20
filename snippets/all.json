@@ -29,7 +29,10 @@
       "\t$1",
       "},"
     ],
-    "description": "Braces with newline and comma"
+    "description": "Braces with newline and comma",
+    "luasnip": {
+      "autotrigger": true
+    }
   },
   "{;": {
     "prefix": "{;",
@@ -38,7 +41,10 @@
       "\t$1",
       "};"
     ],
-    "description": "Braces with newline and semicolon"
+    "description": "Braces with newline and semicolon",
+    "luasnip": {
+      "autotrigger": true
+    }
   },
   "[]": {
     "prefix": "[]",
@@ -70,7 +76,10 @@
       "\t$1",
       "],"
     ],
-    "description": "Brackets with newline and comma"
+    "description": "Brackets with newline and comma",
+    "luasnip": {
+      "autotrigger": true
+    }
   },
   "[;": {
     "prefix": "[;",
@@ -79,6 +88,9 @@
       "\t$1",
       "];"
     ],
-    "description": "Brackets with newline and semicolon"
+    "description": "Brackets with newline and semicolon",
+    "luasnip": {
+      "autotrigger": true
+    }
   }
 }

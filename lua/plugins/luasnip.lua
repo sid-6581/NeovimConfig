@@ -8,6 +8,7 @@ return {
   },
 
   opts = {
+    enable_autosnippets = true,
     history = false,
     region_check_events = { "CursorMoved", "CursorHold", "InsertEnter" },
     delete_check_events = { "TextChanged", "InsertLeave" },
