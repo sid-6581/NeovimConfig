@@ -12,7 +12,13 @@ return {
 
   opts = {
     preset = "modern",
-    sort = { "order", "alphanum" },
+    sort = {
+      "order",
+      "alphanum",
+      function(item)
+        return item.key:find("^<.*>$") and 1000 or 0
+      end,
+    },
 
     expand = function(node)
       return not node.desc
