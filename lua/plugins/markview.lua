@@ -3,6 +3,10 @@ return {
   event = "VeryLazy",
   ft = "markdown",
 
+  keys = {
+    { "<Leader>um", "<CMD>Markview toggleAll<CR>", desc = "Toggle markview (global) [markview]" },
+  },
+
   opts = {
     modes = { "n", "i", "no", "c" },
     hybrid_modes = { "n", "i" },

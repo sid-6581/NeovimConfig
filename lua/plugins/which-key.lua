@@ -73,6 +73,7 @@ return {
         { pattern = "%[lazy%]", icon = "󰒲 lazy", color = "purple" },
         { pattern = "%[lsp%]", icon = "󰌘 lsp", color = "orange" },
         { pattern = "%[mason%]", icon = "󱌢 mason", color = "purple" },
+        { pattern = "%[markview%]", icon = " markview", color = "purple" },
         { pattern = "%[mini.ai%]", icon = "󰓾 mini.ai", color = "yellow" },
         { pattern = "%[mini.align%]", icon = " mini.align", color = "green" },
         { pattern = "%[mini.bracketed%]", icon = "󰅪 mini.bracketed", color = "yellow" },
