@@ -47,5 +47,12 @@ return {
         icon = "󰉰 ",
       },
     },
+
+    callbacks = {
+      on_enable = function(_, win)
+        vim.wo[win].conceallevel = 2
+        vim.wo[win].concealcursor = ""
+      end,
+    },
   },
 }
