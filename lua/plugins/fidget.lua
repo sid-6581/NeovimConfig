@@ -1,6 +1,7 @@
 return {
   "j-hui/fidget.nvim",
   priority = 999, -- High priority because it hijacks notifications
+  lazy = false,
 
   keys = {
     { "<Leader>umf", "<CMD>:0Verbose Fidget history<CR>", desc = "Fidget history [fidget]" },

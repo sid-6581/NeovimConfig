@@ -1,6 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   priority = 999,
+  lazy = false,
 
   config = function()
     local lualine = require("lualine")

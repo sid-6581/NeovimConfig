@@ -6,7 +6,12 @@ return {
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "RRethy/nvim-treesitter-textsubjects",
     "nushell/tree-sitter-nu",
+  },
+
+  keys = {
+    { "<CR>", "v<CR>", remap = true, desc = "Select node [treesitter-textsubjects]" },
   },
 
   opts = {
@@ -64,17 +69,18 @@ return {
       enable = true,
     },
 
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<CR>",
-        node_decremental = "<S-CR>",
-        node_incremental = "<CR>",
-      },
-    },
-
     indent = {
       enable = true,
+    },
+
+    textsubjects = {
+      enable = true,
+      prev_selection = ",",
+      keymaps = {
+        ["<CR>"] = { "textsubjects-smart", desc = "Select node [treesitter-textsubjects]" },
+        [";"] = { "textsubjects-container-outer", desc = "Select outer container [treesitter-textsubjects]" },
+        ["i;"] = { "textsubjects-container-inner", desc = "Select inner container [treesitter-textsubjects]" },
+      },
     },
   },
 

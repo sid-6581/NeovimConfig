@@ -1,6 +1,8 @@
 return {
   "echasnovski/mini.icons",
   priority = 2000,
+  lazy = false,
+
   opts = {},
 
   config = function(_, opts)
