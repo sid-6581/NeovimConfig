@@ -4,6 +4,7 @@ return {
 
   keys = {
     { "<Leader>fv", function() require("mini.visits").select_path() end, desc = "Visits [mini.visits]" },
+    { "<A-'>", function() require("mini.visits").select_path() end, desc = "Visits [mini.visits]" },
   },
 
   opts = {
