@@ -21,12 +21,6 @@ return {
       timeout_ms = 500,
     },
 
-    formatters = {
-      mdformat = {
-        prepend_args = { "--wrap", "100" },
-      },
-    },
-
     formatters_by_ft = {
       bash = { "shellharden" },
       hcl = { "packer_fmt" },
