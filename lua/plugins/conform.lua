@@ -21,6 +21,12 @@ return {
       timeout_ms = 500,
     },
 
+    formatters = {
+      mdformat = {
+        prepend_args = { "--wrap", "100" },
+      },
+    },
+
     formatters_by_ft = {
       bash = { "shellharden" },
       hcl = { "packer_fmt" },
@@ -32,6 +38,7 @@ return {
           ) > 0 and { "stylua" } or {}
         end)
       end,
+      markdown = { "mdformat" },
       sh = { "shellharden" },
       sql = { "sqlfluff" },
       yaml = { "yamlfmt" },
