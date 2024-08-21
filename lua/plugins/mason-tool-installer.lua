@@ -15,6 +15,7 @@ return {
       "eslint-lsp",
       "hadolint",
       "html-lsp",
+      "jinja-lsp",
       "json-lsp",
       "lemminx",
       "lua-language-server",
