@@ -4,6 +4,12 @@ return {
   opts = function()
     return {
       servers = {
+        denols = {
+          filetypes = {
+            "deno:/status.md",
+          },
+        },
+
         eslint = {
           on_attach = function(_client, bufnr)
             vim.api.nvim_create_autocmd("BufWritePre", {
