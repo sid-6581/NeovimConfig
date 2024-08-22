@@ -11,6 +11,7 @@ return {
       "clangd",
       "codelldb",
       "css-lsp",
+      "deno",
       "dockerfile-language-server",
       "eslint-lsp",
       "hadolint",

@@ -32,6 +32,7 @@ return {
           ) > 0 and { "stylua" } or {}
         end)
       end,
+      markdown = { "deno_fmt" },
       sh = { "shellharden" },
       sql = { "sqlfluff" },
       yaml = { "yamlfmt" },
