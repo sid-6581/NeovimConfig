@@ -29,9 +29,9 @@ return {
     window = {
       mappings = {
         ["Z"] = "expand_all_nodes",
-        ["<C-S>"] = "open_split",
-        ["<C-V>"] = "open_vsplit",
-        ["<C-T>"] = "open_tabnew",
+        ["<c-s>"] = "open_split",
+        ["<c-v>"] = "open_vsplit",
+        ["<c-t>"] = "open_tabnew",
       },
       width = 40,
     },
