@@ -19,7 +19,6 @@ return {
       "json-lsp",
       "lemminx",
       "lua-language-server",
-      "mdformat",
       "pyright",
       "ruff",
       "shellcheck",

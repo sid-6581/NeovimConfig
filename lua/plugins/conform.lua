@@ -32,7 +32,6 @@ return {
           ) > 0 and { "stylua" } or {}
         end)
       end,
-      markdown = { "mdformat" },
       sh = { "shellharden" },
       sql = { "sqlfluff" },
       yaml = { "yamlfmt" },
