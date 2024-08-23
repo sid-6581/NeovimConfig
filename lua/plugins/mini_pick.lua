@@ -62,6 +62,15 @@ return {
 
       toggle_info = "<F1>",
       toggle_preview = "<C-p>",
+
+      to_quickfix = {
+        char = "<C-q>",
+        func = function()
+          local items = MiniPick.get_picker_items() or {}
+          MiniPick.default_choose_marked(items)
+          MiniPick.stop()
+        end,
+      },
     },
 
     window = {
