@@ -3,8 +3,8 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>fv", function() require("mini.visits").select_path() end, desc = "Visits [mini.visits]" },
-    { "<A-'>", function() require("mini.visits").select_path() end, desc = "Visits [mini.visits]" },
+    { "<Leader>fv", function() require("mini.extra").pickers.visit_paths() end, desc = "Visits [mini.visits]" },
+    { "<A-'>", function() require("mini.extra").pickers.visit_paths() end, desc = "Visits [mini.visits]" },
   },
 
   opts = {
