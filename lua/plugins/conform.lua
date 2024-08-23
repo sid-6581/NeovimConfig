@@ -21,9 +21,19 @@ return {
       timeout_ms = 500,
     },
 
+    formatters = {
+      indent_buffer = {
+        format = function(_self, _ctx, _lines, callback)
+          require("util.format").indent_buffer()
+          callback()
+        end,
+      },
+    },
+
     formatters_by_ft = {
       bash = { "shellharden" },
       hcl = { "packer_fmt" },
+      justfile = { "indent_buffer" },
       lua = function(bufnr)
         return vim.api.nvim_buf_call(bufnr, function()
           return #vim.fs.find(
@@ -33,6 +43,7 @@ return {
         end)
       end,
       markdown = { "deno_fmt" },
+      nu = { "indent_buffer" },
       sh = { "shellharden" },
       sql = { "sqlfluff" },
       yaml = { "yamlfmt" },
