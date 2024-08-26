@@ -1,0 +1,142 @@
+return {
+  "folke/noice.nvim",
+  event = "VeryLazy",
+  version = "v4.4.7",
+
+  keys = {
+    {
+      "<C-f>",
+      function() if not require("noice.lsp").scroll(1) then return "<C-f>" end end,
+      mode = { "n", "i", "s" },
+      expr = true,
+      desc = "Scroll down (hover) [noice]",
+    },
+    {
+      "<C-b>",
+      function() if not require("noice.lsp").scroll(-1) then return "<C-b>" end end,
+      mode = { "n", "i", "s" },
+      expr = true,
+      desc = "Scroll up (hover) [noice]",
+    },
+    { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline() or "") end, mode = { "c" }, desc = "Redirect cmdline [noice]" },
+  },
+
+  opts = {
+    cmdline = {
+      view = "cmdline_popup",
+      format = {
+        cmdline = { conceal = false, title = "" },
+        search_down = { conceal = false, title = "" },
+        search_up = { conceal = false, title = "" },
+        filter = { conceal = false, title = "" },
+        lua = { conceal = false, title = "" },
+        help = { conceal = false, title = "" },
+        input = { conceal = false, title = "" },
+      },
+    },
+
+    lsp = {
+      override = {
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+        ["cmp.entry.get_documentation"] = true,
+      },
+      documentation = {
+        opts = {
+          border = "single",
+          win_options = {
+            winblend = 0,
+          },
+        },
+      },
+    },
+
+    messages = {
+      view_search = false,
+    },
+
+    popupmenu = {
+      backend = "cmp",
+    },
+
+    presets = {
+      bottom_search = true,
+      command_palette = false,
+      long_message_to_split = true,
+      inc_rename = false,
+      lsp_doc_border = true,
+    },
+
+    views = {
+      cmdline_popup = {
+        position = {
+          row = "30%",
+        },
+        border = {
+          style = "single",
+        },
+        size = {
+          width = "50%",
+        },
+      },
+      mini = {
+        timeout = 5000,
+        win_options = {
+          winblend = 100,
+        },
+      },
+      confirm = {
+        position = {
+          row = "50%",
+          col = "50%",
+        },
+        border = {
+          style = "single",
+        },
+      },
+    },
+
+    commands = {
+      all = {
+        view = "split",
+        opts = { enter = true, format = "details" },
+      },
+    },
+
+    routes = {
+      {
+        filter = {
+          any = {
+            { event = "msg_show", find = "Already at oldest change" },
+            { event = "msg_show", find = "fewer lines" },
+            { event = "msg_show", find = "line less" },
+            { event = "msg_show", find = "more line" },
+            { event = "msg_show", find = "changes;" },
+            { event = "msg_show", find = "change;" },
+            { event = "msg_show", find = "^/" },
+            { event = "msg_show", find = "B written" },
+            { error = true, find = "Pattern not found" },
+            { error = true, find = "Error executing luv callback" },
+            { event = "lsp", kind = "progress", find = "code_action" },
+            { event = "lsp", find = "Roots Scanned" },
+            { event = "lsp", find = "Fetching" },
+            { event = "lsp", find = "Processing" },
+            { event = "lsp", find = "metadata" },
+            {
+              event = "lsp",
+              cond = function(message)
+                local client = vim.tbl_get(message.opts, "progress", "client")
+                local title = vim.tbl_get(message.opts, "progress", "title")
+                return client == "rust_analyzer" and (title == "Loading" or title == nil)
+              end,
+            },
+          },
+        },
+        opts = {
+          skip = true,
+          stop = true,
+        },
+      },
+    },
+  },
+}

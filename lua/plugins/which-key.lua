@@ -104,6 +104,7 @@ return {
         { pattern = "%[mini.splitjoin%]", icon = " mini.splitjoin", color = "green" },
         { pattern = "%[mini.visits%]", icon = " mini.visits", color = "cyan" },
         { pattern = "%[neo%-tree%]", icon = "󰙅 neo-tree", color = "cyan" },
+        { pattern = "%[noice%]", icon = " noice", color = "blue" },
         { pattern = "%[neogit%]", icon = "󰊢 neogit", color = "purple" },
         { pattern = "%[obsidian%]", icon = "󰺿 obsidian", color = "purple" },
         { pattern = "%[octo%]", icon = "󰊢 octo", color = "purple" },

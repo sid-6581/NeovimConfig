@@ -24,7 +24,7 @@ vim.opt.autowrite = true
 vim.opt.backup = true
 vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
 vim.opt.breakindent = true
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 vim.opt.completeopt = ""
 vim.opt.confirm = true
 vim.opt.cursorline = true
@@ -93,18 +93,3 @@ vim.filetype.add({
     nomad = "hcl",
   },
 })
-
---- @diagnostic disable-next-line: duplicate-set-field
-vim.deprecate = function() end
-
--- Redirect all prints to vim.notify
-print = function(...)
-  local print_safe_args = {}
-  local _ = { ... }
-
-  for i = 1, #_ do
-    table.insert(print_safe_args, tostring(_[i]))
-  end
-
-  vim.notify(table.concat(print_safe_args, " "), vim.log.levels.INFO)
-end
