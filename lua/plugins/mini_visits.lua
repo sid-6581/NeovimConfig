@@ -4,7 +4,7 @@ return {
 
   keys = {
     { "<Leader>fv", function() require("mini.extra").pickers.visit_paths() end, desc = "Visits [mini.visits]" },
-    { "<A-'>", function() require("mini.extra").pickers.visit_paths() end, desc = "Visits [mini.visits]" },
+    { "<C-'>", function() require("mini.extra").pickers.visit_paths() end, desc = "Visits [mini.visits]" },
   },
 
   opts = {

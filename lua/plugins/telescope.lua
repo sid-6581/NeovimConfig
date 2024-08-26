@@ -59,7 +59,7 @@ return {
     { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers [telescope]" },
     { "<Leader>fc", function() require("telescope.builtin").commands() end, desc = "Commands [telescope]" },
     { "<Leader>ff", function() require("telescope.builtin").find_files() end, desc = "Files [telescope]" },
-    { "<A-.>", function() require("telescope.builtin").find_files() end, desc = "Files [telescope]" },
+    { "<C-.>", function() require("telescope.builtin").find_files() end, desc = "Files [telescope]" },
     {
       "<Leader>fF",
       function()
@@ -88,7 +88,7 @@ return {
       desc = "Symbols [telescope]",
     },
     { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text [telescope]" },
-    { "<A-/>", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text [telescope]" },
+    { "<C-/>", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text [telescope]" },
     {
       "<Leader>fT",
       function()
