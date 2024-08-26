@@ -52,11 +52,14 @@ return {
 
         starter.sections.recent_files(10, false),
       },
+
       content_hooks = {
         starter.gen_hook.adding_bullet(),
         starter.gen_hook.indexing("all", { "Actions" }),
         starter.gen_hook.aligning("center", "center"),
       },
+
+      silent = true,
     })
   end,
 }
