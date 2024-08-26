@@ -3,6 +3,5 @@ return {
   event = "VeryLazy",
   main = "pqf",
 
-  opts = {
-  },
+  opts = {},
 }
