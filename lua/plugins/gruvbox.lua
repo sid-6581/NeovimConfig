@@ -9,8 +9,6 @@ return {
     require("gruvbox").setup({
       contrast = "hard",
       overrides = {
-        CursorLineNr = { link = "LineNr" },
-        SignColumn = { link = "LineNr" },
         WinSeparator = { bg = "", blend = 0 },
         VertSplit = { bg = "", blend = 0 },
         IncSearch = { bg = colors.dark0, fg = colors.neutral_yellow, reverse = true },
@@ -65,6 +63,9 @@ return {
     })
 
     vim.cmd.colorscheme("gruvbox")
+
+    vim.api.nvim_set_hl(0, "CursorLineNr", { link = "LineNr" })
+    vim.api.nvim_set_hl(0, "SignColumn", { link = "LineNr" })
     vim.api.nvim_set_hl(0, "FloatBorder", { link = "WinSeparator" })
     vim.api.nvim_set_hl(0, "FloatTitle", { link = "Title" })
     vim.api.nvim_set_hl(0, "NormalFloat", { link = "GruvboxFg1" })
