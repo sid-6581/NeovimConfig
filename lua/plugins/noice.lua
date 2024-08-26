@@ -87,6 +87,10 @@ return {
       },
     },
 
+    redirect = {
+      view = "split",
+    },
+
     commands = {
       all = {
         view = "split",
