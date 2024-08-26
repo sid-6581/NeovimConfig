@@ -73,7 +73,7 @@ return {
       mini = {
         timeout = 5000,
         win_options = {
-          winblend = 100,
+          winblend = 0,
         },
       },
       confirm = {
