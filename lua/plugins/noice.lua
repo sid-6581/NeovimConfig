@@ -24,15 +24,6 @@ return {
   opts = {
     cmdline = {
       view = "cmdline_popup",
-      format = {
-        cmdline = { conceal = false, title = "" },
-        search_down = { conceal = false, title = "" },
-        search_up = { conceal = false, title = "" },
-        filter = { conceal = false, title = "" },
-        lua = { conceal = false, title = "" },
-        help = { conceal = false, title = "" },
-        input = { conceal = false, title = "" },
-      },
     },
 
     lsp = {
