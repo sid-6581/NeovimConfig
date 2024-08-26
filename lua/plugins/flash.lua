@@ -59,11 +59,6 @@ return {
       style = "overlay",
       reuse = "all",
     },
-    prompt = {
-      win_config = {
-        row = -2,
-      },
-    },
 
     modes = {
       char = {
