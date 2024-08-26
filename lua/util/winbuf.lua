@@ -134,9 +134,9 @@ end
 
 -- Smart buffer closing.
 function M.close_window_or_buffer()
-  -- If the window doesn't have a normal buffer, we just close it.
-  if not M.win_filter({ buf = { normal = true } }) then
-    vim.cmd.quit()
+  -- If this isn't a normal buffer, we just delete the buffer.
+  if not M.buf_filter({ normal = true }) then
+    vim.cmd.bdelete()
     return
   end
 
