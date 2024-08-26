@@ -24,6 +24,8 @@ return {
         globalstatus = true,
         refresh = {
           statusline = 100,
+          tabline = 100,
+          winbar = 100,
         },
       },
       sections = {
@@ -155,5 +157,13 @@ return {
     })
 
     require("lualine").refresh()
+
+    vim.api.nvim_create_autocmd({
+      "BufEnter", "BufWinEnter",
+    }, {
+      callback = function()
+        require("lualine").refresh()
+      end,
+    })
   end,
 }
