@@ -8,6 +8,7 @@ return {
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    "dmitmel/cmp-cmdline-history",
     "onsails/lspkind.nvim",
     "saadparwaiz1/cmp_luasnip",
 
@@ -117,6 +118,8 @@ return {
             mode = "symbol_text",
             menu = {
               buffer = "buffer  ",
+              cmdline = "cmdline ",
+              cmdline_history = "history ",
               luasnip = "luasnip ",
               nvim_lsp = "lsp     ",
               path = "path    ",
@@ -177,17 +180,6 @@ return {
     cmp.setup(opts)
 
     cmp.setup.cmdline(":", {
-      formatting = {
-        expandable_indicator = true,
-        fields = { "abbr", "menu" },
-        format = function(entry, vim_item)
-          return require("lspkind").cmp_format({
-            mode = "symbol_text",
-            menu = { cmdline = "" },
-            show_labelDetails = true,
-          })(entry, vim_item)
-        end,
-      },
       mapping = {
         ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }), { "c" }),
         ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }), { "c" }),
@@ -195,6 +187,7 @@ return {
       },
       sources = cmp.config.sources({
         { name = "cmdline" },
+        { name = "cmdline_history" },
       }),
     })
   end,
