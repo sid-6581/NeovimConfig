@@ -157,13 +157,5 @@ return {
     })
 
     require("lualine").refresh()
-
-    vim.api.nvim_create_autocmd({
-      "BufEnter", "BufWinEnter",
-    }, {
-      callback = function()
-        require("lualine").refresh()
-      end,
-    })
   end,
 }

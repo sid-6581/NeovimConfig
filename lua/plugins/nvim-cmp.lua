@@ -176,15 +176,6 @@ return {
 
     cmp.setup(opts)
 
-    cmp.setup.cmdline("/", {
-      mapping = {
-        ["<Tab>"] = { c = cmp.mapping.confirm({ select = true }) },
-      },
-      sources = {
-        { name = "buffer" },
-      },
-    })
-
     cmp.setup.cmdline(":", {
       formatting = {
         expandable_indicator = true,
