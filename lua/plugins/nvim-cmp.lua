@@ -63,6 +63,11 @@ return {
     cmp.register_source("cmdline", require("util.cmp_cmdline").new())
 
     local opts = {
+      performance = {
+        debounce = 0,
+        throttle = 0,
+      },
+
       completion = {
         completeopt = "menu,menuone",
       },
