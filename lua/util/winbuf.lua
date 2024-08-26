@@ -134,12 +134,6 @@ end
 
 -- Smart buffer closing.
 function M.close_window_or_buffer()
-  -- If this isn't a normal buffer, we just delete the buffer.
-  if not M.buf_filter({ normal = true }) then
-    vim.cmd.bdelete()
-    return
-  end
-
   local windows_with_buffer = M.windows({ bufnr = 0 })
 
   -- If the buffer is open in any other window (even on other tab pages), we close the window.
@@ -148,17 +142,18 @@ function M.close_window_or_buffer()
   if #windows_with_buffer > 1 then
     vim.cmd.quit()
   else
-    -- If there's only one window with a normal buffer on this tab page we have to be careful,
-    -- we can't just delete the buffer, because that can also close the tab page.
-    if #M.windows({ tabpage = 0, buf = { normal = true } }) == 1 then
+    -- If there are multiple tab pages and only one normal window, we have to be careful.
+    -- We can't just delete the buffer, because that can also close the tab page.
+    if #vim.api.nvim_list_tabpages() > 1 and #M.windows({ tabpage = 0, normal = true }) == 1 then
       require("mini.bufremove").delete()
     else
       vim.cmd.bdelete()
     end
   end
 
-  -- If we are now left with a tab page with a single window containing a no name buffer, we close it.
-  if #M.windows({ normal = true, tabpage = 0 }) == 1 and M.buf_filter({ noname = true }) then
+  -- If we are now left with a tab page with a single window containing a no name buffer,
+  -- we close the window.
+  if #M.windows({ tabpage = 0, normal = true }) == 1 and M.buf_filter({ noname = true }) then
     vim.cmd.quit()
   end
 end
