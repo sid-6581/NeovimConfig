@@ -11,8 +11,8 @@ return {
       overrides = {
         WinSeparator = { bg = "", blend = 0 },
         VertSplit = { bg = "", blend = 0 },
-        IncSearch = { bg = colors.dark0, fg = colors.neutral_yellow, reverse = true },
-        Search = { bg = colors.dark0, fg = colors.faded_yellow, reverse = true },
+        IncSearch = { fg = colors.dark0, bg = colors.neutral_yellow, reverse = false },
+        Search = { fg = colors.dark0, bg = colors.faded_yellow, reverse = false },
 
         DiagnosticVirtualTextError = { fg = colors.bright_red, italic = true },
         DiagnosticVirtualTextWarn = { fg = colors.bright_yellow, italic = true },
