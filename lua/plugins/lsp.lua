@@ -52,7 +52,7 @@ return {
           },
           { "K", function() vim.lsp.buf.hover() end, desc = "Show information [lsp]" },
           { "gK", function() vim.lsp.buf.signature_help() end, desc = "Signature help [lsp]" },
-          { "gd", function() require("telescope.builtin").lsp_definitions() end, desc = "Go to definition [telescope]" },
+          { "gd", "<C-]>", desc = "Go to definition [lsp]" },
           { "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, desc = "Show diagnostics [diagnostic]" },
           { mode = { "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, desc = "Code action [lsp]" },
         })
