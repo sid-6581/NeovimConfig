@@ -378,14 +378,6 @@ return {
         { "}", "]}", desc = "Next unmatched } [which-key]" },
         { "(", "[(", desc = "Previous unmatched ( [which-key]" },
         { ")", "])", desc = "Next unmatched ) [which-key]" },
-
-        -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
-        { "n", "'Nn'[v:searchforward].'zv'", expr = true, desc = "Next search result [which-key]" },
-        { mode = "x", "n", "'Nn'[v:searchforward]", expr = true, desc = "Next search result [which-key]" },
-        { mode = "o", "n", "'Nn'[v:searchforward]", expr = true, desc = "Next search result [which-key]" },
-        { "N", "'nN'[v:searchforward].'zv'", expr = true, desc = "Previous search result [which-key]" },
-        { mode = "x", "N", "'nN'[v:searchforward]", expr = true, desc = "Previous search result [which-key]" },
-        { mode = "o", "N", "'nN'[v:searchforward]", expr = true, desc = "Previous search result [which-key]" },
       },
 
       -- Insert mode
