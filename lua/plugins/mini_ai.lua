@@ -18,8 +18,9 @@ return {
         }, {}),
         t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
       },
-      n_lines = 500,
+      n_lines = 5000,
       search_method = "cover",
+      silent = true,
     }
   end,
 }
