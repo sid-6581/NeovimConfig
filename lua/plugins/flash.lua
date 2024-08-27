@@ -78,6 +78,8 @@ return {
     { "irq", gen_miniai("i", "q"), mode = { "o", "x" }, desc = "Remote inside \"/'/` [flash]" },
     { "arf", gen_miniai("a", "f"), mode = { "o", "x" }, desc = "Remote around function call [flash]" },
     { "irf", gen_miniai("i", "f"), mode = { "o", "x" }, desc = "Remote inside function call [flash]" },
+    { "arF", gen_miniai("a", "F"), mode = { "o", "x" }, desc = "Remote outer function [flash]" },
+    { "irF", gen_miniai("i", "F"), mode = { "o", "x" }, desc = "Remote inner function [flash]" },
     { "ar\"", gen_miniai("a", "\""), mode = { "o", "x" }, desc = "Remote around \" [flash]" },
     { "ir\"", gen_miniai("i", "\""), mode = { "o", "x" }, desc = "Remote inside \" [flash]" },
     { "ar'", gen_miniai("a", "'"), mode = { "o", "x" }, desc = "Remote around ' [flash]" },
