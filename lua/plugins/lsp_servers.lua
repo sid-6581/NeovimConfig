@@ -44,9 +44,6 @@ return {
         },
 
         lua_ls = {
-          handlers = {
-            ["workspace/applyEdit"] = function() return { applied = false } end,
-          },
           settings = {
             Lua = {
               completion = {
