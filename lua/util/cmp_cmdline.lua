@@ -10,9 +10,12 @@ source.new = function()
   return self
 end
 
-function source:get_keyword_pattern() return "." end
-
-function source:get_trigger_characters() return {} end
+function source:get_trigger_characters()
+  local ret = {}
+  local chars = [[ !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~]]
+  chars:gsub(".", function(c) table.insert(ret, c) end)
+  return ret
+end
 
 function source:complete(request, callback)
   local input = request.context.cursor_before_line
