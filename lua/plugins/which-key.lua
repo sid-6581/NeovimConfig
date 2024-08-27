@@ -218,6 +218,9 @@ return {
         { "<S-l>", "<CMD>bnext<CR>", desc = "Next buffer [which-key]" },
         { "Q", "<CMD>%bdelete|lua MiniStarter.open()<CR>", desc = "Delete all buffers [which-key]" },
         { "<Leader>bl", "<CMD>set buflisted<CR>", desc = "Make buffer listed [which-key]" },
+        { "<Leader>bnl", "<CMD>set nobuflisted<CR>", desc = "Make buffer unlisted [which-key]" },
+        { "<Leader>bm", "<CMD>set modified<CR>", desc = "Make buffer modified [which-key]" },
+        { "<Leader>bnm", "<CMD>set nomodified<CR>", desc = "Make buffer unmodified [which-key]" },
         {
           "<Leader>bh",
           function()
@@ -244,7 +247,6 @@ return {
           end,
           desc = "Delete other buffers [which-key]",
         },
-        { "<Leader>bu", "<CMD>set nobuflisted<CR>", desc = "Make buffer unlisted [which-key]" },
 
         -- Window opening/closing
         { "<Leader>-", "<CMD>new<CR>", desc = "Open new file in split [which-key]" },
