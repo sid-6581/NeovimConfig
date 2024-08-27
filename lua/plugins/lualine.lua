@@ -22,11 +22,11 @@ return {
         section_separators = { left = "", right = "" },
         always_divide_middle = true,
         globalstatus = true,
-        refresh = {
-          statusline = 100,
-          tabline = 100,
-          winbar = 100,
-        },
+        -- refresh = {
+        --   statusline = 100,
+        --   tabline = 100,
+        --   winbar = 100,
+        -- },
       },
       sections = {
         lualine_a = {
@@ -61,11 +61,6 @@ return {
           {
             require("noice").api.status.mode["get"],
             cond = require("noice").api.status.mode["has"],
-            color = { fg = "#ff9e64" },
-          },
-          {
-            require("noice").api.status.search["get"],
-            cond = require("noice").api.status.search["has"],
             color = { fg = "#ff9e64" },
           },
           {
