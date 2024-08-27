@@ -421,6 +421,7 @@ return {
         { "<C-j>", "<C-\\><C-N><C-w>j", desc = "Down [which-key]" },
         { "<C-k>", "<C-\\><C-N><C-w>k", desc = "Up [which-key]" },
         { "<C-l>", "<C-\\><C-N><C-w>l", desc = "Right [which-key]" },
+        { "<C-BS>", "<C-h>", desc = "Right [which-key]" },
         { "<S-Enter>", "<Enter>", desc = "Insert enter [which-key]" },
         { "<S-Space>", "<Space>", desc = "Insert space [which-key]" },
         { "<S-Esc>", "<C-\\><C-N>", desc = "Go to normal mode [which-key]" },
