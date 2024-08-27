@@ -49,12 +49,6 @@ return {
           },
         },
         lualine_c = {
-          {
-            function()
-              return vim.api.nvim_exec2("call b:VM_Selection.Funcs.infoline()", { output = true }).output:match("M.*")
-            end,
-            cond = function() return vim.b.visual_multi ~= 0 end,
-          },
           "aerial",
         },
         lualine_x = {
