@@ -83,6 +83,32 @@ return {
     { "n", function() require("flash").treesitter() end, mode = { "o", "x" }, desc = "Treesitter node [flash]" },
     { "N", function() require("flash").treesitter_search() end, mode = { "o", "x" }, desc = "Treesitter node search [flash]" },
     { "r", function() require("flash").remote() end, mode = { "o" }, desc = "Remote [flash]" },
+    {
+      "arl",
+      function()
+        require("flash").jump({
+          search = { mode = "search", max_length = 0 },
+          jump = { pos = "range" },
+          highlight = { matches = false },
+          pattern = [[^.*$]],
+        })
+      end,
+      mode = { "o", "x" },
+      desc = "Remote around line [flash]",
+    },
+    {
+      "irl",
+      function()
+        require("flash").jump({
+          search = { mode = "search", max_length = 0 },
+          jump = { pos = "range" },
+          highlight = { matches = false },
+          pattern = [[^\s*\zs.\{-}\ze\s*$]],
+        })
+      end,
+      mode = { "o", "x" },
+      desc = "Remote inside line [flash]",
+    },
     { "ara", gen_miniai("a", "a", true), mode = { "o", "x" }, desc = "Remote around argument [flash]" },
     { "ira", gen_miniai("i", "a", true), mode = { "o", "x" }, desc = "Remote inside argument [flash]" },
     { "arb", gen_miniai("a", "b", true), mode = { "o", "x" }, desc = "Remote around ()/[]/{} [flash]" },
