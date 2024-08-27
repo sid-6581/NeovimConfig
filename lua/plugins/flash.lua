@@ -1,5 +1,5 @@
 -- Generates a matcher for a mini.ai textobject.
-local function gen_miniai(ai_type, id)
+local function gen_miniai(ai_type, id, remote)
   return function()
     require("flash").jump({
 
@@ -28,13 +28,20 @@ local function gen_miniai(ai_type, id)
         return ret
       end,
 
-      search = { mode = "search", max_length = 0 },
-      jump = { pos = "range" },
-      highlight = { matches = false },
-      remote_op = {
+      search = {
+        mode = "search",
+        max_length = 0,
+      },
+      jump = {
+        pos = remote and "range" or "start",
+      },
+      highlight = {
+        matches = false,
+      },
+      remote_op = remote and {
         restore = true,
         motion = true,
-      },
+      } or nil,
     })
   end
 end
@@ -64,38 +71,49 @@ return {
     },
     {
       "gw",
-      function() require("flash").jump({ search = { mode = "search", max_length = 0 }, pattern = "\\<" }) end,
+      function()
+        require("flash").jump({
+          search = { mode = "search", max_length = 0 },
+          highlight = { matches = false },
+          pattern = "\\<",
+        })
+      end,
       desc = "Go to word start [flash]",
     },
     { "n", function() require("flash").treesitter() end, mode = { "o", "x" }, desc = "Treesitter node [flash]" },
     { "N", function() require("flash").treesitter_search() end, mode = { "o", "x" }, desc = "Treesitter node search [flash]" },
     { "r", function() require("flash").remote() end, mode = { "o" }, desc = "Remote [flash]" },
-    { "ara", gen_miniai("a", "a"), mode = { "o", "x" }, desc = "Remote around argument [flash]" },
-    { "ira", gen_miniai("i", "a"), mode = { "o", "x" }, desc = "Remote inside argument [flash]" },
-    { "arb", gen_miniai("a", "b"), mode = { "o", "x" }, desc = "Remote around ()/[]/{} [flash]" },
-    { "irb", gen_miniai("i", "b"), mode = { "o", "x" }, desc = "Remote inside ()/[]/{} [flash]" },
-    { "arq", gen_miniai("a", "q"), mode = { "o", "x" }, desc = "Remote around \"/'/` [flash]" },
-    { "irq", gen_miniai("i", "q"), mode = { "o", "x" }, desc = "Remote inside \"/'/` [flash]" },
-    { "arf", gen_miniai("a", "f"), mode = { "o", "x" }, desc = "Remote around function call [flash]" },
-    { "irf", gen_miniai("i", "f"), mode = { "o", "x" }, desc = "Remote inside function call [flash]" },
-    { "arF", gen_miniai("a", "F"), mode = { "o", "x" }, desc = "Remote outer function [flash]" },
-    { "irF", gen_miniai("i", "F"), mode = { "o", "x" }, desc = "Remote inner function [flash]" },
-    { "ar\"", gen_miniai("a", "\""), mode = { "o", "x" }, desc = "Remote around \" [flash]" },
-    { "ir\"", gen_miniai("i", "\""), mode = { "o", "x" }, desc = "Remote inside \" [flash]" },
-    { "ar'", gen_miniai("a", "'"), mode = { "o", "x" }, desc = "Remote around ' [flash]" },
-    { "ir'", gen_miniai("i", "'"), mode = { "o", "x" }, desc = "Remote inside ' [flash]" },
-    { "ar)", gen_miniai("a", ")"), mode = { "o", "x" }, desc = "Remote around () [flash]" },
-    { "ir)", gen_miniai("i", ")"), mode = { "o", "x" }, desc = "Remote inside () [flash]" },
-    { "ar}", gen_miniai("a", "}"), mode = { "o", "x" }, desc = "Remote around {} [flash]" },
-    { "ir}", gen_miniai("i", "}"), mode = { "o", "x" }, desc = "Remote inside {} [flash]" },
-    { "ar>", gen_miniai("a", ">"), mode = { "o", "x" }, desc = "Remote around <> [flash]" },
-    { "ir>", gen_miniai("i", ">"), mode = { "o", "x" }, desc = "Remote inside <> [flash]" },
-    { "ar(", gen_miniai("a", "("), mode = { "o", "x" }, desc = "Remote around () [flash]" },
-    { "ir(", gen_miniai("i", "("), mode = { "o", "x" }, desc = "Remote inside () [flash]" },
-    { "ar{", gen_miniai("a", "{"), mode = { "o", "x" }, desc = "Remote around {} [flash]" },
-    { "ir{", gen_miniai("i", "{"), mode = { "o", "x" }, desc = "Remote inside {} [flash]" },
-    { "ar<", gen_miniai("a", "<"), mode = { "o", "x" }, desc = "Remote around <> [flash]" },
-    { "ir<", gen_miniai("i", "<"), mode = { "o", "x" }, desc = "Remote inside <> [flash]" },
+    { "ara", gen_miniai("a", "a", true), mode = { "o", "x" }, desc = "Remote around argument [flash]" },
+    { "ira", gen_miniai("i", "a", true), mode = { "o", "x" }, desc = "Remote inside argument [flash]" },
+    { "arb", gen_miniai("a", "b", true), mode = { "o", "x" }, desc = "Remote around ()/[]/{} [flash]" },
+    { "irb", gen_miniai("i", "b", true), mode = { "o", "x" }, desc = "Remote inside ()/[]/{} [flash]" },
+    { "arq", gen_miniai("a", "q", true), mode = { "o", "x" }, desc = "Remote around \"/'/` [flash]" },
+    { "irq", gen_miniai("i", "q", true), mode = { "o", "x" }, desc = "Remote inside \"/'/` [flash]" },
+    { "arf", gen_miniai("a", "f", true), mode = { "o", "x" }, desc = "Remote around function call [flash]" },
+    { "irf", gen_miniai("i", "f", true), mode = { "o", "x" }, desc = "Remote inside function call [flash]" },
+    { "arF", gen_miniai("a", "F", true), mode = { "o", "x" }, desc = "Remote outer function [flash]" },
+    { "irF", gen_miniai("i", "F", true), mode = { "o", "x" }, desc = "Remote inner function [flash]" },
+    { "ar\"", gen_miniai("a", "\"", true), mode = { "o", "x" }, desc = "Remote around \" [flash]" },
+    { "ir\"", gen_miniai("i", "\"", true), mode = { "o", "x" }, desc = "Remote inside \" [flash]" },
+    { "ar'", gen_miniai("a", "'", true), mode = { "o", "x" }, desc = "Remote around ' [flash]" },
+    { "ir'", gen_miniai("i", "'", true), mode = { "o", "x" }, desc = "Remote inside ' [flash]" },
+    { "ar)", gen_miniai("a", ")", true), mode = { "o", "x" }, desc = "Remote around () [flash]" },
+    { "ir)", gen_miniai("i", ")", true), mode = { "o", "x" }, desc = "Remote inside () [flash]" },
+    { "ar}", gen_miniai("a", "}", true), mode = { "o", "x" }, desc = "Remote around {} [flash]" },
+    { "ir}", gen_miniai("i", "}", true), mode = { "o", "x" }, desc = "Remote inside {} [flash]" },
+    { "ar>", gen_miniai("a", ">", true), mode = { "o", "x" }, desc = "Remote around <> [flash]" },
+    { "ir>", gen_miniai("i", ">", true), mode = { "o", "x" }, desc = "Remote inside <> [flash]" },
+    { "ar(", gen_miniai("a", "(", true), mode = { "o", "x" }, desc = "Remote around () [flash]" },
+    { "ir(", gen_miniai("i", "(", true), mode = { "o", "x" }, desc = "Remote inside () [flash]" },
+    { "ar{", gen_miniai("a", "{", true), mode = { "o", "x" }, desc = "Remote around {} [flash]" },
+    { "ir{", gen_miniai("i", "{", true), mode = { "o", "x" }, desc = "Remote inside {} [flash]" },
+    { "ar<", gen_miniai("a", "<", true), mode = { "o", "x" }, desc = "Remote around <> [flash]" },
+    { "ir<", gen_miniai("i", "<", true), mode = { "o", "x" }, desc = "Remote inside <> [flash]" },
+    { "gib", gen_miniai("i", "b", false), desc = "Remote ()/[]/{} [flash]" },
+    { "giq", gen_miniai("i", "q", false), desc = "Remote \"/'/` [flash]" },
+    { "gif", gen_miniai("i", "f", false), desc = "Remote function call [flash]" },
+    { "giF", gen_miniai("i", "F", false), desc = "Remote function [flash]" },
+    { "gia", gen_miniai("i", "a", false), desc = "Remote argument [flash]" },
   },
 
   opts = {
@@ -139,7 +157,7 @@ return {
   config = function(_, opts)
     require("flash").setup(opts)
     local colors = require("util.colors").colors
-    vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ffffff", bg = colors.faded_orange })
+    vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ffffff", bg = "#000000" })
     vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = colors.gray })
   end,
 }
