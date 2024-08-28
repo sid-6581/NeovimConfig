@@ -75,7 +75,7 @@ return {
 
         -- Document highlights
         if client.supports_method("textDocument/documentHighlight") then
-          vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+          vim.api.nvim_create_autocmd({ "CursorHold" }, {
             group = vim.api.nvim_create_augroup("LspDocumentHighlight." .. augroup_suffix, {}),
             buffer = bufnr,
             callback = function()
