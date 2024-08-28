@@ -2,23 +2,24 @@ if vim.fn.exists("g:neovide") ~= 0 then
   vim.opt.guifont = "JetBrainsMono\\ Nerd\\ Font:h9.5:#h-full"
 end
 
+vim.g.neovide_confirm_quit = false
+vim.g.neovide_cursor_animation_length = 0.0
+vim.g.neovide_cursor_vfx_mode = ""
+vim.g.neovide_floating_blur_amount_x = 0.0
+vim.g.neovide_floating_blur_amount_y = 0.0
+vim.g.neovide_floating_shadow = false
+vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_position_animation_length = 0.0
+vim.g.neovide_remember_window_size = true
+vim.g.neovide_scroll_animation_far_lines = 0
+vim.g.neovide_scroll_animation_length = 0.0
+
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
-vim.g.neovide_confirm_quit = false
-vim.g.neovide_cursor_animation_length = 0
-vim.g.neovide_cursor_vfx_mode = ""
-vim.g.neovide_floating_shadow = false
--- vim.g.neovide_no_idle = true
--- vim.g.neovide_refresh_rate = 120
-vim.g.neovide_remember_window_size = true
-vim.g.neovide_scroll_animation_far_lines = 0
-vim.g.neovide_scroll_animation_length = 0.0
--- vim.g.neovide_underline_stroke_scale = 0.5
--- vim.g.neovide_unlink_border_highlights = false
 
 vim.opt.autowrite = true
 vim.opt.backup = true
