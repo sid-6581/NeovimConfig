@@ -52,7 +52,7 @@ return {
 
     presets = {
       bottom_search = true,
-      command_palette = false,
+      command_palette = true,
       long_message_to_split = true,
       inc_rename = false,
       lsp_doc_border = true,
@@ -60,9 +60,6 @@ return {
 
     views = {
       cmdline_popup = {
-        position = {
-          row = "30%",
-        },
         border = {
           style = "single",
         },
@@ -77,10 +74,6 @@ return {
         },
       },
       confirm = {
-        position = {
-          row = "50%",
-          col = "50%",
-        },
         border = {
           style = "single",
         },
