@@ -22,6 +22,10 @@ end
 return {
   "echasnovski/mini.pick",
 
+  keys = {
+    { "<C-.>", function() require("mini.pick").builtin.files() end, desc = "Files [mini.pick]" },
+  },
+
   opts = {
     mappings = {
       caret_left = "<Left>",

@@ -101,6 +101,7 @@ return {
         { pattern = "%[mini.files%]", icon = "󰙅 mini.files", color = "cyan" },
         { pattern = "%[mini.move%]", icon = " mini.move", color = "green" },
         { pattern = "%[mini.operators%]", icon = " mini.operators", color = "green" },
+        { pattern = "%[mini.pick%]", icon = "󰢷 mini.pick", color = "cyan" },
         { pattern = "%[mini.splitjoin%]", icon = " mini.splitjoin", color = "green" },
         { pattern = "%[mini.visits%]", icon = " mini.visits", color = "cyan" },
         { pattern = "%[neo%-tree%]", icon = "󰙅 neo-tree", color = "cyan" },

@@ -59,7 +59,6 @@ return {
     { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers [telescope]" },
     { "<Leader>fc", function() require("telescope.builtin").commands() end, desc = "Commands [telescope]" },
     { "<Leader>ff", function() require("telescope.builtin").find_files() end, desc = "Files [telescope]" },
-    { "<C-.>", function() require("telescope.builtin").find_files() end, desc = "Files [telescope]" },
     {
       "<Leader>fF",
       function()
