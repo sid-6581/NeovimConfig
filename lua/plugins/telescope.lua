@@ -83,7 +83,7 @@ return {
     { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files [telescope]" },
     {
       "<Leader>fs",
-      function() require("telescope.builtin").symbols(cursor_theme({ sources = { "emoji", "gitmoji", "nerd" } })) end,
+      function() require("telescope.builtin").symbols(cursor_theme({ sources = { "nerd3", "emoji", "gitmoji" } })) end,
       desc = "Symbols [telescope]",
     },
     { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text [telescope]" },
