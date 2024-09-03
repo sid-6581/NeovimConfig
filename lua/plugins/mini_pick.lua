@@ -70,9 +70,10 @@ return {
       to_quickfix = {
         char = "<C-q>",
         func = function()
-          local items = MiniPick.get_picker_items() or {}
-          MiniPick.default_choose_marked(items)
-          MiniPick.stop()
+          local pick = require("mini.pick")
+          local items = pick.get_picker_items() or {}
+          pick.default_choose_marked(items)
+          pick.stop()
         end,
       },
     },
