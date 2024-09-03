@@ -60,6 +60,9 @@ return {
 
     views = {
       cmdline_popup = {
+        position = {
+          row = -3,
+        },
         border = {
           style = "single",
         },
