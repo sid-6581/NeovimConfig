@@ -1,8 +1,10 @@
 -- Generates a matcher for a mini.ai textobject.
 local function gen_miniai(ai_type, id, remote)
   return function()
-    require("flash").jump({
+    local old_virtualedit = vim.opt.virtualedit:get()
+    vim.opt.virtualedit:append("onemore")
 
+    require("flash").jump({
       matcher = function()
         local ret = {}
         local region = { from = { line = 1, col = 1 } }
@@ -13,7 +15,9 @@ local function gen_miniai(ai_type, id, remote)
             search_method = "next",
           })
 
-          if not new_region then break end
+          if not new_region then
+            break
+          end
 
           if new_region.to then
             table.insert(ret, {
@@ -43,6 +47,8 @@ local function gen_miniai(ai_type, id, remote)
         motion = true,
       } or nil,
     })
+
+    vim.schedule(function() vim.opt.virtualedit = old_virtualedit end)
   end
 end
 
