@@ -38,7 +38,7 @@ return {
         local open_with = function(lhs, cmd, desc)
           local rhs = function()
             local new_target_window
-            vim.api.nvim_win_call(require("mini.files").get_target_window() or 0, function()
+            vim.api.nvim_win_call(require("mini.files").get_explorer_state().target_window or 0, function()
               vim.cmd(cmd)
               new_target_window = vim.api.nvim_get_current_win()
             end)
