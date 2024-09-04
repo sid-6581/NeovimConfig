@@ -72,6 +72,9 @@ return {
 
     indent = {
       enable = true,
+      disable = {
+        "vue",
+      },
     },
 
     endwise = {
