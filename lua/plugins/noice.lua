@@ -77,6 +77,9 @@ return {
         },
       },
       confirm = {
+        position = {
+          row = "50%",
+        },
         border = {
           style = "single",
         },
