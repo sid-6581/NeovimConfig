@@ -55,27 +55,27 @@ return {
       end,
     })
 
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "MiniFilesWindowUpdate",
-
-      callback = function(args)
-        local config = vim.api.nvim_win_get_config(args.data.win_id)
-        config.height = vim.o.lines - 4 - vim.o.cmdheight
-
-        if config.width == 100 then
-          config.width = vim.o.columns - 2 - config.col
-        end
-
-        if config.title[#config.title][1] ~= " " then
-          table.insert(config.title, { " ", "NormalFloat" })
-        end
-
-        if config.title[1][1] ~= " " then
-          table.insert(config.title, 1, { " ", "NormalFloat" })
-        end
-
-        vim.api.nvim_win_set_config(args.data.win_id, config)
-      end,
-    })
+    -- vim.api.nvim_create_autocmd("User", {
+    --   pattern = "MiniFilesWindowUpdate",
+    --
+    --   callback = function(args)
+    --     local config = vim.api.nvim_win_get_config(args.data.win_id)
+    --     config.height = vim.o.lines - 4 - vim.o.cmdheight
+    --
+    --     if config.width == 100 then
+    --       config.width = vim.o.columns - 2 - config.col
+    --     end
+    --
+    --     if config.title[#config.title][1] ~= " " then
+    --       table.insert(config.title, { " ", "NormalFloat" })
+    --     end
+    --
+    --     if config.title[1][1] ~= " " then
+    --       table.insert(config.title, 1, { " ", "NormalFloat" })
+    --     end
+    --
+    --     vim.api.nvim_win_set_config(args.data.win_id, config)
+    --   end,
+    -- })
   end,
 }
