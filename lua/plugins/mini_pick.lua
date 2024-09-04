@@ -71,9 +71,9 @@ return {
         char = "<C-q>",
         func = function()
           local pick = require("mini.pick")
-          local items = pick.get_picker_items() or {}
+          local items = pick.get_picker_matches().all or {}
           pick.default_choose_marked(items)
-          pick.stop()
+          return true
         end,
       },
     },
