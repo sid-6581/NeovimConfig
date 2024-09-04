@@ -153,7 +153,7 @@ return {
               end
 
               vim.cmd.lcd(dir)
-              require("neo-tree.command").execute({ action = "focus", dir = dir })
+              require("neo-tree.command").execute({ action = "show", dir = dir })
             end)
 
             return true
