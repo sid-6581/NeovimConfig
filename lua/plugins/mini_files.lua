@@ -35,7 +35,7 @@ return {
       callback = function(args)
         local buf_id = args.data.buf_id
 
-        local open_with = function(lhs, cmd, desc)
+        local map_open = function(lhs, cmd, desc)
           local rhs = function()
             local new_target_window
             vim.api.nvim_win_call(require("mini.files").get_explorer_state().target_window or 0, function()
@@ -50,8 +50,9 @@ return {
           vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
         end
 
-        open_with("<C-S>", "split", "Open in horizontal split [mini.files]")
-        open_with("<C-V>", "vsplit", "Open in vertical split [mini.files]")
+        map_open("<C-S>", "split", "Open in horizontal split [mini.files]")
+        map_open("<C-V>", "vsplit", "Open in vertical split [mini.files]")
+        vim.keymap.set("n", "<Esc>", function() require("mini.files").close() end, { buffer = buf_id, desc = "Close [mini.files]" })
       end,
     })
 
