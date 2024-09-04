@@ -11,8 +11,6 @@ return {
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
     require("lspconfig.ui.windows").default_options.border = "single"
-    vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
-    vim.api.nvim_set_hl(0, "LspReferenceText", {})
 
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
@@ -62,37 +60,43 @@ return {
         -- Refresh codelens
         if client.supports_method("textDocument/codeLens") then
           vim.lsp.codelens.refresh({ bufnr = bufnr })
-          vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave" }, {
-            group = vim.api.nvim_create_augroup("LspCodeLensRefresh." .. augroup_suffix, {}),
-            buffer = bufnr,
-            callback = function()
-              if vim.lsp.buf_is_attached(bufnr, client.id) then
-                vim.lsp.codelens.refresh({ bufnr = bufnr })
-              end
-            end,
-          })
+          vim.api.nvim_create_autocmd(
+            { "BufEnter", "InsertLeave" },
+            {
+              group = vim.api.nvim_create_augroup("LspCodeLensRefresh." .. augroup_suffix, {}),
+              buffer = bufnr,
+              callback = function()
+                if vim.lsp.buf_is_attached(bufnr, client.id) then
+                  vim.lsp.codelens.refresh({ bufnr = bufnr })
+                end
+              end,
+            })
         end
 
         -- Document highlights
         if client.supports_method("textDocument/documentHighlight") then
-          vim.api.nvim_create_autocmd({ "CursorHold" }, {
-            group = vim.api.nvim_create_augroup("LspDocumentHighlight." .. augroup_suffix, {}),
-            buffer = bufnr,
-            callback = function()
-              if vim.api.nvim_buf_is_valid(bufnr) and vim.lsp.buf_is_attached(bufnr, client.id) then
-                vim.lsp.buf.document_highlight()
-              end
-            end,
-          })
-          vim.api.nvim_create_autocmd({ "CursorMoved" }, {
-            group = vim.api.nvim_create_augroup("LspClearReferences." .. augroup_suffix, {}),
-            buffer = bufnr,
-            callback = function()
-              if vim.api.nvim_buf_is_valid(bufnr) and vim.lsp.buf_is_attached(bufnr, client.id) then
-                vim.lsp.buf.clear_references()
-              end
-            end,
-          })
+          vim.api.nvim_create_autocmd(
+            { "CursorHold", "InsertLeave" },
+            {
+              group = vim.api.nvim_create_augroup("LspDocumentHighlight." .. augroup_suffix, {}),
+              buffer = bufnr,
+              callback = function()
+                if vim.api.nvim_buf_is_valid(bufnr) and vim.lsp.buf_is_attached(bufnr, client.id) then
+                  vim.lsp.buf.document_highlight()
+                end
+              end,
+            })
+          vim.api.nvim_create_autocmd(
+            { "CursorMoved", "InsertEnter" },
+            {
+              group = vim.api.nvim_create_augroup("LspClearReferences." .. augroup_suffix, {}),
+              buffer = bufnr,
+              callback = function()
+                if vim.api.nvim_buf_is_valid(bufnr) and vim.lsp.buf_is_attached(bufnr, client.id) then
+                  vim.lsp.buf.clear_references()
+                end
+              end,
+            })
         end
       end,
     })

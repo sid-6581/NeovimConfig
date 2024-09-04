@@ -13,6 +13,8 @@ return {
         VertSplit = { bg = "", blend = 0 },
         IncSearch = { fg = colors.dark0, bg = colors.neutral_yellow, reverse = false },
         Search = { fg = colors.dark0, bg = colors.faded_yellow, reverse = false },
+        LspReferenceRead = { fg = "", bg = "", underdotted = true },
+        LspReferenceWrite = { fg = "", bg = "", underline = true },
 
         DiagnosticVirtualTextError = { fg = colors.bright_red, italic = true },
         DiagnosticVirtualTextWarn = { fg = colors.bright_yellow, italic = true },
@@ -68,6 +70,8 @@ return {
     vim.api.nvim_set_hl(0, "SignColumn", { link = "LineNr" })
     vim.api.nvim_set_hl(0, "FloatBorder", { link = "WinSeparator" })
     vim.api.nvim_set_hl(0, "FloatTitle", { link = "Title" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { link = "GruvboxFg1" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
+    vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
+    vim.api.nvim_set_hl(0, "LspReferenceText", {})
   end,
 }
