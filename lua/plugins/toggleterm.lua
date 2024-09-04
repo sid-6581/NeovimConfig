@@ -40,8 +40,10 @@ return {
         },
       },
       float_opts = {
-        width = function() return vim.o.columns - 2 end,
-        height = function() return vim.o.lines - 4 - vim.o.cmdheight end,
+        -- width = function() return vim.o.columns - 2 end,
+        -- height = function() return vim.o.lines - 4 - vim.o.cmdheight end,
+        width = function() return math.floor(vim.o.columns * 0.9) end,
+        height = function() return math.floor((vim.o.lines - vim.o.cmdheight) * 0.9) end,
         border = "single",
         winblend = 0,
       },

@@ -180,8 +180,10 @@ return {
           prompt_position = "top",
           horizontal = {
             preview_width = 0.6,
-            height = function() return vim.o.lines end,
-            width = function() return vim.o.columns end,
+            -- height = function() return vim.o.lines end,
+            -- width = function() return vim.o.columns end,
+            height = 0.9,
+            width = 0.9,
           },
         },
         borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
