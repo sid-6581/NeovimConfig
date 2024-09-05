@@ -77,8 +77,6 @@ function M.win_filter(filter, winid)
     return false
   end
 
-  local bufnr = vim.api.nvim_win_get_buf(winid)
-
   if filter.normal ~= nil then
     if filter.normal ~= (vim.api.nvim_win_get_config(winid).relative == "") then
       return false
@@ -98,15 +96,17 @@ function M.win_filter(filter, winid)
     end
   end
 
+  local win_bufnr = vim.api.nvim_win_get_buf(winid)
+
   if filter.bufnr ~= nil then
-    local actual_bufnr = filter.bufnr ~= 0 and filter.bufnr or vim.api.nvim_get_current_buf()
-    if actual_bufnr ~= bufnr then
+    local bufnr = filter.bufnr ~= 0 and filter.bufnr or vim.api.nvim_get_current_buf()
+    if bufnr ~= win_bufnr then
       return false
     end
   end
 
   if filter.buf ~= nil then
-    if not M.buf_filter(filter.buf, bufnr) then
+    if not M.buf_filter(filter.buf, win_bufnr) then
       return false
     end
   end
@@ -143,25 +143,18 @@ function M.close_window_or_buffer()
   end
 
   -- If the buffer is open in any other window (even on other tab pages), we close the window.
-  -- If we're closing the only window containing this buffer, we delete the buffer to remove
-  -- it from the listed buffers. The window will be closed automatically.
   if #windows_with_buffer > 1 then
     vim.cmd.quit()
-  else
-    -- If there are multiple tab pages and only one normal window, we have to be careful.
-    -- We can't just delete the buffer, because that can also close the tab page.
-    if #vim.api.nvim_list_tabpages() > 1 and #M.windows({ tabpage = 0, normal = true }) == 1 then
-      require("mini.bufremove").delete()
-    else
-      vim.cmd.bdelete()
-    end
+    return
   end
 
-  -- If we are now left with a tab page with a single window containing a no name buffer,
-  -- we close the window.
-  if #M.windows({ tabpage = 0, normal = true }) == 1 and M.buf_filter({ noname = true }) then
-    vim.cmd.quit()
+  -- If this is a normal buffer, we do a safe delete.
+  if M.buf_filter({ normal = true }) then
+    require("mini.bufremove").delete()
+    return
   end
+
+  vim.cmd.bdelete()
 end
 
 return M
