@@ -148,8 +148,8 @@ function M.close_window_or_buffer()
     return
   end
 
-  -- If this is a normal buffer, we do a safe delete.
-  if M.buf_filter({ normal = true }) then
+  -- If this is a normal buffer and there are no other windows with normal buffers on this tab page, we do a safe delete.
+  if M.buf_filter({ normal = true }) and #M.windows({ tabpage = 0, buf = { normal = true } }) == 1 then
     require("mini.bufremove").delete()
     return
   end
