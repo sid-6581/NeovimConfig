@@ -109,6 +109,7 @@ return {
             { event = "msg_show", find = "change;" },
             { event = "msg_show", find = "^/" },
             { event = "msg_show", find = "B written" },
+            { event = "notify", find = "Treesitter parser for 'latex' wasn't found" },
             { error = true, find = "Pattern not found" },
             { error = true, find = "Error executing luv callback" },
             { event = "lsp", kind = "progress", find = "code_action" },
