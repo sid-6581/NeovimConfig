@@ -4,10 +4,10 @@ return {
 
   keys = {
     { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank text [yanky]" },
-    { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put yanked text after cursor [yanky]" },
-    { "P", "<Plug>(YankyGPutBefore)", mode = { "n", "x" }, desc = "Put yanked text before cursor [yanky]" },
-    -- { mode = { "n", "x" }, "gp", "<Plug>(YankyGPutAfter)", desc = "Put yanked text after selection [yanky]" },
-    -- { mode = { "n", "x" }, "gP", "<Plug>(YankyGPutBefore)", desc = "Put yanked text before selection [yanky]" },
+    { "p", "<Plug>(YankyPutAfter)", mode = { "n" }, desc = "Put yanked text after cursor [yanky]" },
+    { "P", "<Plug>(YankyGPutBefore)", mode = { "n" }, desc = "Put yanked text before cursor [yanky]" },
+    { "p", "<Plug>(YankyPutAfter)", mode = { "x" }, desc = "Replace text with yanked [yanky]" },
+    { "P", "<Plug>(YankyPutBefore)", mode = { "x" }, desc = "Replace text with yanked [yanky]" },
     { "[y", "<Plug>(YankyCycleForward)", desc = "Cycle forward through yank history [yanky]" },
     { "]y", "<Plug>(YankyCycleBackward)", desc = "Cycle backward through yank history [yanky]" },
     { "]p", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put indented after cursor (linewise) [yanky]" },

@@ -411,7 +411,6 @@ return {
         { "<Leader>su", ":sort iu<CR>", desc = "Sort lines unique [which-key]" },
         { "<lt>", "<lt>gv", desc = "Decrease indent [which-key]" },
         { ">", ">gv", desc = "Increase indent [which-key]" },
-        { "p", '"_dP', desc = "Paste [which-key]" },
         { ",.", "<C-U>", desc = "Scroll up [which-key]" },
         { ",/", "<C-D>", desc = "Scroll down [which-key]" },
       },
