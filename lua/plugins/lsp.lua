@@ -148,10 +148,6 @@ return {
         opts.servers[server_name] or {}
       )
 
-      if server_name == "tsserver" then
-        server_name = "ts_ls"
-      end
-
       require("lspconfig")[server_name].setup(server_opts)
     end
 
