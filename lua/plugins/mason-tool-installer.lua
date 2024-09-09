@@ -21,6 +21,7 @@ return {
       "lemminx",
       "lua-language-server",
       "markdown-oxide",
+      "prettierd",
       "pyright",
       "ruff",
       "shellcheck",

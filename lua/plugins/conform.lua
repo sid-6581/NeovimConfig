@@ -32,6 +32,7 @@ return {
 
     formatters_by_ft = {
       bash = { "shellharden" },
+      css = { "prettierd" },
       hcl = { "packer_fmt" },
       justfile = { "indent_buffer" },
       lua = function(bufnr)
