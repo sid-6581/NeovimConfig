@@ -20,6 +20,7 @@ return {
       "json-lsp",
       "lemminx",
       "lua-language-server",
+      "markdown-oxide",
       "pyright",
       "ruff",
       "shellcheck",
