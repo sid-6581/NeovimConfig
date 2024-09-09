@@ -134,8 +134,6 @@ end
 
 -- Smart buffer closing.
 function M.close_window_or_buffer()
-  local windows_with_buffer = M.windows({ bufnr = 0 })
-
   -- If we're in a no name buffer, we close the window.
   if M.buf_filter({ noname = true }) then
     vim.cmd.quit()
@@ -143,7 +141,7 @@ function M.close_window_or_buffer()
   end
 
   -- If the buffer is open in any other window (even on other tab pages), we close the window.
-  if #windows_with_buffer > 1 then
+  if #M.windows({ bufnr = 0 }) > 1 then
     vim.cmd.quit()
     return
   end

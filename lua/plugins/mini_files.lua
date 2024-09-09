@@ -33,26 +33,31 @@ return {
       pattern = "MiniFilesBufferCreate",
 
       callback = function(args)
-        local buf_id = args.data.buf_id
-
         local map_open = function(lhs, cmd, desc)
           local rhs = function()
-            local new_target_window
-            vim.api.nvim_win_call(require("mini.files").get_explorer_state().target_window or 0, function()
-              vim.cmd(cmd)
-              new_target_window = vim.api.nvim_get_current_win()
-            end)
+            local new_target_window = vim.api.nvim_win_call(
+              require("mini.files").get_explorer_state().target_window or 0,
+              function()
+                vim.cmd(cmd)
+                return vim.api.nvim_get_current_win()
+              end
+            )
 
             require("mini.files").set_target_window(new_target_window)
-            require("mini.files").close()
+            require("mini.files").go_in({ close_on_file = true })
           end
 
-          vim.keymap.set("n", lhs, rhs, { buffer = buf_id, desc = desc })
+          vim.keymap.set("n", lhs, rhs, { buffer = args.data.buf_id, desc = desc })
         end
 
-        map_open("<C-S>", "split", "Open in horizontal split [mini.files]")
-        map_open("<C-V>", "vsplit", "Open in vertical split [mini.files]")
-        vim.keymap.set("n", "<Esc>", function() require("mini.files").close() end, { buffer = buf_id, desc = "Close [mini.files]" })
+        map_open("<C-s>", "split", "Open in horizontal split [mini.files]")
+        map_open("<C-v>", "vsplit", "Open in vertical split [mini.files]")
+        vim.keymap.set(
+          "n",
+          "<Esc>",
+          function() require("mini.files").close() end,
+          { buffer = args.data.buf_id, desc = "Close [mini.files]" }
+        )
       end,
     })
 
