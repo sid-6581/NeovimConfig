@@ -11,17 +11,8 @@ return {
         },
 
         eslint = {
-          on_attach = function(_client, bufnr)
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              buffer = bufnr,
-              callback = function()
-                if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-                  return
-                end
-
-                vim.cmd("EslintFixAll")
-              end,
-            })
+          on_attach = function(client, _bufnr)
+            client.server_capabilities.documentFormattingProvider = true
           end,
         },
 
