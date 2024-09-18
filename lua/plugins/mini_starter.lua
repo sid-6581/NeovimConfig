@@ -50,7 +50,7 @@ return {
           1, 10
         ),
 
-        starter.sections.recent_files(10, false),
+        starter.sections.recent_files(10, false, false),
       },
 
       content_hooks = {
