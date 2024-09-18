@@ -11,8 +11,7 @@ return {
     mappings = {
       go_in = "",
       go_in_plus = "<CR>",
-      go_out = "H",
-      go_out_plug = "",
+      go_out = "",
       show_help = "?",
       synchronize = "=",
     },
@@ -52,11 +51,27 @@ return {
 
         map_open("<C-s>", "split", "Open in horizontal split [mini.files]")
         map_open("<C-v>", "vsplit", "Open in vertical split [mini.files]")
+
         vim.keymap.set(
           "n",
           "<Esc>",
           function() require("mini.files").close() end,
           { buffer = args.data.buf_id, desc = "Close [mini.files]" }
+        )
+
+        vim.keymap.set(
+          "n",
+          "h",
+          function()
+            local _, col = unpack(vim.api.nvim_win_get_cursor(0))
+            vim.notify(vim.inspect(col))
+            if col <= 10 then
+              require("mini.files").go_out()
+            else
+              vim.cmd.normal({ "h", bang = true })
+            end
+          end,
+          { buffer = args.data.buf_id, desc = "Go out [mini.files]" }
         )
       end,
     })
