@@ -64,11 +64,11 @@ return {
           "h",
           function()
             local _, col = unpack(vim.api.nvim_win_get_cursor(0))
-            vim.notify(vim.inspect(col))
-            if col <= 10 then
+            vim.cmd.normal({ "h", bang = true })
+            require("mini.files").refresh()
+            local _, new_col = unpack(vim.api.nvim_win_get_cursor(0))
+            if col == new_col then
               require("mini.files").go_out()
-            else
-              vim.cmd.normal({ "h", bang = true })
             end
           end,
           { buffer = args.data.buf_id, desc = "Go out [mini.files]" }
