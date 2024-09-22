@@ -189,7 +189,7 @@ return {
   config = function(_, opts)
     require("flash").setup(opts)
     local colors = require("util.colors").colors
-    vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ffffff", bg = "#000000" })
+    vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ffffff", bg = colors.faded_red })
     vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = colors.gray })
   end,
 }
