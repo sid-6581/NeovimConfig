@@ -1,5 +1,5 @@
 if vim.fn.exists("g:neovide") ~= 0 then
-  vim.opt.guifont = "JetBrainsMono\\ Nerd\\ Font:h9.5:#h-full"
+  vim.opt.guifont = "JetBrainsMono Nerd Font:h9.5"
 end
 
 vim.g.neovide_confirm_quit = false
