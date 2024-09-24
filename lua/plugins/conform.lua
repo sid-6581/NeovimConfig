@@ -81,7 +81,7 @@ return {
       bash = { "shellharden" },
       css = { "prettierd" },
       hcl = { "packer_fmt" },
-      justfile = { "indent_buffer" },
+      just = { "indent_buffer" },
       lua = function(bufnr)
         return vim.api.nvim_buf_call(bufnr, function()
           return #vim.fs.find(
