@@ -31,16 +31,24 @@ return {
 
     filter = function(mapping)
       if mapping.rhs and type(mapping.rhs) == "string" then
+        -- vim-visual-multi
         if mapping.rhs:match("VM%-") then
+          -- Hide noisy vim-replicating mappings.
+          if mapping.rhs:match("VM%-Motion") or mapping.rhs:match("VM%-.%)") then
+            return false
+          end
+
           mapping.desc = mapping.rhs .. " [visual-multi]"
           return true
         end
 
+        -- nvim-surround
         if mapping.rhs:match("nvim%-surround") then
           mapping.desc = mapping.rhs .. " [surround]"
           return true
         end
 
+        -- mini.nvim
         local _, _, mini_plugin = mapping.rhs:find("Mini(%u%a+)")
         if mini_plugin and mapping.desc then
           mapping.desc = mapping.desc .. " [mini." .. mini_plugin:lower() .. "]"
@@ -252,10 +260,7 @@ return {
 
         -- Window opening/closing
         { "<Leader>-", "<CMD>new<CR>", desc = "Open new file in split [which-key]" },
-        { "<Leader>.-", "<CMD>new %:h<CR>", desc = "Edit current directory in split [which-key]" },
-        { "<Leader>.\\", "<CMD>vnew %:h<CR>", desc = "Edit current directory in vsplit [which-key]" },
         { "<Leader><Leader>-", "<CMD>split<CR>", desc = "Open current file in split [which-key]" },
-        { "<Leader><Leader>.", "<CMD>e %:h<CR>", desc = "Edit current directory [which-key]" },
         { "<Leader><Leader>\\", "<CMD>vsplit<CR>", desc = "Open current file in vsplit [which-key]" },
         { "<Leader>\\", "<CMD>vnew<CR>", desc = "Open new file in vsplit [which-key]" },
         { "<Leader>wT", "<C-W>T", desc = "Open current window in new tab [which-key]" },
