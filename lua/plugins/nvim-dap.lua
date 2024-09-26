@@ -28,8 +28,8 @@ return {
     { "<Leader>df", function() require("dap.ui.widgets").centered_float(require("dap.ui.widgets").frames) end, desc = "Debug frames [dap]" },
     { "<Leader>ds", function() require("dap.ui.widgets").centered_float(require("dap.ui.widgets").scopes) end, desc = "Debug scopes [dap]" },
     { "<S-F5>", function() require("dap").terminate() end, desc = "Terminate [dap]" },
-    { mode = { "n", "v" }, "<Leader>dh", function() require("dap.ui.widgets").hover() end, desc = "Debug hover [dap]" },
-    { mode = { "n", "v" }, "<Leader>dp", function() require("dap.ui.widgets").preview() end, desc = "Debug preview [dap]" },
+    { "<Leader>dh", function() require("dap.ui.widgets").hover() end, mode = { "n", "x" }, desc = "Debug hover [dap]" },
+    { "<Leader>dp", function() require("dap.ui.widgets").preview() end, mode = { "n", "x" }, desc = "Debug preview [dap]" },
   },
 
   opts = {},

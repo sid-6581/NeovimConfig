@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { mode = { "n", "x" }, "<Leader>S", function() require("rip-substitute").sub() end, desc = "Search/replace in file [rip-substitute]" },
+    { "<Leader>S", function() require("rip-substitute").sub() end, mode = { "n", "x" }, desc = "Search/replace in file [rip-substitute]" },
   },
 
   opts = {

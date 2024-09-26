@@ -52,7 +52,7 @@ return {
           { "gK", function() vim.lsp.buf.signature_help() end, desc = "Signature help [lsp]" },
           { "gd", "<C-]>", desc = "Go to definition [lsp]" },
           { "gl", function() vim.diagnostic.open_float({ focusable = true, focus = true }) end, desc = "Show diagnostics [diagnostic]" },
-          { mode = { "n", "i", "v" }, "<A-Enter>", function() vim.lsp.buf.code_action() end, desc = "Code action [lsp]" },
+          { "<A-Enter>", function() vim.lsp.buf.code_action() end, mode = { "n", "i", "v" }, desc = "Code action [lsp]" },
         })
 
         local augroup_suffix = bufnr .. "." .. client.name

@@ -20,7 +20,7 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>cf", function() require("conform").format() end, mode = { "n", "v" }, desc = "Format document [conform]" },
+    { "<Leader>cf", function() require("conform").format() end, mode = { "n", "x" }, desc = "Format document [conform]" },
   },
 
   --- @type conform.setupOpts

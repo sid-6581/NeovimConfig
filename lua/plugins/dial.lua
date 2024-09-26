@@ -9,7 +9,7 @@ return {
     { "g<C-X>", function() require("dial.map").manipulate("decrement", "gnormal") end, desc = "Decrement [dial]" },
     { "<C-A>", function() require("dial.map").manipulate("increment", "visual") end, mode = { "v" }, desc = "Increment [dial]" },
     { "<C-X>", function() require("dial.map").manipulate("decrement", "visual") end, mode = { "v" }, desc = "Decrement [dial]" },
-    { "g<C-A>", function() require("dial.map").manipulate("increment", "gvisual") end, mode = { "v" }, desc = "Increment [dial]" },
-    { "g<C-X>", function() require("dial.map").manipulate("decrement", "gvisual") end, mode = { "v" }, desc = "Decrement [dial]" },
+    { "g<C-A>", function() require("dial.map").manipulate("increment", "gvisual") end, mode = { "x" }, desc = "Increment [dial]" },
+    { "g<C-X>", function() require("dial.map").manipulate("decrement", "gvisual") end, mode = { "x" }, desc = "Decrement [dial]" },
   },
 }

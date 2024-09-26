@@ -411,6 +411,11 @@ return {
         mode = "v",
         { "<C-Insert>", '"+y', desc = "Yank to system clipboard [which-key]" },
         { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
+      },
+
+      -- Visual mode
+      {
+        mode = "x",
         { "<Leader>sl", ":sort i<CR>", desc = "Sort lines [which-key]" },
         { "<Leader>sn", ":sort in<CR>", desc = "Sort lines by number [which-key]" },
         { "<Leader>su", ":sort iu<CR>", desc = "Sort lines unique [which-key]" },
