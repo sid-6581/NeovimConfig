@@ -83,12 +83,6 @@ function M.win_filter(filter, winid)
     end
   end
 
-  if filter.floating ~= nil then
-    if filter.floating ~= (vim.api.nvim_win_get_config(winid).relative ~= "") then
-      return false
-    end
-  end
-
   if filter.tabpage ~= nil then
     local actual_tabpage = filter.tabpage ~= 0 and filter.tabpage or vim.api.nvim_get_current_tabpage()
     if actual_tabpage ~= vim.api.nvim_win_get_tabpage(winid) then
@@ -134,24 +128,60 @@ end
 
 -- Smart buffer closing.
 function M.close_window_or_buffer()
-  -- If we're in a no name buffer, we close the window.
-  if M.buf_filter({ noname = true }) then
+  local function notify(_msg)
+    -- vim.notify(msg)
+  end
+
+  local is_normal_buffer = M.buf_filter({ normal = true })
+  local is_normal_window = M.win_filter({ normal = true })
+  local normal_window_count = #M.windows({ tabpage = 0, normal = true })
+  local normal_buffer_window_count = #M.windows({ tabpage = 0, normal = true, buf = { normal = true } })
+
+  -- If this isn't a normal buffer or a normal window, we just close the window.
+  -- This should cover all splits with non-normal buffers, as well as floats with or without a normal buffer.
+  if not is_normal_buffer or not is_normal_window then
+    notify("Closing non-normal window")
     vim.cmd.quit()
     return
   end
 
-  -- If the buffer is open in any other window (even on other tab pages), we close the window.
+  -- If this buffer is open in any other window (even on other tab pages), we can't delete the buffer.
+  -- We can close the window if there are multiple windows with normal buffers.
+  -- Otherwise, we have to create a new no name buffer in its place, and unlist the old buffer.
   if #M.windows({ bufnr = 0 }) > 1 then
+    if normal_buffer_window_count > 1 then
+      notify("Closing duplicate window")
+      vim.cmd.quit()
+    else
+      notify("Creating no name buffer in place of duplicate")
+      local bufnr = vim.api.nvim_get_current_buf()
+      vim.cmd.enew()
+      vim.api.nvim_set_option_value("buflisted", false, { buf = bufnr })
+    end
+
+    return
+  end
+
+  -- If we have only one normal buffer window but multiple listed buffers, we need to ensure that the window
+  -- doesn't close when we delete the buffer. We switch to the previous buffer and then delete the old buffer,
+  -- which is now the alternate buffer.
+  if normal_buffer_window_count == 1 and #M.buffers({ listed = true }) > 1 then
+    notify("Switching to previous buffer and deleting alternate")
+    vim.cmd.bprevious()
+    vim.cmd.bdelete("#")
+    return
+  end
+
+  -- If there is only one normal window on this tab page, deleting the buffer will just put a no name buffer in
+  -- the window, so we need to close the window after deleting the buffer.
+  if normal_window_count == 1 then
+    notify("Deleting buffer and closing window")
+    vim.cmd.bdelete()
     vim.cmd.quit()
     return
   end
 
-  -- If this is a normal buffer and there are no other windows with normal buffers on this tab page, we do a safe delete.
-  if M.buf_filter({ normal = true }) and #M.windows({ tabpage = 0, buf = { normal = true } }) == 1 then
-    require("mini.bufremove").delete()
-    return
-  end
-
+  notify("Deleting buffer")
   vim.cmd.bdelete()
 end
 
@@ -164,8 +194,7 @@ return M
 --- @field noname? boolean
 
 --- @class WinFilter
---- @field normal? boolean
---- @field floating? boolean
+--- @field normal? boolean true for non-floating windows, false for floating windows
 --- @field tabpage? integer
 --- @field bufnr? integer
 --- @field buf? BufFilter
