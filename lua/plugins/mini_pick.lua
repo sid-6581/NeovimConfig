@@ -6,12 +6,13 @@ local make_scroll_half_page = function(direction)
   end
 
   return function()
-    local win_id = require("mini.pick").get_picker_state().windows.main
-    local is_not_main_view = vim.api.nvim_get_current_buf() ~= require("mini.pick").get_picker_state().buffers.main
+    local pick = require("mini.pick")
+    local win_id = pick.get_picker_state().windows.main
+    local is_not_main_view = vim.api.nvim_get_current_buf() ~= pick.get_picker_state().buffers.main
     if is_not_main_view then return scroll_fun(win_id) end
 
     local n_scroll = math.floor(0.5 * vim.api.nvim_win_get_height(win_id))
-    local mappings = require("mini.pick").get_picker_opts().mappings
+    local mappings = pick.get_picker_opts().mappings
     local move_key = direction == "down" and mappings.move_down or mappings.move_up
     for _ = 1, n_scroll do
       vim.api.nvim_input(move_key)
@@ -33,7 +34,24 @@ return {
 
       choose = "<CR>",
       choose_in_split = "<C-s>",
-      choose_in_tabpage = "<C-t>",
+      choose_in_tabpage = "",
+
+      choose_in_tabpage_fixed = {
+        char = "<C-t>",
+        func = function()
+          local pick = require("mini.pick")
+          local cur_item = pick.get_picker_matches().current
+          if cur_item == nil then
+            return true
+          end
+
+          vim.cmd.tabnew(cur_item)
+          pick.set_picker_target_window(vim.api.nvim_get_current_win())
+          pick.stop()
+          return true
+        end,
+      },
+
       choose_in_vsplit = "<C-v>",
       choose_marked = "<M-CR>",
 
@@ -59,8 +77,14 @@ return {
       scroll_right = "<C-l>",
       scroll_up = "<C-b>",
 
-      scroll_down_half = { char = "<C-d>", func = make_scroll_half_page("down") },
-      scroll_up_half = { char = "<C-u>", func = make_scroll_half_page("up") },
+      scroll_down_half = {
+        char = "<C-d>",
+        func = make_scroll_half_page("down"),
+      },
+      scroll_up_half = {
+        char = "<C-u>",
+        func = make_scroll_half_page("up"),
+      },
 
       stop = "<Esc>",
 
