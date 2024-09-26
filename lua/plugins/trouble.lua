@@ -28,12 +28,13 @@ return {
   -- },
 
   keys = {
+    { "<A-x>", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics [trouble]" },
     { "<leader>xx", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics [trouble]" },
     { "<leader>xX", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer diagnostics [trouble]" },
     { "<leader>xs", "<CMD>Trouble symbols toggle focus=false<CR>", desc = "Symbols [trouble]" },
     { "<leader>xl", "<CMD>Trouble lsp toggle focus=false win.position=right<CR>", desc = "LSP definitions / references / ... [trouble]" },
     { "<leader>xL", "<CMD>Trouble loclist toggle<CR>", desc = "Location list [trouble]" },
-    { "<leader>xQ", "<CMD>Trouble qflist toggle<CR>", desc = "Quickfix list [trouble]" },
+    { "<leader>xq", "<CMD>Trouble qflist toggle<CR>", desc = "Quickfix list [trouble]" },
 
     --- @diagnostic disable: missing-parameter,missing-fields
     {

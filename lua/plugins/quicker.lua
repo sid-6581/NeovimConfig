@@ -2,6 +2,10 @@ return {
   "stevearc/quicker.nvim",
   event = { "VeryLazy", "FileType qf" },
 
+  keys = {
+    { "<A-q>", function() require("quicker").toggle() end, desc = "Toggle quickfix window [quicker]" },
+  },
+
   --- @type quicker.SetupOptions
   opts = {
     keys = {
