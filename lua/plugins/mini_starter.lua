@@ -23,6 +23,7 @@ return {
         {
           { name = "New file", action = "enew", section = "Actions" },
           { name = "Configuration", action = "e $MYVIMRC", section = "Actions" },
+          { name = "Browse files", action = "enew|call feedkeys(\"\\<M-1>\")", section = "Actions" },
           { name = "Project search", action = "enew|call feedkeys(' fp')", section = "Actions" },
           { name = "File search", action = "enew|call feedkeys(' ff')", section = "Actions" },
           { name = "Text search", action = "enew|call feedkeys(' ft')", section = "Actions" },
