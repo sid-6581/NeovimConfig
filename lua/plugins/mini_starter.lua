@@ -17,7 +17,7 @@ return {
         ]],
 
       evaluate_single = true,
-      query_updaters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-.",
+      query_updaters = "abcdefghilmnopqrstuvwxyzABCDEFGHILMNOPQRSTUVWXYZ0123456789_-.",
 
       items = {
         {
@@ -61,6 +61,16 @@ return {
       },
 
       silent = true,
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MiniStarterOpened",
+
+      callback = function(args)
+        local bufnr = args.buf
+        vim.keymap.set("n", "j", function() starter.update_current_item("next") end, { buffer = bufnr })
+        vim.keymap.set("n", "k", function() starter.update_current_item("prev") end, { buffer = bufnr })
+      end,
     })
   end,
 }
