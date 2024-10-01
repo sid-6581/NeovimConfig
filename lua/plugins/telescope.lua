@@ -172,6 +172,7 @@ return {
 
   opts = function()
     local actions = require("telescope.actions")
+    local actions_layout = require("telescope.actions.layout")
 
     return {
       defaults = {
@@ -204,20 +205,21 @@ return {
         },
         mappings = {
           i = {
-            ["<Esc>"] = { actions.close, type = "action", opts = { desc = "Close" } },
             ["<C-C>"] = false,
-            ["<F1>"] = { actions.which_key, type = "action", opts = { desc = "Help" } },
-            ["<C-N>"] = { actions.cycle_history_next, type = "action", opts = { desc = "Next history" } },
-            ["<C-P>"] = { actions.cycle_history_prev, type = "action", opts = { desc = "Previous history" } },
             ["<C-J>"] = { actions.move_selection_next, type = "action", opts = { desc = "Next selection" } },
             ["<C-K>"] = { actions.move_selection_previous, type = "action", opts = { desc = "Previous selection" } },
+            ["<C-P>"] = { actions_layout.toggle_preview, type = "action", opts = { desc = "Toggle preview" } },
+            ["<C-S>"] = { actions.select_horizontal, type = "action", opts = { desc = "Open in horizontal split" } },
+            ["<C-T>"] = { actions.select_tab, type = "action", opts = { desc = "Open in new tab" } },
+            ["<C-V>"] = { actions.select_vertical, type = "action", opts = { desc = "Open in vertical split" } },
+            ["<C-X>"] = false,
             ["<C-Y>e"] = { yank_all_entries, type = "action", opts = { desc = "Yank all entries" } },
             ["<C-Y>p"] = { yank_preview_lines, type = "action", opts = { desc = "Yank preview lines" } },
-            ["<C-X>"] = false,
-            ["<C-S>"] = { actions.select_horizontal, type = "action", opts = { desc = "Open in horizontal split" } },
-            ["<C-V>"] = { actions.select_vertical, type = "action", opts = { desc = "Open in vertical split" } },
-            ["<C-T>"] = { actions.select_tab, type = "action", opts = { desc = "Open in new tab" } },
             ["<CR>"] = { actions.select_default, type = "action", opts = { desc = "Select" } },
+            ["<Down>"] = { actions.cycle_history_next, type = "action", opts = { desc = "Next history" } },
+            ["<Esc>"] = { actions.close, type = "action", opts = { desc = "Close" } },
+            ["<F1>"] = { actions.which_key, type = "action", opts = { desc = "Help" } },
+            ["<Up>"] = { actions.cycle_history_prev, type = "action", opts = { desc = "Previous history" } },
           },
           n = {
             ["<F1>"] = { actions.which_key, type = "action", opts = { desc = "Help" } },
