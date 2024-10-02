@@ -7,11 +7,11 @@ return {
     highlight = {
       groups = {
         InclineNormal = {
-          guifg = require("util.colors").colors.light1,
+          guifg = require("gruvbox").palette.light1,
           blend = 100,
         },
         InclineNormalNC = {
-          guifg = require("util.colors").colors.light4,
+          guifg = require("gruvbox").palette.light4,
           cterm = "italic",
           gui = "italic",
           blend = 100,

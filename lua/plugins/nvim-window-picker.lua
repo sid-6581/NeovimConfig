@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
 
   config = function()
-    local colors = require("util.colors").colors
+    local colors = require("gruvbox").palette
 
     require("window-picker").setup({
       highlights = {

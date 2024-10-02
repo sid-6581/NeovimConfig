@@ -4,7 +4,7 @@ return {
   lazy = false,
 
   config = function()
-    local colors = require("util.colors").colors
+    local colors = require("gruvbox").palette
 
     require("gruvbox").setup({
       contrast = "hard",

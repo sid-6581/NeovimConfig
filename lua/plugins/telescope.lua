@@ -283,9 +283,5 @@ return {
     vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { link = "WinSeparator" })
     vim.api.nvim_set_hl(0, "TelescopeTitle", { link = "Title" })
     vim.api.nvim_set_hl(0, "TelescopeSelection", { link = "CursorLine" })
-
-    -- local colors = require("util.colors")
-    -- local hl_cursorline = vim.api.nvim_get_hl(0, { name = "CursorLine" })
-    -- colors.mod_hl("TelescopeSelection", { bg = hl_cursorline.bg })
   end,
 }
