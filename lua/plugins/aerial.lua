@@ -2,6 +2,11 @@ return {
   "stevearc/aerial.nvim",
   event = "VeryLazy",
 
+  keys = {
+    { "<Leader>co", function() require("aerial").toggle({ focus = false }) end, desc = "Symbols outline [aerial]" },
+    { "<A-o>", function() require("aerial").toggle({ focus = false }) end, desc = "Symbols outline [aerial]" },
+  },
+
   opts = {
     backends = { "lsp", "treesitter", "markdown", "man" },
 
@@ -15,10 +20,6 @@ return {
     highlight_closest = false,
     highlight_on_hover = true,
     show_guides = true,
-  },
-
-  keys = {
-    { "<Leader>co", function() require("aerial").toggle({ focus = false }) end, desc = "Symbols outline [aerial]" },
   },
 
   config = function(_, opts)
