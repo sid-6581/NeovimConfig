@@ -67,6 +67,7 @@ return {
         nushell = {},
 
         omnisharp = {
+          cmd = { "omnisharp" },
           settings = {
             csharp = {
               format = {
