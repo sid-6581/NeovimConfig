@@ -1,7 +1,6 @@
 local default_opts = {
   timeout_ms = 500,
   lsp_format = "fallback",
-  undojoin = true,
 
   filter = function(client)
     if client.name == "ts_ls" then
