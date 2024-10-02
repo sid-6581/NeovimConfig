@@ -205,6 +205,8 @@ return {
         },
         mappings = {
           i = {
+            ["<A-j>"] = { actions.cycle_history_next, type = "action", opts = { desc = "Next history" } },
+            ["<A-k>"] = { actions.cycle_history_prev, type = "action", opts = { desc = "Previous history" } },
             ["<C-C>"] = false,
             ["<C-J>"] = { actions.move_selection_next, type = "action", opts = { desc = "Next selection" } },
             ["<C-K>"] = { actions.move_selection_previous, type = "action", opts = { desc = "Previous selection" } },
@@ -216,10 +218,8 @@ return {
             ["<C-Y>e"] = { yank_all_entries, type = "action", opts = { desc = "Yank all entries" } },
             ["<C-Y>p"] = { yank_preview_lines, type = "action", opts = { desc = "Yank preview lines" } },
             ["<CR>"] = { actions.select_default, type = "action", opts = { desc = "Select" } },
-            ["<Down>"] = { actions.cycle_history_next, type = "action", opts = { desc = "Next history" } },
             ["<Esc>"] = { actions.close, type = "action", opts = { desc = "Close" } },
             ["<F1>"] = { actions.which_key, type = "action", opts = { desc = "Help" } },
-            ["<Up>"] = { actions.cycle_history_prev, type = "action", opts = { desc = "Previous history" } },
           },
           n = {
             ["<F1>"] = { actions.which_key, type = "action", opts = { desc = "Help" } },
