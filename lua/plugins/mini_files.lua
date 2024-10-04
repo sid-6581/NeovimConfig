@@ -1,10 +1,37 @@
+-- Open file in split.
+local open_in = function(cmd)
+  local new_target_window = vim.api.nvim_win_call(
+    require("mini.files").get_explorer_state().target_window or 0,
+    function()
+      vim.cmd(cmd)
+      return vim.api.nvim_get_current_win()
+    end
+  )
+
+  require("mini.files").set_target_window(new_target_window)
+  require("mini.files").go_in({ close_on_file = true })
+end
+
+-- Smart "go out" that lets the cursor move left normally if it's not on the
+-- first character of the file name, otherwise calls go_out().
+local smart_go_out = function()
+  local _, col = unpack(vim.api.nvim_win_get_cursor(0))
+  vim.cmd.normal({ "h", bang = true })
+  require("mini.files").refresh()
+  local _, new_col = unpack(vim.api.nvim_win_get_cursor(0))
+  if col == new_col then
+    require("mini.files").go_out()
+  end
+end
+
 return {
   "echasnovski/mini.files",
   event = "VeryLazy",
 
   keys = {
-    { "<leader>fm", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open (file dir) [mini.files]" },
-    { "<leader>fM", function() require("mini.files").open(vim.loop.cwd(), false) end, desc = "Open (cwd) [mini.files]" },
+    { "-", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open (file dir) [mini.files]" },
+    { "<Leader>fm", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open (file dir) [mini.files]" },
+    { "<Leader>fM", function() require("mini.files").open(vim.loop.cwd(), false) end, desc = "Open (cwd) [mini.files]" },
   },
 
   opts = {
@@ -28,53 +55,23 @@ return {
   config = function(_, opts)
     require("mini.files").setup(opts)
 
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "MiniFilesBufferCreate",
+    vim.api.nvim_set_hl(0, "MiniFilesCursorLine", { link = "CursorLine" })
 
-      callback = function(args)
-        local map_open = function(lhs, cmd, desc)
-          local rhs = function()
-            local new_target_window = vim.api.nvim_win_call(
-              require("mini.files").get_explorer_state().target_window or 0,
-              function()
-                vim.cmd(cmd)
-                return vim.api.nvim_get_current_win()
-              end
-            )
+    vim.api.nvim_create_autocmd(
+      { "User" },
+      {
+        pattern = "MiniFilesBufferCreate",
 
-            require("mini.files").set_target_window(new_target_window)
-            require("mini.files").go_in({ close_on_file = true })
-          end
-
-          vim.keymap.set("n", lhs, rhs, { buffer = args.data.buf_id, desc = desc })
-        end
-
-        map_open("<C-s>", "split", "Open in horizontal split [mini.files]")
-        map_open("<C-v>", "vsplit", "Open in vertical split [mini.files]")
-
-        vim.keymap.set(
-          "n",
-          "<Esc>",
-          function() require("mini.files").close() end,
-          { buffer = args.data.buf_id, desc = "Close [mini.files]" }
-        )
-
-        vim.keymap.set(
-          "n",
-          "h",
-          function()
-            local _, col = unpack(vim.api.nvim_win_get_cursor(0))
-            vim.cmd.normal({ "h", bang = true })
-            require("mini.files").refresh()
-            local _, new_col = unpack(vim.api.nvim_win_get_cursor(0))
-            if col == new_col then
-              require("mini.files").go_out()
-            end
-          end,
-          { buffer = args.data.buf_id, desc = "Go out [mini.files]" }
-        )
-      end,
-    })
+        callback = function(event)
+          require("which-key").add({
+            buffer = event.data.buf_id,
+            { "<Esc>", function() require("mini.files").close() end, desc = "Close [mini.files]" },
+            { "<C-s>", function() open_in("split") end, desc = "Open in horizontal split [mini.files]" },
+            { "<C-v>", function() open_in("vsplit") end, desc = "Open in vertical split [mini.files]" },
+            { "h", function() smart_go_out() end, desc = "Go out [mini.files]" },
+          })
+        end,
+      })
 
     -- vim.api.nvim_create_autocmd("User", {
     --   pattern = "MiniFilesWindowUpdate",

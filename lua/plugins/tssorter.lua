@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<leader>cS", function() require("tssorter").sort({}) end, desc = "Sort [tssorter]" },
+    { "<Leader>cS", function() require("tssorter").sort({}) end, desc = "Sort [tssorter]" },
   },
 
   opts = {},

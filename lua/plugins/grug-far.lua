@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<leader>G", function() require("grug-far").toggle_instance(require("plugins.grug-far").opts) end, desc = "Search/replace in files [grug-far]" },
+    { "<Leader>G", function() require("grug-far").toggle_instance(require("plugins.grug-far").opts) end, desc = "Search/replace in files [grug-far]" },
   },
 
   opts = {
