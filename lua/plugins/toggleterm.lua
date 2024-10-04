@@ -31,7 +31,7 @@ return {
       start_in_insert = true,
       dir = vim.fn.getcwd(),
       direction = "float",
-      shell = "nu",
+      shell = "nu -li",
       persist_size = false,
       persist_mode = false,
       highlights = {
