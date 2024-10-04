@@ -28,16 +28,22 @@ return {
     use_popups_for_input = false,
     window = {
       mappings = {
-        ["Z"] = "expand_all_nodes",
-        ["<c-s>"] = "open_split",
-        ["<c-v>"] = "open_vsplit",
-        ["<c-t>"] = "open_tabnew",
+        ["<Space>"] = "none",
+        ["<C-s>"] = "open_split",
+        ["<C-t>"] = "open_tabnew",
+        ["<C-v>"] = "open_vsplit",
+        ["C"] = "none",
+        ["z"] = "none",
+        ["zM"] = "close_all_nodes",
+        ["zR"] = "expand_all_nodes",
+        ["zc"] = "close_node",
       },
       width = 40,
     },
     filesystem = {
       window = {
         mappings = {
+          ["-"] = "navigate_up",
           ["/"] = "none",
           ["F"] = "fuzzy_finder",
         },
