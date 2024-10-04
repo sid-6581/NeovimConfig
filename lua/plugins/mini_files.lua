@@ -38,7 +38,7 @@ return {
     mappings = {
       go_in = "",
       go_in_plus = "<CR>",
-      go_out = "",
+      go_out = "-",
       show_help = "?",
       synchronize = "=",
     },
