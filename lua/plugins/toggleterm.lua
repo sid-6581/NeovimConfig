@@ -14,40 +14,42 @@ return {
     { "<Leader>ty", function() _YAZI_TOGGLE() end, desc = "Yazi [toggleterm]" },
   },
 
-  config = function()
-    require("toggleterm").setup({
-      size = function(term)
-        if term.direction == "horizontal" then
-          return math.floor(vim.o.lines * 0.4)
-        elseif term.direction == "vertical" then
-          return math.floor(vim.o.columns * 0.4)
-        end
-      end,
-      autochdir = true,
-      open_mapping = false,
-      shading_factor = 0,
-      shading_ratio = 0,
-      shade_terminals = false,
-      start_in_insert = true,
-      dir = vim.fn.getcwd(),
-      direction = "float",
-      shell = "nu -li",
-      persist_size = false,
-      persist_mode = false,
-      highlights = {
-        FloatBorder = {
-          link = "WinSeparator",
-        },
+  opts = {
+    size = function(term)
+      if term.direction == "horizontal" then
+        return math.floor(vim.o.lines * 0.4)
+      elseif term.direction == "vertical" then
+        return math.floor(vim.o.columns * 0.4)
+      end
+    end,
+    autochdir = true,
+    open_mapping = false,
+    shading_factor = 0,
+    shading_ratio = 0,
+    shade_terminals = false,
+    start_in_insert = true,
+    dir = vim.fn.getcwd(),
+    direction = "float",
+    shell = "nu -li",
+    persist_size = false,
+    persist_mode = false,
+    highlights = {
+      FloatBorder = {
+        link = "WinSeparator",
       },
-      float_opts = {
-        -- width = function() return vim.o.columns - 2 end,
-        -- height = function() return vim.o.lines - 4 - vim.o.cmdheight end,
-        width = function() return math.floor(vim.o.columns * 0.9) end,
-        height = function() return math.floor((vim.o.lines - vim.o.cmdheight) * 0.9) end,
-        border = "single",
-        winblend = 0,
-      },
-    })
+    },
+    float_opts = {
+      -- width = function() return vim.o.columns - 2 end,
+      -- height = function() return vim.o.lines - 4 - vim.o.cmdheight end,
+      width = function() return math.floor(vim.o.columns * 0.9) end,
+      height = function() return math.floor((vim.o.lines - vim.o.cmdheight) * 0.9) end,
+      border = "single",
+      winblend = 0,
+    },
+  },
+
+  config = function(_, opts)
+    require("toggleterm").setup(opts)
 
     local Terminal = require("toggleterm.terminal").Terminal
 
