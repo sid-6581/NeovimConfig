@@ -22,6 +22,20 @@ return {
         DiagnosticVirtualTextHint = { fg = colors.bright_aqua, italic = true },
         DiagnosticVirtualTextOk = { fg = colors.bright_green, italic = true },
 
+        markdownH1 = { fg = colors.bright_purple, bold = true },
+        markdownH2 = { fg = colors.bright_green, bold = true },
+        markdownH3 = { fg = colors.bright_aqua, bold = true },
+        markdownH4 = { fg = colors.bright_blue, bold = true },
+        markdownH5 = { fg = colors.bright_yellow, bold = true },
+        markdownH6 = { fg = colors.bright_orange, bold = true },
+
+        ["@markup.heading.1"] = { link = "markdownH1" },
+        ["@markup.heading.2"] = { link = "markdownH2" },
+        ["@markup.heading.3"] = { link = "markdownH3" },
+        ["@markup.heading.4"] = { link = "markdownH4" },
+        ["@markup.heading.5"] = { link = "markdownH5" },
+        ["@markup.heading.6"] = { link = "markdownH6" },
+
         GruvboxAqua = { bg = "", blend = 0 },
         GruvboxAquaBold = { bg = "", blend = 0 },
         GruvboxAquaSign = { bg = "", blend = 0 },
