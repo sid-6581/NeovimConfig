@@ -217,6 +217,10 @@ return {
         { "j", "v:count == 0 ? 'gj' : 'j'", expr = true, desc = "Line down [which-key]" },
         { "k", "v:count == 0 ? 'gk' : 'k'", expr = true, desc = "Line up [which-key]" },
 
+        -- Single key indent
+        { "<lt>", "<lt><lt>", desc = "Decrease indent [which-key]" },
+        { ">", ">>", desc = "Increase indent [which-key]" },
+
         -- Center screen after motions
         { "<C-d>", "<C-d>zz", hidden = true, desc = "Scroll down and center [which-key]" },
         { "<C-u>", "<C-u>zz", hidden = true, desc = "Scroll up and center [which-key]" },
@@ -315,10 +319,6 @@ return {
         { "<S-C-Left>", "<CMD>vertical resize -2<CR>", desc = "Decrease window width [which-key]" },
         { "<S-C-Right>", "<CMD>vertical resize +2<CR>", desc = "Increase window width [which-key]" },
         { "<S-C-Up>", "<CMD>resize +2<CR>", desc = "Increase window height [which-key]" },
-        -- { "<A-_>", "<CMD>resize -2<CR>", desc = "Decrease window height [which-key]" },
-        -- { "<A-<>", "<CMD>vertical resize -2<CR>", desc = "Decrease window width [which-key]" },
-        -- { "<A->>", "<CMD>vertical resize +2<CR>", desc = "Increase window width [which-key]" },
-        -- { "<A-+>", "<CMD>resize +2<CR>", desc = "Increase window height [which-key]" },
 
         -- Tabs
         { "<A-H>", "gT", desc = "Previous tab [which-key]" },
