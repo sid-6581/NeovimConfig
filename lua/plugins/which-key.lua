@@ -220,6 +220,7 @@ return {
         -- Single key indent
         { "<lt>", "<lt><lt>", desc = "Decrease indent [which-key]" },
         { ">", ">>", desc = "Increase indent [which-key]" },
+        { "=", "==", desc = "Reindent line [which-key]" },
 
         -- Center screen after motions
         { "<C-d>", "<C-d>zz", hidden = true, desc = "Scroll down and center [which-key]" },

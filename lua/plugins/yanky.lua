@@ -14,8 +14,6 @@ return {
     { "[p", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put indented before cursor (linewise) [yanky]" },
     { "]P", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put indented after cursor (linewise) [yanky]" },
     { "[P", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put indented before cursor (linewise) [yanky]" },
-    { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put after applying a filter [yanky]" },
-    { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put before applying a filter [yanky]" },
   },
 
   opts = function()
