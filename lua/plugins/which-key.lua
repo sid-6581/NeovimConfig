@@ -207,8 +207,8 @@ return {
         },
         { "@", "Q", desc = "Play macro [which-key]" },
 
-        -- Adding blank lines
-        { "<Leader><Enter>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>k", desc = "Add blank line on current line [which-key]" },
+        -- Insert blank lines
+        { "<S-Enter>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>k", desc = "Add blank line on current line [which-key]" },
         { "[<Space>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>", desc = "Add blank line above [which-key]" },
         { "]<Space>", "<CMD>put =repeat(nr2char(10), v:count1)|silent '[-<CR>", desc = "Add blank line below [which-key]" },
 
@@ -403,8 +403,8 @@ return {
         { "<A-k>", "<Up>", noremap = false, desc = "Up [which-key]" },
         { "<A-l>", "<Right>", noremap = false, desc = "Right [which-key]" },
         { "<A-p>", "<C-o>P", noremap = false, desc = "Paste [which-key]" },
+        { "<S-Enter>", "<Esc>m`O<Esc>``a", desc = "Insert blank line above [which-key]" },
         { "<C-Enter>", "<Esc>m`o<Esc>``a", desc = "Insert blank line below [which-key]" },
-        { "<C-S-Enter>", "<Esc>m`O<Esc>``a", desc = "Insert blank line above [which-key]" },
         { "<S-Insert>", "<C-r><C-o>+", desc = "Paste from system clipboard [which-key]" },
       },
 
