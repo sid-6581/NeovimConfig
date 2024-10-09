@@ -76,7 +76,7 @@ return {
       desc = "Go to treesitter node start [flash]",
     },
     {
-      "gw",
+      "gW",
       function()
         require("flash").jump({
           search = { mode = "search", max_length = 0 },
