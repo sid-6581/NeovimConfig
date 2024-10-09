@@ -37,7 +37,7 @@ vim.opt.fillchars:append({ stlnc = "", eob = " " })
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.opt.formatoptions:remove({ "c", "r", "o" })
+-- vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.grepprg = "rg --vimgrep"
 vim.opt.ignorecase = true

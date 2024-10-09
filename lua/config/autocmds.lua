@@ -35,14 +35,14 @@ vim.api.nvim_create_autocmd(
 )
 
 -- Turn off comment-related formatting and automatic inserting of comment leaders
-vim.api.nvim_create_autocmd(
-  { "BufWinEnter", "FileType" },
-  {
-    callback = function()
-      vim.opt.formatoptions:remove({ "c", "r", "o" })
-    end,
-  }
-)
+-- vim.api.nvim_create_autocmd(
+--   { "BufWinEnter", "FileType" },
+--   {
+--     callback = function()
+--       vim.opt.formatoptions:remove({ "c", "r", "o" })
+--     end,
+--   }
+-- )
 
 -- Delete hidden no name buffers every time a new one is opened
 vim.api.nvim_create_autocmd(
