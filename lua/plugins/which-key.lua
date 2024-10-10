@@ -440,6 +440,7 @@ return {
         { "<C-h>", "<C-h>", desc = "Delete previous word [which-key]" },
         { "<S-Enter>", "<Enter>", desc = "Insert enter [which-key]" },
         { "<S-Space>", "<Space>", desc = "Insert space [which-key]" },
+        { "<Esc><Esc>", "<C-\\><C-n>", desc = "Go to normal mode [which-key]" },
         { "<S-Esc>", "<C-\\><C-n>", desc = "Go to normal mode [which-key]" },
         { "<S-Insert>", '<C-\\><C-n>"+pi', desc = "Paste from system clipboard [which-key]" },
       },
