@@ -7,7 +7,9 @@ return {
     { "<Leader>gh", "<CMD>DiffviewFileHistory %<CR>", desc = "Git file history [diffview]" },
   },
 
-  opts = {},
+  opts = {
+    enhanced_diff_hl = true,
+  },
 
   config = function(_, opts)
     require("diffview").setup(opts)
