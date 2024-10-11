@@ -92,5 +92,6 @@ vim.opt.writebackup = false
 vim.filetype.add({
   extension = {
     nomad = "hcl",
+    props = "xml",
   },
 })
