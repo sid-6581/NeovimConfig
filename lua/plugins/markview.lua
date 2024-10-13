@@ -4,8 +4,8 @@ return {
   ft = "markdown",
 
   opts = {
-    modes = { "n", "i", "no", "c" },
-    hybrid_modes = { "n", "i" },
+    modes = { "n", "i", "no", "c", "s", "S" },
+    hybrid_modes = { "n", "i", "v", "V", "s", "S" },
   },
 
   config = function(_, opts)
