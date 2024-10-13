@@ -1,0 +1,40 @@
+{
+  "fl": {
+    "prefix": "fl",
+    "body": [
+      "function($1)",
+      "\t$2",
+      "end,"
+    ],
+    "description": "Unnnamed function in a list",
+    "luasnip": {
+      "autotrigger": false
+    }
+  },
+  "fv": {
+    "prefix": "fv",
+    "body": [
+      "function($1)",
+      "\t$2",
+      "end",
+      ""
+    ],
+    "description": "Unnamed function",
+    "luasnip": {
+      "autotrigger": false
+    }
+  },
+  "fn": {
+    "prefix": "fn",
+    "body": [
+      "function $1($2)",
+      "\t$3",
+      "end",
+      ""
+    ],
+    "description": "Named function",
+    "luasnip": {
+      "autotrigger": false
+    }
+  }
+}
