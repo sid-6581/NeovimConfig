@@ -383,14 +383,14 @@ return {
         { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
 
         -- Motions
-        { "b", "<CMD>call search('\\<', 'b')<CR>", desc = "Previous word [which-key]" },
-        { "e", "<CMD>call search('\\>')<CR>", desc = "Next end of word [which-key]" },
-        { "ge", "<CMD>call search('\\>', 'b')<CR>", desc = "Previous end of word [which-key]" },
-        { "w", "<CMD>call search('\\<')<CR>", desc = "Next word [which-key]" },
-        { "{", "[{", desc = "Previous unmatched { [which-key]" },
-        { "}", "]}", desc = "Next unmatched } [which-key]" },
-        { "(", "[(", desc = "Previous unmatched ( [which-key]" },
-        { ")", "])", desc = "Next unmatched ) [which-key]" },
+        { "b", [[<CMD>call search('\<', 'b')<CR>]], desc = "Previous word [which-key]" },
+        { "e", [[<CMD>call search('\>')<CR>]], desc = "Next end of word [which-key]" },
+        { "ge", [[<CMD>call search('\>', 'b')<CR>]], desc = "Previous end of word [which-key]" },
+        { "w", [[<CMD>call search('\<')<CR>]], desc = "Next word [which-key]" },
+        { "{", [[<CMD>call search('\({\_s*\)\@<=\S', 'b')<CR>]], desc = "Previous character after { [which-key]" },
+        { "}", [[<CMD>call search('}')<CR>]], desc = "Next } [which-key]" },
+        { "(", [[<CMD>call search('\((\_s*\)\@<=\S', 'b')<CR>]], desc = "Previous character after ( [which-key]" },
+        { ")", [[<CMD>call search(')')<CR>]], desc = "Next ) [which-key]" },
       },
 
       -- Insert mode
