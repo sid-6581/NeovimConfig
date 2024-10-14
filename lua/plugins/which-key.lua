@@ -223,12 +223,12 @@ return {
         { "=", "==", desc = "Reindent line [which-key]" },
 
         -- Center screen after motions
-        { "<C-d>", "<C-d>zz", hidden = true, desc = "Scroll down and center [which-key]" },
-        { "<C-u>", "<C-u>zz", hidden = true, desc = "Scroll up and center [which-key]" },
-        { "<C-f>", "<C-f>zz", hidden = true, desc = "Page forwards and center [which-key]" },
-        { "<C-b>", "<C-b>zz", hidden = true, desc = "Page backwards and center [which-key]" },
-        { "n", "nzz", hidden = true, desc = "Next match and center [which-key]" },
-        { "N", "Nzz", hidden = true, desc = "Previous match and center [which-key]" },
+        -- { "<C-d>", "<C-d>zz", hidden = true, desc = "Scroll down and center [which-key]" },
+        -- { "<C-u>", "<C-u>zz", hidden = true, desc = "Scroll up and center [which-key]" },
+        -- { "<C-f>", "<C-f>zz", hidden = true, desc = "Page forwards and center [which-key]" },
+        -- { "<C-b>", "<C-b>zz", hidden = true, desc = "Page backwards and center [which-key]" },
+        -- { "n", "nzz", hidden = true, desc = "Next match and center [which-key]" },
+        -- { "N", "Nzz", hidden = true, desc = "Previous match and center [which-key]" },
 
         -- Buffers
         { "q", function() winbuf.close_window_or_buffer() end, desc = "Delete buffer/close window [which-key]" },
@@ -313,7 +313,7 @@ return {
         { "<Leader>wr", "<C-w>r", desc = "Rotate windows downwards/rightwards [which-key]" },
 
         -- Window size
-        { "<Leader>w<Bar>", "<C-w><Bar>", desc = "Maximize window width [which-key]" },
+        { "<Leader>w|", "<C-w>|", desc = "Maximize window width [which-key]" },
         { "<Leader>w=", "<C-w>=", desc = "Make windows equally high and wide [which-key]" },
         { "<Leader>w_", "<C-w>_", desc = "Maximize window height [which-key]" },
         { "<S-C-Down>", "<CMD>resize -2<CR>", desc = "Decrease window height [which-key]" },
@@ -381,6 +381,11 @@ return {
         -- Yank/paste
         { "Y", "_y$", desc = "Yank line characters [which-key]" },
         { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
+      },
+
+      -- Normal and visual mode
+      {
+        mode = { "n", "x" },
 
         -- Motions
         { "b", [[<CMD>call search('\<', 'b')<CR>]], desc = "Previous word [which-key]" },
