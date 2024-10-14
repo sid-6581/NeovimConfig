@@ -4,6 +4,7 @@ return {
 
   dependencies = {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+
     {
       "rcarriga/nvim-dap-ui",
       dependencies = {

@@ -3,6 +3,10 @@ return {
   event = "VeryLazy",
   submodules = false,
 
+  dependencies = {
+    "rafamadriz/friendly-snippets",
+  },
+
   keys = {
     {
       "<A-u>",
@@ -20,10 +24,6 @@ return {
       mode = { "i" },
       desc = "Undo snippet expansion [luasnip]",
     },
-  },
-
-  dependencies = {
-    "rafamadriz/friendly-snippets",
   },
 
   opts = {

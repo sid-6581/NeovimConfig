@@ -2,31 +2,6 @@ return {
   "folke/trouble.nvim",
   event = "VeryLazy",
 
-  -- dependencies = {
-  --   "nvim-telescope/telescope.nvim",
-  --
-  --   opts = {
-  --     defaults = {
-  --       mappings = {
-  --         i = {
-  --           ["<C-q>"] = {
-  --             function(prompt_bufnr) require("trouble.sources.telescope").open(prompt_bufnr) end,
-  --             type = "action",
-  --             opts = { desc = "Open in quickfix [trouble]" },
-  --           },
-  --         },
-  --         n = {
-  --           ["<C-q>"] = {
-  --             function(prompt_bufnr) require("trouble.sources.telescope").open(prompt_bufnr) end,
-  --             type = "action",
-  --             opts = { desc = "Open in quickfix [trouble]" },
-  --           },
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
-
   keys = {
     { "<A-x>", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics [trouble]" },
     { "<Leader>xx", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics [trouble]" },
