@@ -28,7 +28,7 @@ M.indent_buffer = function()
   end
 
   local win_view = vim.fn.winsaveview()
-  vim.cmd("silent! undojoin | keepjumps normal gg=G")
+  vim.cmd("silent! undojoin | keepjumps normal! gg=G")
   if win_view then vim.fn.winrestview(win_view) end
 end
 
