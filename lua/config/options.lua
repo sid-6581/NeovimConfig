@@ -29,11 +29,12 @@ vim.opt.cmdheight = 0
 vim.opt.completeopt = ""
 vim.opt.confirm = true
 vim.opt.cursorline = true
+vim.opt.diffopt:append({ "algorithm:histogram", "foldcolumn:0" })
 vim.opt.expandtab = true
 vim.opt.ffs = { "unix", "dos" }
 vim.opt.fileencoding = "utf-8"
 vim.opt.fileformat = "unix"
-vim.opt.fillchars:append({ stlnc = "", eob = " " })
+vim.opt.fillchars:append({ stlnc = "", eob = " ", diff = " " })
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99

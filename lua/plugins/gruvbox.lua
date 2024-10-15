@@ -9,6 +9,7 @@ return {
     require("gruvbox").setup({
       contrast = "hard",
       overrides = {
+        CursorLine = { bg = colors.dark0 },
         WinSeparator = { bg = "", blend = 0 },
         VertSplit = { bg = "", blend = 0 },
         IncSearch = { fg = colors.dark0, bg = colors.neutral_yellow, reverse = false },
@@ -16,6 +17,11 @@ return {
         LspReferenceRead = { fg = "", bg = "", underdotted = true },
         LspReferenceWrite = { fg = "", bg = "", underline = true },
         MatchParen = { fg = colors.dark0, bg = colors.faded_yellow },
+
+        DiffDelete = { bg = "#4a1a1a" },
+        DiffAdd = { bg = "#404632" },
+        DiffChange = { bg = "#283541" },
+        DiffText = { bg = "#385570", fg = "" },
 
         DiagnosticVirtualTextError = { fg = colors.bright_red, italic = true },
         DiagnosticVirtualTextWarn = { fg = colors.bright_yellow, italic = true },
