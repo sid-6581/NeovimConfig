@@ -21,6 +21,8 @@ vim.g.loaded_ruby_provider = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
+-- vim.opt.formatoptions:remove({ "c", "r", "o" })
+vim.env.SHELL = vim.fn.has("win32") == 1 and "cmd.exe" or "sh"
 vim.opt.autowrite = true
 vim.opt.backup = true
 vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
@@ -31,49 +33,41 @@ vim.opt.confirm = true
 vim.opt.cursorline = true
 vim.opt.diffopt:append({ "algorithm:histogram", "foldcolumn:0" })
 vim.opt.expandtab = true
-vim.opt.ffs = { "unix", "dos" }
 vim.opt.fileencoding = "utf-8"
 vim.opt.fileformat = "unix"
-vim.opt.fillchars:append({ stlnc = "", eob = " ", diff = " " })
+vim.opt.fileformats = { "unix", "dos" }
+vim.opt.fillchars:append({ eob = " ", diff = " " })
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
--- vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.grepprg = "rg --vimgrep"
 vim.opt.ignorecase = true
-vim.opt.inccommand = "nosplit"
 vim.opt.iskeyword:append("-")
 vim.opt.laststatus = 0
 vim.opt.list = true
 vim.opt.listchars:append({ space = "⋅", tab = "» ", extends = "…", precedes = "…", nbsp = "␣" })
 vim.opt.mouse = "a"
 vim.opt.number = true
-vim.opt.numberwidth = 4
 vim.opt.previewheight = 20
-vim.opt.pumblend = 0
 vim.opt.pumheight = 15
 vim.opt.redrawtime = 500
 vim.opt.relativenumber = false
 vim.opt.report = 1000
-vim.opt.ruler = false
-vim.opt.scrolloff = 8
-vim.opt.selection = "inclusive"
+vim.opt.scrolloff = 10
 vim.opt.shell = vim.fn.has("win32") == 1 and "cmd.exe" or "sh"
-vim.env.SHELL = vim.fn.has("win32") == 1 and "cmd.exe" or "sh"
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
 vim.opt.shortmess:append({ c = true, I = true, s = true })
 vim.opt.showcmd = false
 vim.opt.showmode = false
 vim.opt.showtabline = 0
-vim.opt.sidescrolloff = 8
+vim.opt.sidescrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.softtabstop = -1
 vim.opt.splitbelow = true
-vim.opt.splitkeep = "cursor"
 vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 2

@@ -22,7 +22,7 @@ return {
       },
     },
     blank = {
-      enable = true,
+      enable = false,
       chars = { "⋅" },
     },
   },
