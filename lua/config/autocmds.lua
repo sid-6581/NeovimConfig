@@ -34,6 +34,20 @@ vim.api.nvim_create_autocmd(
   }
 )
 
+-- Treat checkboxes as comments in markdown files for easy list continuation.
+vim.api.nvim_create_autocmd(
+  { "FileType" },
+  {
+    pattern = { "markdown" },
+    callback = function()
+      vim.opt_local.comments:remove("fb:-")
+      vim.opt_local.comments:append("b:- [ ]")
+      vim.opt_local.comments:append("fb:-")
+      vim.opt_local.formatoptions:append({ r = true, o = true })
+    end,
+  }
+)
+
 -- Turn off comment-related formatting and automatic inserting of comment leaders
 -- vim.api.nvim_create_autocmd(
 --   { "BufWinEnter", "FileType" },
