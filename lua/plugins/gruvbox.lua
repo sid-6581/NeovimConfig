@@ -16,7 +16,6 @@ return {
         Search = { fg = colors.dark0, bg = colors.faded_yellow, reverse = false },
         LspReferenceRead = { fg = "", bg = "", underdotted = true },
         LspReferenceWrite = { fg = "", bg = "", underline = true },
-        MatchParen = { fg = colors.dark0, bg = colors.faded_yellow },
 
         DiffDelete = { bg = "#4a1a1a" },
         DiffAdd = { bg = "#404632" },
