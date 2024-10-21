@@ -24,7 +24,22 @@ return {
   "echasnovski/mini.pick",
 
   keys = {
-    { "<C-.>", function() require("mini.pick").builtin.files() end, desc = "Files [mini.pick]" },
+    {
+      "<C-.>",
+      function()
+        require("mini.pick").builtin.cli({
+          command = {
+            "fd",
+            "--hidden",
+            "--exclude",
+            ".git",
+            "--exclude",
+            "node_modules",
+          },
+        })
+      end,
+      desc = "Files [mini.pick]",
+    },
   },
 
   opts = {
