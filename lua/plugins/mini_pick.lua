@@ -28,15 +28,24 @@ return {
       "<C-.>",
       function()
         require("mini.pick").builtin.cli({
-          command = {
-            "fd",
-            "--hidden",
-            "--exclude",
-            ".git",
-            "--exclude",
-            "node_modules",
+            command = {
+              "fd",
+              "--hidden",
+              "--exclude",
+              ".git",
+              "--exclude",
+              "node_modules",
+            },
           },
-        })
+          {
+            source = {
+              name = "Files (fd)",
+              show = function(buf_id, items, query)
+                require("mini.pick").default_show(buf_id, items, query, { show_icons = true })
+              end,
+            },
+          }
+        )
       end,
       desc = "Files [mini.pick]",
     },
