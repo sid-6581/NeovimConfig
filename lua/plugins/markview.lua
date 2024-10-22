@@ -5,7 +5,7 @@ return {
 
   opts = {
     modes = { "n", "i", "no", "c", "s", "S" },
-    hybrid_modes = { "n", "i", "v", "V", "s", "S" },
+    -- hybrid_modes = { "n", "i", "v", "V", "s", "S" },
   },
 
   config = function(_, opts)
