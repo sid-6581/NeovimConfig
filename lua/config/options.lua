@@ -47,7 +47,7 @@ vim.opt.iskeyword:append("-")
 vim.opt.laststatus = 0
 vim.opt.list = true
 -- vim.opt.listchars:append({ space = "⋅", tab = "» ", extends = "…", precedes = "…", nbsp = "␣" })
-vim.opt.listchars:append({ space = " ", tab = "» ", extends = "…", precedes = "…", nbsp = "␣" })
+vim.opt.listchars:append({ space = " ", tab = "» ", extends = "…", precedes = "…", nbsp = "␣", trail = "⋅" })
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.previewheight = 20
