@@ -36,7 +36,7 @@ return {
 
   opts = {
     mappings = {
-      go_in = "",
+      go_in = "l",
       go_in_plus = "<CR>",
       go_out = "-",
       show_help = "?",
@@ -69,6 +69,10 @@ return {
             { "<C-s>", function() open_in("split") end, desc = "Open in horizontal split [mini.files]" },
             { "<C-v>", function() open_in("vsplit") end, desc = "Open in vertical split [mini.files]" },
             { "h", function() smart_go_out() end, desc = "Go out [mini.files]" },
+            { "<A-h>", "h", desc = "Left [mini.files]" },
+            { "<A-j>", "j", desc = "Down [mini.files]" },
+            { "<A-k>", "k", desc = "Up [mini.files]" },
+            { "<A-l>", "l", desc = "Right [mini.files]" },
           })
         end,
       })
