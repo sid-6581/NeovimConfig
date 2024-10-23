@@ -8,6 +8,7 @@ return {
       notify = false,
       duration = 0,
       delay = 0,
+      textobject = "ac",
     },
     line_num = {
       enable = true,
