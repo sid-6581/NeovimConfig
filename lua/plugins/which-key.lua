@@ -25,9 +25,7 @@ return {
       return not node.desc
     end,
 
-    delay = function(ctx)
-      return ctx.plugin and 0 or 250
-    end,
+    delay = 500,
 
     filter = function(mapping)
       if mapping.rhs and type(mapping.rhs) == "string" then
