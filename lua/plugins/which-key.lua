@@ -197,6 +197,7 @@ return {
         { "<Esc>", '<CMD>noh | echon ""<CR><Esc>', desc = "Clear search highlighting [which-key]" },
         { "<C-s>", "<CMD>w!<CR>", desc = "Save [which-key]" },
         { "<C-g>", "2<C-g>", desc = "Print current file name [which-key]" },
+        { "<S-C-k>", "dd", desc = "Delete line [which-key]" },
 
         {
           "<C-q>",
@@ -408,6 +409,7 @@ return {
         { "<A-k>", "<Up>", noremap = false, desc = "Up [which-key]" },
         { "<A-l>", "<Right>", noremap = false, desc = "Right [which-key]" },
         { "<A-p>", "<C-o>P", noremap = false, desc = "Paste [which-key]" },
+        { "<S-C-k>", "<C-o>dd", desc = "Delete line [which-key]" },
         { "<S-Enter>", "<Esc>m`O<Esc>``a", desc = "Insert blank line above [which-key]" },
         { "<C-Enter>", "<Esc>m`o<Esc>``a", desc = "Insert blank line below [which-key]" },
         { "<S-Insert>", "<C-r><C-o>+", desc = "Paste from system clipboard [which-key]" },
