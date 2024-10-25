@@ -1,7 +1,3 @@
-if vim.fn.exists("g:neovide") ~= 0 then
-  vim.opt.guifont = "JetBrainsMono Nerd Font:h9.5:#e-subpixelantialias"
-end
-
 vim.g.neovide_confirm_quit = false
 vim.g.neovide_cursor_animation_length = 0.0
 vim.g.neovide_cursor_vfx_mode = ""
