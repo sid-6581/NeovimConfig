@@ -401,7 +401,7 @@ return {
       {
         mode = "i",
         { "<Esc>", "<Esc>`^", desc = "Exit insert mode [which-key]" },
-        { "<C-s>", "<C-\\><C-o><CMD>w!<CR>", desc = "Save [which-key]" },
+        { "<C-s>", "<Esc>`^<CMD>w!<CR>", desc = "Save [which-key]" },
         { "<C-BS>", "<C-w>", desc = "Delete previous word [which-key]" },
         { "<C-h>", "<C-w>", desc = "Delete previous word [which-key]" },
         { "<A-h>", "<Left>", noremap = false, desc = "Left [which-key]" },
