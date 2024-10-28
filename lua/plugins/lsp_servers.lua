@@ -127,6 +127,9 @@ return {
                 -- },
               },
               completion = {
+                callable = {
+                  snippets = "none",
+                },
                 fullFunctionSignatures = {
                   enable = true,
                 },
