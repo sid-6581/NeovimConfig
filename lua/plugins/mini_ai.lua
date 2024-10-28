@@ -11,6 +11,7 @@ return {
           brackets = { "%b()", "%b[]", "%b{}", "%b<>", "%||" },
           separator = "%s*[,;]%s*",
         }),
+        b = { { "%b()", "%b[]", "%b{}", "%b<>" }, "^.().*().$" },
         F = gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
         o = gen_spec.treesitter({
           a = { "@block.outer", "@conditional.outer", "@loop.outer" },
