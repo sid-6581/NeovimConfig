@@ -135,6 +135,7 @@ return {
                 disabled = {
                   "macro-error",
                   "proc-macro-disabled",
+                  "proc-macros-disabled",
                   "unresolved-proc-macro",
                 },
                 experimental = {
