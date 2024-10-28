@@ -409,6 +409,8 @@ return {
         { "<A-k>", "<Up>", noremap = false, desc = "Up [which-key]" },
         { "<A-l>", "<Right>", noremap = false, desc = "Right [which-key]" },
         { "<A-p>", "<C-o>P", noremap = false, desc = "Paste [which-key]" },
+        { "<A-x>", "<C-o>x", noremap = false, desc = "Delete character under cursor [which-key]" },
+        { "<A-X>", "<C-o>X", noremap = false, desc = "Delete character before cursor [which-key]" },
         { "<S-C-k>", "<C-o>dd", desc = "Delete line [which-key]" },
         { "<S-Enter>", "<Esc>m`O<Esc>``a", desc = "Insert blank line above [which-key]" },
         { "<C-Enter>", "<Esc>m`o<Esc>``a", desc = "Insert blank line below [which-key]" },
