@@ -420,6 +420,7 @@ return {
       -- Visual and select mode
       {
         mode = "v",
+        { "<C-s>", "<Esc><CMD>w!<CR>", desc = "Save [which-key]" },
         { "<C-Insert>", '"+y', desc = "Yank to system clipboard [which-key]" },
         { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
       },
