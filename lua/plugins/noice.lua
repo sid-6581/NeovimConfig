@@ -1,7 +1,6 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
-  version = "v4.4.7",
 
   keys = {
     {
