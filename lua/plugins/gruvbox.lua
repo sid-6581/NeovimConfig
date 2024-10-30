@@ -12,8 +12,8 @@ return {
         CursorLine = { bg = colors.dark0 },
         WinSeparator = { bg = "", blend = 0 },
         VertSplit = { bg = "", blend = 0 },
-        IncSearch = { fg = colors.dark0, bg = colors.neutral_yellow, reverse = false },
-        Search = { fg = colors.dark0, bg = colors.faded_yellow, reverse = false },
+        IncSearch = { bg = colors.dark0, fg = colors.neutral_yellow, reverse = true },
+        Search = { bg = colors.dark0, fg = colors.faded_yellow, reverse = true },
         LspReferenceRead = { fg = "", bg = "", underdotted = true },
         LspReferenceWrite = { fg = "", bg = "", underline = true },
 
