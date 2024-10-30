@@ -259,7 +259,7 @@ return {
 
       extensions = {
         egrepify = {
-          title = false,
+          title = true,
         },
         undo = {
           use_delta = false,
