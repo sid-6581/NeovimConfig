@@ -60,8 +60,8 @@ return {
 
   opts = {
     use_diagnostic_signs = true,
-    -- warn_no_results = false,
-    -- open_no_results = true,
+    warn_no_results = false,
+    open_no_results = true,
     win = {
       size = 0.2,
     },
