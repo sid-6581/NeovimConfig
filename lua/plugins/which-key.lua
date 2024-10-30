@@ -206,6 +206,7 @@ return {
         },
         { "@", "Q", desc = "Play macro [which-key]" },
         { "'", "`", desc = "Jump to mark [which-key]" },
+        { ";", "\"=nr2char(getchar())<CR>P", desc = "Insert single character [which-key]" },
 
         -- Insert blank lines
         { "<Leader><Enter>", "<CMD>put! =repeat(nr2char(10), v:count1)|silent ']+<CR>k", desc = "Add blank line on current line [which-key]" },
