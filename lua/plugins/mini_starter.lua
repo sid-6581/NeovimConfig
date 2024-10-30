@@ -32,26 +32,7 @@ return {
           { name = "Quit", action = "qall", section = "Actions" },
         },
 
-        vim.list_slice(
-          vim.tbl_map(
-            function(path)
-              path = vim.fn.fnamemodify(path, ":~")
-              return {
-                name = path,
-                action = function()
-                  vim.cmd.enew()
-                  vim.cmd.lcd(path)
-                  require("neo-tree.command").execute({ action = "show", dir = vim.fn.expand(path) })
-                end,
-                section = "Projects",
-              }
-            end,
-            vim.tbl_keys(require("mini.visits").get_index())
-          ),
-          1, 10
-        ),
-
-        starter.sections.recent_files(10, false, false),
+        starter.sections.recent_files(20, false, false),
       },
 
       content_hooks = {
