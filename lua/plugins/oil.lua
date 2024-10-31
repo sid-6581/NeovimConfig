@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
 
   opts = {
-    default_file_explorer = false,
+    default_file_explorer = true,
     columns = {
       "permissions",
       "size",
