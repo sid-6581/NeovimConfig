@@ -86,6 +86,17 @@ return {
       end,
       desc = "Go to word start [flash]",
     },
+    {
+      "gib",
+      function()
+        require("flash").jump({
+          search = { mode = "search", max_length = 0 },
+          highlight = { matches = false },
+          pattern = [[\([{(\[]\_s*\)\@<=\S]],
+        })
+      end,
+      desc = "Go to inner ()/[]/{} [flash]",
+    },
     { "n", function() require("flash").treesitter() end, mode = { "o", "x" }, desc = "Treesitter node [flash]" },
     { "N", function() require("flash").treesitter_search() end, mode = { "o", "x" }, desc = "Treesitter node search [flash]" },
     { "r", function() require("flash").remote() end, mode = { "o" }, desc = "Remote [flash]" },
@@ -141,7 +152,7 @@ return {
     { "ir{", gen_miniai("i", "{", true), mode = { "o", "x" }, desc = "Remote inside {} [flash]" },
     { "ar<", gen_miniai("a", "<", true), mode = { "o", "x" }, desc = "Remote around <> [flash]" },
     { "ir<", gen_miniai("i", "<", true), mode = { "o", "x" }, desc = "Remote inside <> [flash]" },
-    { "gib", gen_miniai("i", "b", false), desc = "Remote ()/[]/{} [flash]" },
+    -- { "gib", gen_miniai("i", "b", false), desc = "Remote ()/[]/{} [flash]" },
     { "giq", gen_miniai("i", "q", false), desc = "Remote \"/'/` [flash]" },
     { "gif", gen_miniai("i", "f", false), desc = "Remote function call [flash]" },
     { "giF", gen_miniai("i", "F", false), desc = "Remote function [flash]" },
