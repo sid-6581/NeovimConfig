@@ -47,11 +47,6 @@ return {
     "nvim-telescope/telescope-symbols.nvim",
     "fdschmidt93/telescope-egrepify.nvim",
     "debugloop/telescope-undo.nvim",
-
-    {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-    },
   },
 
   keys = {
@@ -345,7 +340,6 @@ return {
     telescope.setup(opts)
     telescope.load_extension("egrepify")
     telescope.load_extension("file_browser")
-    telescope.load_extension("fzf")
     telescope.load_extension("undo")
 
     vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "WinSeparator" })
