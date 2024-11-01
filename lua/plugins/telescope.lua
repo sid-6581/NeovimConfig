@@ -43,16 +43,19 @@ return {
   event = "VeryLazy",
 
   dependencies = {
-    "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-symbols.nvim",
     "fdschmidt93/telescope-egrepify.nvim",
     "debugloop/telescope-undo.nvim",
+
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    },
   },
 
   keys = {
     { "<F1>", function() require("telescope.builtin").help_tags() end, mode = { "n", "i", "v", "x", "o", "t" }, desc = "Help [telescope]" },
     { "<F3>", function() require("telescope.builtin").keymaps() end, mode = { "n", "i", "v", "x", "o", "t" }, desc = "Keymaps [telescope]" },
-    { "<Leader>f.", function() require("telescope").extensions.file_browser.file_browser() end, desc = "Browse files [telescope]" },
     { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find [telescope]" },
     { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands [telescope]" },
     { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Highlights [telescope]" },
@@ -192,7 +195,6 @@ return {
         borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         prompt_prefix = " ",
         sorting_strategy = "ascending",
-        selection_caret = " ",
         path_display = { "truncate" },
         vimgrep_arguments = {
           "rg",
@@ -339,7 +341,7 @@ return {
 
     telescope.setup(opts)
     telescope.load_extension("egrepify")
-    telescope.load_extension("file_browser")
+    telescope.load_extension("fzf")
     telescope.load_extension("undo")
 
     vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "WinSeparator" })
