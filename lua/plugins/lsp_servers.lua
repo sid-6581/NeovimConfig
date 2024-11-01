@@ -66,24 +66,6 @@ return {
 
         nushell = {},
 
-        omnisharp = {
-          cmd = { "omnisharp" },
-          settings = {
-            csharp = {
-              format = {
-                enable = true,
-              },
-            },
-            omnisharp = {
-              enableDecompilationSupport = true,
-              enabledEditorConfigSupport = true,
-              enableImportCompletion = true,
-              enableRoslynAnalyzers = true,
-              organizeImportsOnFormat = true,
-            },
-          },
-        },
-
         powershell_es = {
           settings = {
             powershell = {

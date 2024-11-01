@@ -35,7 +35,6 @@ return {
       "yaml-language-server",
       "yamlfmt",
       "yamllint",
-      vim.fn.has("win32") == 1 and "omnisharp" or nil,
       vim.fn.has("win32") == 1 and "powershell-editor-services" or nil,
     },
     auto_update = true,
