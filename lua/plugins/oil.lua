@@ -4,6 +4,7 @@ return {
 
   opts = {
     default_file_explorer = true,
+    constrain_cursor = "name",
     columns = {
       "permissions",
       "size",
