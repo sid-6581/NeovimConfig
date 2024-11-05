@@ -9,9 +9,9 @@ local mappings = {
   { "\\\\/",            name = "Start Regex Search",   desc = "Create a selection with regex search",        perm = true,             },
   { "\\\\\\",           name = "Add Cursor At Pos",    desc = "Add a single cursor at current position",     perm = true,             },
   { "\\\\gS",           name = "Reselect Last",        desc = "Reselect set of regions of last session",     perm = true,             },
-  { "<C-LeftMouse>",    name = "Mouse Cursor",         desc = "Create a cursor where clicked",               perm = true,             },
-  { "<C-RightMouse>",   name = "Mouse Word",           desc = "Select a word where clicked",                 perm = true,             },
-  { "<M-C-RightMouse>", name = "Mouse Column",         desc = "Create a column from cursor",                 perm = true,             },
+  -- { "<C-LeftMouse>",    name = "Mouse Cursor",         desc = "Create a cursor where clicked",               perm = true,             },
+  -- { "<C-RightMouse>",   name = "Mouse Word",           desc = "Select a word where clicked",                 perm = true,             },
+  -- { "<M-C-RightMouse>", name = "Mouse Column",         desc = "Create a column from cursor",                 perm = true,             },
 
   { "\\\\A",            name = "Visual All",           desc = "Select all occurrences of visual selection",  perm = true, mode = "x", },
   { "\\\\/",            name = "Visual Regex",         desc = "Find a pattern in visual selection",          perm = true, mode = "x", },

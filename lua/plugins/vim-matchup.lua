@@ -3,7 +3,8 @@ return {
     "andymass/vim-matchup",
     event = "VeryLazy",
 
-    config = function()
+    init = function()
+      vim.g.matchup_mouse_enabled = false
     end,
   },
 
