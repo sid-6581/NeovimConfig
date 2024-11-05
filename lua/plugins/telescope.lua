@@ -320,7 +320,7 @@ return {
           jump_type = "never",
         },
         keymaps = {
-          show_plug = true,
+          show_plug = false,
         },
         symbols = cursor_theme({}),
       },
