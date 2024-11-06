@@ -2,6 +2,10 @@ return {
   "folke/noice.nvim",
   event = "VeryLazy",
 
+  dependencies = {
+    "folke/snacks.nvim",
+  },
+
   keys = {
     {
       "<C-f>",
