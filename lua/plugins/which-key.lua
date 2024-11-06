@@ -110,6 +110,7 @@ return {
         { pattern = "%[mini.pick%]", icon = "󰢷 mini.pick", color = "cyan" },
         { pattern = "%[mini.splitjoin%]", icon = " mini.splitjoin", color = "green" },
         { pattern = "%[mini.visits%]", icon = " mini.visits", color = "cyan" },
+        { pattern = "%[multicursor%]", icon = " multicursor", color = "green" },
         { pattern = "%[neo%-tree%]", icon = "󰙅 neo-tree", color = "cyan" },
         { pattern = "%[neogit%]", icon = "󰊢 neogit", color = "purple" },
         { pattern = "%[noice%]", icon = " noice", color = "blue" },
