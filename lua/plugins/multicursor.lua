@@ -10,7 +10,11 @@ local set_buffer_mappings = function()
           if not mc.cursorsEnabled() then
             mc.enableCursors()
           elseif mc.hasCursors() then
-            require("util.key").delete_buffer_mappings(function(m) return m.desc:match("%[multicursor%]") ~= nil end)
+            require("util.key").delete_buffer_mappings(
+              function(m)
+                return m.desc and m.desc:match("%[multicursor%]") ~= nil or false
+              end
+            )
             mc.clearCursors()
           end
         end,
