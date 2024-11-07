@@ -1,4 +1,5 @@
 local util = require("util")
+local format = require("util.format")
 local winbuf = require("util.winbuf")
 
 return {
@@ -10,6 +11,7 @@ return {
     { "<F2>", "<CMD>WhichKey<CR>", mode = { "n", "i", "v", "x", "o", "t" }, desc = "Show keys [which-key]" },
   },
 
+  --- @type wk.Opts
   opts = {
     preset = "modern",
 
@@ -21,25 +23,16 @@ return {
       end,
     },
 
+    --- @type number|fun(node: wk.Node):boolean?
     expand = function(node)
       return not node.desc
     end,
 
     delay = 500,
 
+    --- @param mapping wk.Mapping
     filter = function(mapping)
       if mapping.rhs and type(mapping.rhs) == "string" then
-        -- vim-visual-multi
-        if mapping.rhs:match("VM%-") then
-          -- Hide noisy vim-replicating mappings.
-          if mapping.rhs:match("VM%-Motion") or mapping.rhs:match("VM%-.%)") then
-            return false
-          end
-
-          mapping.desc = mapping.rhs .. " [visual-multi]"
-          return true
-        end
-
         -- nvim-surround
         if mapping.rhs:match("nvim%-surround") then
           mapping.desc = mapping.rhs .. " [surround]"
@@ -130,7 +123,6 @@ return {
         { pattern = "%[tssorter%]", icon = "  tssorter", color = "green" },
         { pattern = "%[ufo%]", icon = " ufo", color = "blue" },
         { pattern = "%[various%-textobjs%]", icon = " various-textobjs", color = "yellow" },
-        { pattern = "%[visual%-multi%]", icon = " visual-multi", color = "green" },
         { pattern = "%[which%-key%]", icon = "⌨️ ", color = "grey" },
         { pattern = "%[yanky%]", icon = "󰆏 yanky", color = "green" },
       },
@@ -182,7 +174,7 @@ return {
         {
           "<Leader>O",
           function()
-            if not require("util.winbuf").buf_filter({ noname = true }) then
+            if not winbuf.buf_filter({ noname = true }) then
               vim.cmd.tabnew()
             end
 
@@ -375,8 +367,8 @@ return {
           end,
           desc = "Toggle diagnostics",
         },
-        { "<Leader>uf", function() require("util.format").toggle_autoformat() end, desc = "Toggle format on save (global) [which-key]" },
-        { "<Leader>uF", function() require("util.format").toggle_autoformat(0) end, desc = "Toggle format on save (buffer) [which-key]" },
+        { "<Leader>uf", function() format.toggle_autoformat() end, desc = "Toggle format on save (global) [which-key]" },
+        { "<Leader>uF", function() format.toggle_autoformat(0) end, desc = "Toggle format on save (buffer) [which-key]" },
         { "<Leader>uw", function() util.toggle("wrap") end, desc = "Toggle wrap [which-key]" },
         { "<Leader>ul", function() util.toggle_number() end, desc = "Toggle line numbers [which-key]" },
         { "<Leader>ur", function() util.toggle("relativenumber") end, desc = "Toggle relative line numbers [which-key]" },
