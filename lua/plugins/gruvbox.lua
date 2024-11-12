@@ -9,7 +9,6 @@ return {
     require("gruvbox").setup({
       contrast = "hard",
       overrides = {
-        CursorLine = { bg = colors.dark0 },
         WinSeparator = { bg = "", blend = 0 },
         VertSplit = { bg = "", blend = 0 },
         IncSearch = { bg = colors.dark0, fg = colors.neutral_yellow, reverse = true },
