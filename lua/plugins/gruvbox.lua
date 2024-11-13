@@ -27,12 +27,12 @@ return {
         DiagnosticVirtualTextHint = { fg = colors.bright_aqua, italic = true },
         DiagnosticVirtualTextOk = { fg = colors.bright_green, italic = true },
 
-        markdownH1 = { fg = colors.bright_yellow, bold = true },
+        markdownH1 = { fg = colors.neutral_red, bold = true },
         markdownH2 = { fg = colors.neutral_yellow, bold = true },
-        markdownH3 = { fg = colors.bright_orange, bold = true },
-        markdownH4 = { fg = colors.neutral_orange, bold = true },
-        markdownH5 = { fg = colors.bright_red, bold = true },
-        markdownH6 = { fg = colors.neutral_red, bold = true },
+        markdownH3 = { fg = colors.neutral_green, bold = true },
+        markdownH4 = { fg = colors.neutral_aqua, bold = true },
+        markdownH5 = { fg = colors.neutral_blue, bold = true },
+        markdownH6 = { fg = colors.neutral_purple, bold = true },
 
         ["@markup.heading.1"] = { link = "markdownH1" },
         ["@markup.heading.2"] = { link = "markdownH2" },
