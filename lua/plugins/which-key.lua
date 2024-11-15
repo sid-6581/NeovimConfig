@@ -5,7 +5,6 @@ local winbuf = require("util.winbuf")
 return {
   "folke/which-key.nvim",
   priority = 1000,
-  lazy = false,
 
   keys = {
     { "<F2>", "<CMD>WhichKey<CR>", mode = { "n", "i", "v", "x", "o", "t" }, desc = "Show keys [which-key]" },
@@ -114,6 +113,7 @@ return {
         { pattern = "%[quicker%]", icon = "󰙅 quicker", color = "red" },
         { pattern = "%[rip%-substitute%]", icon = "󰛔 rip-substitute", color = "green" },
         { pattern = "%[sibling%-swap%]", icon = " sibling-swap", color = "green" },
+        { pattern = "%[snacks%]", icon = "󰉚 snacks", color = "purple" },
         { pattern = "%[surround%]", icon = "󰅲 surround", color = "green" },
         { pattern = "%[telescope%]", icon = " telescope", color = "cyan" },
         { pattern = "%[toggleterm%]", icon = "  toggleterm", color = "purple" },

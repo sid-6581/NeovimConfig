@@ -1,7 +1,6 @@
 return {
   "echasnovski/mini.icons",
   priority = 2000,
-  lazy = false,
 
   opts = {},
 

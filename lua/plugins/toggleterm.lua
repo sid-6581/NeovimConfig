@@ -6,7 +6,7 @@ return {
     { "<C-->", function() _TERMINAL_HORIZONTAL_TOGGLE() end, mode = { "n", "t" }, desc = "Horizontal terminal [toggleterm]" },
     { "<C-=>", function() _TERMINAL_TOGGLE() end, mode = { "n", "t" }, desc = "Float terminal [toggleterm]" },
     { "<C-\\>", function() _TERMINAL_VERTICAL_TOGGLE() end, mode = { "n", "t" }, desc = "Vertical terminal [toggleterm]" },
-    { "<Leader>gg", function() _LAZYGIT_TOGGLE() end, desc = "Lazygit [toggleterm]" },
+    -- { "<Leader>gg", function() _LAZYGIT_TOGGLE() end, desc = "Lazygit [toggleterm]" },
     { "<Leader>tf", function() _TERMINAL_TOGGLE() end, desc = "Float terminal [toggleterm]" },
     { "<Leader>th", function() _TERMINAL_HORIZONTAL_TOGGLE() end, desc = "Horizontal terminal [toggleterm]" },
     { "<Leader>tp", function() _PYTHON_TOGGLE() end, desc = "Python [toggleterm]" },
@@ -94,20 +94,20 @@ return {
       terminal_vertical:toggle()
     end
 
-    local lazygit
-    function _LAZYGIT_TOGGLE()
-      if lazygit == nil then
-        lazygit = Terminal:new({
-          count = 93,
-          cmd = "lazygit",
-          hidden = true,
-          on_exit = function() lazygit = nil end,
-          on_close = function() require("neo-tree.events").fire_event("git_event") end,
-        })
-      end
-
-      lazygit:toggle()
-    end
+    -- local lazygit
+    -- function _LAZYGIT_TOGGLE()
+    --   if lazygit == nil then
+    --     lazygit = Terminal:new({
+    --       count = 93,
+    --       cmd = "lazygit",
+    --       hidden = true,
+    --       on_exit = function() lazygit = nil end,
+    --       on_close = function() require("neo-tree.events").fire_event("git_event") end,
+    --     })
+    --   end
+    --
+    --   lazygit:toggle()
+    -- end
 
     local python
     function _PYTHON_TOGGLE()

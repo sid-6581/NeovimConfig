@@ -1,7 +1,6 @@
 return {
   "b0o/incline.nvim",
   priority = 998,
-  lazy = false,
 
   opts = {
     highlight = {
