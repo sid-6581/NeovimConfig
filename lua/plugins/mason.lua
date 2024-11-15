@@ -11,7 +11,7 @@ return {
 
       opts = {
         ui = {
-          border = "single",
+          border = "rounded",
           icons = {
             package_installed = "✓",
             package_pending = "➜",

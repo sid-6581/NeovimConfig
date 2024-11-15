@@ -7,11 +7,6 @@ return {
   },
 
   config = function(_, opts)
-    -- Visual settings
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
-    require("lspconfig.ui.windows").default_options.border = "single"
-
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local bufnr = args.buf
@@ -72,32 +67,6 @@ return {
               end,
             })
         end
-
-        -- Document highlights
-        if client.supports_method("textDocument/documentHighlight") then
-          vim.api.nvim_create_autocmd(
-            { "CursorHold", "InsertLeave" },
-            {
-              group = vim.api.nvim_create_augroup("LspDocumentHighlight." .. augroup_suffix, {}),
-              buffer = bufnr,
-              callback = function()
-                if vim.api.nvim_buf_is_valid(bufnr) and vim.lsp.buf_is_attached(bufnr, client.id) then
-                  vim.lsp.buf.document_highlight()
-                end
-              end,
-            })
-          vim.api.nvim_create_autocmd(
-            { "CursorMoved", "InsertEnter" },
-            {
-              group = vim.api.nvim_create_augroup("LspClearReferences." .. augroup_suffix, {}),
-              buffer = bufnr,
-              callback = function()
-                if vim.api.nvim_buf_is_valid(bufnr) and vim.lsp.buf_is_attached(bufnr, client.id) then
-                  vim.lsp.buf.clear_references()
-                end
-              end,
-            })
-        end
       end,
     })
 
@@ -116,7 +85,6 @@ return {
       severity_sort = true,
       float = {
         scope = "cursor",
-        border = "single",
         source = true,
         header = "",
         prefix = "",

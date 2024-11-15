@@ -1,9 +1,6 @@
 vim.g.neovide_confirm_quit = false
 vim.g.neovide_cursor_animation_length = 0.0
 vim.g.neovide_cursor_vfx_mode = ""
-vim.g.neovide_floating_blur_amount_x = 0.0
-vim.g.neovide_floating_blur_amount_y = 0.0
-vim.g.neovide_floating_shadow = false
 vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_position_animation_length = 0.0
 vim.g.neovide_remember_window_size = true
@@ -17,7 +14,6 @@ vim.g.loaded_ruby_provider = 0
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
--- vim.opt.formatoptions:remove({ "c", "r", "o" })
 vim.env.SHELL = vim.fn.has("win32") == 1 and "cmd.exe" or "sh"
 vim.opt.autowrite = true
 vim.opt.backup = true
@@ -42,7 +38,6 @@ vim.opt.ignorecase = true
 vim.opt.iskeyword:append("-")
 vim.opt.laststatus = 0
 vim.opt.list = true
--- vim.opt.listchars:append({ space = "⋅", tab = "» ", extends = "…", precedes = "…", nbsp = "␣" })
 vim.opt.listchars:append({ space = " ", tab = "» ", extends = "…", precedes = "…", nbsp = "␣", trail = "⋅" })
 vim.opt.mouse = "a"
 vim.opt.number = true
@@ -77,7 +72,6 @@ vim.opt.updatetime = 250
 vim.opt.virtualedit = { "block" }
 vim.opt.wildmode = { "longest", "list:full" }
 vim.opt.wildoptions = { "pum", "fuzzy" }
-vim.opt.winblend = 0
 vim.opt.wrap = false
 vim.opt.writebackup = false
 

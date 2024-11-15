@@ -8,17 +8,5 @@ return {
   },
 
   opts = {
-    form = {
-      border = "single",
-    },
-    confirm = {
-      border = "single",
-    },
-    task_win = {
-      border = "single",
-    },
-    help_win = {
-      border = "single",
-    },
   },
 }

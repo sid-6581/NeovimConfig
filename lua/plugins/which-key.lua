@@ -54,9 +54,7 @@ return {
     end,
 
     win = {
-      border = "single",
       width = { max = math.huge },
-      wo = { winblend = 0 },
     },
 
     icons = {

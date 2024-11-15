@@ -181,7 +181,6 @@ return {
 
     return {
       defaults = {
-        winblend = 0,
         layout_config = {
           prompt_position = "top",
           horizontal = {
@@ -192,7 +191,6 @@ return {
             width = 0.9,
           },
         },
-        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         prompt_prefix = " ",
         sorting_strategy = "ascending",
         path_display = { "truncate" },

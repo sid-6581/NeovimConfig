@@ -15,8 +15,5 @@ return {
         min_chars = 1,
       },
     },
-    popup = {
-      border = "single",
-    },
   },
 }

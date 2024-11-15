@@ -35,14 +35,6 @@ return {
         ["vim.lsp.util.stylize_markdown"] = true,
         ["cmp.entry.get_documentation"] = true,
       },
-      documentation = {
-        opts = {
-          border = "single",
-          win_options = {
-            winblend = 0,
-          },
-        },
-      },
     },
 
     messages = {
@@ -66,25 +58,16 @@ return {
         position = {
           row = -3,
         },
-        border = {
-          style = "single",
-        },
         size = {
           width = "50%",
         },
       },
       mini = {
         timeout = 5000,
-        win_options = {
-          winblend = 0,
-        },
       },
       confirm = {
         position = {
           row = "50%",
-        },
-        border = {
-          style = "single",
         },
       },
     },

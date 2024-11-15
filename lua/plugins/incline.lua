@@ -7,13 +7,11 @@ return {
       groups = {
         InclineNormal = {
           guifg = require("gruvbox").palette.light1,
-          blend = 100,
         },
         InclineNormalNC = {
           guifg = require("gruvbox").palette.light4,
           cterm = "italic",
           gui = "italic",
-          blend = 100,
         },
       },
     },
@@ -23,9 +21,6 @@ return {
         horizontal = 0,
       },
       zindex = 1,
-      options = {
-        winblend = 0,
-      },
     },
     hide = {
       cursorline = "focused_win",
