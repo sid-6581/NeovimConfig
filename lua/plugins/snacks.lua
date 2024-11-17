@@ -32,6 +32,12 @@ return {
 
   --- @type snacks.Config
   opts = {
+    lazygit = {
+      --- @diagnostic disable-next-line: missing-fields
+      theme = {
+        activeBorderColor = { fg = "MoreMsg" },
+      },
+    },
     notifier = {
       enabled = true,
       timeout = 5000,

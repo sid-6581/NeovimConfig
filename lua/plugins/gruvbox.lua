@@ -9,7 +9,6 @@ return {
       contrast = "hard",
       overrides = {
         WinSeparator = { bg = "" },
-        VertSplit = { bg = "" },
         IncSearch = { bg = colors.dark0, fg = colors.neutral_yellow, reverse = true },
         Search = { bg = colors.dark0, fg = colors.faded_yellow, reverse = true },
         LspReferenceRead = { fg = "", bg = "", underdotted = true },
@@ -86,10 +85,9 @@ return {
 
     vim.api.nvim_set_hl(0, "CursorLineNr", { link = "LineNr" })
     vim.api.nvim_set_hl(0, "SignColumn", { link = "LineNr" })
-    vim.api.nvim_set_hl(0, "FloatBorder", { link = "WinSeparator" })
+    vim.api.nvim_set_hl(0, "FloatBorder", { link = "GruvboxBlue" })
     vim.api.nvim_set_hl(0, "FloatTitle", { link = "Title" })
     vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
-    vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "Normal" })
     vim.api.nvim_set_hl(0, "LspReferenceText", {})
   end,
 }
