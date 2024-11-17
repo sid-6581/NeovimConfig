@@ -36,6 +36,13 @@ return {
       enabled = true,
       timeout = 5000,
     },
+    terminal = {
+      win = {
+        wo = {
+          winbar = "",
+        },
+      },
+    },
     win = {
       backdrop = false,
     },
