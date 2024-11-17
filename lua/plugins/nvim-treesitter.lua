@@ -8,7 +8,6 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "RRethy/nvim-treesitter-endwise",
     "RRethy/nvim-treesitter-textsubjects",
-    "nushell/tree-sitter-nu",
   },
 
   keys = {
