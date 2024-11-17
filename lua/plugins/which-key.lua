@@ -289,8 +289,8 @@ return {
 
         -- Window movements
         { "<C-h>", "<C-w>h", desc = "Left one window [which-key]" },
-        { "<C-j>", "<C-w>j", desc = "Up one window [which-key]" },
-        { "<C-k>", "<C-w>k", desc = "Down one window [which-key]" },
+        { "<C-j>", "<C-w>j", desc = "Down one window [which-key]" },
+        { "<C-k>", "<C-w>k", desc = "Up one window [which-key]" },
         { "<C-l>", "<C-w>l", desc = "Right one window [which-key]" },
         { "<Leader>wh", "<C-w>h", desc = "Left one window [which-key]" },
         { "<Leader>wj", "<C-w>j", desc = "Up one window [which-key]" },
@@ -434,12 +434,11 @@ return {
       -- Terminal mode
       {
         mode = "t",
-        { "<C-h>", "<C-\\><C-n><C-w>h", desc = "Left [which-key]" },
-        { "<C-j>", "<C-\\><C-n><C-w>j", desc = "Down [which-key]" },
-        { "<C-k>", "<C-\\><C-n><C-w>k", desc = "Up [which-key]" },
-        { "<C-l>", "<C-\\><C-n><C-w>l", desc = "Right [which-key]" },
+        { "<C-h>", "<C-\\><C-n><C-w>h", desc = "Left one window [which-key]" },
+        { "<C-j>", "<C-\\><C-n><C-w>j", desc = "Down one window [which-key]" },
+        { "<C-k>", "<C-\\><C-n><C-w>k", desc = "Up one window [which-key]" },
+        { "<C-l>", "<C-\\><C-n><C-w>l", desc = "Right one window [which-key]" },
         { "<C-BS>", "<C-h>", desc = "Delete previous word [which-key]" },
-        { "<C-h>", "<C-h>", desc = "Delete previous word [which-key]" },
         { "<S-Enter>", "<Enter>", desc = "Insert enter [which-key]" },
         { "<S-Space>", "<Space>", desc = "Insert space [which-key]" },
         { "<S-Esc>", "<C-\\><C-n>", desc = "Go to normal mode [which-key]" },

@@ -114,6 +114,7 @@ return {
         local height = math.floor(0.65 * vim.o.lines)
         local width = math.floor(0.65 * vim.o.columns)
         return {
+          border = "rounded",
           anchor = "NW",
           height = height,
           width = width,

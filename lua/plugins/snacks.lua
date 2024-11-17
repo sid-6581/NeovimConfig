@@ -7,8 +7,8 @@ return {
     { "<Leader>hc", function() require("snacks").lazygit.log() end, desc = "Lazygit history (cwd) [snacks]" },
     { "<Leader>hf", function() require("snacks").lazygit.log_file() end, desc = "Lazygit history (current file) [snacks]" },
     { "<Leader>hl", function() require("snacks").git.blame_line() end, desc = "Git history (line) [snacks]" },
-    { "[[", function() require("snacks").words.jump(-vim.v.count1) end, mode = { "n", "t" }, desc = "Previous reference [snacks]" },
-    { "]]", function() require("snacks").words.jump(vim.v.count1) end, mode = { "n", "t" }, desc = "Next reference [snacks]" },
+    { "[[", function() require("snacks").words.jump(-vim.v.count1) end, desc = "Previous reference [snacks]" },
+    { "]]", function() require("snacks").words.jump(vim.v.count1) end, desc = "Next reference [snacks]" },
     {
       "<C-->",
       function() require("snacks").terminal("nu -li", { env = { ["SNACKS_TERMINAL"] = "bottom" }, win = { position = "bottom" } }) end,
