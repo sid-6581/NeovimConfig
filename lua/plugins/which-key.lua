@@ -5,6 +5,7 @@ local winbuf = require("util.winbuf")
 return {
   "folke/which-key.nvim",
   priority = 1000,
+  lazy = false,
 
   keys = {
     { "<F2>", "<CMD>WhichKey<CR>", mode = { "n", "i", "v", "x", "o", "t" }, desc = "Show keys [which-key]" },
