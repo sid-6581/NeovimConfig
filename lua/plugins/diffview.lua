@@ -5,7 +5,7 @@ return {
   keys = {
     { "<Leader>gf", "<CMD>DiffviewFileHistory %<CR>", desc = "Git file history [diffview]" },
     { "<Leader>gh", "<CMD>DiffviewFileHistory<CR>", desc = "Git history [diffview]" },
-    { "<Leader>gw", "<CMD>DiffviewOpen<CR>", desc = "Git diff working tree [diffview]" },
+    { "<Leader>gd", "<CMD>DiffviewOpen<CR>", desc = "Git diff working tree [diffview]" },
   },
 
   opts = {
