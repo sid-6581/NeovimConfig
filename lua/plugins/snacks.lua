@@ -52,6 +52,7 @@ return {
     },
     words = {
       enabled = true,
+      debounce = 0,
     },
     styles = {
       lazygit = {

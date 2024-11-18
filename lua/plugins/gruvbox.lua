@@ -8,22 +8,26 @@ return {
     require("gruvbox").setup({
       contrast = "hard",
       overrides = {
-        WinSeparator = { bg = "" },
-        IncSearch = { bg = colors.dark0, fg = colors.neutral_yellow, reverse = true },
-        Search = { bg = colors.dark0, fg = colors.faded_yellow, reverse = true },
-        LspReferenceRead = { fg = "", bg = "", underdotted = true },
-        LspReferenceWrite = { fg = "", bg = "", underline = true },
-
-        DiffDelete = { bg = "#4a1a1a" },
+        CursorLineNr = { fg = "", bg = "", link = "LineNr" },
+        DiagnosticVirtualTextError = { fg = colors.bright_red, italic = true },
+        DiagnosticVirtualTextHint = { fg = colors.bright_aqua, italic = true },
+        DiagnosticVirtualTextInfo = { fg = colors.bright_blue, italic = true },
+        DiagnosticVirtualTextOk = { fg = colors.bright_green, italic = true },
+        DiagnosticVirtualTextWarn = { fg = colors.bright_yellow, italic = true },
         DiffAdd = { bg = "#404632" },
         DiffChange = { bg = "#283541" },
+        DiffDelete = { bg = "#4a1a1a" },
         DiffText = { bg = "#385570", fg = "" },
-
-        DiagnosticVirtualTextError = { fg = colors.bright_red, italic = true },
-        DiagnosticVirtualTextWarn = { fg = colors.bright_yellow, italic = true },
-        DiagnosticVirtualTextInfo = { fg = colors.bright_blue, italic = true },
-        DiagnosticVirtualTextHint = { fg = colors.bright_aqua, italic = true },
-        DiagnosticVirtualTextOk = { fg = colors.bright_green, italic = true },
+        FloatBorder = { fg = colors.bright_blue },
+        FloatTitle = { fg = "", bg = "", link = "Title" },
+        IncSearch = { bg = colors.dark0, fg = colors.neutral_yellow, reverse = true },
+        LspReferenceRead = { fg = "", bg = "", underdotted = true },
+        LspReferenceText = { link = "" },
+        LspReferenceWrite = { fg = "", bg = "", underline = true },
+        NormalFloat = { fg = "", bg = "", link = "Normal" },
+        Search = { bg = colors.dark0, fg = colors.faded_yellow, reverse = true },
+        SignColumn = { fg = "", bg = "", link = "LineNr" },
+        WinSeparator = { bg = "" },
 
         markdownH1 = { fg = colors.neutral_red, bold = true },
         markdownH2 = { fg = colors.neutral_yellow, bold = true },
@@ -31,7 +35,6 @@ return {
         markdownH4 = { fg = colors.neutral_aqua, bold = true },
         markdownH5 = { fg = colors.neutral_blue, bold = true },
         markdownH6 = { fg = colors.neutral_purple, bold = true },
-
         ["@markup.heading.1"] = { link = "markdownH1" },
         ["@markup.heading.2"] = { link = "markdownH2" },
         ["@markup.heading.3"] = { link = "markdownH3" },
@@ -82,12 +85,5 @@ return {
     })
 
     vim.cmd.colorscheme("gruvbox")
-
-    vim.api.nvim_set_hl(0, "CursorLineNr", { link = "LineNr" })
-    vim.api.nvim_set_hl(0, "SignColumn", { link = "LineNr" })
-    vim.api.nvim_set_hl(0, "FloatBorder", { link = "GruvboxBlue" })
-    vim.api.nvim_set_hl(0, "FloatTitle", { link = "Title" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
-    vim.api.nvim_set_hl(0, "LspReferenceText", {})
   end,
 }
