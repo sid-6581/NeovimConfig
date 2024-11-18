@@ -4,9 +4,7 @@ return {
   keys = {
     { "<Leader>gB", function() require("snacks").gitbrowse() end, desc = "Git browse [snacks]" },
     { "<Leader>gg", function() require("snacks").lazygit() end, desc = "Lazygit [snacks]" },
-    { "<Leader>hc", function() require("snacks").lazygit.log() end, desc = "Lazygit history (cwd) [snacks]" },
-    { "<Leader>hf", function() require("snacks").lazygit.log_file() end, desc = "Lazygit history (current file) [snacks]" },
-    { "<Leader>hl", function() require("snacks").git.blame_line() end, desc = "Git history (line) [snacks]" },
+    { "<Leader>gL", function() require("snacks").git.blame_line() end, desc = "Git history (line) [snacks]" },
     { "[[", function() require("snacks").words.jump(-vim.v.count1) end, desc = "Previous reference [snacks]" },
     { "]]", function() require("snacks").words.jump(vim.v.count1) end, desc = "Next reference [snacks]" },
     {

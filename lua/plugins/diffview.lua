@@ -3,8 +3,8 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>gdw", "<CMD>DiffviewOpen<CR>", desc = "Git diff working tree [diffview]" },
-    { "<Leader>gdf", "<CMD>DiffviewFileHistory %<CR>", desc = "Git file history [diffview]" },
+    { "<Leader>gw", "<CMD>DiffviewOpen<CR>", desc = "Git diff working tree [diffview]" },
+    { "<Leader>gf", "<CMD>DiffviewFileHistory %<CR>", desc = "Git file history [diffview]" },
   },
 
   opts = {
