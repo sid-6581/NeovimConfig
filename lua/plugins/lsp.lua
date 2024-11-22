@@ -7,6 +7,11 @@ return {
   },
 
   config = function(_, opts)
+    -- Visual settings
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+    require("lspconfig.ui.windows").default_options.border = "rounded"
+
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local bufnr = args.buf
@@ -84,6 +89,7 @@ return {
       underline = true,
       severity_sort = true,
       float = {
+        border = "rounded",
         scope = "cursor",
         source = true,
         header = "",
