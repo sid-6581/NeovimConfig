@@ -1,5 +1,7 @@
 return {
   "folke/snacks.nvim",
+  lazy = false,
+  priority = 1000,
 
   keys = {
     { "<Leader>gB", function() require("snacks").gitbrowse() end, desc = "Git browse [snacks]" },
