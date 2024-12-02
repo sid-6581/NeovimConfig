@@ -8,6 +8,31 @@ return {
     { "<Leader>xX", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer diagnostics [trouble]" },
     { "<Leader>xs", "<CMD>Trouble symbols toggle focus=false<CR>", desc = "Symbols [trouble]" },
     { "<Leader>xl", "<CMD>Trouble lsp toggle focus=false win.position=right<CR>", desc = "LSP definitions / references / ... [trouble]" },
+    {
+      "<Leader>xi",
+      "<CMD>Trouble lsp_implementations toggle focus=false<CR>",
+      desc = "LSP implementations [trouble]",
+    },
+    {
+      "<Leader>xr",
+      "<CMD>Trouble lsp_references toggle focus=false<CR>",
+      desc = "LSP references [trouble]",
+    },
+    {
+      "<Leader>xd",
+      "<CMD>Trouble lsp_definitions toggle focus=false<CR>",
+      desc = "LSP definitions [trouble]",
+    },
+    {
+      "<Leader>xci",
+      "<CMD>Trouble lsp_incoming_calls toggle focus=false<CR>",
+      desc = "LSP incoming calls [trouble]",
+    },
+    {
+      "<Leader>xco",
+      "<CMD>Trouble lsp_outgoing_calls toggle focus=false<CR>",
+      desc = "LSP outgoing calls [trouble]",
+    },
     { "<Leader>xL", "<CMD>Trouble loclist toggle<CR>", desc = "Location list [trouble]" },
     { "<Leader>xq", "<CMD>Trouble qflist toggle<CR>", desc = "Quickfix list [trouble]" },
 
