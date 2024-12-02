@@ -243,6 +243,11 @@ return {
               hybridMode = true,
             },
           },
+          settings = {
+            emmet = {
+              showExpandedAbbreviation = "never",
+            },
+          },
         },
       },
     }
