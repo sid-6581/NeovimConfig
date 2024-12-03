@@ -6,7 +6,7 @@ return {
     { "<A-x>", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics [trouble]" },
     { "<Leader>xx", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics [trouble]" },
     { "<Leader>xX", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer diagnostics [trouble]" },
-    { "<Leader>xs", "<CMD>Trouble symbols toggle focus=false<CR>", desc = "Symbols [trouble]" },
+    { "<Leader>xs", "<CMD>Trouble symbols toggle focus=false groups={}<CR>", desc = "Symbols [trouble]" },
     { "<Leader>xl", "<CMD>Trouble lsp toggle focus=false<CR>", desc = "LSP definitions / references / ... [trouble]" },
     {
       "<Leader>xi",
