@@ -11,6 +11,11 @@ return {
       vim.lsp.protocol.SymbolKind.Class,
       vim.lsp.protocol.SymbolKind.Interface,
     },
+    disable = {
+      filetypes = {
+        "markdown",
+      },
+    },
     vt_position = "end_of_line",
     request_pending_text = false,
   },
