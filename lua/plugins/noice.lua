@@ -8,6 +8,11 @@ return {
 
   keys = {
     {
+      "<A-n>",
+      function() require("noice").cmd("history") end,
+      desc = "Show notifications [noice]",
+    },
+    {
       "<C-f>",
       function() if not require("noice.lsp").scroll(1) then return "<C-f>" end end,
       mode = { "n", "i", "s" },
