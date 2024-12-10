@@ -96,7 +96,9 @@ return {
   },
 
   opts = {
-    lookForwardSmall = 0,
-    lookForwardBig = 0,
+    forwardLooking = {
+      small = 0,
+      big = 0,
+    },
   },
 }
