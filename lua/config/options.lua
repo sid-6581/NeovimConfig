@@ -15,7 +15,6 @@ vim.g.no_rust_maps = 1
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
-vim.env.SHELL = vim.fn.has("win32") == 1 and "cmd.exe" or "sh"
 vim.opt.autowrite = true
 vim.opt.backup = true
 vim.opt.backupdir = vim.fn.stdpath("state") .. "/backup"
@@ -48,7 +47,13 @@ vim.opt.redrawtime = 500
 vim.opt.relativenumber = false
 vim.opt.report = 1000
 vim.opt.scrolloff = 10
-vim.opt.shell = vim.fn.has("win32") == 1 and "cmd.exe" or "sh"
+vim.opt.shell = "nu"
+vim.opt.shellcmdflag = "-c"
+vim.opt.shellpipe = "o+e> "
+vim.opt.shellquote = ""
+vim.opt.shellredir = "o+e> "
+vim.opt.shellxescape = ""
+vim.opt.shellxquote = ""
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
 vim.opt.shortmess:append({ c = true, I = true, s = true })

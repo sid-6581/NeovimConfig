@@ -228,7 +228,7 @@ return {
         { "q", function() winbuf.close_window_or_buffer() end, desc = "Delete buffer/close window [which-key]" },
         { "<S-h>", "<CMD>bprevious<CR>", desc = "Previous buffer [which-key]" },
         { "<S-l>", "<CMD>bnext<CR>", desc = "Next buffer [which-key]" },
-        { "Q", "<CMD>%bdelete|lua MiniStarter.open()<CR>", desc = "Delete all buffers [which-key]" },
+        { "Q", "<CMD>%bdelete|lua require('snacks').dashboard.open()<CR>", desc = "Delete all buffers [which-key]" },
         { "<Leader>bl", "<CMD>set buflisted<CR>", desc = "Make buffer listed [which-key]" },
         { "<Leader>bnl", "<CMD>set nobuflisted<CR>", desc = "Make buffer unlisted [which-key]" },
         { "<Leader>bm", "<CMD>set modified<CR>", desc = "Make buffer modified [which-key]" },
