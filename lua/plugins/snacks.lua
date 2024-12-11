@@ -98,7 +98,7 @@ return {
 
       sections = {
         { section = "header" },
-        { section = "keys", gap = 1, padding = 1 },
+        { section = "keys", padding = 1 },
         { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
         { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
 
@@ -129,7 +129,7 @@ return {
             {
               icon = " ",
               title = "Git Status",
-              cmd = "git diff --stat -B -M -C",
+              cmd = "git --no-pager diff --stat -B -M -C",
               height = 10,
             },
           }

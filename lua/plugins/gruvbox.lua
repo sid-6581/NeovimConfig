@@ -18,6 +18,7 @@ return {
         DiffChange = { bg = "#283541" },
         DiffDelete = { bg = "#4a1a1a" },
         DiffText = { bg = "#385570", fg = "" },
+        ErrorMsg = { fg = colors.bright_red, bg = "" },
         FloatBorder = { fg = colors.bright_blue },
         FloatTitle = { fg = "", bg = "", link = "Title" },
         IncSearch = { bg = colors.dark0, fg = colors.neutral_yellow, reverse = true },
