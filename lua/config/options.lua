@@ -6,6 +6,10 @@ vim.g.neovide_position_animation_length = 0.0
 vim.g.neovide_remember_window_size = true
 vim.g.neovide_scroll_animation_far_lines = 0
 vim.g.neovide_scroll_animation_length = 0.0
+vim.g.neovide_floating_shadow = false
+vim.g.neovide_floating_z_height = 10
+vim.g.neovide_light_angle_degrees = 45
+vim.g.neovide_light_radius = 5
 
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0

@@ -101,8 +101,10 @@ return {
         { section = "keys", gap = 1, padding = 1 },
         { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
         { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+
         function()
-          local in_git = Snacks.git.get_root() ~= nil
+          local in_git = require("snacks").git.get_root() ~= nil
+
           local cmds = {
             {
               title = "Open Issues",
@@ -131,6 +133,7 @@ return {
               height = 10,
             },
           }
+
           return vim.tbl_map(function(cmd)
             return vim.tbl_extend("force", {
               pane = 2,
@@ -142,6 +145,7 @@ return {
             }, cmd)
           end, cmds)
         end,
+
         { section = "startup" },
       },
     },
