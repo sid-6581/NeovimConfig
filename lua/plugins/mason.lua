@@ -1,23 +1,18 @@
 return {
-  "neovim/nvim-lspconfig",
+  "williamboman/mason.nvim",
+  event = "VeryLazy",
 
-  dependencies = {
-    {
-      "williamboman/mason.nvim",
+  keys = {
+    { "<Leader>M", "<CMD>Mason<CR>", desc = "External tools [mason]" },
+  },
 
-      keys = {
-        { "<Leader>M", "<CMD>Mason<CR>", desc = "External tools [mason]" },
-      },
-
-      opts = {
-        ui = {
-          border = "rounded",
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
-        },
+  opts = {
+    ui = {
+      border = "rounded",
+      icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗",
       },
     },
   },
