@@ -8,6 +8,7 @@ return {
 
   dependencies = {
     "williamboman/mason.nvim",
+    "folke/neoconf.nvim",
   },
 
   config = function(_, opts)
