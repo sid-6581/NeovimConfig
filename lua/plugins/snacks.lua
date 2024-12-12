@@ -85,7 +85,7 @@ return {
           { icon = "󰱼 ", key = "f", desc = "File Search", action = ":enew|call feedkeys(' ff')" },
           { icon = "󱎸 ", key = "t", desc = "Text Search", action = ":enew|call feedkeys(' ft')" },
           { icon = "󰊢 ", key = "gg", desc = "Git", action = ":enew|call feedkeys(' gg')" },
-          vim.fn.has("win32") == 1 and { icon = "󰺿 ", key = "o", desc = "Obsidian", action = ":enew|call feedkeys(' O')" } or nil,
+          { icon = "󰺿 ", key = "o", desc = "Obsidian", action = ":enew|call feedkeys(' O')" },
           { icon = " ", key = "q", desc = "Quit", action = ":qall" },
         },
         header = [[
