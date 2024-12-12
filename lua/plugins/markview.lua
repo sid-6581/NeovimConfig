@@ -50,7 +50,7 @@ return {
       heading_6 = {
         style = "icon",
         icon = "▌󰎴  ",
-        icon_hl = "MarkviewHeading5Sign",
+        icon_hl = "MarkviewHeading6Sign",
         hl = "markdownH6",
       },
     },
