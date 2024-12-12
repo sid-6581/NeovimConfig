@@ -186,14 +186,5 @@ return {
     end
 
     vim.print = _G.dd
-
-    vim.api.nvim_create_autocmd(
-      { "User" },
-      {
-        pattern = "SnacksDashboardOpened",
-        callback = function()
-          vim.o.laststatus = 3
-        end,
-      })
   end,
 }
