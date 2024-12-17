@@ -5,6 +5,7 @@ return {
   keys = {
     { "<Leader>cs", function() require("treesj").split() end, desc = "Split treesitter node [treesj]" },
     { "<Leader>cj", function() require("treesj").join() end, desc = "Join treesitter node [treesj]" },
+    { "M", function() require("treesj").toggle({ split = { recursive = true } }) end, desc = "Split/join treesitter node [treesj]" },
   },
 
   opts = {

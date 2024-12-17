@@ -20,7 +20,9 @@ require("lazy").setup("plugins", {
     lazy = false,
   },
   install = {
-    colorscheme = { "gruvbox" },
+    colorscheme = {
+      "gruvbox",
+    },
   },
   headless = {
     process = false,

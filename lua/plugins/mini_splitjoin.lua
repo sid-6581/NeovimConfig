@@ -8,7 +8,7 @@ return {
 
     return {
       mappings = {
-        toggle = "",
+        toggle = "gM",
         join = "gJ",
         split = "gS",
       },
