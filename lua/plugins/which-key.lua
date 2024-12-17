@@ -39,8 +39,6 @@ return {
       return not node.desc
     end,
 
-    delay = 500,
-
     --- @param mapping wk.Mapping
     filter = function(mapping)
       if mapping.rhs and type(mapping.rhs) == "string" then
