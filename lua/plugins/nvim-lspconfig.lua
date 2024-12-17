@@ -39,15 +39,6 @@ return {
           },
           { "<Leader>ls", function() require("telescope.builtin").lsp_dynamic_workspace_symbols() end, desc = "Workspace symbols [telescope]" },
           { "<Leader>lS", function() require("telescope.builtin").lsp_document_symbols() end, desc = "Document symbols [telescope]" },
-          {
-            "<Leader>uh",
-            function()
-              local enabled = vim.lsp.inlay_hint.is_enabled({})
-              vim.notify((enabled and "Disabled" or "Enabled") .. " inlay hints")
-              vim.lsp.inlay_hint.enable(not enabled)
-            end,
-            desc = "Toggle inlay hints [lsp]",
-          },
           { "K", function() vim.lsp.buf.hover() end, desc = "Show information [lsp]" },
           { "gK", function() vim.lsp.buf.signature_help() end, desc = "Signature help [lsp]" },
           { "gd", "<C-]>", desc = "Go to definition [lsp]" },

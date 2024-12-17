@@ -354,24 +354,6 @@ return {
         { ",x12", "<CMD>%!x12pp<CR><CMD>set ft=x12<CR>", desc = "Format X12 file [which-key]" },
         { ",cr", "<CMD>%!dos2unix<CR>", desc = "Convert line endings to CR [which-key]" },
 
-        -- Toggles
-        { "<Leader>uC", function() util.toggle("cursorcolumn") end, desc = "Toggle cursorcolumn [which-key]" },
-        { "<Leader>uc", function() util.toggle("cursorline") end, desc = "Toggle cursorline [which-key]" },
-        {
-          "<Leader>ud",
-          function()
-            local enabled = vim.diagnostic.is_enabled()
-            vim.notify((enabled and "Disabled" or "Enabled") .. " diagnostics")
-            vim.diagnostic.enable(not enabled)
-          end,
-          desc = "Toggle diagnostics",
-        },
-        { "<Leader>uf", function() format.toggle_autoformat() end, desc = "Toggle format on save (global) [which-key]" },
-        { "<Leader>uF", function() format.toggle_autoformat(0) end, desc = "Toggle format on save (buffer) [which-key]" },
-        { "<Leader>uw", function() util.toggle("wrap") end, desc = "Toggle wrap [which-key]" },
-        { "<Leader>ul", function() util.toggle_number() end, desc = "Toggle line numbers [which-key]" },
-        { "<Leader>ur", function() util.toggle("relativenumber") end, desc = "Toggle relative line numbers [which-key]" },
-
         -- Yank/paste
         { "Y", "_y$", desc = "Yank line characters [which-key]" },
         { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },

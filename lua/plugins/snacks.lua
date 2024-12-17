@@ -4,8 +4,6 @@ return {
   priority = 1000,
 
   keys = {
-    { "<A-=>", function() require("snacks").zen.zoom() end, desc = "Zoom [snacks]" },
-    { "<A-s>", function() require("snacks").scratch() end, desc = "Toggle scratch buffer [snacks]" },
     { "<S-A-s>", function() require("snacks").scratch.select() end, desc = "Select scratch buffer [snacks]" },
     { "<Leader>gB", function() require("snacks").gitbrowse() end, desc = "Git browse [snacks]" },
     { "<Leader>gg", function() require("snacks").lazygit() end, desc = "Lazygit [snacks]" },
@@ -178,7 +176,8 @@ return {
   },
 
   config = function(_, opts)
-    require("snacks").setup(opts)
+    local snacks = require("snacks")
+    snacks.setup(opts)
 
     _G.dd = function(...)
       require("snacks").debug.inspect(...)
@@ -189,5 +188,34 @@ return {
     end
 
     vim.print = _G.dd
+
+    snacks.toggle.option("cursorcolumn"):map("<Leader>uC")
+    snacks.toggle.option("cursorline"):map("<Leader>uc")
+    snacks.toggle.option("wrap"):map("<Leader>uw")
+    snacks.toggle.option("relativenumber"):map("<Leader>ur")
+    snacks.toggle.inlay_hints({ name = "inlay hints" }):map("<Leader>uh")
+    snacks.toggle.line_number({ name = "line numbers" }):map("<Leader>ul")
+    snacks.toggle.diagnostics():map("<Leader>ud")
+    snacks.toggle.zoom():map("<A-=>")
+
+    snacks.toggle({
+      name = "auto format (buffer)",
+      get = function()
+        return not vim.b[vim.api.nvim_get_current_buf()].disable_autoformat
+      end,
+      set = function(state)
+        vim.b[vim.api.nvim_get_current_buf()].disable_autoformat = not state
+      end,
+    }):map("<Leader>uf")
+
+    snacks.toggle({
+      name = "auto format (global)",
+      get = function()
+        return not vim.g.disable_autoformat
+      end,
+      set = function(state)
+        vim.g.disable_autoformat = not state
+      end,
+    }):map("<Leader>uF")
   end,
 }

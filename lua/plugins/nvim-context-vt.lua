@@ -2,10 +2,6 @@ return {
   "andersevenrud/nvim_context_vt",
   event = "VeryLazy",
 
-  keys = {
-    { "<Leader>ut", "<CMD>NvimContextVtToggle<CR>", desc = "Toggle treesitter context" },
-  },
-
   opts = {
     prefix = "",
     highlight = "GruvboxBg3",

@@ -60,44 +60,4 @@ function M.close_text_object_folds(textobject)
   if win_view then vim.fn.winrestview(win_view) end
 end
 
--- Toggle a built-in option
---- @param silent boolean?
---- @param values? {[1]:any, [2]:any}
-function M.toggle(option, silent, values)
-  if values then
-    if vim.opt_local[option]:get() == values[1] then
-      vim.opt_local[option] = values[2]
-    else
-      vim.opt_local[option] = values[1]
-    end
-
-    return vim.notify("Set " .. option .. " to " .. vim.opt_local[option]:get())
-  end
-
-  vim.opt_local[option] = not vim.opt_local[option]:get()
-
-  if not silent then
-    if vim.opt_local[option]:get() then
-      vim.notify("Enabled " .. option)
-    else
-      vim.notify("Disabled " .. option)
-    end
-  end
-end
-
-M.number_enabled = { number = true, relativenumber = true }
-
-function M.toggle_number()
-  if vim.opt_local.number:get() or vim.opt_local.relativenumber:get() then
-    M.number_enabled = { number = vim.opt_local.number:get(), relativenumber = vim.opt_local.relativenumber:get() }
-    vim.opt_local.number = false
-    vim.opt_local.relativenumber = false
-    vim.notify("Disabled line numbers")
-  else
-    vim.opt_local.number = M.number_enabled.number
-    vim.opt_local.relativenumber = M.number_enabled.relativenumber
-    vim.notify("Enabled line numbers")
-  end
-end
-
 return M

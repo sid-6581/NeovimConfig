@@ -58,14 +58,6 @@ return {
 
   keys = {
     {
-      "<Leader>u/",
-      function()
-        vim.notify(require("flash.plugins.search").enabled and "Disabled flash search" or "Enabled flash search")
-        require("flash").toggle()
-      end,
-      desc = "Toggle Flash search [flash]",
-    },
-    {
       "gn",
       function() require("flash").treesitter({ jump = { pos = "end" } }) end,
       desc = "Go to treesitter node end [flash]",
@@ -199,8 +191,19 @@ return {
 
   config = function(_, opts)
     require("flash").setup(opts)
+
     local colors = require("gruvbox").palette
     vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ffffff", bg = colors.faded_red })
     vim.api.nvim_set_hl(0, "FlashBackdrop", { fg = colors.gray })
+
+    require("snacks").toggle({
+      name = "Flash search",
+      get = function()
+        return require("flash.plugins.search").enabled
+      end,
+      set = function(state)
+        require("flash").toggle(state)
+      end,
+    }):map("<Leader>u/")
   end,
 }
