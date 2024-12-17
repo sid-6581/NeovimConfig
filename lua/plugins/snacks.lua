@@ -4,6 +4,7 @@ return {
   priority = 1000,
 
   keys = {
+    { "<A-s>", function() require("snacks").scratch() end, desc = "Toggle scratch buffer [snacks]" },
     { "<S-A-s>", function() require("snacks").scratch.select() end, desc = "Select scratch buffer [snacks]" },
     { "<Leader>gB", function() require("snacks").gitbrowse() end, desc = "Git browse [snacks]" },
     { "<Leader>gg", function() require("snacks").lazygit() end, desc = "Lazygit [snacks]" },
