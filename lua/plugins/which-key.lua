@@ -8,12 +8,23 @@ return {
   lazy = false,
 
   keys = {
-    { "<F2>", "<CMD>WhichKey<CR>", mode = { "n", "i", "v", "x", "o", "t" }, desc = "Show keys [which-key]" },
+    {
+      "<F2>",
+      function() require("which-key").show() end,
+      mode = { "n", "i", "v", "x", "o", "t" },
+      desc = "Show keys [which-key]",
+    },
+    {
+      "<S-F2>",
+      function() require("which-key").show({ global = false }) end,
+      mode = { "n", "i", "v", "x", "o", "t" },
+      desc = "Show keys (buffer) [which-key]",
+    },
   },
 
   --- @type wk.Opts
   opts = {
-    preset = "modern",
+    preset = "helix",
 
     sort = {
       "order",
@@ -55,7 +66,16 @@ return {
     end,
 
     win = {
-      width = { max = math.huge },
+      width = {
+        min = 30,
+        max = 100,
+      },
+    },
+
+    layout = {
+      width = {
+        min = 80,
+      },
     },
 
     icons = {
@@ -116,7 +136,7 @@ return {
         { pattern = "%[surround%]", icon = "󰅲 surround", color = "green" },
         { pattern = "%[telescope%]", icon = " telescope", color = "cyan" },
         { pattern = "%[toggleterm%]", icon = "  toggleterm", color = "purple" },
-        { pattern = "%[treesitter%-textsubjects%]", icon = "󱁉 treesitter-textsubjects", color = "yellow" },
+        { pattern = "%[treesitter%-textsubjects%]", icon = "󱁉 textsubjects", color = "yellow" },
         { pattern = "%[treesj%]", icon = " treesj", color = "green" },
         { pattern = "%[trouble%]", icon = "󰙅 trouble", color = "red" },
         { pattern = "%[tssorter%]", icon = "  tssorter", color = "green" },
