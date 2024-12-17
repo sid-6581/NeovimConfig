@@ -4,7 +4,6 @@ return {
 
   keys = {
     { "<Leader>gR", function() require("gitsigns").reset_buffer() end, desc = "Git reset buffer [gitsigns]" },
-    { "<Leader>gl", function() require("gitsigns").blame_line({ full = true }) end, desc = "Git blame line [gitsigns]" },
     { "<Leader>gF", function() require("gitsigns").blame() end, desc = "Git blame file [gitsigns]" },
     { "<Leader>gp", function() require("gitsigns").preview_hunk() end, desc = "Git preview hunk [gitsigns]" },
     { "<Leader>gr", function() require("gitsigns").reset_hunk() end, desc = "Git reset hunk [gitsigns]" },
