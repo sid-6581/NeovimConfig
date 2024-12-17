@@ -42,6 +42,22 @@ return {
 
   keys = {
     {
+      "<C-i>",
+      function()
+        require("multicursor-nvim").jumpForward()
+      end,
+      mode = { "n", "v" },
+      desc = "Jump forward [multicursor]",
+    },
+    {
+      "<C-o>",
+      function()
+        require("multicursor-nvim").jumpBackward()
+      end,
+      mode = { "n", "v" },
+      desc = "Jump backward [multicursor]",
+    },
+    {
       "<C-n>",
       function()
         require("multicursor-nvim").matchAddCursor(1)
