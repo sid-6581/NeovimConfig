@@ -9,7 +9,7 @@ return {
   keys = {
     {
       "<A-n>",
-      function() require("noice").cmd("history") end,
+      function() require("noice").cmd("all") end,
       desc = "Show notifications [noice]",
     },
     {

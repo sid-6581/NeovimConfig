@@ -1,5 +1,4 @@
 local util = require("util")
-local format = require("util.format")
 local winbuf = require("util.winbuf")
 
 return {
@@ -243,14 +242,10 @@ return {
         -- { "N", "Nzz", hidden = true, desc = "Previous match and center [which-key]" },
 
         -- Buffers
-        { "q", function() winbuf.close_window_or_buffer() end, desc = "Delete buffer/close window [which-key]" },
         { "<S-h>", "<CMD>bprevious<CR>", desc = "Previous buffer [which-key]" },
         { "<S-l>", "<CMD>bnext<CR>", desc = "Next buffer [which-key]" },
         { "Q", "<CMD>%bdelete|lua require('snacks').dashboard()<CR>", desc = "Delete all buffers [which-key]" },
-        { "<Leader>bl", "<CMD>set buflisted<CR>", desc = "Make buffer listed [which-key]" },
-        { "<Leader>bnl", "<CMD>set nobuflisted<CR>", desc = "Make buffer unlisted [which-key]" },
-        { "<Leader>bm", "<CMD>set modified<CR>", desc = "Make buffer modified [which-key]" },
-        { "<Leader>bnm", "<CMD>set nomodified<CR>", desc = "Make buffer unmodified [which-key]" },
+        { "q", function() winbuf.close_window_or_buffer() end, desc = "Delete buffer/close window [which-key]" },
         {
           "<Leader>bh",
           function()
@@ -277,6 +272,8 @@ return {
           end,
           desc = "Delete other buffers [which-key]",
         },
+        { "<Leader>bi", function() show(vim.fn.getbufinfo(), { title = "Buffers" }) end, desc = "Show buffer information [which-key]" },
+
 
         -- Window opening/closing
         { "<Leader>-", "<CMD>new<CR>", desc = "Open new file in split [which-key]" },
@@ -286,6 +283,7 @@ return {
         { "<Leader>wT", "<C-w>T", desc = "Open current window in new tab [which-key]" },
         { "<Leader>w]", "<C-w>]", desc = "Go to identifier in split [which-key]" },
         { "<Leader>wc", "<C-w>c", desc = "Close current window [which-key]" },
+        { "<Leader>wi", function() show(vim.fn.getwininfo(), { title = "Windows" }) end, desc = "Show window information [which-key]" },
         { "<Leader>wo", "<C-w>o", desc = "Make current window the only one [which-key]" },
         { "<Leader>wq", "<C-w>q", desc = "Quit window [which-key]" },
         { "<Leader>ws", "<C-w>s", desc = "Split window (horizontal) [which-key]" },

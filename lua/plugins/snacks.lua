@@ -63,6 +63,7 @@ return {
       debounce = 0,
     },
 
+    --- @type table<string, snacks.win.Config>
     styles = {
       lazygit = {
         border = "rounded",
@@ -74,6 +75,10 @@ return {
         wo = {
           winhighlight = "SnacksDashboardIcon:Title",
         },
+      },
+      float = {
+        backdrop = false,
+        border = "rounded",
       },
     },
 
@@ -190,6 +195,31 @@ return {
 
     vim.print = _G.dd
 
+    --- Show a window.
+    --- @param opts? snacks.win.Config
+    --- @return snacks.win
+    --- @diagnostic disable-next-line: redefined-local
+    _G.win = function(opts)
+      if opts then
+        local text = type(opts.text) == "function" and opts.text() or opts.text
+        text = type(text) == "string" and vim.split(text, "\n") or text
+        opts = vim.tbl_extend("force", opts, { text = text })
+      end
+
+      return require("snacks").win.new(opts)
+    end
+
+    --- Show a lua object in a window.
+    --- @param obj any
+    --- @param opts? snacks.win.Config
+    --- @return snacks.win
+    --- @diagnostic disable-next-line: redefined-local
+    _G.show = function(obj, opts)
+      return win(vim.tbl_extend("force", opts or {}, { ft = "lua", text = vim.inspect(obj) }))
+    end
+
+    snacks.toggle.option("buflisted"):map("<Leader>bl")
+    snacks.toggle.option("modified"):map("<Leader>bm")
     snacks.toggle.option("cursorcolumn"):map("<Leader>uC")
     snacks.toggle.option("cursorline"):map("<Leader>uc")
     snacks.toggle.option("wrap"):map("<Leader>uw")
