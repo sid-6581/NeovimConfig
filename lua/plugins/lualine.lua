@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  lazy = true,
   priority = 999,
 
   config = function()
@@ -21,11 +22,6 @@ return {
         section_separators = { left = "", right = "" },
         always_divide_middle = true,
         globalstatus = true,
-        -- refresh = {
-        --   statusline = 100,
-        --   tabline = 100,
-        --   winbar = 100,
-        -- },
       },
       sections = {
         lualine_a = {
@@ -138,7 +134,5 @@ return {
         },
       },
     })
-
-    require("lualine").refresh()
   end,
 }

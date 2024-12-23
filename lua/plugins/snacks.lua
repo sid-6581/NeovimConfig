@@ -4,6 +4,14 @@ return {
   priority = 1000,
 
   keys = {
+    {
+      "Q",
+      function()
+        require("util.winbuf").buffers_run({}, function(bufnr) vim.api.nvim_buf_delete(bufnr, {}) end)
+        require("snacks").dashboard({ win = vim.api.nvim_get_current_win(), buf = vim.api.nvim_get_current_buf() })
+      end,
+      desc = "Show dashboard and delete all buffers [snacks]",
+    },
     { "<A-s>", function() require("snacks").scratch() end, desc = "Toggle scratch buffer [snacks]" },
     { "<S-A-s>", function() require("snacks").scratch.select() end, desc = "Select scratch buffer [snacks]" },
     { "<Leader>gB", function() require("snacks").gitbrowse() end, desc = "Git browse [snacks]" },
@@ -248,5 +256,14 @@ return {
         vim.g.disable_autoformat = not state
       end,
     }):map("<Leader>uF")
+
+    vim.api.nvim_create_autocmd(
+      { "User" },
+      {
+        pattern = "SnacksDashboardClosed",
+        callback = function()
+          require("lualine")
+        end,
+      })
   end,
 }
