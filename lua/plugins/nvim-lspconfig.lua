@@ -354,6 +354,10 @@ return {
           filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         },
 
+        qmlls = {
+          cmd = { "qmlls6" },
+        },
+
         yamlls = {
           settings = {
             yaml = {
