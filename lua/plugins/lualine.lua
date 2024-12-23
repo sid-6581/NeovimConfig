@@ -1,7 +1,9 @@
 return {
   "nvim-lualine/lualine.nvim",
-  lazy = true,
-  priority = 999,
+  event = {
+    "BufRead",
+    { event = "User", pattern = "SnacksDashboardClosed" },
+  },
 
   config = function()
     local lualine = require("lualine")

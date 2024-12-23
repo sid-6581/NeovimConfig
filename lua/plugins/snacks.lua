@@ -256,14 +256,5 @@ return {
         vim.g.disable_autoformat = not state
       end,
     }):map("<Leader>uF")
-
-    vim.api.nvim_create_autocmd(
-      { "User" },
-      {
-        pattern = "SnacksDashboardClosed",
-        callback = function()
-          require("lualine")
-        end,
-      })
   end,
 }
