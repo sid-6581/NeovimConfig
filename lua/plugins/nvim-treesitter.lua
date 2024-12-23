@@ -49,6 +49,7 @@ return {
       "pug",
       "python",
       "r",
+      "qmljs",
       "query",
       "regex",
       "rust",
