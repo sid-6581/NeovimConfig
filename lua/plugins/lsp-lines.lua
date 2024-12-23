@@ -1,6 +1,7 @@
 return {
   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
   event = "VeryLazy",
+  enabled = false,
 
   config = function()
     require("lsp_lines").setup()
