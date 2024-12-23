@@ -21,19 +21,19 @@ return {
     { "]]", function() require("snacks").words.jump(vim.v.count1) end, desc = "Next reference [snacks]" },
     {
       "<C-->",
-      function() require("snacks").terminal("nu -li", { env = { ["SNACKS_TERMINAL"] = "bottom" }, win = { position = "bottom" } }) end,
+      function() require("snacks").terminal("nu -i", { env = { ["SNACKS_TERMINAL"] = "bottom" }, win = { position = "bottom" } }) end,
       mode = { "n", "t" },
       desc = "Horizontal terminal [snacks]",
     },
     {
       "<C-=>",
-      function() require("snacks").terminal("nu -li", { env = { ["SNACKS_TERMINAL"] = "float" }, win = { position = "float" } }) end,
+      function() require("snacks").terminal("nu -i", { env = { ["SNACKS_TERMINAL"] = "float" }, win = { position = "float" } }) end,
       mode = { "n", "t" },
       desc = "Float terminal [snacks]",
     },
     {
       "<C-\\>",
-      function() require("snacks").terminal("nu -li", { env = { ["SNACKS_TERMINAL"] = "right" }, win = { position = "right" } }) end,
+      function() require("snacks").terminal("nu -i", { env = { ["SNACKS_TERMINAL"] = "right" }, win = { position = "right" } }) end,
       mode = { "n", "t" },
       desc = "Vertical terminal [snacks]",
     },
