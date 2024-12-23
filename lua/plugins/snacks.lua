@@ -42,6 +42,34 @@ return {
 
   --- @type snacks.Config
   opts = {
+    indent = {
+      enabled = true,
+
+      animate = {
+        enabled = false,
+      },
+
+      indent = {
+        enabled = false,
+        only_scope = true,
+        only_current = true,
+      },
+
+      scope = {
+        enabled = true,
+        only_current = true,
+      },
+
+      chunk = {
+        enabled = true,
+        char = {
+          corner_top = "╭",
+          corner_bottom = "╰",
+        },
+      },
+    },
+
+
     lazygit = {
       --- @diagnostic disable-next-line: missing-fields
       theme = {
