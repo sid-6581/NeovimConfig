@@ -53,11 +53,13 @@ return {
         enabled = false,
         only_scope = true,
         only_current = true,
+        hl = "Constant",
       },
 
       scope = {
-        enabled = true,
+        enabled = false,
         only_current = true,
+        hl = "Constant",
       },
 
       chunk = {
@@ -66,6 +68,7 @@ return {
           corner_top = "╭",
           corner_bottom = "╰",
         },
+        hl = "Constant",
       },
     },
 
