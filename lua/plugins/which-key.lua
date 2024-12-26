@@ -141,6 +141,7 @@ return {
         { pattern = "%[various%-textobjs%]", icon = " various-textobjs", color = "yellow" },
         { pattern = "%[which%-key%]", icon = " ", color = "grey" },
         { pattern = "%[yanky%]", icon = "󰆏 yanky", color = "green" },
+        { pattern = "%[yazi%]", icon = "󰙅 yazi", color = "purple" },
       },
     },
 

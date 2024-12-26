@@ -54,8 +54,8 @@ return {
   },
 
   keys = {
-    { "<F1>", function() require("telescope.builtin").help_tags() end, mode = { "n", "i", "v", "x", "o", "t" }, desc = "Help [telescope]" },
-    { "<F3>", function() require("telescope.builtin").keymaps() end, mode = { "n", "i", "v", "x", "o", "t" }, desc = "Keymaps [telescope]" },
+    { "<F1>", function() require("telescope.builtin").help_tags() end, mode = { "n", "i", "v", "x", "o" }, desc = "Help [telescope]" },
+    { "<F3>", function() require("telescope.builtin").keymaps() end, mode = { "n", "i", "v", "x", "o" }, desc = "Keymaps [telescope]" },
     { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find [telescope]" },
     { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands [telescope]" },
     { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Highlights [telescope]" },
