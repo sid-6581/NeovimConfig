@@ -195,7 +195,7 @@ return {
               vim.cmd.tabnew()
             end
 
-            local dir = "~/vaults/Notes"
+            local dir = "~/Vaults/Notes"
             vim.cmd.lcd(dir)
             require("neo-tree.command").execute({ action = "show", dir = dir })
           end,
