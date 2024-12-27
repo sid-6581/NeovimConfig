@@ -119,6 +119,9 @@ return {
         backdrop = false,
         border = "rounded",
       },
+      zen = {
+        border = "none",
+      },
     },
 
     dashboard = {
@@ -132,6 +135,7 @@ return {
           { icon = "󱎸 ", key = "t", desc = "Text Search", action = ":enew|call feedkeys(' ft')" },
           { icon = "󰊢 ", key = "gg", desc = "Git", action = ":enew|call feedkeys(' gg')" },
           { icon = "󰺿 ", key = "o", desc = "Obsidian", action = ":enew|call feedkeys(' O')" },
+          { icon = "󰙅 ", key = "y", desc = "Yazi", action = ":enew|call feedkeys(' .')" },
           { icon = " ", key = "q", desc = "Quit", action = ":qall" },
         },
         header = [[
