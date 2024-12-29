@@ -1,6 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = {
+    "StdinReadPost",
     "BufRead",
     { event = "User", pattern = "SnacksDashboardClosed" },
   },
