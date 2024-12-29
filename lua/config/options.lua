@@ -92,5 +92,6 @@ vim.filetype.add({
   extension = {
     nomad = "hcl",
     props = "xml",
+    container = "systemd",
   },
 })
