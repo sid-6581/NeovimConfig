@@ -132,7 +132,7 @@ return {
           { icon = "󰙅 ", key = "b", desc = "Browse Files", action = ":enew|call feedkeys(\"\\<M-1>\")" },
           { icon = " ", key = "p", desc = "Project Search", action = ":enew|call feedkeys(' fp')" },
           { icon = "󰱼 ", key = "f", desc = "File Search", action = ":enew|call feedkeys(' ff')" },
-          { icon = "󱎸 ", key = "t", desc = "Text Search", action = ":enew|call feedkeys(' ft')" },
+          { icon = "󱎸 ", key = "s", desc = "Text Search", action = ":enew|call feedkeys(' ft')" },
           { icon = "󰊢 ", key = "gg", desc = "Git", action = ":enew|call feedkeys(' gg')" },
           { icon = "󰺿 ", key = "o", desc = "Obsidian", action = ":enew|call feedkeys(' O')" },
           { icon = "󰙅 ", key = "y", desc = "Yazi", action = ":enew|call feedkeys(' .')" },
