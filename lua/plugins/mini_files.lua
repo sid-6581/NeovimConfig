@@ -29,9 +29,7 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "-", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open (file dir) [mini.files]" },
-    { "<Leader>fm", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open (file dir) [mini.files]" },
-    { "<Leader>fM", function() require("mini.files").open(vim.loop.cwd(), false) end, desc = "Open (cwd) [mini.files]" },
+    { "-", function() require("mini.files").open(vim.api.nvim_buf_get_name(0), true) end, desc = "Open file dir [mini.files]" },
   },
 
   opts = {

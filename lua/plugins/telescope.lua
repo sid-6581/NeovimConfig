@@ -54,97 +54,50 @@ return {
   },
 
   keys = {
-    { "<F1>", function() require("telescope.builtin").help_tags() end, mode = { "n", "i", "v", "x", "o" }, desc = "Help [telescope]" },
-    { "<F3>", function() require("telescope.builtin").keymaps() end, mode = { "n", "i", "v", "x", "o" }, desc = "Keymaps [telescope]" },
-    { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Current buffer fuzzy find [telescope]" },
-    { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Autocommands [telescope]" },
-    { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Highlights [telescope]" },
-    { "<Leader>fR", function() require("telescope.builtin").registers() end, desc = "Registers [telescope]" },
-    { "<Leader>fa", function() require("telescope.builtin").builtin() end, desc = "All [telescope]" },
-    { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers [telescope]" },
-    { "<Leader>fc", function() require("telescope.builtin").commands() end, desc = "Commands [telescope]" },
-    { "<Leader>ff", function() require("telescope.builtin").find_files() end, desc = "Files [telescope]" },
+    { "<C-/>", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Search text [telescope]" },
+    { "<F1>", function() require("telescope.builtin").help_tags() end, mode = { "n", "i", "v", "x", "o" }, desc = "Search help [telescope]" },
+    { "<F3>", function() require("telescope.builtin").keymaps() end, mode = { "n", "i", "v", "x", "o" }, desc = "Search keymaps [telescope]" },
     {
-      "<Leader>fF",
-      function()
-        require("telescope.builtin").find_files({
-          find_command = {
-            "fd",
-            "--hidden",
-            "--no-ignore",
-          },
-        })
-      end,
-      desc = "Files (all) [telescope]",
-    },
-    { "<Leader>fH", function() require("telescope.builtin").help_tags() end, desc = "Help [telescope]" },
-    { "<Leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Keymaps [telescope]" },
-    {
-      "<Leader>fl",
+      "<Leader>f.",
       function() require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir() }) end,
-      desc = "Files from current directory [telescope]",
+      desc = "Search in current directory [telescope]",
     },
-    { "<Leader>fo", function() require("telescope.builtin").vim_options() end, desc = "Vim options [telescope]" },
-    { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Recent files [telescope]" },
+    { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Search buffer fuzzy find [telescope]" },
+    { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Search autocommands [telescope]" },
+    { "<Leader>fH", function() require("telescope.builtin").help_tags() end, desc = "Search help [telescope]" },
+    { "<Leader>fR", function() require("telescope.builtin").registers() end, desc = "Search registers [telescope]" },
+    { "<Leader>fa", function() require("telescope.builtin").builtin() end, desc = "Search all [telescope]" },
+    { "<Leader>fb", function() require("telescope.builtin").buffers() end, desc = "Search buffers [telescope]" },
+    { "<Leader>fc", function() require("telescope.builtin").commands() end, desc = "Search commands [telescope]" },
+    { "<Leader>ff", function() require("telescope.builtin").find_files() end, desc = "Search files [telescope]" },
+    { "<Leader>fh", function() require("telescope.builtin").highlights() end, desc = "Search highlights [telescope]" },
+    { "<Leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Search keymaps [telescope]" },
+    { "<Leader>fo", function() require("telescope.builtin").vim_options() end, desc = "Search vim options [telescope]" },
+    { "<Leader>fr", function() require("telescope.builtin").oldfiles() end, desc = "Search recent files [telescope]" },
     {
       "<Leader>fs",
       function() require("telescope.builtin").symbols(cursor_theme({ sources = { "nerd3", "emoji", "gitmoji" } })) end,
-      desc = "Symbols [telescope]",
+      desc = "Search symbols [telescope]",
     },
-    { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text [telescope]" },
-    { "<C-/>", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Text [telescope]" },
-    {
-      "<Leader>fT",
-      function()
-        require("telescope").extensions.egrepify.egrepify({
-          vimgrep_arguments = {
-            "rg",
-            "--color=never",
-            "--no-heading",
-            "--with-filename",
-            "--line-number",
-            "--column",
-            "--smart-case",
-            "--multiline",
-            "--hidden",
-            "--no-ignore",
-          },
-        })
-      end,
-      desc = "Text (all files) [telescope]",
-    },
-    { "<Leader>fu", function() require("telescope").extensions.undo.undo() end, desc = "Undo [telescope]" },
-    { "<Leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Word [telescope]" },
-    { "<Leader>fy", function() require("telescope").extensions.yank_history.yank_history({}) end, desc = "Yank history [telescope]" },
-    { "<Leader>gS", function() require("telescope.builtin").git_stash() end, desc = "Git stash [telescope]" },
-    { "<Leader>gb", function() require("telescope.builtin").git_branches() end, desc = "Branches [telescope]" },
-    { "<Leader>gc", function() require("telescope.builtin").git_commits() end, desc = "Commits [telescope]" },
-    { "<Leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Buffer commits [telescope]" },
-    { "<Leader>gs", function() require("telescope.builtin").git_status() end, desc = "Status [telescope]" },
+    { "<Leader>ft", function() require("telescope").extensions.egrepify.egrepify() end, desc = "Search text [telescope]" },
+    { "<Leader>fu", function() require("telescope").extensions.undo.undo() end, desc = "Search undo history [telescope]" },
+    { "<Leader>fw", function() require("telescope.builtin").grep_string() end, desc = "Search for word [telescope]" },
+    { "<Leader>fy", function() require("telescope").extensions.yank_history.yank_history({}) end, desc = "Search yank history [telescope]" },
+    { "<Leader>gC", function() require("telescope.builtin").git_bcommits() end, desc = "Search git buffer commits [telescope]" },
+    { "<Leader>gS", function() require("telescope.builtin").git_stash() end, desc = "Search git stash [telescope]" },
+    { "<Leader>gb", function() require("telescope.builtin").git_branches() end, desc = "Search git branches [telescope]" },
+    { "<Leader>gc", function() require("telescope.builtin").git_commits() end, desc = "Search git commits [telescope]" },
+    { "<Leader>gs", function() require("telescope.builtin").git_status() end, desc = "Search git status [telescope]" },
 
     -- Select directories containing .git in the specified search_dirs.
-    -- The default select action will change the default directory and open oil.
+    -- The default select action will change the default directory and it.
     {
       "<Leader>fp",
       function()
         require("telescope.builtin").find_files({
           cwd = vim.env.HOME,
-          find_command = {
-            "fd",
-            "--prune",
-            "--hidden",
-            "--case-sensitive",
-            "--absolute-path",
-            "--no-ignore",
-            "-td",
-            "-x",
-            "echo",
-            "{//}",
-            ";",
-          },
-
+          find_command = { "fd", "--prune", "--hidden", "--case-sensitive", "--absolute-path", "--no-ignore", "-td", "-x", "echo", "{//}", ";" },
           file_ignore_patterns = { "%.cache", "%.cargo" },
-
           attach_mappings = function(prompt_bufnr, _map)
             local actions = require("telescope.actions")
             local action_state = require("telescope.actions.state")
@@ -171,7 +124,7 @@ return {
             or { vim.fn.expand("~/") },
         })
       end,
-      desc = "Projects [telescope]",
+      desc = "Search projects [telescope]",
     },
   },
 
@@ -194,17 +147,7 @@ return {
         prompt_prefix = " ",
         sorting_strategy = "ascending",
         path_display = { "truncate" },
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--multiline",
-          "--hidden",
-        },
+        vimgrep_arguments = require("util.config").rg_command,
         mappings = {
           i = {
             ["<2-LeftMouse>"] = false,
@@ -300,14 +243,7 @@ return {
           include_extensions = true,
         },
         find_files = {
-          find_command = {
-            "fd",
-            "--hidden",
-            "--exclude",
-            ".git",
-            "--exclude",
-            "node_modules",
-          },
+          find_command = require("util.config").fd_command,
         },
         lsp_definitions = {
           jump_type = "never",

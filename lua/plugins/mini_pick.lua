@@ -28,14 +28,7 @@ return {
       "<C-.>",
       function()
         require("mini.pick").builtin.cli({
-            command = {
-              "fd",
-              "--hidden",
-              "--exclude",
-              ".git",
-              "--exclude",
-              "node_modules",
-            },
+            command = require("util.config").fd_command,
           },
           {
             source = {
@@ -47,7 +40,7 @@ return {
           }
         )
       end,
-      desc = "Files [mini.pick]",
+      desc = "Search files [mini.pick]",
     },
   },
 

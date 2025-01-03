@@ -2,17 +2,17 @@ local default_opts = {
   timeout_ms = 500,
   lsp_format = "fallback",
 
-  -- filter = function(client)
-  --   if client.name == "ts_ls" then
-  --     return false
-  --   end
-  --
-  --   if client.name == "volar" then
-  --     return false
-  --   end
-  --
-  --   return true
-  -- end,
+  filter = function(client)
+    -- if client.name == "ts_ls" then
+    --   return false
+    -- end
+    --
+    -- if client.name == "volar" then
+    --   return false
+    -- end
+    --
+    return true
+  end,
 }
 
 return {
