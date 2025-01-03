@@ -32,17 +32,17 @@ return {
       end
 
       local opts = vim.deepcopy(default_opts)
-      -- opts.filter = function(client)
-      --   if not default_opts.filter(client) then
-      --     return false
-      --   end
-      --
-      --   if client.name == "eslint" then
-      --     return false
-      --   end
-      --
-      --   return true
-      -- end
+      opts.filter = function(client)
+        if not default_opts.filter(client) then
+          return false
+        end
+
+        if client.name == "eslint" then
+          return false
+        end
+
+        return true
+      end
       return opts
     end,
 
