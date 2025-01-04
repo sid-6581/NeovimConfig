@@ -3,6 +3,7 @@ return {
   event = {
     "StdinReadPost",
     "BufRead",
+    "BufNewFile",
     { event = "User", pattern = "SnacksDashboardClosed" },
   },
 
