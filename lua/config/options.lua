@@ -53,7 +53,7 @@ vim.opt.redrawtime = 500
 vim.opt.relativenumber = false
 vim.opt.report = 1000
 vim.opt.scrolloff = 10
-vim.opt.shell = vim.fn.has("win32") == 1 and "cmd.exe" or "sh"
+vim.opt.shell = vim.env.SHELL
 -- vim.opt.shell = "nu"
 -- vim.opt.shellcmdflag = "-c"
 -- vim.opt.shellpipe = "| table -e | save '%s'"
