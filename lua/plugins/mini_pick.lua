@@ -121,5 +121,6 @@ return {
   config = function(_, opts)
     require("mini.pick").setup(opts)
     vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { link = "CursorLine" })
+    vim.api.nvim_set_hl(0, "MiniPickMatchRanges", { link = "DiagnosticFloatingWarn" })
   end,
 }
