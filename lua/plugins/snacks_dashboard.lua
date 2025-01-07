@@ -72,7 +72,7 @@ return {
         { section = "header" },
         { section = "keys", padding = 1 },
         { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-        { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+        { pane = 2, icon = " ", title = "Projects", section = "projects", session = false, indent = 2, padding = 1 },
 
         function()
           local in_git = require("snacks").git.get_root() ~= nil

@@ -62,7 +62,7 @@ return {
       function() require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir() }) end,
       desc = "Search in current directory [telescope]",
     },
-    { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Search buffer fuzzy find [telescope]" },
+    { "<Leader>f/", function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "Search buffer (fuzzy) [telescope]" },
     { "<Leader>fC", function() require("telescope.builtin").autocommands() end, desc = "Search autocommands [telescope]" },
     { "<Leader>fH", function() require("telescope.builtin").help_tags() end, desc = "Search help [telescope]" },
     { "<Leader>fR", function() require("telescope.builtin").registers() end, desc = "Search registers [telescope]" },
