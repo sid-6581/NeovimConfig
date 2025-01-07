@@ -102,6 +102,7 @@ return {
             { event = "msg_show", find = "B written" },
             { error = true, find = "Pattern not found" },
             { error = true, find = "Error executing luv callback" },
+            { event = "notify", find = "Config Change Detected" },
             { event = "notify", find = "position_encoding param is required" },
             { event = "notify", find = "No information available" },
             { event = "lsp", kind = "progress", find = "code_action" },
