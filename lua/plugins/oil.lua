@@ -3,26 +3,16 @@ return {
   event = "VeryLazy",
 
   opts = {
-    default_file_explorer = true,
-    constrain_cursor = "name",
     columns = {
       "permissions",
       "size",
       "mtime",
       "icon",
     },
-    view_options = {
-      show_hidden = true,
-    },
+    constrain_cursor = "name",
+    default_file_explorer = true,
     float = {
       padding = 15,
-      border = "single",
-    },
-    preview = {
-      border = "single",
-    },
-    progress = {
-      border = "single",
     },
     keymaps = {
       ["g?"] = "actions.show_help",
@@ -42,6 +32,11 @@ return {
       ["g."] = "actions.toggle_hidden",
       ["g\\"] = "actions.toggle_trash",
     },
+    skip_confirm_for_simple_edits = true,
     use_default_keymaps = false,
+    view_options = {
+      show_hidden = true,
+    },
+    watch_for_changes = true,
   },
 }
