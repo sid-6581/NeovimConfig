@@ -43,4 +43,18 @@ return {
     },
     watch_for_changes = true,
   },
+
+  config = function(_, opts)
+    require("oil").setup(opts)
+
+    vim.api.nvim_create_autocmd(
+      { "FileType" },
+      {
+        pattern = { "oil" },
+        callback = function()
+          require("oil.actions").cd.callback({ silent = true })
+        end,
+      }
+    )
+  end,
 }
