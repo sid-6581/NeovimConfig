@@ -24,6 +24,8 @@ return {
     },
 
     dashboard = {
+      width = 90,
+
       preset = {
         keys = {
           { icon = " ", key = "n", desc = "New File", action = ":enew" },
@@ -32,11 +34,12 @@ return {
           { icon = " ", key = "p", desc = "Project Search", action = ":enew|call feedkeys(' fp')" },
           { icon = "󰱼 ", key = "f", desc = "Search Files", action = ":enew|call feedkeys(' ff')" },
           { icon = "󱎸 ", key = "s", desc = "Search Text", action = ":enew|call feedkeys(' fs')" },
-          { icon = "󰊢 ", key = "gg", desc = "Git", action = ":enew|call feedkeys(' gg')" },
+          { icon = "󰊢 ", key = "g", desc = "Git", action = ":enew|call feedkeys(' gg')" },
           { icon = "󰺿 ", key = "o", desc = "Obsidian", action = ":enew|call feedkeys(' O')" },
           { icon = "󰙅 ", key = "y", desc = "Yazi", action = ":enew|call feedkeys(' .')" },
           { icon = " ", key = "q", desc = "Quit", action = ":qall" },
         },
+
         header = [[
  ███▄    █  ▓█████ ▒█████   ██▒   █▓  ██▓ ███▄ ▄███▓
  ██ ▀█   █  ▓█   ▀▒██▒  ██▒▓██░   █▒▒▓██▒▓██▒▀█▀ ██▒
@@ -71,8 +74,8 @@ return {
       sections = {
         { section = "header" },
         { section = "keys", padding = 1 },
-        { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-        { pane = 2, icon = " ", title = "Projects", section = "projects", session = false, indent = 2, padding = 1 },
+        { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", limit = 10, indent = 2, padding = 1 },
+        { pane = 2, icon = " ", title = "Projects", section = "projects", limit = 10, session = false, indent = 2, padding = 1 },
 
         function()
           local in_git = require("snacks").git.get_root() ~= nil
@@ -81,22 +84,22 @@ return {
             {
               title = "Open Issues",
               cmd = "gh issue list -L 3 || true",
-              key = "gi",
+              key = "I",
               action = function()
                 vim.fn.jobstart("gh issue list --web", { detach = true })
               end,
               icon = " ",
-              height = 7,
+              height = 10,
             },
             {
               icon = " ",
               title = "Open PRs",
               cmd = "gh pr list -L 3 || true",
-              key = "gp",
+              key = "P",
               action = function()
                 vim.fn.jobstart("gh pr list --web", { detach = true })
               end,
-              height = 7,
+              height = 10,
             },
             {
               icon = " ",
