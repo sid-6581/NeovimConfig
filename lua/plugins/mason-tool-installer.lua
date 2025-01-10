@@ -19,7 +19,7 @@ return {
       "jinja-lsp",
       "json-lsp",
       "lemminx",
-      { "lua-language-server", version = "3.13.2" },
+      "lua-language-server",
       "markdown-oxide",
       "prettierd",
       "pyright",
