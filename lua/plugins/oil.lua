@@ -3,6 +3,10 @@ return {
   event = "VeryLazy",
 
   opts = {
+    buf_options = {
+      buflisted = true,
+      bufhidden = "wipe",
+    },
     columns = {
       "permissions",
       "size",
