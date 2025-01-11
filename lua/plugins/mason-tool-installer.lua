@@ -23,7 +23,6 @@ return {
       "markdown-oxide",
       "prettierd",
       "pyright",
-      "roslyn",
       "ruff",
       "shellcheck",
       "shellharden",
