@@ -48,12 +48,17 @@ return {
     require("oil").setup(opts)
 
     vim.api.nvim_create_autocmd(
-      { "FileType" },
+      { "User" },
       {
-        pattern = { "oil" },
-        callback = function()
-          require("oil.actions").cd.callback({ silent = true })
-        end,
+        pattern = { "OilEnter" },
+        callback = vim.schedule_wrap(
+          function(args)
+            if vim.api.nvim_get_current_buf() == args.data.buf and require("oil").get_cursor_entry() then
+              require("oil.actions").cd.callback({ silent = true })
+              require("oil.actions").preview.callback()
+            end
+          end
+        ),
       }
     )
   end,
