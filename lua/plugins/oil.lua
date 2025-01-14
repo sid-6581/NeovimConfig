@@ -3,10 +3,6 @@ return {
   event = "VeryLazy",
 
   opts = {
-    buf_options = {
-      buflisted = true,
-      bufhidden = "wipe",
-    },
     columns = {
       "permissions",
       "size",
@@ -19,9 +15,8 @@ return {
       padding = 15,
     },
     keymaps = {
-      ["-"] = "actions.parent",
       ["<C-c>"] = "actions.close",
-      ["<C-l>"] = "actions.refresh",
+      ["<C-r>"] = "actions.refresh",
       ["<C-p>"] = "actions.preview",
       ["<C-s>"] = { "actions.select", opts = { horizontal = true }, desc = "Open the entry in a horizontal split" },
       ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
@@ -34,7 +29,20 @@ return {
       ["g\\"] = "actions.toggle_trash",
       ["gs"] = "actions.change_sort",
       ["gx"] = "actions.open_external",
-      ["h"] = "actions.parent",
+      ["h"] = {
+        callback = function()
+          require("oil.actions").preview.callback()
+          require("oil.actions").parent.callback()
+        end,
+        desc = "Navigate to the parent path",
+      },
+      ["-"] = {
+        callback = function()
+          require("oil.actions").preview.callback()
+          require("oil.actions").parent.callback()
+        end,
+        desc = "Navigate to the parent path",
+      },
       ["l"] = "actions.select",
       ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
     },
