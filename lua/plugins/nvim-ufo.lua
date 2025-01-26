@@ -52,6 +52,15 @@ return {
 
   opts = {
     fold_virt_text_handler = handler,
-    provider_selector = function(_bufnr, _filetype, _buftype) return { "treesitter", "indent" } end,
+    provider_selector = function(_bufnr, filetype, _buftype)
+      local ftMap = {
+        tex = "",
+      }
+
+      return ftMap[filetype] or {
+        "treesitter",
+        "indent",
+      }
+    end,
   },
 }
