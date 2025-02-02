@@ -27,11 +27,15 @@ return {
     use_popups_for_input = false,
     window = {
       mappings = {
-        ["<Space>"] = "none",
+        ["<C-p>"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
         ["<C-s>"] = "open_split",
         ["<C-t>"] = "open_tabnew",
         ["<C-v>"] = "open_vsplit",
+        ["<Space>"] = "none",
         ["C"] = "none",
+        ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
+        ["h"] = "close_node",
+        ["l"] = "open",
         ["z"] = "none",
         ["zM"] = "close_all_nodes",
         ["zR"] = "expand_all_nodes",
