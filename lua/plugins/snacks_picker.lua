@@ -22,48 +22,21 @@ return {
     { "<Leader>fh", function() require("snacks").picker.highlights() end, desc = "Search highlights [snacks]" },
     { "<Leader>fk", function() require("snacks").picker.keymaps() end, desc = "Search keymaps [snacks]" },
     { "<Leader>fn", function() require("snacks").picker.notifications() end, desc = "Search notification history [snacks]" },
-    { "<Leader>fp", function() require("snacks").picker.projects() end, desc = "Search projects [snacks]" },
+    {
+      "<Leader>fp",
+      function()
+        require("snacks").picker.files({
+          dirs = vim.fn.has("win32") == 1
+            and { "D:/Code", vim.fn.expand("~/.local/share/nvim-data"), vim.fn.expand("~/.dotfiles") }
+            or { vim.fn.expand("~/") },
+        })
+      end,
+      desc = "Search projects [snacks]",
+    },
     { "<Leader>fr", function() require("snacks").picker.recent() end, desc = "Search recent [snacks]" },
     { "<Leader>fs", function() require("snacks").picker.grep() end, desc = "Search text [snacks]" },
     { "<Leader>fu", function() require("snacks").picker.undo() end, desc = "Search undo history [snacks]" },
     { "<Leader>fw", function() require("snacks").picker.grep_word() end, mode = { "n", "x" }, desc = "Search for word [snacks]" },
-    -- Select directories containing .git in the specified search_dirs.
-    -- The default select action will change the default directory and it.
-    -- {
-    --   "<Leader>fp",
-    --   function()
-    --     require("telescope.builtin").find_files({
-    --       cwd = vim.env.HOME,
-    --       find_command = { "fd", "--prune", "--hidden", "--case-sensitive", "--absolute-path", "--no-ignore", "-td", "-x", "echo", "{//}", ";" },
-    --       file_ignore_patterns = { "%.cache", "%.cargo" },
-    --       attach_mappings = function(prompt_bufnr, _map)
-    --         local actions = require("telescope.actions")
-    --         local action_state = require("telescope.actions.state")
-    --
-    --         actions.select_default:replace(function()
-    --           actions.close(prompt_bufnr)
-    --           local dir = action_state.get_selected_entry()[1]
-    --
-    --           if not require("util.winbuf").buf_filter({ noname = true }) then
-    --             vim.cmd.tabnew()
-    --           end
-    --
-    --           vim.cmd.lcd(dir)
-    --           require("neo-tree.command").execute({ action = "show", dir = dir })
-    --         end)
-    --
-    --         return true
-    --       end,
-    --
-    --       search_file = "^\\.git$",
-    --
-    --       search_dirs = vim.fn.has("win32") == 1
-    --         and { "D:/Code", vim.fn.expand("~/.local/share/nvim-data"), vim.fn.expand("~/.dotfiles") }
-    --         or { vim.fn.expand("~/") },
-    --     })
-    --   end,
-    --   desc = "Search projects [telescope]",
-    -- },
   },
 
   --- @type snacks.Config
