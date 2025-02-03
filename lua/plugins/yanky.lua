@@ -16,39 +16,17 @@ return {
     { "[P", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put indented before cursor (linewise) [yanky]" },
   },
 
-  opts = function()
-    local utils = require("yanky.utils")
-    local mapping = require("yanky.telescope.mapping")
-
-    return {
-      ring = {
-        sync_with_numbered_registers = false,
-      },
-      system_clipboard = {
-        sync_with_ring = false,
-      },
-      highlight = {
-        timer = 200,
-      },
-      picker = {
-        telescope = {
-          use_default_mappings = false,
-          mappings = {
-            default = mapping.put("p"),
-            i = {
-              ["<C-X>"] = mapping.delete(),
-            },
-            n = {
-              p = mapping.put("p"),
-              P = mapping.put("P"),
-              d = mapping.delete(),
-              r = mapping.set_register(utils.get_default_register()),
-            },
-          },
-        },
-      },
-    }
-  end,
+  opts = {
+    ring = {
+      sync_with_numbered_registers = false,
+    },
+    system_clipboard = {
+      sync_with_ring = false,
+    },
+    highlight = {
+      timer = 200,
+    },
+  },
 
   config = function(_, opts)
     require("yanky").setup(opts)

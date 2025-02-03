@@ -65,7 +65,6 @@ return {
     },
 
     lazygit = {
-      --- @diagnostic disable-next-line: missing-fields
       theme = {
         activeBorderColor = { fg = "MoreMsg" },
       },
@@ -93,7 +92,6 @@ return {
       debounce = 0,
     },
 
-    --- @type table<string, snacks.win.Config>
     styles = {
       lazygit = {
         border = "rounded",
@@ -103,7 +101,6 @@ return {
       },
       float = {
         backdrop = false,
-        border = "rounded",
       },
       zen = {
         border = "none",

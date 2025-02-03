@@ -3,7 +3,8 @@
   "diagnostics": {
     "disable": [
       "no-unknown",
-      "incomplete-signature-doc"
+      "incomplete-signature-doc",
+      "missing-fields"
     ],
     "neededFileStatus": {
       "codestyle-check": "Any"
