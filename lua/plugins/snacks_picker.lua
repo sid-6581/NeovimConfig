@@ -17,7 +17,6 @@ return {
     { "<Leader>fc", function() require("snacks").picker.commands() end, desc = "Search commands [snacks]" },
     { "<Leader>fe", function() require("snacks").explorer() end, desc = "File explorer [snacks]" },
     { "<Leader>ff", function() require("snacks").picker.files() end, desc = "Search files [snacks]" },
-    { "<Leader>ff", function() require("snacks").picker.smart() end, desc = "Smart search files [snacks]" },
     { "<Leader>fg", function() require("snacks").picker.git_files() end, desc = "Search git files [snacks]" },
     { "<Leader>fh", function() require("snacks").picker.highlights() end, desc = "Search highlights [snacks]" },
     { "<Leader>fk", function() require("snacks").picker.keymaps() end, desc = "Search keymaps [snacks]" },
