@@ -18,7 +18,7 @@ return {
     { "<Leader>fc", function() require("snacks").picker.commands() end, desc = "Search commands [snacks]" },
     { "<Leader>fe", function() require("snacks").explorer() end, desc = "File explorer [snacks]" },
     { "<Leader>ff", function() require("snacks").picker.files() end, desc = "Search files [snacks]" },
-    { "<Leader>fg", function() require("snacks").picker.git_files() end, desc = "Search git files [snacks]" },
+    { "<Leader>fg", function() require("snacks").picker.git_status() end, desc = "Search git status [snacks]" },
     { "<Leader>fh", function() require("snacks").picker.highlights() end, desc = "Search highlights [snacks]" },
     { "<Leader>fj", function() require("snacks").picker.jumps() end, desc = "Search jumps [snacks]" },
     { "<Leader>fk", function() require("snacks").picker.keymaps() end, desc = "Search keymaps [snacks]" },
@@ -63,6 +63,20 @@ return {
         },
         grep = {
           hidden = true,
+        },
+        projects = {
+          dev = vim.fn.has("win32") == 1
+            and {
+              "~/.local/share/nvim-data/lazy",
+              "~/.dotfiles",
+              --- @diagnostic disable-next-line: param-type-mismatch
+              unpack(vim.fn.expand("D:/Code/*", nil, true)),
+            }
+            or {
+              "~/.local/share/nvim/lazy",
+              --- @diagnostic disable-next-line: param-type-mismatch
+              unpack(vim.fn.expand("~/Code/*", nil, true)),
+            },
         },
       },
 
