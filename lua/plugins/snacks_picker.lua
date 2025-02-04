@@ -3,6 +3,7 @@ return {
   event = "VeryLazy",
 
   keys = {
+    { "<C-'>", function() require("snacks").picker.recent({ filter = { cwd = true } }) end, desc = "Search recent project files [snacks]" },
     { "<C-.>", function() require("snacks").picker.files() end, desc = "Search files [snacks]" },
     { "<C-/>", function() require("snacks").picker.grep() end, desc = "Search text [snacks]" },
     { "<F1>", function() require("snacks").picker.help() end, desc = "Search help [snacks]" },
