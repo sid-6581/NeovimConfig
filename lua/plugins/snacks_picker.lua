@@ -27,7 +27,7 @@ return {
         require("snacks").picker.files({
           dirs = vim.fn.has("win32") == 1
             and { "D:/Code", vim.fn.expand("~/.local/share/nvim-data"), vim.fn.expand("~/.dotfiles") }
-            or { vim.fn.expand("~/") },
+            or { vim.fn.expand("~/Code"), vim.fn.expand("~/.local/share/nvim") },
         })
       end,
       desc = "Search projects [snacks]",
