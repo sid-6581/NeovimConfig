@@ -10,6 +10,7 @@ return {
     { "<Leader>:", function() require("snacks").picker.command_history() end, desc = "Search command history [snacks]" },
     { "<Leader>f/", function() require("snacks").picker.lines() end, desc = "Search buffer lines [snacks]" },
     { "<Leader>fC", function() require("snacks").picker.autocmds() end, desc = "Search autocommands [snacks]" },
+    { "<Leader>fl", function() require("snacks").picker.loclist() end, desc = "Search loclist [snacks]" },
     { "<Leader>fL", function() require("snacks").picker.lazy() end, desc = "Search for Lazy plugin spec [snacks]" },
     { "<Leader>fR", function() require("snacks").picker.resume() end, desc = "Search resume [snacks]" },
     { "<Leader>fS", function() require("snacks").picker.icons() end, desc = "Search symbols [snacks]" },
@@ -19,10 +20,12 @@ return {
     { "<Leader>ff", function() require("snacks").picker.files() end, desc = "Search files [snacks]" },
     { "<Leader>fg", function() require("snacks").picker.git_files() end, desc = "Search git files [snacks]" },
     { "<Leader>fh", function() require("snacks").picker.highlights() end, desc = "Search highlights [snacks]" },
+    { "<Leader>fj", function() require("snacks").picker.jumps() end, desc = "Search jumps [snacks]" },
     { "<Leader>fk", function() require("snacks").picker.keymaps() end, desc = "Search keymaps [snacks]" },
     { "<Leader>fn", function() require("snacks").picker.notifications() end, desc = "Search notification history [snacks]" },
+    { "<Leader>fp", function() require("snacks").picker.projects() end, desc = "Search projects [snacks]" },
     {
-      "<Leader>fp",
+      "<Leader>fP",
       function()
         require("snacks").picker.files({
           dirs = vim.fn.has("win32") == 1
@@ -52,6 +55,9 @@ return {
       },
 
       sources = {
+        explorer = {
+          hidden = true,
+        },
         files = {
           hidden = true,
         },
