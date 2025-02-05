@@ -9,7 +9,7 @@ return {
     { "<C-/>", function() require("snacks").picker.grep() end, desc = "Search text [snacks]" },
     { "<F1>", function() require("snacks").picker.help() end, desc = "Search help [snacks]" },
     { "<F3>", function() require("snacks").picker.keymaps() end, desc = "Search keymaps [snacks]" },
-    { "<Leader>:", function() require("snacks").picker.command_history() end, desc = "Search command history [snacks]" },
+    { "<Leader>f:", function() require("snacks").picker.command_history() end, desc = "Search command history [snacks]" },
     { "<Leader>f/", function() require("snacks").picker.lines() end, desc = "Search buffer lines [snacks]" },
     { "<Leader>fC", function() require("snacks").picker.autocmds() end, desc = "Search autocommands [snacks]" },
     { "<Leader>fl", function() require("snacks").picker.loclist() end, desc = "Search loclist [snacks]" },
@@ -51,9 +51,57 @@ return {
       layouts = {
         default = {
           layout = {
-            width = 0.9,
-            height = 0.9,
             backdrop = false,
+            box = "horizontal",
+            width = 0.9,
+            min_width = 120,
+            height = 0.9,
+            {
+              box = "vertical",
+              border = "rounded",
+              title = "{title} {live} {flags}",
+              { win = "input", height = 1, border = "bottom" },
+              { win = "list", border = "none" },
+            },
+            { win = "preview", title = "{preview}", border = "rounded", width = 0.5 },
+          },
+        },
+        sidebar = {
+          preview = "main",
+          layout = {
+            backdrop = false,
+            width = 40,
+            min_width = 40,
+            height = 0,
+            position = "left",
+            title = "{title} {live} {flags}",
+            title_pos = "center",
+            border = "top",
+            box = "vertical",
+            {
+              win = "input",
+              height = 1,
+              border = "bottom",
+            },
+            { win = "list", border = "none" },
+            { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+          },
+        },
+        vscode = {
+          preview = false,
+          layout = {
+            backdrop = false,
+            width = 0.5,
+            min_width = 80,
+            height = 0.4,
+            min_height = 3,
+            box = "vertical",
+            border = "rounded",
+            title = "{title}",
+            title_pos = "center",
+            { win = "input", height = 1, border = "bottom" },
+            { win = "list", border = "none" },
+            { win = "preview", title = "{preview}", height = 0.4, border = "top" },
           },
         },
       },
@@ -61,6 +109,7 @@ return {
       sources = {
         explorer = {
           hidden = true,
+          git_status_open = true,
         },
         files = {
           hidden = true,
