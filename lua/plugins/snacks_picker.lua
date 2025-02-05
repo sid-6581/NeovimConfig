@@ -3,6 +3,7 @@ return {
   event = "VeryLazy",
 
   keys = {
+    { "<A-1>", function() require("snacks").explorer() end, desc = "File explorer [snacks]" },
     { "<C-'>", function() require("snacks").picker.recent({ filter = { cwd = true } }) end, desc = "Search recent project files [snacks]" },
     { "<C-.>", function() require("snacks").picker.files() end, desc = "Search files [snacks]" },
     { "<C-/>", function() require("snacks").picker.grep() end, desc = "Search text [snacks]" },
@@ -45,6 +46,8 @@ return {
   --- @type snacks.Config
   opts = {
     picker = {
+      enabled = true,
+
       layouts = {
         default = {
           layout = {

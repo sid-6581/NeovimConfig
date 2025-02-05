@@ -29,20 +29,8 @@ return {
       ["g\\"] = "actions.toggle_trash",
       ["gs"] = "actions.change_sort",
       ["gx"] = "actions.open_external",
-      ["h"] = {
-        callback = function()
-          require("oil.actions").preview.callback()
-          require("oil.actions").parent.callback()
-        end,
-        desc = "Navigate to the parent path",
-      },
-      ["-"] = {
-        callback = function()
-          require("oil.actions").preview.callback()
-          require("oil.actions").parent.callback()
-        end,
-        desc = "Navigate to the parent path",
-      },
+      ["h"] = "actions.parent",
+      ["-"] = "actions.parent",
       ["l"] = "actions.select",
       ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
     },
@@ -65,7 +53,6 @@ return {
           function(args)
             if vim.api.nvim_get_current_buf() == args.data.buf and require("oil").get_cursor_entry() then
               require("oil.actions").cd.callback({ silent = true })
-              require("oil.actions").preview.callback()
             end
           end
         ),

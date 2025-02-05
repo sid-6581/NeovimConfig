@@ -34,6 +34,15 @@ return {
 
   --- @type snacks.Config
   opts = {
+    bigfile = {
+      enabled = true,
+    },
+
+    explorer = {
+      enabled = true,
+      replace_netrw = false,
+    },
+
     indent = {
       enabled = true,
 
@@ -42,14 +51,13 @@ return {
       },
 
       indent = {
-        enabled = false,
+        enabled = true,
         only_scope = true,
         only_current = true,
-        hl = "Constant",
       },
 
       scope = {
-        enabled = false,
+        enabled = true,
         only_current = true,
         hl = "Constant",
       },
@@ -64,6 +72,10 @@ return {
       },
     },
 
+    input = {
+      enabled = true,
+    },
+
     lazygit = {
       theme = {
         activeBorderColor = { fg = "MoreMsg" },
@@ -73,6 +85,53 @@ return {
     notifier = {
       enabled = true,
       timeout = 5000,
+    },
+
+    quickfile = {
+      enabled = true,
+    },
+
+    scope = {
+      enabled = true,
+      debounce = 0,
+      keys = {
+        --- @type table<string, snacks.scope.TextObject|{desc?:string}>
+        textobject = {
+          ii = {
+            cursor = true,
+            desc = "inner scope",
+            edge = false,
+            min_size = 2,
+            treesitter = { blocks = { enabled = false } },
+          },
+          ai = {
+            cursor = true,
+            desc = "full scope",
+            edge = true,
+            min_size = 2,
+            treesitter = { blocks = { enabled = false } },
+          },
+        },
+        --- @type table<string, snacks.scope.Jump|{desc?:string}>
+        jump = {
+          ["[i"] = {
+            bottom = false,
+            cursor = true,
+            desc = "jump to top edge of scope",
+            edge = true,
+            min_size = 1,
+            treesitter = { blocks = { enabled = false } },
+          },
+          ["]i"] = {
+            bottom = true,
+            cursor = false,
+            desc = "jump to bottom edge of scope",
+            edge = true,
+            min_size = 1,
+            treesitter = { blocks = { enabled = false } },
+          },
+        },
+      },
     },
 
     terminal = {

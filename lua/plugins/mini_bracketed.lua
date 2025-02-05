@@ -17,6 +17,7 @@ return {
 
   opts = {
     comment = { suffix = "" },
+    indent = { suffix = "" },
     quickfix = { suffix = "" },
     treesitter = { suffix = "" },
     undo = { suffix = "" },

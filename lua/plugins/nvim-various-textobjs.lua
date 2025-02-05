@@ -10,18 +10,6 @@ return {
       desc = "Diagnostic [various-textobjs]",
     },
     {
-      "ii",
-      function() require("various-textobjs").indentation("inner", "inner") end,
-      mode = { "o", "x" },
-      desc = "Indentation level (no line above/below) [various-textobjs]",
-    },
-    {
-      "ai",
-      function() require("various-textobjs").indentation("outer", "outer") end,
-      mode = { "o", "x" },
-      desc = "Indentation level (and line above/below) [various-textobjs]",
-    },
-    {
       "is",
       function() require("various-textobjs").subword("inner") end,
       mode = { "o", "x" },
