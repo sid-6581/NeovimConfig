@@ -29,7 +29,7 @@ vim.opt.cmdheight = 0
 vim.opt.completeopt = ""
 vim.opt.confirm = true
 vim.opt.cursorline = true
-vim.opt.diffopt:append({ "algorithm:histogram", "foldcolumn:0" })
+vim.opt.diffopt:append({ "algorithm:histogram", "foldcolumn:0", "linematch:50" })
 vim.opt.expandtab = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.fileformat = "unix"
