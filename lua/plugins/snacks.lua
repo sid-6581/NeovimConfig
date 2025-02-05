@@ -35,6 +35,10 @@ return {
 
   --- @type snacks.Config
   opts = {
+    animate = {
+      fps = 120,
+    },
+
     bigfile = {
       enabled = true,
     },
@@ -48,7 +52,7 @@ return {
       enabled = true,
 
       animate = {
-        enabled = false,
+        enabled = true,
       },
 
       indent = {
@@ -133,6 +137,9 @@ return {
           },
         },
       },
+    },
+
+    scroll = {
     },
 
     terminal = {
