@@ -9,6 +9,8 @@ return {
     { "<Leader>gB", function() require("snacks").gitbrowse() end, desc = "Git browse [snacks]" },
     { "<Leader>gg", function() require("snacks").lazygit() end, desc = "Lazygit [snacks]" },
     { "<Leader>gl", function() require("snacks").git.blame_line() end, desc = "Git history (line) [snacks]" },
+    { "<Leader>bd", function() require("snacks").bufdelete() end, desc = "Delete buffer [snacks]" },
+    { "<S-Esc>", function() require("snacks").bufdelete() end, desc = "Delete buffer [snacks]" },
     { "[[", function() require("snacks").words.jump(-vim.v.count1) end, desc = "Previous reference [snacks]" },
     { "]]", function() require("snacks").words.jump(vim.v.count1) end, desc = "Next reference [snacks]" },
     {
@@ -29,7 +31,6 @@ return {
       mode = { "n", "t" },
       desc = "Vertical terminal [snacks]",
     },
-    { "<Leader>ty", function() require("snacks").terminal("yazi") end, desc = "Yazi [snacks]" },
   },
 
   --- @type snacks.Config

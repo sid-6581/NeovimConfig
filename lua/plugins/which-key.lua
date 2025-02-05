@@ -166,7 +166,6 @@ return {
       { "<Leader>go", group = "Octo [octo]" },
       { "<Leader>l", group = "LSP [lsp]" },
       { "<Leader>o", group = "Overseer" },
-      { "<Leader>t", group = "Terminal" },
       { "<Leader>u", group = "UI/toggles" },
       { "<Leader>w", group = "Windows" },
       { "<Leader>x", group = "Diagnostics/quickfix" },
