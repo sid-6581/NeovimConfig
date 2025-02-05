@@ -197,7 +197,7 @@ return {
 
             local dir = vim.fn.expand("~/Vaults/Notes")
             vim.cmd.lcd(dir)
-            require("neo-tree.command").execute({ action = "show", dir = dir })
+            vim.cmd.edit(dir)
           end,
           desc = "Notes [obsidian]",
         },
