@@ -242,6 +242,7 @@ return {
         -- { "N", "Nzz", hidden = true, desc = "Previous match and center [which-key]" },
 
         -- Buffers
+        { "<A-w>", "<C-^>", desc = "Alternate buffer [which-key]" },
         { "<S-h>", "<CMD>bprevious<CR>", desc = "Previous buffer [which-key]" },
         { "<S-l>", "<CMD>bnext<CR>", desc = "Next buffer [which-key]" },
         { "q", function() winbuf.close_window_or_buffer() end, desc = "Delete buffer/close window [which-key]" },
