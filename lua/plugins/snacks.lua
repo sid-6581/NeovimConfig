@@ -62,7 +62,7 @@ return {
       },
 
       scope = {
-        enabled = true,
+        enabled = false,
         only_current = true,
         hl = "Constant",
       },
