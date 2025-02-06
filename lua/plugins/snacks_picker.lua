@@ -67,6 +67,7 @@ return {
             { win = "preview", title = "{preview}", border = "rounded", width = 0.5 },
           },
         },
+
         sidebar = {
           preview = "main",
           layout = {
@@ -88,6 +89,7 @@ return {
             { win = "preview", title = "{preview}", height = 0.4, border = "top" },
           },
         },
+
         vscode = {
           preview = false,
           layout = {
@@ -113,12 +115,15 @@ return {
           ignored = true,
           git_status_open = true,
         },
+
         files = {
           hidden = true,
         },
+
         grep = {
           hidden = true,
         },
+
         keymaps = {
           format = function(item, picker)
             local ret = {} --- @type snacks.picker.Highlight[]
@@ -208,6 +213,7 @@ return {
             return ret
           end,
         },
+
         projects = {
           dev = vim.fn.has("win32") == 1
             and {
