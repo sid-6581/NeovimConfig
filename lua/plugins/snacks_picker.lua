@@ -11,6 +11,7 @@ return {
     { "<F3>", function() require("snacks").picker.keymaps() end, desc = "Search keymaps [snacks]" },
     { "<Leader>f:", function() require("snacks").picker.command_history() end, desc = "Search command history [snacks]" },
     { "<Leader>f/", function() require("snacks").picker.lines() end, desc = "Search buffer lines [snacks]" },
+    { "<Leader>fa", function() require("snacks").picker.pick() end, desc = "Search pickers [snacks]" },
     { "<Leader>fC", function() require("snacks").picker.autocmds() end, desc = "Search autocommands [snacks]" },
     { "<Leader>fl", function() require("snacks").picker.loclist() end, desc = "Search loclist [snacks]" },
     { "<Leader>fL", function() require("snacks").picker.lazy() end, desc = "Search for Lazy plugin spec [snacks]" },
@@ -109,6 +110,7 @@ return {
       sources = {
         explorer = {
           hidden = true,
+          ignored = true,
           git_status_open = true,
         },
         files = {
