@@ -149,6 +149,10 @@ return {
     --   },
     -- },
 
+    statuscolumn = {
+      enabled = true,
+    },
+
     terminal = {
       win = {
         wo = {
