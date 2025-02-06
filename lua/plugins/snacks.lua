@@ -139,8 +139,15 @@ return {
       },
     },
 
-    scroll = {
-    },
+    -- scroll = {
+    --   animate = {
+    --     duration = { step = 5, total = 200 },
+    --   },
+    --   animate_repeat = {
+    --     duration = { step = 5, total = 50 },
+    --     delay = 500,
+    --   },
+    -- },
 
     terminal = {
       win = {
