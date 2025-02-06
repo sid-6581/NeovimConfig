@@ -347,7 +347,7 @@ return {
               {
                 name = "@vue/typescript-plugin",
                 location = "",
-                languages = { "vue" },
+                languages = { "javascript", "typescript", "vue" },
               },
             },
           },
