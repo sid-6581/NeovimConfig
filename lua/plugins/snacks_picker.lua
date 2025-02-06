@@ -215,6 +215,7 @@ return {
         },
 
         projects = {
+          confirm = { "tcd", "picker_files" },
           dev = vim.fn.has("win32") == 1
             and {
               "~/.local/share/nvim-data/lazy",
@@ -235,6 +236,7 @@ return {
           keys = {
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<F1>"] = { "toggle_help_input", mode = { "n", "i" } },
+            ["<C-t>"] = { "edit_tab", mode = { "n", "i" } },
           },
         },
       },
