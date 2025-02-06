@@ -11,8 +11,8 @@ return {
     { "<Leader>gl", function() require("snacks").git.blame_line() end, desc = "Git history (line) [snacks]" },
     { "<Leader>bd", function() require("snacks").bufdelete() end, desc = "Delete buffer [snacks]" },
     { "<S-Esc>", function() require("snacks").bufdelete() end, desc = "Delete buffer [snacks]" },
-    { "[[", function() require("snacks").words.jump(-vim.v.count1) end, desc = "Previous reference [snacks]" },
-    { "]]", function() require("snacks").words.jump(vim.v.count1) end, desc = "Next reference [snacks]" },
+    { "[[", function() require("snacks").words.jump(-1) end, desc = "Previous reference [snacks]" },
+    { "]]", function() require("snacks").words.jump(1) end, desc = "Next reference [snacks]" },
     {
       "<C-->",
       function() require("snacks").terminal("nu -i", { env = { ["SNACKS_TERMINAL"] = "bottom" }, win = { position = "bottom" } }) end,
