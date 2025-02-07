@@ -54,6 +54,7 @@ vim.opt.redrawtime = 500
 vim.opt.relativenumber = false
 vim.opt.report = 1000
 vim.opt.scrolloff = 10
+vim.opt.shada:append("r/mnt")
 vim.opt.shell = vim.env.SHELL
 -- vim.opt.shell = "nu"
 -- vim.opt.shellcmdflag = "-c"
