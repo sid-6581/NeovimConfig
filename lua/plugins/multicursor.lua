@@ -67,6 +67,15 @@ return {
       desc = "Add match cursor [multicursor]",
     },
     {
+      "g<C-n>",
+      function()
+        require("multicursor-nvim").matchAllAddCursors()
+        set_buffer_mappings()
+      end,
+      mode = { "n", "x" },
+      desc = "Add all match cursors [multicursor]",
+    },
+    {
       "<C-Space>",
       function()
         require("multicursor-nvim").toggleCursor()
