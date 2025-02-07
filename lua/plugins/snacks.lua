@@ -231,35 +231,32 @@ return {
       return win(vim.tbl_extend("force", opts or {}, { ft = "lua", text = vim.inspect(obj) }))
     end
 
-    snacks.toggle.option("buflisted"):map("<Leader>bl")
-    snacks.toggle.option("modified"):map("<Leader>bm")
-    snacks.toggle.option("cursorcolumn"):map("<Leader>uC")
-    snacks.toggle.option("cursorline"):map("<Leader>uc")
-    snacks.toggle.option("wrap"):map("<Leader>uw")
-    snacks.toggle.option("relativenumber"):map("<Leader>ur")
+    snacks.toggle.diagnostics():map("<Leader>ud")
+    snacks.toggle.dim():map("<Leader>uD")
     snacks.toggle.inlay_hints({ name = "inlay hints" }):map("<Leader>uh")
     snacks.toggle.line_number({ name = "line numbers" }):map("<Leader>ul")
-    snacks.toggle.diagnostics():map("<Leader>ud")
+    snacks.toggle.option("buflisted"):map("<Leader>bl")
+    snacks.toggle.option("conceallevel", { on = 2, off = 0 }):map("<Leader>uH")
+    snacks.toggle.option("cursorcolumn"):map("<Leader>uC")
+    snacks.toggle.option("cursorline"):map("<Leader>uc")
+    snacks.toggle.option("modified"):map("<Leader>bm")
+    snacks.toggle.option("relativenumber"):map("<Leader>ur")
+    snacks.toggle.option("wrap"):map("<Leader>uw")
+    snacks.toggle.scroll():map("<Leader>uS")
+    snacks.toggle.words():map("<Leader>uW")
+    snacks.toggle.zen():map("<Leader>uz")
     snacks.toggle.zoom():map("<A-=>")
 
     snacks.toggle({
       name = "auto format (buffer)",
-      get = function()
-        return not vim.b[vim.api.nvim_get_current_buf()].disable_autoformat
-      end,
-      set = function(state)
-        vim.b[vim.api.nvim_get_current_buf()].disable_autoformat = not state
-      end,
+      get = function() return not vim.b[vim.api.nvim_get_current_buf()].disable_autoformat end,
+      set = function(state) vim.b[vim.api.nvim_get_current_buf()].disable_autoformat = not state end,
     }):map("<Leader>uf")
 
     snacks.toggle({
       name = "auto format (global)",
-      get = function()
-        return not vim.g.disable_autoformat
-      end,
-      set = function(state)
-        vim.g.disable_autoformat = not state
-      end,
+      get = function() return not vim.g.disable_autoformat end,
+      set = function(state) vim.g.disable_autoformat = not state end,
     }):map("<Leader>uF")
   end,
 }
