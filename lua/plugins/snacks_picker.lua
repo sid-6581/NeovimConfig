@@ -114,6 +114,9 @@ return {
           hidden = true,
           ignored = true,
           git_status_open = true,
+          transform = function(item, _ctx)
+            item.hidden = item.file and item.file:match("%.git$")
+          end,
         },
 
         files = {
