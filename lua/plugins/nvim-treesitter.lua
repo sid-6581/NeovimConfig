@@ -6,7 +6,6 @@ return {
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    "metiulekm/nvim-treesitter-endwise",
     "RRethy/nvim-treesitter-textsubjects",
   },
 
@@ -75,10 +74,6 @@ return {
       disable = {
         "vue",
       },
-    },
-
-    endwise = {
-      enable = true,
     },
 
     textsubjects = {
