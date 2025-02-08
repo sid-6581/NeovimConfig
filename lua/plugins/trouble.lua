@@ -4,6 +4,7 @@ return {
 
   keys = {
     { "<A-x>", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics [trouble]" },
+    { "<A-o>", "<CMD>Trouble symbols toggle focus=false groups={}<CR>", desc = "Symbols [trouble]" },
     { "<Leader>xx", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics [trouble]" },
     { "<Leader>xX", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer diagnostics [trouble]" },
     { "<Leader>xs", "<CMD>Trouble symbols toggle focus=false groups={}<CR>", desc = "Symbols [trouble]" },
@@ -82,6 +83,7 @@ return {
       desc = "First item [trouble]",
     },
   },
+  --- @diagnostic enable: missing-parameter,missing-fields
 
   opts = {
     use_diagnostic_signs = true,
@@ -91,5 +93,25 @@ return {
       size = 0.2,
     },
   },
-  --- @diagnostic enable: missing-parameter,missing-fields
+
+  specs = {
+    "nvim-lualine/lualine.nvim",
+
+    opts = function(_, opts)
+      local symbols = require("trouble").statusline({
+        mode = "lsp_document_symbols",
+        groups = {},
+        title = false,
+        filter = { range = true },
+        format = "{kind_icon}{symbol.name:Normal}",
+        -- The following line is needed to fix the background color
+        -- Set it to the lualine section you want to use
+        hl_group = "lualine_c_normal",
+      })
+      table.insert(opts.sections.lualine_c, {
+        symbols.get,
+        cond = symbols.has,
+      })
+    end,
+  },
 }

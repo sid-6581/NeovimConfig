@@ -7,9 +7,7 @@ return {
     { event = "User", pattern = "SnacksDashboardClosed" },
   },
 
-  config = function()
-    local lualine = require("lualine")
-
+  opts = function()
     local custom_theme = vim.deepcopy(require("lualine.themes.gruvbox_dark"))
     custom_theme.normal.c.bg = "Normal"
     custom_theme.insert.c = custom_theme.normal.c
@@ -18,7 +16,7 @@ return {
     custom_theme.replace.c = custom_theme.normal.c
     custom_theme.inactive.c = custom_theme.normal.c
 
-    lualine.setup({
+    return {
       options = {
         icons_enabled = true,
         theme = custom_theme,
@@ -51,11 +49,6 @@ return {
           "aerial",
         },
         lualine_x = {
-          {
-            require("noice").api.status.mode["get"],
-            cond = require("noice").api.status.mode["has"],
-            color = { fg = "#ff9e64" },
-          },
           {
             "diff",
             colored = true,
@@ -137,6 +130,6 @@ return {
           },
         },
       },
-    })
+    }
   end,
 }

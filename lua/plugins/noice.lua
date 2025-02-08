@@ -128,4 +128,16 @@ return {
       },
     },
   },
+
+  specs = {
+    "nvim-lualine/lualine.nvim",
+
+    opts = function(_, opts)
+      table.insert(opts.sections.lualine_x, 1, {
+        require("noice").api.status.mode["get"],
+        cond = require("noice").api.status.mode["has"],
+        color = { fg = "#ff9e64" },
+      })
+    end,
+  },
 }
