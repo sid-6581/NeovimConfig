@@ -232,7 +232,7 @@ return {
     --- @return snacks.win
     --- @diagnostic disable-next-line: redefined-local
     _G.show = function(obj, opts)
-      return win(vim.tbl_extend("force", opts or {}, { ft = "lua", text = vim.inspect(obj) }))
+      return win(vim.tbl_extend("force", opts or {}, { ft = "lua", text = vim.inspect(obj), border = "rounded" }))
     end
 
     snacks.toggle.diagnostics():map("<Leader>ud")
