@@ -82,6 +82,7 @@ return {
     },
 
     lazygit = {
+      --- @diagnostic disable-next-line: missing-fields
       theme = {
         activeBorderColor = { fg = "MoreMsg" },
       },
@@ -140,6 +141,12 @@ return {
     },
 
     scroll = {
+      animate = {
+        duration = { total = 150 },
+      },
+      animate_repeat = {
+        duration = { total = 50 },
+      },
     },
 
     statuscolumn = {
@@ -172,15 +179,19 @@ return {
           i_esc = { "<esc>", { "cmp_close", "cancel" }, mode = "i", expr = true },
         },
       },
+      --- @diagnostic disable-next-line: missing-fields
       lazygit = {
         border = "rounded",
       },
+      --- @diagnostic disable-next-line: missing-fields
       terminal = {
         border = "rounded",
       },
+      --- @diagnostic disable-next-line: missing-fields
       float = {
         backdrop = false,
       },
+      --- @diagnostic disable-next-line: missing-fields
       zen = {
         border = "none",
       },
