@@ -95,6 +95,7 @@ return {
       nu = { "indent_buffer" },
       sh = { "shellharden" },
       sql = { "sqlfluff" },
+      tex = { "tex-fmt" },
       yaml = { "yamlfmt" },
     },
   },
