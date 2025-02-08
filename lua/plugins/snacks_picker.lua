@@ -1,4 +1,6 @@
-return {
+local M = {}
+
+M.spec = {
   "folke/snacks.nvim",
   event = "VeryLazy",
 
@@ -27,17 +29,6 @@ return {
     { "<Leader>fk", function() require("snacks").picker.keymaps() end, desc = "Search keymaps [snacks]" },
     { "<Leader>fn", function() require("snacks").picker.notifications() end, desc = "Search notification history [snacks]" },
     { "<Leader>fp", function() require("snacks").picker.projects() end, desc = "Search projects [snacks]" },
-    {
-      "<Leader>fP",
-      function()
-        require("snacks").picker.files({
-          dirs = vim.fn.has("win32") == 1
-            and { "D:/Code", vim.fn.expand("~/.local/share/nvim-data"), vim.fn.expand("~/.dotfiles") }
-            or { vim.fn.expand("~/Code"), vim.fn.expand("~/.local/share/nvim") },
-        })
-      end,
-      desc = "Search projects [snacks]",
-    },
     { "<Leader>fr", function() require("snacks").picker.recent() end, desc = "Search recent [snacks]" },
     { "<Leader>fs", function() require("snacks").picker.grep() end, desc = "Search text [snacks]" },
     { "<Leader>fu", function() require("snacks").picker.undo() end, desc = "Search undo history [snacks]" },
@@ -117,6 +108,21 @@ return {
           transform = function(item, _ctx)
             item.hidden = item.file and item.file:match("%.git$")
           end,
+
+          win = {
+            input = {
+              keys = {
+                ["<Esc>"] = { "focus_list", mode = { "n", "i" } },
+                ["<C-t>"] = { "edit_tab", mode = { "n", "i" } },
+              },
+            },
+            list = {
+              keys = {
+                ["<Esc>"] = false,
+                ["<C-t>"] = "edit_tab",
+              },
+            },
+          },
         },
 
         files = {
@@ -128,93 +134,7 @@ return {
         },
 
         keymaps = {
-          format = function(item, picker)
-            local ret = {} --- @type snacks.picker.Highlight[]
-            local k = item.item
-            local a = require("snacks").picker.util.align
-
-            if package.loaded["which-key"] then
-              local Icons = require("which-key.icons")
-              local icon, hl = Icons.get({ keymap = k, desc = k.desc })
-              if icon then
-                ret[#ret + 1] = { a(icon, 20), hl }
-              else
-                ret[#ret + 1] = { "                    " }
-              end
-            end
-
-            local lhs = require("snacks").util.normkey(k.lhs)
-            ret[#ret + 1] = { k.mode, "SnacksPickerKeymapMode" }
-            ret[#ret + 1] = { " " }
-            ret[#ret + 1] = { a(lhs, 15), "SnacksPickerKeymapLhs" }
-            ret[#ret + 1] = { " " }
-            local icon_nowait = picker.opts.icons.keymaps.nowait
-
-            if k.nowait == 1 then
-              ret[#ret + 1] = { icon_nowait, "SnacksPickerKeymapNowait" }
-            else
-              ret[#ret + 1] = { (" "):rep(vim.api.nvim_strwidth(icon_nowait)) }
-            end
-
-            ret[#ret + 1] = { " " }
-
-            if k.buffer and k.buffer > 0 then
-              ret[#ret + 1] = { a("buf:" .. k.buffer, 6), "SnacksPickerBufNr" }
-            else
-              ret[#ret + 1] = { a("", 6) }
-            end
-
-            ret[#ret + 1] = { " " }
-
-            local rhs_len = 0
-            if k.rhs and k.rhs ~= "" then
-              local rhs = k.rhs or ""
-              rhs_len = #rhs
-              local cmd = rhs:lower():find("<cmd>")
-              if cmd then
-                ret[#ret + 1] = { rhs:sub(1, cmd + 4), "NonText" }
-                rhs = rhs:sub(cmd + 5)
-                local cr = rhs:lower():find("<cr>$")
-                if cr then
-                  rhs = rhs:sub(1, cr - 1)
-                end
-
-                require("snacks").picker.highlight.format(item, rhs, ret, { lang = "vim" })
-                if cr then
-                  ret[#ret + 1] = { "<CR>", "NonText" }
-                end
-              elseif rhs:lower():find("^<plug>") then
-                ret[#ret + 1] = { "<Plug>", "NonText" }
-                local plug = rhs:sub(7):gsub("^%(", ""):gsub("%)$", "")
-                ret[#ret + 1] = { "(", "SnacksPickerDelim" }
-                require("snacks").picker.highlight.format(item, plug, ret, { lang = "vim" })
-                ret[#ret + 1] = { ")", "SnacksPickerDelim" }
-              elseif rhs:find("v:lua%.") then
-                ret[#ret + 1] = { "v:lua", "NonText" }
-                ret[#ret + 1] = { ".", "SnacksPickerDelim" }
-                require("snacks").picker.highlight.format(item, rhs:sub(7), ret, { lang = "lua" })
-              else
-                ret[#ret + 1] = { k.rhs, "SnacksPickerKeymapRhs" }
-              end
-            else
-              ret[#ret + 1] = { "callback", "Function" }
-              rhs_len = 8
-            end
-
-            if rhs_len < 15 then
-              ret[#ret + 1] = { (" "):rep(15 - rhs_len) }
-            end
-
-            ret[#ret + 1] = { " " }
-            ret[#ret + 1] = { a(k.desc or "", 20) }
-
-            if item.file then
-              ret[#ret + 1] = { " " }
-              vim.list_extend(ret, require("snacks").picker.format.filename(item, picker))
-            end
-
-            return ret
-          end,
+          format = M.keymap_format,
         },
 
         projects = {
@@ -242,7 +162,104 @@ return {
             ["<C-t>"] = { "edit_tab", mode = { "n", "i" } },
           },
         },
+        list = {
+          keys = {
+            ["<Esc>"] = "close",
+            ["<F1>"] = "toggle_help_input",
+            ["<C-t>"] = "edit_tab",
+          },
+        },
       },
     },
   },
 }
+
+M.keymap_format = function(item, picker)
+  local ret = {} --- @type snacks.picker.Highlight[]
+  local k = item.item
+  local a = require("snacks").picker.util.align
+
+  if package.loaded["which-key"] then
+    local Icons = require("which-key.icons")
+    local icon, hl = Icons.get({ keymap = k, desc = k.desc })
+    if icon then
+      ret[#ret + 1] = { a(icon, 20), hl }
+    else
+      ret[#ret + 1] = { "                    " }
+    end
+  end
+
+  local lhs = require("snacks").util.normkey(k.lhs)
+  ret[#ret + 1] = { k.mode, "SnacksPickerKeymapMode" }
+  ret[#ret + 1] = { " " }
+  ret[#ret + 1] = { a(lhs, 15), "SnacksPickerKeymapLhs" }
+  ret[#ret + 1] = { " " }
+  local icon_nowait = picker.opts.icons.keymaps.nowait
+
+  if k.nowait == 1 then
+    ret[#ret + 1] = { icon_nowait, "SnacksPickerKeymapNowait" }
+  else
+    ret[#ret + 1] = { (" "):rep(vim.api.nvim_strwidth(icon_nowait)) }
+  end
+
+  ret[#ret + 1] = { " " }
+
+  if k.buffer and k.buffer > 0 then
+    ret[#ret + 1] = { a("buf:" .. k.buffer, 6), "SnacksPickerBufNr" }
+  else
+    ret[#ret + 1] = { a("", 6) }
+  end
+
+  ret[#ret + 1] = { " " }
+
+  local rhs_len = 0
+  if k.rhs and k.rhs ~= "" then
+    local rhs = k.rhs or ""
+    rhs_len = #rhs
+    local cmd = rhs:lower():find("<cmd>")
+    if cmd then
+      ret[#ret + 1] = { rhs:sub(1, cmd + 4), "NonText" }
+      rhs = rhs:sub(cmd + 5)
+      local cr = rhs:lower():find("<cr>$")
+      if cr then
+        rhs = rhs:sub(1, cr - 1)
+      end
+
+      require("snacks").picker.highlight.format(item, rhs, ret, { lang = "vim" })
+      if cr then
+        ret[#ret + 1] = { "<CR>", "NonText" }
+      end
+    elseif rhs:lower():find("^<plug>") then
+      ret[#ret + 1] = { "<Plug>", "NonText" }
+      local plug = rhs:sub(7):gsub("^%(", ""):gsub("%)$", "")
+      ret[#ret + 1] = { "(", "SnacksPickerDelim" }
+      require("snacks").picker.highlight.format(item, plug, ret, { lang = "vim" })
+      ret[#ret + 1] = { ")", "SnacksPickerDelim" }
+    elseif rhs:find("v:lua%.") then
+      ret[#ret + 1] = { "v:lua", "NonText" }
+      ret[#ret + 1] = { ".", "SnacksPickerDelim" }
+      require("snacks").picker.highlight.format(item, rhs:sub(7), ret, { lang = "lua" })
+    else
+      ret[#ret + 1] = { k.rhs, "SnacksPickerKeymapRhs" }
+    end
+  else
+    ret[#ret + 1] = { "callback", "Function" }
+    rhs_len = 8
+  end
+
+  if rhs_len < 15 then
+    ret[#ret + 1] = { (" "):rep(15 - rhs_len) }
+  end
+
+  ret[#ret + 1] = { " " }
+  ret[#ret + 1] = { a(k.desc or "", 20) }
+
+  if item.file then
+    ret[#ret + 1] = { " " }
+    vim.list_extend(ret, require("snacks").picker.format.filename(item, picker))
+  end
+
+  return ret
+end
+
+return M.spec
