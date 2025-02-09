@@ -14,7 +14,7 @@ return {
   },
 
   {
-    "hrsh7th/nvim-cmp",
+    "iguanacucumber/magazine.nvim",
 
     opts = function(_, opts)
       opts.sources = opts.sources or {}
