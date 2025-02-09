@@ -5,6 +5,7 @@ return {
   config = function()
     local colors = require("gruvbox").palette
 
+    --- @diagnostic disable-next-line: missing-fields
     require("gruvbox").setup({
       contrast = "hard",
       overrides = {
