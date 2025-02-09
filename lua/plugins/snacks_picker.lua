@@ -134,7 +134,7 @@ M.spec = {
         },
 
         keymaps = {
-          format = M.keymap_format,
+          format = function(item, picker) return M.keymap_format(item, picker) end,
         },
 
         projects = {
