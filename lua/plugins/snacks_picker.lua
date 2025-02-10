@@ -120,6 +120,7 @@ M.spec = {
               keys = {
                 ["<Esc>"] = false,
                 ["<C-t>"] = "edit_tab",
+                ["/"] = false,
               },
             },
           },
