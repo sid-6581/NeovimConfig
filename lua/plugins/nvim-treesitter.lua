@@ -39,6 +39,7 @@ return {
       "json5",
       "jsonc",
       "kotlin",
+      "latex",
       "llvm",
       "lua",
       "make",

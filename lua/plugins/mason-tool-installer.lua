@@ -31,6 +31,7 @@ return {
       "stylua",
       "taplo",
       "texlab",
+      "tree-sitter-cli",
       "typescript-language-server",
       "vim-language-server",
       "yaml-language-server",
