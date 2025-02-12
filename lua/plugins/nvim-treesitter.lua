@@ -6,7 +6,7 @@ return {
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    "RRethy/nvim-treesitter-textsubjects",
+    -- "RRethy/nvim-treesitter-textsubjects",
   },
 
   keys = {
