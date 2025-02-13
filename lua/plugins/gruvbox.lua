@@ -26,6 +26,7 @@ return {
         LspReferenceRead = { fg = "", bg = "", underdotted = true },
         LspReferenceText = { link = "" },
         LspReferenceWrite = { fg = "", bg = "", underline = true },
+        NonText = { link = "GruvboxBg4" },
         NormalFloat = { fg = "", bg = "", link = "Normal" },
         Search = { bg = "#ffffff", fg = "#385570", reverse = true },
         SignColumn = { fg = "", bg = "", link = "LineNr" },

@@ -59,6 +59,7 @@ return {
         enabled = true,
         only_scope = true,
         only_current = true,
+        hl = "GruvboxBg2",
       },
 
       scope = {
