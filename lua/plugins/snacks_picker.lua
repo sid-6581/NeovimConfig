@@ -40,6 +40,10 @@ M.spec = {
     picker = {
       enabled = true,
 
+      main = {
+        current = true,
+      },
+
       layouts = {
         default = {
           layout = {
