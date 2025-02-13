@@ -1,6 +1,6 @@
 local winbuf = require("util.winbuf")
 
--- Check if we need to reload the file when it changed
+-- Check if we need to reload the file when it changed.
 vim.api.nvim_create_autocmd(
   { "FocusGained", "TermClose", "TermLeave" },
   {
@@ -8,7 +8,17 @@ vim.api.nvim_create_autocmd(
   }
 )
 
--- Turn off filetype indent for vue, because it uses HTML indent which doesn't work with pug
+-- Turn off comment-related formatting and automatic inserting of comment leaders.
+vim.api.nvim_create_autocmd(
+  { "BufWinEnter", "FileType" },
+  {
+    callback = function()
+      vim.opt.formatoptions:remove({ "c", "r", "o" })
+    end,
+  }
+)
+
+-- Turn off filetype indent for vue, because it uses HTML indent which doesn't work with pug.
 vim.api.nvim_create_autocmd(
   { "FileType" },
   {
@@ -33,7 +43,7 @@ vim.api.nvim_create_autocmd(
   }
 )
 
--- Delete hidden no name buffers every time a new one is opened
+-- Delete hidden no name buffers every time a new one is opened.
 vim.api.nvim_create_autocmd(
   { "BufHidden" },
   {
@@ -48,7 +58,7 @@ vim.api.nvim_create_autocmd(
   }
 )
 
--- Turn off hlsearch automatically
+-- Turn off hlsearch automatically.
 vim.api.nvim_create_autocmd(
   { "CursorMoved", "CursorMovedI" },
   {
