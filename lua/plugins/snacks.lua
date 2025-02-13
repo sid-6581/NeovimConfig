@@ -48,6 +48,10 @@ return {
       replace_netrw = true,
     },
 
+    image = {
+      enabled = false,
+    },
+
     indent = {
       enabled = true,
 
@@ -141,14 +145,14 @@ return {
       },
     },
 
-    scroll = {
-      animate = {
-        duration = { total = 150 },
-      },
-      animate_repeat = {
-        duration = { total = 50 },
-      },
-    },
+    -- scroll = {
+    --   animate = {
+    --     duration = { total = 150 },
+    --   },
+    --   animate_repeat = {
+    --     duration = { total = 50 },
+    --   },
+    -- },
 
     statuscolumn = {
       enabled = true,
