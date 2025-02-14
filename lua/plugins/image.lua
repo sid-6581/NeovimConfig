@@ -2,6 +2,7 @@ return {
   "3rd/image.nvim",
   event = "VeryLazy",
   build = false,
+  enabled = vim.fn.has("win32") ~= 1,
 
   opts = {
     processor = "magick_cli",

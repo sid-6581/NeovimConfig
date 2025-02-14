@@ -6,7 +6,6 @@ return {
 
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    -- "RRethy/nvim-treesitter-textsubjects",
   },
 
   keys = {
@@ -39,7 +38,6 @@ return {
       "json5",
       "jsonc",
       "kotlin",
-      "latex",
       "llvm",
       "lua",
       "make",
@@ -74,16 +72,6 @@ return {
       enable = true,
       disable = {
         "vue",
-      },
-    },
-
-    textsubjects = {
-      enable = true,
-      prev_selection = "<S-CR>",
-      keymaps = {
-        ["<CR>"] = { "textsubjects-smart", desc = "Select node [treesitter-textsubjects]" },
-        [";"] = { "textsubjects-container-outer", desc = "Select outer container [treesitter-textsubjects]" },
-        ["i;"] = { "textsubjects-container-inner", desc = "Select inner container [treesitter-textsubjects]" },
       },
     },
   },
