@@ -51,7 +51,7 @@ vim.opt.number = true
 vim.opt.previewheight = 20
 vim.opt.pumheight = 15
 vim.opt.redrawtime = 500
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.report = 1000
 vim.opt.scrolloff = 10
 vim.opt.shada:append("r/mnt")
