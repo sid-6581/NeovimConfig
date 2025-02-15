@@ -36,12 +36,19 @@ M.spec = {
   },
 
   --- @type snacks.Config
+  --- @diagnostic disable-next-line: missing-fields
   opts = {
     picker = {
       enabled = true,
 
       main = {
         current = true,
+      },
+
+      formatters = {
+        file = {
+          truncate = 80,
+        },
       },
 
       layouts = {
