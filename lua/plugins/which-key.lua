@@ -187,19 +187,7 @@ return {
         { "<Leader>L", "<CMD>Lazy sync<CR>", desc = "Plugins [lazy]" },
         { "<Leader>C", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration [which-key]" },
         { "<Leader>W", function() require("which-key").show({ keys = "<C-w>", loop = true }) end, desc = "Windows (hydra mode)" },
-        {
-          "<Leader>O",
-          function()
-            if not winbuf.buf_filter({ noname = true }) then
-              vim.cmd.tabnew()
-            end
-
-            local dir = vim.fn.expand("~/Vaults/Notes")
-            vim.cmd.lcd(dir)
-            vim.cmd.edit(dir)
-          end,
-          desc = "Notes [obsidian]",
-        },
+        { "<Leader>O", "<CMD>:e ~/Vaults/Notes<CR>", desc = "Notes [obsidian]" },
         { "<C-,>", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration [which-key]" },
         { "<Leader>q", "<CMD>qa<CR>", desc = "Quit all [which-key]" },
         { "<BS>", '<CMD>noh | echon ""<CR>', desc = "Clear search highlighting [which-key]" },
@@ -232,14 +220,6 @@ return {
         { "<lt>", "<lt><lt>", desc = "Decrease indent [which-key]" },
         { ">", ">>", desc = "Increase indent [which-key]" },
         { "=", "==", desc = "Reindent line [which-key]" },
-
-        -- Center screen after motions
-        -- { "<C-d>", "<C-d>zz", hidden = true, desc = "Scroll down and center [which-key]" },
-        -- { "<C-u>", "<C-u>zz", hidden = true, desc = "Scroll up and center [which-key]" },
-        -- { "<C-f>", "<C-f>zz", hidden = true, desc = "Page forwards and center [which-key]" },
-        -- { "<C-b>", "<C-b>zz", hidden = true, desc = "Page backwards and center [which-key]" },
-        -- { "n", "nzz", hidden = true, desc = "Next match and center [which-key]" },
-        -- { "N", "Nzz", hidden = true, desc = "Previous match and center [which-key]" },
 
         -- Buffers
         { "<A-w>", "<C-^>", desc = "Alternate buffer [which-key]" },
