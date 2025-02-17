@@ -24,8 +24,6 @@ return {
     },
 
     dashboard = {
-      width = 90,
-
       preset = {
         keys = {
           { icon = " ", key = "n", desc = "New File", action = ":enew" },
