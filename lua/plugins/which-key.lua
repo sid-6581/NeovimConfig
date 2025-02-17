@@ -92,6 +92,7 @@ return {
         { pattern = "%[cliff%]", icon = "↕️ cliff", color = "yellow" },
         { pattern = "%[conform%]", icon = "󰦨 conform", color = "green" },
         { pattern = "%[crates%]", icon = "󱘗 crates", color = "orange" },
+        { pattern = "%[csvview%]", icon = " csvview", color = "blue" },
         { pattern = "%[dadbod%]", icon = " dadbod", color = "purple" },
         { pattern = "%[dap%]", icon = "󰃤 dap", color = "orange" },
         { pattern = "%[dial%]", icon = "󰦒 dial", color = "green" },
