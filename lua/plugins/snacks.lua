@@ -166,10 +166,6 @@ return {
       },
     },
 
-    win = {
-      backdrop = false,
-    },
-
     words = {
       enabled = true,
       debounce = 0,
@@ -191,10 +187,6 @@ return {
       --- @diagnostic disable-next-line: missing-fields
       terminal = {
         border = "rounded",
-      },
-      --- @diagnostic disable-next-line: missing-fields
-      float = {
-        backdrop = false,
       },
       --- @diagnostic disable-next-line: missing-fields
       zen = {
