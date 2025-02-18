@@ -24,6 +24,7 @@ return {
       "prettierd",
       "pyright",
       "ruff",
+      "rust-analyzer",
       "shellcheck",
       "shellharden",
       "shfmt",
