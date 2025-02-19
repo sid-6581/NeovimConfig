@@ -112,7 +112,9 @@ M.spec = {
         explorer = {
           hidden = true,
           ignored = true,
+          diagnostics_open = true,
           git_status_open = true,
+
           transform = function(item, _ctx)
             item.hidden = item.file and item.file:match("%.git$")
           end,
