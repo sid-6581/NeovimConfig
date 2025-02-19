@@ -113,6 +113,7 @@ return {
             desc = "inner scope",
             edge = false,
             min_size = 2,
+            linewise = true,
             treesitter = { blocks = { enabled = false } },
           },
           ai = {
@@ -120,6 +121,7 @@ return {
             desc = "full scope",
             edge = true,
             min_size = 2,
+            linewise = true,
             treesitter = { blocks = { enabled = false } },
           },
         },
