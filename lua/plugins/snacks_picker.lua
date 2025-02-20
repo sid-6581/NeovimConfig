@@ -116,8 +116,8 @@ M.spec = {
           git_status_open = true,
 
           exclude = {
-            "**/.git",
-            "**/node_modules",
+            ".git",
+            "node_modules",
           },
 
           win = {
