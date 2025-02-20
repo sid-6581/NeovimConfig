@@ -21,6 +21,9 @@ return {
         horizontal = 0,
       },
       zindex = 1,
+      options = {
+        winblend = 100,
+      },
     },
     hide = {
       cursorline = "focused_win",
