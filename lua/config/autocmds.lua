@@ -43,15 +43,17 @@ vim.api.nvim_create_autocmd(
   }
 )
 
--- Delete hidden no name buffers every time a new one is opened.
+-- Delete hidden no name buffers and checkhealth buffers every time a buffer is hidden.
 vim.api.nvim_create_autocmd(
   { "BufHidden" },
   {
     callback = function()
       winbuf.buffers_run(
-        { noname = true, hidden = true },
+        { hidden = true },
         function(bufnr)
-          vim.api.nvim_buf_delete(bufnr, { force = true })
+          if winbuf.buf_filter({ noname = true }) or winbuf.buf_filter({ filetype = "checkhealth" }) then
+            vim.api.nvim_buf_delete(bufnr, { force = true })
+          end
         end
       )
     end,
