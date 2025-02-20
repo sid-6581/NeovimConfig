@@ -29,6 +29,7 @@ return {
     { "<S-Enter>", function() require("noice").redirect(vim.fn.getcmdline() or "") end, mode = { "c" }, desc = "Redirect cmdline [noice]" },
   },
 
+  --- @type NoiceConfig
   opts = {
     cmdline = {
       view = "cmdline_popup",
@@ -69,6 +70,9 @@ return {
       },
       mini = {
         timeout = 5000,
+        win_options = {
+          winblend = 100,
+        },
       },
       confirm = {
         position = {

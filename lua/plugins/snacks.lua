@@ -40,7 +40,7 @@ return {
     },
 
     bigfile = {
-      enabled = true,
+      enabled = false,
     },
 
     explorer = {
@@ -68,6 +68,7 @@ return {
 
       scope = {
         enabled = false,
+        cursor = false,
         only_current = true,
         hl = "Constant",
       },
@@ -104,12 +105,13 @@ return {
 
     scope = {
       enabled = true,
+      cursor = false,
       debounce = 0,
       keys = {
         --- @type table<string, snacks.scope.TextObject|{desc?:string}>
         textobject = {
           ii = {
-            cursor = true,
+            cursor = false,
             desc = "inner scope",
             edge = false,
             min_size = 2,
@@ -117,7 +119,7 @@ return {
             treesitter = { blocks = { enabled = false } },
           },
           ai = {
-            cursor = true,
+            cursor = false,
             desc = "full scope",
             edge = true,
             min_size = 2,
@@ -129,7 +131,7 @@ return {
         jump = {
           ["[i"] = {
             bottom = false,
-            cursor = true,
+            cursor = false,
             desc = "jump to top edge of scope",
             edge = true,
             min_size = 1,
