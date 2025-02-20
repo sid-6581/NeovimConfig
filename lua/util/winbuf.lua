@@ -51,6 +51,12 @@ function M.buf_filter(filter, bufnr)
     end
   end
 
+  if filter.filetype ~= nil then
+    if filter.filetype == vim.api.nvim_get_option_value("filetype", opts) then
+      return false
+    end
+  end
+
   if filter.noname ~= nil then
     if filter.noname ~= (
         bufinfo.loaded == 1
@@ -198,6 +204,7 @@ return M
 --- @field listed? boolean
 --- @field hidden? boolean
 --- @field noname? boolean
+--- @field filetype? string
 
 --- @class WinFilter
 --- @field normal? boolean true for non-floating windows, false for floating windows
