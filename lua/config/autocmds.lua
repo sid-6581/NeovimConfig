@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd(
       winbuf.buffers_run(
         { hidden = true },
         function(bufnr)
-          if winbuf.buf_filter({ noname = true }) or winbuf.buf_filter({ filetype = "checkhealth" }) then
+          if winbuf.buf_filter({ noname = true }, bufnr) or winbuf.buf_filter({ filetype = "checkhealth" }, bufnr) then
             vim.api.nvim_buf_delete(bufnr, { force = true })
           end
         end

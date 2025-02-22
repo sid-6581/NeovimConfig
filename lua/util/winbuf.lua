@@ -52,7 +52,7 @@ function M.buf_filter(filter, bufnr)
   end
 
   if filter.filetype ~= nil then
-    if filter.filetype == vim.api.nvim_get_option_value("filetype", opts) then
+    if filter.filetype ~= vim.api.nvim_get_option_value("filetype", opts) then
       return false
     end
   end
