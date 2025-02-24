@@ -50,6 +50,9 @@ return {
 
     image = {
       enabled = true,
+      math = {
+        enabled = false,
+      },
     },
 
     indent = {
