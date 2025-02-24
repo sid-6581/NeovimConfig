@@ -64,9 +64,9 @@ return {
 
       indent = {
         enabled = true,
-        only_scope = true,
+        only_scope = false,
         only_current = true,
-        hl = "GruvboxBg2",
+        hl = "GruvboxBg1",
       },
 
       scope = {
@@ -250,6 +250,7 @@ return {
     snacks.toggle.option("modified"):map("<Leader>bm")
     snacks.toggle.option("relativenumber"):map("<Leader>ur")
     snacks.toggle.option("wrap"):map("<Leader>uw")
+    snacks.toggle.indent():map("<Leader>ui")
     snacks.toggle.scroll():map("<Leader>uS")
     snacks.toggle.words():map("<Leader>uW")
     snacks.toggle.zen():map("<Leader>uz")
