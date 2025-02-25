@@ -15,6 +15,7 @@ return {
         },
       },
     },
+
     window = {
       margin = {
         vertical = 1,
@@ -25,10 +26,7 @@ return {
         winblend = 100,
       },
     },
-    hide = {
-      cursorline = "focused_win",
-      only_win = false,
-    },
+
     render = function(props)
       local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":.")
       local icon, color = require("mini.icons").get("file", filename)
