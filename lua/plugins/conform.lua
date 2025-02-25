@@ -13,7 +13,9 @@ local default_opts = {
 }
 
 return {
-  "stevearc/conform.nvim",
+  -- "stevearc/conform.nvim",
+  "sid-6581/conform.nvim",
+  branch = "fix/undojoin",
   event = "VeryLazy",
 
   keys = {
