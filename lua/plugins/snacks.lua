@@ -65,14 +65,14 @@ return {
       indent = {
         enabled = true,
         only_scope = false,
-        only_current = true,
+        only_current = false,
         hl = "GruvboxBg1",
       },
 
       scope = {
-        enabled = false,
+        enabled = true,
         cursor = false,
-        only_current = true,
+        only_current = false,
         hl = "Constant",
       },
 
