@@ -1,7 +1,7 @@
 local default_opts = {
   timeout_ms = 500,
   lsp_format = "fallback",
-  undojoin = true,
+  undojoin = false,
 
   filter = function(client)
     if client.name == "volar" then
