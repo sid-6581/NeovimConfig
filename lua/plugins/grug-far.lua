@@ -4,7 +4,7 @@ return {
 
   keys = {
     {
-      "<A-g>",
+      "<A-/>",
       function() require("grug-far").toggle_instance({ instanceName = "default" }) end,
       mode = { "n", "x" },
       desc = "Search/replace in files [grug-far]",
