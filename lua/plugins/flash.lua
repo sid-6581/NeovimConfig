@@ -160,7 +160,7 @@ M.spec = {
     require("flash").setup(opts)
 
     local colors = require("gruvbox").palette
-    -- vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ffffff", bg = colors.faded_red })
+    vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ffffff", bg = colors.faded_red })
 
     require("snacks").toggle({
       name = "Flash search",
