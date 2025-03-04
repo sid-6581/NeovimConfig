@@ -240,6 +240,18 @@ return {
           desc = "Delete hidden buffers [which-key]",
         },
         {
+          "<Leader>ba",
+          function()
+            winbuf.buffers_run(
+              { normal = true, listed = true },
+              function(bufnr)
+                vim.cmd.bdelete(bufnr)
+              end
+            )
+          end,
+          desc = "Delete all buffers [which-key]",
+        },
+        {
           "<Leader>bo",
           function()
             winbuf.buffers_run(
