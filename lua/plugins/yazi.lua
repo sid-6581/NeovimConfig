@@ -4,7 +4,7 @@ return {
 
   keys = {
     {
-      "<Leader>.",
+      "<A-.>",
       "<CMD>Yazi<CR>",
       desc = "Open yazi [yazi]",
     },
