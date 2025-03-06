@@ -50,6 +50,10 @@ return {
 
     image = {
       enabled = true,
+      --- @diagnostic disable-next-line: missing-fields
+      convert = {
+        notify = false,
+      },
       math = {
         enabled = false,
       },
