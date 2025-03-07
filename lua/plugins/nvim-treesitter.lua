@@ -70,8 +70,15 @@ return {
 
     indent = {
       enable = true,
-      disable = {
-        "vue",
+    },
+
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "<CR>",
+        node_decremental = "<S-CR>",
+        node_incremental = "<CR>",
+        scope_incremental = "<Tab>",
       },
     },
   },
