@@ -350,7 +350,7 @@ return {
               },
             },
           },
-          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+          filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue" },
         },
 
         qmlls = {
