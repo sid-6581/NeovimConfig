@@ -6,5 +6,13 @@ return {
     { "<Leader>cS", function() require("tssorter").sort({}) end, desc = "Sort [tssorter]" },
   },
 
-  opts = {},
+  opts = {
+    sortables = {
+      jsonc = {
+        keys = {
+          node = "pair",
+        },
+      },
+    },
+  },
 }
