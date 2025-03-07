@@ -36,7 +36,7 @@ return {
         lualine_b = {
           "cwd",
           {
-            -- "filename",
+            "filename",
             newfile_status = true,
             path = 1,
             symbols = {
