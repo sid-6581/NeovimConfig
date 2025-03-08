@@ -131,100 +131,6 @@ return {
   opts = function()
     return {
       servers = {
-        denols = {
-          filetypes = {
-            "deno:/status.md",
-          },
-        },
-
-        eslint = {
-          on_attach = function(client, _bufnr)
-            client.server_capabilities.documentFormattingProvider = true
-          end,
-        },
-
-        jsonls = {
-          capabilities = {
-            textDocument = {
-              completion = {
-                completionItem = {
-                  snippetSupport = true,
-                },
-              },
-            },
-          },
-          settings = {
-            json = {
-              schemas = require("schemastore").json.schemas(),
-              validate = { enable = true },
-            },
-          },
-        },
-
-        lua_ls = {
-          settings = {
-            Lua = {
-              completion = {
-                workspaceWord = false,
-                postfix = ".",
-                keywordSnippet = "Disable",
-              },
-              diagnostics = {
-                unusedLocalExclude = { "_*" },
-                globals = { "vim", "require" },
-              },
-              format = {
-                enable = false,
-                defaultConfig = {
-                  indent_style = "space",
-                  indent_size = "2",
-                  continuation_indent_size = "2",
-                },
-              },
-              telemetry = {
-                enable = false,
-              },
-              workspace = {
-                preloadFileSize = 2000,
-              },
-            },
-          },
-        },
-
-        nushell = {},
-
-        powershell_es = {
-          settings = {
-            powershell = {
-              codeFormatting = {
-                autoCorrectAliases = true,
-                avoidSemicolonsAsLineTerminators = true,
-                preset = "OTBS",
-                trimWhitespaceAroundPipe = true,
-                useConstantStrings = true,
-                useCorrectCasing = true,
-                whitespaceBetweenParameters = true,
-              },
-            },
-          },
-        },
-
-        pyright = {
-          settings = {
-            pyright = {
-              disableOrganizeImports = true,
-            },
-            python = {
-              analysis = {
-                typeCheckingMode = "basic",
-                useLibraryCodeForTypes = true,
-              },
-            },
-          },
-        },
-
-        ruff = {},
-
         ["rust_analyzer"] = {
           settings = {
             ["rust-analyzer"] = {
@@ -340,6 +246,104 @@ return {
           },
         },
 
+        denols = {
+          filetypes = {
+            "deno:/status.md",
+          },
+        },
+
+        eslint = {
+          on_attach = function(client, _bufnr)
+            client.server_capabilities.documentFormattingProvider = true
+          end,
+        },
+
+        jsonls = {
+          capabilities = {
+            textDocument = {
+              completion = {
+                completionItem = {
+                  snippetSupport = true,
+                },
+              },
+            },
+          },
+          settings = {
+            json = {
+              schemas = require("schemastore").json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        },
+
+        lua_ls = {
+          settings = {
+            Lua = {
+              completion = {
+                workspaceWord = false,
+                postfix = ".",
+                keywordSnippet = "Disable",
+              },
+              diagnostics = {
+                unusedLocalExclude = { "_*" },
+                globals = { "vim", "require" },
+              },
+              format = {
+                enable = false,
+                defaultConfig = {
+                  indent_style = "space",
+                  indent_size = "2",
+                  continuation_indent_size = "2",
+                },
+              },
+              telemetry = {
+                enable = false,
+              },
+              workspace = {
+                preloadFileSize = 2000,
+              },
+            },
+          },
+        },
+
+        nushell = {},
+
+        powershell_es = {
+          settings = {
+            powershell = {
+              codeFormatting = {
+                autoCorrectAliases = true,
+                avoidSemicolonsAsLineTerminators = true,
+                preset = "OTBS",
+                trimWhitespaceAroundPipe = true,
+                useConstantStrings = true,
+                useCorrectCasing = true,
+                whitespaceBetweenParameters = true,
+              },
+            },
+          },
+        },
+
+        pyright = {
+          settings = {
+            pyright = {
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                typeCheckingMode = "basic",
+                useLibraryCodeForTypes = true,
+              },
+            },
+          },
+        },
+
+        qmlls = {
+          cmd = { "qmlls6" },
+        },
+
+        ruff = {},
+
         ts_ls = {
           init_options = {
             plugins = {
@@ -353,8 +357,13 @@ return {
           filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue" },
         },
 
-        qmlls = {
-          cmd = { "qmlls6" },
+        volar = {
+          cmd = { "pnpm", "vue-language-server", "--stdio" },
+          settings = {
+            emmet = {
+              showExpandedAbbreviation = "never",
+            },
+          },
         },
 
         yamlls = {
@@ -362,20 +371,6 @@ return {
             yaml = {
               schemaStore = { enable = false, url = "" },
               schemas = require("schemastore").yaml.schemas(),
-            },
-          },
-        },
-
-        volar = {
-          cmd = { "pnpm", "vue-language-server", "--stdio" },
-          init_options = {
-            vue = {
-              hybridMode = true,
-            },
-          },
-          settings = {
-            emmet = {
-              showExpandedAbbreviation = "never",
             },
           },
         },
