@@ -345,17 +345,30 @@ return {
         ruff = {},
 
         vtsls = {
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = "",
-                languages = { "javascript", "typescript", "vue" },
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+            "vue",
+          },
+          settings = {
+            vtsls = {
+              autoUseWorkspaceTsdk = true,
+              tsserver = {
+                globalPlugins = {
+                  {
+                    name = "@vue/typescript-plugin",
+                    location = "",
+                    languages = { "vue" },
+                    configNamespace = "typescript",
+                    enableForWorkspaceTypeScriptVersions = true,
+                  },
+                },
               },
             },
-          },
-          filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue" },
-          settings = {
             typescript = {
               preferences = {
                 importModuleSpecifier = "non-relative",
