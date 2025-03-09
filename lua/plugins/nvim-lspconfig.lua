@@ -344,7 +344,7 @@ return {
 
         ruff = {},
 
-        ts_ls = {
+        vtsls = {
           init_options = {
             plugins = {
               {
