@@ -18,6 +18,17 @@ vim.api.nvim_create_autocmd(
 --   }
 -- )
 
+-- Turn off filetype indent for vue, because it doesn't work great in templates with code.
+vim.api.nvim_create_autocmd(
+  { "FileType" },
+  {
+    pattern = { "vue" },
+    callback = function()
+      vim.opt_local.indentkeys = nil
+    end,
+  }
+)
+
 -- Treat checkboxes as comments in markdown files for easy list continuation.
 vim.api.nvim_create_autocmd(
   { "FileType" },
