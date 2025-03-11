@@ -69,7 +69,7 @@ return {
     },
 
     indent = {
-      enable = false,
+      enable = true,
     },
 
     incremental_selection = {
