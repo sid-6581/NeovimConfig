@@ -3,10 +3,8 @@ local M = {}
 M.spec = {
   "folke/snacks.nvim",
   event = "VeryLazy",
-
   keys = {
     { "<A-1>", function() require("snacks").explorer() end, desc = "File explorer [snacks]" },
-    { "<C-'>", function() require("snacks").picker.recent({ filter = { cwd = true } }) end, desc = "Search recent project files [snacks]" },
     { "<C-.>", function() require("snacks").picker.files() end, desc = "Search files [snacks]" },
     { "<C-/>", function() require("snacks").picker.grep() end, desc = "Search text [snacks]" },
     { "<F1>", function() require("snacks").picker.help() end, mode = { "n", "i", "v", "x", "o", "c" }, desc = "Search help [snacks]" },
