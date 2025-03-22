@@ -31,6 +31,7 @@ M.spec = {
     { "<Leader>fs", function() require("snacks").picker.grep() end, desc = "Search text [snacks]" },
     { "<Leader>fu", function() require("snacks").picker.undo() end, desc = "Search undo history [snacks]" },
     { "<Leader>fw", function() require("snacks").picker.grep_word() end, mode = { "n", "x" }, desc = "Search for word [snacks]" },
+    { "<Leader>fo", function() M.options_picker() end, mode = { "n", "x" }, desc = "Search for options [snacks]" },
   },
 
   --- @type snacks.Config
@@ -270,6 +271,48 @@ M.keymap_format = function(item, picker)
   end
 
   return ret
+end
+
+M.options_picker = function()
+  local options = {}
+  for _, v in pairs(vim.api.nvim_get_all_options_info()) do
+    local ok, value = pcall(vim.api.nvim_get_option_value, v.name, {})
+    if ok then
+      v.value = value
+      table.insert(options, v)
+    end
+  end
+
+  table.sort(options, function(left, right)
+    return left.name < right.name
+  end)
+
+  local items = vim.tbl_map(
+    function(option)
+      return {
+        text = string.format(
+          "%-25s %-12s %-11s %s",
+          option.name,
+          option.type,
+          option.scope,
+          tostring(option.value)
+        ),
+        preview = {
+          text = vim.inspect(option),
+          ft = "lua",
+        },
+      }
+    end,
+    options
+  )
+
+  Snacks.picker.pick({
+    title = "Options",
+    format = "text",
+    items = items,
+    preview = "preview",
+    confirm = { "copy", "close" },
+  })
 end
 
 return M.spec
