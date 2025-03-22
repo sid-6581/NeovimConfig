@@ -3,7 +3,28 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<C-'>", function() require("mini.visits").select_path() end, desc = "Recent project files [mini.visits]" },
+    {
+      "<C-'>",
+      function()
+        local items = vim.tbl_map(
+          function(path)
+            local relative_path = vim.fn.fnamemodify(path, ":.")
+            return {
+              file = relative_path,
+              text = relative_path,
+            }
+          end,
+          require("mini.visits").list_paths()
+        )
+
+        require("snacks").picker.pick({
+          items = items,
+          format = "file",
+          title = "Recent Files [mini.visits]",
+        })
+      end,
+      desc = "Recent project files [mini.visits]",
+    },
   },
 
   opts = {
