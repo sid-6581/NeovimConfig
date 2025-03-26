@@ -98,6 +98,7 @@ return {
           any = {
             { event = "msg_show", find = "Already at oldest change" },
             { event = "msg_show", find = "fewer lines" },
+            { event = "msg_show", find = ":checkhealth vim.deprecated" },
             { event = "msg_show", find = "line less" },
             { event = "msg_show", find = "more line" },
             { event = "msg_show", find = "changes;" },
