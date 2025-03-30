@@ -72,10 +72,10 @@ return {
           callback()
         end,
       },
-      latexindent = {
-        inherit = true,
-        append_args = { "-m" },
-      },
+      -- latexindent = {
+      --   inherit = true,
+      --   append_args = { "-m" },
+      -- },
     },
 
     formatters_by_ft = {
