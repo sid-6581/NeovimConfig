@@ -100,7 +100,7 @@ return {
       nu = { "indent_buffer" },
       sh = { "shellharden" },
       sql = { "sqlfluff" },
-      tex = { "latexindent" },
+      -- tex = { "latexindent" },
       yaml = { "yamlfmt" },
     },
   },
