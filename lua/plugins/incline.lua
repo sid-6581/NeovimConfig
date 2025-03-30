@@ -18,17 +18,17 @@ return {
 
     window = {
       margin = {
-        vertical = 1,
+        vertical = 0,
         horizontal = 0,
       },
       zindex = 1,
       options = {
         winblend = 0,
       },
-    },
-
-    hide = {
-      cursorline = "focused_win",
+      placement = {
+        vertical = "bottom",
+        horizontal = "left",
+      },
     },
 
     render = function(props)
