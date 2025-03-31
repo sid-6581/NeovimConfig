@@ -25,9 +25,10 @@ return {
       options = {
         winblend = 0,
       },
-      hide = {
-        cursorline = "focused_win",
-      },
+    },
+
+    hide = {
+      cursorline = "focused_win",
     },
 
     render = function(props)
