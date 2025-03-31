@@ -8,7 +8,7 @@ return {
       line_right = "",
     },
     options = {
-      reindent_linewise = true,
+      reindent_linewise = false,
     },
   },
 }
