@@ -25,9 +25,8 @@ return {
       options = {
         winblend = 0,
       },
-      placement = {
-        vertical = "bottom",
-        horizontal = "left",
+      hide = {
+        cursorline = "focused_win",
       },
     },
 
