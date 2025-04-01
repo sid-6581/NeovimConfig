@@ -14,6 +14,7 @@ return {
     disable = {
       filetypes = {
         "markdown",
+        "terraform",
       },
     },
     vt_position = "end_of_line",
