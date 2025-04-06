@@ -161,7 +161,7 @@ return {
       { "<Leader><Tab>", group = "Tabs" },
       { "<Leader>b", group = "Buffers" },
       { "<Leader>c", group = "Code" },
-      { "<Leader>d", group = "Debug" },
+      { "<Leader>d", group = "Diff" },
       { "<Leader>f", group = "Find" },
       { "<Leader>g", group = "Git" },
       { "<Leader>go", group = "Octo [octo]" },
@@ -354,13 +354,19 @@ return {
         { ",[", "<C-t>", desc = "Pop tag from stack [which-key]" },
         { ",]", "<C-]>", desc = "Jump to tag [which-key]" },
         { ",cd", "<CMD>cd %:h<CR>", desc = "Change current working directory to current file directory [which-key]" },
-        { ",do", "<CMD>diffoff<CR>", desc = "Diff off [which-key]" },
-        { ",dt", "<CMD>diffthis<CR>", desc = "Diff this [which-key]" },
-        { ",du", "<CMD>diffupdate<CR>", desc = "Diff update [which-key]" },
         { ",r", "<C-r>", desc = "Redo last change [which-key]" },
         { ",vb", "<C-v>", desc = "Visual block mode [which-key]" },
         { ",x12", "<CMD>%!x12pp<CR><CMD>set ft=x12<CR>", desc = "Format X12 file [which-key]" },
         { ",cr", "<CMD>%!dos2unix<CR>", desc = "Convert line endings to CR [which-key]" },
+
+        -- Diff
+        { "<Leader>dd", "<CMD>diffthis<CR>", desc = "Diff this [which-key]" },
+        { "<Leader>dg", "<CMD>diffthis<CR>", desc = "Diff get [which-key]" },
+        { "<Leader>do", "<CMD>diffoff<CR>", desc = "Diff off [which-key]" },
+        { "<Leader>dO", "<CMD>diffoff<CR>", desc = "Diff off all [which-key]" },
+        { "<Leader>dp", "<CMD>diffthis<CR>", desc = "Diff put [which-key]" },
+        { "<Leader>dt", "<CMD>diffthis<CR>", desc = "Diff this [which-key]" },
+        { "<Leader>du", "<CMD>diffupdate<CR>", desc = "Diff update [which-key]" },
 
         -- Yank/paste
         { "Y", "_y$", desc = "Yank line characters [which-key]" },
