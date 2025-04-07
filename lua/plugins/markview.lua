@@ -1,7 +1,5 @@
 return {
   "OXY2DEV/markview.nvim",
-  event = "VeryLazy",
-  ft = "markdown",
 
   opts = {
     -- modes = { "n", "i", "no", "c", "s", "S" },
