@@ -165,6 +165,15 @@ return {
     --   },
     -- },
 
+    scratch = {
+      --- @diagnostic disable-next-line: missing-fields
+      win = {
+        keys = {
+          ["<A-s>"] = "close",
+        },
+      },
+    },
+
     statuscolumn = {
       enabled = true,
     },
