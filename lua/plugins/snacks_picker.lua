@@ -42,6 +42,7 @@ M.spec = {
 
       main = {
         current = true,
+        file = false,
       },
 
       formatters = {
