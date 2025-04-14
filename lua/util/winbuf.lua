@@ -197,7 +197,9 @@ function M.close_window_or_buffer()
   vim.cmd.bdelete()
 end
 
-function M.colorize()
+--- Convert the current buffer to a colorized terminal.
+--- @param bottom? boolean true to put cursor at the bottom, false to put cursor at the top
+function M.colorize(bottom)
   vim.wo.number = false
   vim.wo.relativenumber = false
   vim.wo.statuscolumn = ""
@@ -212,9 +214,26 @@ function M.colorize()
   end
 
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
-  vim.api.nvim_chan_send(vim.api.nvim_open_term(buf, {}), table.concat(lines, "\r\n"))
+  local chan = vim.api.nvim_open_term(buf, {})
+
+  -- Delete terminal buffer contents.
+  -- vim.api.nvim_set_option_value("modifiable", true, { buf = buf })
+  -- vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
+  -- vim.api.nvim_set_option_value("modifiable", false, { buf = buf })
+
+  vim.api.nvim_chan_send(chan, table.concat(lines, "\n"))
+
   vim.keymap.set("n", "q", "<cmd>q<cr>", { silent = true, buffer = buf })
-  vim.api.nvim_create_autocmd("TermEnter", { buffer = buf, command = "stopinsert" })
+
+  vim.api.nvim_create_autocmd(
+    "TextChanged",
+    {
+      buffer = buf,
+      callback = function()
+        pcall(vim.api.nvim_win_set_cursor, 0, { bottom and #lines or 1, 0 })
+      end,
+    }
+  )
 end
 
 return M
