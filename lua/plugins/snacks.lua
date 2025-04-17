@@ -83,8 +83,10 @@ return {
       chunk = {
         enabled = true,
         char = {
+          arrow = " ",
           corner_top = "╭",
           corner_bottom = "╰",
+          horizontal = " ",
         },
         hl = "Constant",
       },
