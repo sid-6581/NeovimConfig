@@ -13,6 +13,11 @@ return {
           node = "pair",
         },
       },
+      yaml = {
+        keys = {
+          node = "block_mapping_pair",
+        },
+      },
     },
   },
 }
