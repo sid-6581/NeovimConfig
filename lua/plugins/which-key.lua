@@ -371,6 +371,7 @@ return {
         -- Yank/paste
         { "Y", "_y$", desc = "Yank line characters [which-key]" },
         { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
+        { "gp", "'`[' . getregtype()[0] . '`]'", desc = "Select last pasted text [which-key]", expr = true },
 
         -- External commands
         { "|sd", "<CMD>silent !sops decrypt -i %<CR>", desc = "SOPS decrypt [which-key]" },
