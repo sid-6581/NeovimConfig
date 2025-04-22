@@ -169,17 +169,18 @@ return {
       { "<Leader>u", group = "UI/toggles" },
       { "<Leader>w", group = "Windows" },
       { "<Leader>x", group = "Diagnostics/quickfix" },
-      { ",", group = "Misc" },
-      { "`", group = "Marks" },
       { "'", group = "Marks" },
-      { "\"", group = "Registers" },
+      { ",", group = "Misc" },
+      { "<C-w>", group = "Windows" },
       { "[", group = "Previous", mode = { "n", "v", "x", "o" } },
+      { "\"", group = "Registers" },
       { "]", group = "Next", mode = { "n", "v", "x", "o" } },
+      { "`", group = "Marks" },
+      { "c", group = "Code", mode = { "o", "x" } },
       { "g", group = "Goto/operators" },
       { "gp", group = "Goto preview" },
-      { "c", group = "Code", mode = { "o", "x" } },
       { "z", group = "Fold/scroll" },
-      { "<C-w>", group = "Windows" },
+      { "|", group = "External commands" },
 
       -- Normal mode
       {
@@ -371,6 +372,10 @@ return {
         -- Yank/paste
         { "Y", "_y$", desc = "Yank line characters [which-key]" },
         { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
+
+        -- External commands
+        { "|sd", "<CMD>!sops decrypt -i %<CR>", desc = "SOPS decrypt [which-key]" },
+        { "|se", "<CMD>!sops encrypt -i %<CR>", desc = "SOPS encrypt [which-key]" },
       },
 
       -- Normal and visual mode
