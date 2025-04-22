@@ -357,7 +357,6 @@ return {
         { ",cd", "<CMD>cd %:h<CR>", desc = "Change current working directory to current file directory [which-key]" },
         { ",r", "<C-r>", desc = "Redo last change [which-key]" },
         { ",vb", "<C-v>", desc = "Visual block mode [which-key]" },
-        { ",x12", "<CMD>%!x12pp<CR><CMD>set ft=x12<CR>", desc = "Format X12 file [which-key]" },
         { ",cr", "<CMD>%!dos2unix<CR>", desc = "Convert line endings to CR [which-key]" },
 
         -- Diff
@@ -374,8 +373,9 @@ return {
         { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
 
         -- External commands
-        { "|sd", "<CMD>!sops decrypt -i %<CR>", desc = "SOPS decrypt [which-key]" },
-        { "|se", "<CMD>!sops encrypt -i %<CR>", desc = "SOPS encrypt [which-key]" },
+        { "|sd", "<CMD>silent !sops decrypt -i %<CR>", desc = "SOPS decrypt [which-key]" },
+        { "|se", "<CMD>silent !sops encrypt -i %<CR>", desc = "SOPS encrypt [which-key]" },
+        { "|x12", "<CMD>%!x12pp<CR><CMD>set ft=x12<CR>", desc = "Format X12 file [which-key]" },
       },
 
       -- Normal and visual mode
