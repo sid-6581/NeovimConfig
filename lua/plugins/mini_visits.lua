@@ -30,7 +30,7 @@ return {
   opts = {
     list = {
       filter = function(path)
-        return not vim.startswith(path.path, "/mnt") and vim.fn.isdirectory(path.path) == 0
+        return (not vim.startswith(path.path, "/mnt")) and vim.fn.isdirectory(path.path) == 0
       end,
     },
   },
