@@ -370,7 +370,7 @@ return {
 
         -- Yank/paste
         { "Y", "_y$", desc = "Yank line characters [which-key]" },
-        { "<S-Insert>", '"+P', desc = "Paste from system clipboard [which-key]" },
+        { "<S-Insert>", "i<C-r><C-r>+<Esc>", desc = "Paste from system clipboard [which-key]" },
         { "gp", "'`[' . getregtype()[0] . '`]'", desc = "Select last pasted text [which-key]", expr = true },
 
         -- External commands
@@ -411,7 +411,7 @@ return {
         { "<S-C-k>", "<C-o>dd", desc = "Delete line [which-key]" },
         { "<S-Enter>", "<Esc>m`O<Esc>``a", desc = "Insert blank line above [which-key]" },
         { "<C-Enter>", "<Esc>m`o<Esc>``a", desc = "Insert blank line below [which-key]" },
-        { "<S-Insert>", "<C-r><C-o>+", desc = "Paste from system clipboard [which-key]" },
+        { "<S-Insert>", "<C-r><C-r>+", desc = "Paste from system clipboard [which-key]" },
       },
 
       -- Visual and select mode
