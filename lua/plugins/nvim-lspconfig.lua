@@ -96,15 +96,9 @@ return {
       virtual_text = { spacing = 4 },
     })
 
-    for ls_name, _ in pairs(vim.lsp._enabled_configs) do
-      vim.lsp.enable(ls_name)
+    -- Enable all language servers we have configurations for.
+    for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lsp")) do
+      vim.lsp.enable(file:gsub("%.lua$", ""))
     end
-
-    -- for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lsp")) do
-    --   if file:match("%.lua$") and file ~= "global.lua" then
-    --     local ls_name = file:gsub("%.lua$", "")
-    --     vim.lsp.enable(ls_name)
-    --   end
-    -- end
   end,
 }
