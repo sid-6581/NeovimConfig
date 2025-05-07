@@ -1,9 +1,13 @@
 return {
   "williamboman/mason.nvim",
-  event = "VeryLazy",
+  lazy = false,
 
   keys = {
     { "<Leader>M", "<CMD>Mason<CR>", desc = "External tools [mason]" },
+  },
+
+  dependencies = {
+    "neovim/nvim-lspconfig",
   },
 
   opts = {

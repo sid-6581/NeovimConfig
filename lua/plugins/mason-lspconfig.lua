@@ -3,6 +3,7 @@ return {
 
   dependencies = {
     "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
   },
 
   opts = {},

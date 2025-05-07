@@ -54,3 +54,5 @@ require("lazy").setup("plugins", {
     },
   },
 })
+
+require("config.lsp")
