@@ -75,49 +75,49 @@ return {
         { icon = " ", title = "Recent Files", section = "recent_files", limit = 10, indent = 2, padding = 1 },
         -- { icon = " ", title = "Projects", section = "projects", limit = 5, session = false, indent = 2, padding = 1 },
 
-        function()
-          local in_git = require("snacks").git.get_root() ~= nil
-
-          local cmds = {
-            {
-              title = "Open Issues",
-              cmd = "PAGER= gh issue list -L 3 || true",
-              key = "I",
-              action = function()
-                vim.fn.jobstart("gh issue list --web", { detach = true })
-              end,
-              icon = " ",
-              height = 10,
-            },
-            {
-              icon = " ",
-              title = "Open PRs",
-              cmd = "PAGER= gh pr list -L 3 || true",
-              key = "P",
-              action = function()
-                vim.fn.jobstart("gh pr list --web", { detach = true })
-              end,
-              height = 10,
-            },
-            {
-              icon = " ",
-              title = "Git Status",
-              cmd = "PAGER= git --no-pager diff --stat -B -M -C || true",
-              height = 10,
-            },
-          }
-
-          return vim.tbl_map(function(cmd)
-            return vim.tbl_extend("force", {
-              pane = 2,
-              section = "terminal",
-              enabled = in_git,
-              padding = 1,
-              ttl = 5 * 60,
-              indent = 3,
-            }, cmd)
-          end, cmds)
-        end,
+        -- function()
+        --   local in_git = require("snacks").git.get_root() ~= nil
+        --
+        --   local cmds = {
+        --     {
+        --       title = "Open Issues",
+        --       cmd = "PAGER= gh issue list -L 3 || true",
+        --       key = "I",
+        --       action = function()
+        --         vim.fn.jobstart("gh issue list --web", { detach = true })
+        --       end,
+        --       icon = " ",
+        --       height = 10,
+        --     },
+        --     {
+        --       icon = " ",
+        --       title = "Open PRs",
+        --       cmd = "PAGER= gh pr list -L 3 || true",
+        --       key = "P",
+        --       action = function()
+        --         vim.fn.jobstart("gh pr list --web", { detach = true })
+        --       end,
+        --       height = 10,
+        --     },
+        --     {
+        --       icon = " ",
+        --       title = "Git Status",
+        --       cmd = "PAGER= git --no-pager diff --stat -B -M -C || true",
+        --       height = 10,
+        --     },
+        --   }
+        --
+        --   return vim.tbl_map(function(cmd)
+        --     return vim.tbl_extend("force", {
+        --       pane = 2,
+        --       section = "terminal",
+        --       enabled = in_git,
+        --       padding = 1,
+        --       ttl = 5 * 60,
+        --       indent = 3,
+        --     }, cmd)
+        --   end, cmds)
+        -- end,
 
         { section = "startup" },
       },
