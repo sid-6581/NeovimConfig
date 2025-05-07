@@ -1,8 +1,7 @@
 return {
-  "seblj/roslyn.nvim",
+  "seblyng/roslyn.nvim",
   event = "VeryLazy",
   ft = "cs",
-  enabled = false,
 
   opts = {},
 }
