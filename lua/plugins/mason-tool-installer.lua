@@ -6,8 +6,8 @@ return {
 
   opts = {
     ensure_installed = {
-      "ansible-language-server",
-      "bash-language-server",
+      "ansiblels",
+      "bashls",
       "clangd",
       "codelldb",
       "css-lsp",
