@@ -3,10 +3,8 @@ return {
     ["rust-analyzer"] = {
       cargo = {
         features = "all",
-        -- buildScripts = {
-        --   useRustcWrapper = false,
-        -- },
       },
+
       completion = {
         callable = {
           snippets = "none",
@@ -14,7 +12,17 @@ return {
         fullFunctionSignatures = {
           enable = true,
         },
+        excludeTraits = {
+          "color_eyre::owo_colors::OwoColorize",
+          "core::borrow::Borrow",
+          "core::borrow::BorrowMut",
+          "fake::Fake",
+          "owo_colors::OwoColorize",
+          "std::borrow::Borrow",
+          "std::borrow::BorrowMut",
+        },
       },
+
       diagnostics = {
         disabled = {
           "macro-error",
@@ -29,6 +37,7 @@ return {
           enable = true,
         },
       },
+
       procMacro = {
         ignored = {
           ["tracing-attributes"] = {
@@ -39,13 +48,16 @@ return {
           },
         },
       },
+
       check = {
         command = "clippy",
         extraArgs = { "--no-deps" },
       },
+
       files = {
         watcher = "server",
       },
+
       hover = {
         actions = {
           references = {
@@ -53,9 +65,11 @@ return {
           },
         },
       },
+
       rustfmt = {
         extraArgs = { "+nightly" },
       },
+
       inlayHints = {
         maxLength = 200,
         bindingModeHints = {
