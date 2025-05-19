@@ -265,7 +265,12 @@ return {
           end,
           desc = "Delete other buffers [which-key]",
         },
-        { "<Leader>bi", function() show(vim.fn.getbufinfo(), { title = "Buffers" }) end, desc = "Show buffer information [which-key]" },
+        {
+          "<Leader>bi",
+          function() show(vim.fn.getbufinfo(vim.api.nvim_get_current_buf()), { title = "Current Buffer" }) end,
+          desc = "Show current buffer info [which-key]",
+        },
+        { "<Leader>bI", function() show(vim.fn.getbufinfo(), { title = "All Buffers" }) end, desc = "Show all buffers info [which-key]" },
 
 
         -- Window opening/closing
@@ -276,7 +281,12 @@ return {
         { "<Leader>wT", "<C-w>T", desc = "Open current window in new tab [which-key]" },
         { "<Leader>w]", "<C-w>]", desc = "Go to identifier in split [which-key]" },
         { "<Leader>wc", "<C-w>c", desc = "Close current window [which-key]" },
-        { "<Leader>wi", function() show(vim.fn.getwininfo(), { title = "Windows" }) end, desc = "Show window information [which-key]" },
+        {
+          "<Leader>wi",
+          function() show(vim.fn.getwininfo(vim.api.nvim_get_current_win()), { title = "Current Window" }) end,
+          desc = "Show current window info [which-key]",
+        },
+        { "<Leader>wI", function() show(vim.fn.getwininfo(), { title = "All Windows" }) end, desc = "Show all windows info [which-key]" },
         { "<Leader>wo", "<C-w>o", desc = "Make current window the only one [which-key]" },
         { "<Leader>wq", "<C-w>q", desc = "Quit window [which-key]" },
         { "<Leader>ws", "<C-w>s", desc = "Split window (horizontal) [which-key]" },
