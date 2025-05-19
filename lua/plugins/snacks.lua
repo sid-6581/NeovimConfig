@@ -77,7 +77,7 @@ return {
         enabled = true,
         cursor = false,
         only_current = false,
-        hl = "Constant",
+        hl = "GruvboxBg4",
       },
 
       chunk = {
@@ -88,7 +88,7 @@ return {
           corner_bottom = "╰",
           horizontal = " ",
         },
-        hl = "Constant",
+        hl = "GruvboxBg4",
       },
     },
 
