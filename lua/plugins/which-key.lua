@@ -351,6 +351,7 @@ return {
         -- Folds
         { "zff", function() util.close_text_object_folds("@function.outer") end, desc = "Close folds for functions [which-key]" },
         { "zfc", function() util.close_text_object_folds("@class.outer") end, desc = "Close folds for classes [which-key]" },
+        { "z.", function() util.close_folds_with_level(vim.fn.foldlevel(".")) end, desc = "Close folds with current line level [which-key]" },
         { "z1", function() util.close_folds_with_level(1) end, desc = "Close folds with level 1 [which-key]" },
         { "z2", function() util.close_folds_with_level(2) end, desc = "Close folds with level 2 [which-key]" },
         { "z3", function() util.close_folds_with_level(3) end, desc = "Close folds with level 3 [which-key]" },
