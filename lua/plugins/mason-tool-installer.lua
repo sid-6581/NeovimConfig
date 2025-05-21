@@ -6,10 +6,8 @@ return {
 
   opts = {
     ensure_installed = {
-      "ansiblels",
       "bashls",
       "clangd",
-      "codelldb",
       "css-lsp",
       "deno",
       "dockerfile-language-server",
@@ -34,11 +32,11 @@ return {
       "terraform-ls",
       "tree-sitter-cli",
       "vim-language-server",
+      "vue-language-server",
       "vtsls",
       "yaml-language-server",
       "yamlfmt",
       "yamllint",
-      vim.fn.has("win32") == 1 and "powershell-editor-services" or nil,
     },
     auto_update = true,
     run_on_start = true,

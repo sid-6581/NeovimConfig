@@ -4,7 +4,7 @@ local default_opts = {
   undojoin = false,
 
   filter = function(client)
-    if client.name == "volar" then
+    if client.name == "vue_ls" then
       return false
     end
 
