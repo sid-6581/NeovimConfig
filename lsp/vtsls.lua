@@ -26,6 +26,12 @@ return {
     typescript = {
       preferences = {
         importModuleSpecifier = "non-relative",
+        updateImportsOnFileMove = {
+          enabled = "always",
+        },
+        suggest = {
+          completeFunctionCalls = true,
+        },
       },
     },
   },
