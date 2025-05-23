@@ -29,6 +29,7 @@ return {
       "sqlfluff",
       "stylua",
       "taplo",
+      "tailwindcss-language-server",
       "terraform-ls",
       "tree-sitter-cli",
       "vim-language-server",
