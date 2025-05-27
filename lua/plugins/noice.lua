@@ -60,12 +60,22 @@ return {
     },
 
     views = {
+      cmdline_popup = {
+        position = {
+          row = "50%",
+        },
+        size = {
+          width = "50%",
+        },
+      },
+
       mini = {
         timeout = 5000,
         win_options = {
           winblend = 100,
         },
       },
+
       confirm = {
         position = {
           row = "50%",
