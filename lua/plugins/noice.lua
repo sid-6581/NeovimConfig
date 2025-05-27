@@ -60,14 +60,6 @@ return {
     },
 
     views = {
-      cmdline_popup = {
-        position = {
-          row = -3,
-        },
-        size = {
-          width = "50%",
-        },
-      },
       mini = {
         timeout = 5000,
         win_options = {
