@@ -35,15 +35,15 @@ return {
         },
         lualine_b = {
           "cwd",
-          {
-            "filename",
-            newfile_status = true,
-            path = 0,
-            symbols = {
-              modified = "●",
-              readonly = "",
-            },
-          },
+          -- {
+          --   "filename",
+          --   newfile_status = true,
+          --   path = 0,
+          --   symbols = {
+          --     modified = "●",
+          --     readonly = "",
+          --   },
+          -- },
         },
         lualine_c = {
         },
