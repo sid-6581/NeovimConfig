@@ -90,12 +90,35 @@ M.spec = {
           },
         },
 
+        select = {
+          preview = false,
+          layout = {
+            relative = "cursor",
+            row = 1,
+            backdrop = false,
+            width = 0.35,
+            min_width = 40,
+            height = 0.35,
+            min_height = 3,
+            box = "vertical",
+            border = "rounded",
+            title = "{title}",
+            title_pos = "center",
+            { win = "input", height = 1, border = "bottom" },
+            { win = "list", border = "none" },
+            { win = "preview", title = "{preview}", height = 0.4, border = "top" },
+          },
+        },
+
         vscode = {
           preview = false,
           layout = {
-            width = 0.5,
+            relative = "cursor",
+            row = 1,
+            backdrop = false,
+            width = 0.25,
             min_width = 80,
-            height = 0.4,
+            height = 0.25,
             min_height = 3,
             box = "vertical",
             border = "rounded",

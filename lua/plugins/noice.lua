@@ -32,7 +32,7 @@ return {
   --- @type NoiceConfig
   opts = {
     cmdline = {
-      view = "cmdline_popup",
+      view = "cmdline",
     },
 
     lsp = {
@@ -61,12 +61,8 @@ return {
 
     views = {
       cmdline_popup = {
-        position = {
-          row = "50%",
-        },
-        size = {
-          width = "50%",
-        },
+        relative = "cursor",
+        position = { row = -2, col = 0 },
       },
 
       mini = {
@@ -77,9 +73,8 @@ return {
       },
 
       confirm = {
-        position = {
-          row = "50%",
-        },
+        relative = "cursor",
+        position = { row = -2, col = 0 },
       },
     },
 

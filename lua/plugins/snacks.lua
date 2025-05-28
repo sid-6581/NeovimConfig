@@ -283,6 +283,7 @@ return {
       set = function(state) vim.g.disable_autoformat = not state end,
     }):map("<Leader>uF")
 
+    vim.api.nvim_set_hl(0, "SnacksPickerBorder", { link = "FloatBorder" })
     vim.api.nvim_set_hl(0, "SnacksPickerMatch", { link = "Search" })
     vim.api.nvim_set_hl(0, "SnacksPickerListCursorLine", { link = "CursorLine" })
     vim.api.nvim_set_hl(0, "SnacksPickerPreviewCursorLine", { link = "CursorLine" })
