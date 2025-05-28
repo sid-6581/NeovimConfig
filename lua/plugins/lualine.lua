@@ -69,9 +69,18 @@ return {
           },
           "filetype",
           function() return vim.api.nvim_get_option_value("buftype", { scope = "local" }) end,
-          "lsp",
-          function() return vim.api.nvim_get_option_value("shiftwidth", { scope = "local" }) .. " spaces" end,
-          "encoding",
+          {
+            "lsp_status",
+            icon = "󰌘",
+            symbols = {
+              done = "",
+              separator = ",",
+            },
+          },
+          {
+            "encoding",
+            show_bomb = true,
+          },
           {
             "fileformat",
             symbols = {
@@ -81,9 +90,12 @@ return {
             },
           },
         },
-        lualine_y = { "location", "selectioncount" },
-        lualine_z = {
+        lualine_y = {
+          "location",
+          "selectioncount",
           "progress",
+        },
+        lualine_z = {
           {
             "mode",
             fmt = function(str) return str:sub(1, 1) end,
