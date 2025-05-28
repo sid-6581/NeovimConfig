@@ -64,6 +64,18 @@ return {
       desc = "A chain member [various-textobjs]",
     },
     {
+      "ix",
+      function() require("various-textobjs").htmlAttribute("inner") end,
+      mode = { "o", "x" },
+      desc = "Inner attribute [various-textobjs]",
+    },
+    {
+      "ax",
+      function() require("various-textobjs").htmlAttribute("outer") end,
+      mode = { "o", "x" },
+      desc = "An attribute [various-textobjs]",
+    },
+    {
       "iL",
       function() require("various-textobjs").lineCharacterwise("inner") end,
       mode = { "o", "x" },
