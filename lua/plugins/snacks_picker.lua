@@ -330,7 +330,7 @@ M.options_picker = function()
     options
   )
 
-  Snacks.picker.pick({
+  require("snacks").picker.pick({
     title = "Options",
     format = "text",
     items = items,

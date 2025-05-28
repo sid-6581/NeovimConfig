@@ -231,6 +231,14 @@ return {
 
     vim.print = _G.dd
 
+    -- Replace snacks explorer confirm dialog.
+    --- @diagnostic disable-next-line: duplicate-set-field
+    require("snacks.explorer.actions").confirm = function(prompt, fn)
+      if vim.fn.confirm(prompt, "&Yes\n&No", 2) == 1 then
+        fn()
+      end
+    end
+
     --- Show a window.
     --- @param opts? snacks.win.Config
     --- @return snacks.win
