@@ -5,7 +5,7 @@ return {
   keys = {
     {
       "!",
-      function() require("various-textobjs").diagnostic("wrap") end,
+      function() require("various-textobjs").diagnostic() end,
       mode = { "o", "x" },
       desc = "Diagnostic [various-textobjs]",
     },
