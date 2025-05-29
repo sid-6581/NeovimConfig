@@ -75,7 +75,7 @@ return {
 
       scope = {
         enabled = true,
-        cursor = false,
+        cursor = true,
         only_current = false,
         hl = "GruvboxBg4",
       },
