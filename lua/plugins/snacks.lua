@@ -120,7 +120,7 @@ return {
         --- @type table<string, snacks.scope.TextObject|{desc?:string}>
         textobject = {
           ii = {
-            cursor = false,
+            cursor = true,
             desc = "inner scope",
             edge = false,
             min_size = 2,
@@ -128,7 +128,7 @@ return {
             treesitter = { blocks = { enabled = false } },
           },
           ai = {
-            cursor = false,
+            cursor = true,
             desc = "full scope",
             edge = true,
             min_size = 2,
@@ -140,7 +140,7 @@ return {
         jump = {
           ["[i"] = {
             bottom = false,
-            cursor = false,
+            cursor = true,
             desc = "jump to top edge of scope",
             edge = true,
             min_size = 1,
@@ -148,7 +148,7 @@ return {
           },
           ["]i"] = {
             bottom = true,
-            cursor = false,
+            cursor = true,
             desc = "jump to bottom edge of scope",
             edge = true,
             min_size = 1,
