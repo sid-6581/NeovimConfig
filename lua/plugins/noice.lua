@@ -9,7 +9,13 @@ return {
   keys = {
     {
       "<A-n>",
-      function() require("noice").cmd("all") end,
+      function()
+        if vim.api.nvim_get_option_value("filetype", {}) == "noice" then
+          vim.cmd.bdelete()
+        else
+          require("noice").cmd("all")
+        end
+      end,
       desc = "Show notifications [noice]",
     },
     {
