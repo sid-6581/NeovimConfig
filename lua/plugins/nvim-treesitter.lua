@@ -8,10 +8,6 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
 
-  keys = {
-    { "<CR>", "v<CR>", remap = true, desc = "Select node [treesitter-textsubjects]" },
-  },
-
   opts = {
     ensure_installed = {
       "bash",
@@ -72,15 +68,15 @@ return {
       enable = true,
     },
 
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<CR>",
-        node_decremental = "<S-CR>",
-        node_incremental = "<CR>",
-        scope_incremental = "<Tab>",
-      },
-    },
+    -- incremental_selection = {
+    --   enable = true,
+    --   keymaps = {
+    --     init_selection = "<CR>",
+    --     node_decremental = "<S-CR>",
+    --     node_incremental = "<CR>",
+    --     scope_incremental = "<Tab>",
+    --   },
+    -- },
   },
 
   config = function(_, opts)
