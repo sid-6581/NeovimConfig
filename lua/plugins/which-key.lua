@@ -267,7 +267,7 @@ return {
         },
         {
           "<Leader>bi",
-          function() show(vim.fn.getbufinfo(vim.api.nvim_get_current_buf()), { title = "Current Buffer" }) end,
+          function() show(vim.fn.getbufinfo(vim.api.nvim_get_current_buf()), { title = "Current buffer" }) end,
           desc = "Show current buffer info [which-key]",
         },
         { "<Leader>bI", function() show(vim.fn.getbufinfo(), { title = "All Buffers" }) end, desc = "Show all buffers info [which-key]" },
@@ -280,10 +280,11 @@ return {
         { "<Leader>\\", "<CMD>vnew<CR>", desc = "Open new file in vsplit [which-key]" },
         { "<Leader>wT", "<C-w>T", desc = "Open current window in new tab [which-key]" },
         { "<Leader>w]", "<C-w>]", desc = "Go to identifier in split [which-key]" },
+        { "<Leader>w\\", "<CMD>vertical wincmd ]<CR>", desc = "Go to identifier in vertical split [which-key]" },
         { "<Leader>wc", "<C-w>c", desc = "Close current window [which-key]" },
         {
           "<Leader>wi",
-          function() show(vim.fn.getwininfo(vim.api.nvim_get_current_win()), { title = "Current Window" }) end,
+          function() show(vim.fn.getwininfo(vim.api.nvim_get_current_win()), { title = "Current window" }) end,
           desc = "Show current window info [which-key]",
         },
         { "<Leader>wI", function() show(vim.fn.getwininfo(), { title = "All Windows" }) end, desc = "Show all windows info [which-key]" },
