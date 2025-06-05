@@ -143,7 +143,7 @@ return {
             cursor = true,
             desc = "jump to top edge of scope",
             edge = true,
-            min_size = 1,
+            min_size = 2,
             treesitter = { blocks = { enabled = false } },
           },
           ["]i"] = {
@@ -151,7 +151,7 @@ return {
             cursor = true,
             desc = "jump to bottom edge of scope",
             edge = true,
-            min_size = 1,
+            min_size = 2,
             treesitter = { blocks = { enabled = false } },
           },
         },
