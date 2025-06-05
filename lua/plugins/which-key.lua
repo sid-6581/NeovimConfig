@@ -370,7 +370,8 @@ return {
         { ",r", "<C-r>", desc = "Redo last change [which-key]" },
         { ",vb", "<C-v>", desc = "Visual block mode [which-key]" },
         { ",cr", "<CMD>%!dos2unix<CR>", desc = "Convert line endings to CR [which-key]" },
-        { ",t", [[/\([^A-Za-z][A-Za-z]\w\+\s\)\@<=[A-Z]<CR>]], desc = "Find title case word [which-key]" },
+        -- { ",t", [[/\([^A-Za-z][A-Za-z]\w\+\s\)\@<=[A-Z]<CR>]], desc = "Find title case word [which-key]" },
+        { ",t", [[/\(\w\(\/\|\s\)\)\@<=[A-Z]<CR>]], desc = "Find title case word [which-key]" },
 
         -- Diff
         { "<Leader>dd", "<CMD>diffthis<CR>", desc = "Diff this [which-key]" },
