@@ -1,12 +1,37 @@
 {
+  "fjb": {
+    "prefix": "fjb",
+    "body": [
+      "flex justify-between"
+    ]
+  },
+  "dfjb": {
+    "prefix": "fjb",
+    "body": [
+      "<div class=\"flex justify-between\">",
+      "\t$1",
+      "</div>"
+    ]
+  },
+  "fje": {
+    "prefix": "fje",
+    "body": [
+      "flex justify-end"
+    ]
+  },
+  "dfje": {
+    "prefix": "fje",
+    "body": [
+      "<div class=\"flex justify-end\">",
+      "\t$1",
+      "</div>"
+    ]
+  },
   "fc4": {
     "prefix": "fc4",
     "body": [
       "flex flex-col gap-4"
-    ],
-    "luasnip": {
-      "autotrigger": false
-    }
+    ]
   },
   "dfc4": {
     "prefix": "dfc4",
@@ -14,19 +39,13 @@
       "<div class=\"flex flex-col gap-4\">",
       "\t$1",
       "</div>"
-    ],
-    "luasnip": {
-      "autotrigger": false
-    }
+    ]
   },
   "fr4": {
     "prefix": "fr4",
     "body": [
       "flex gap-4"
-    ],
-    "luasnip": {
-      "autotrigger": false
-    }
+    ]
   },
   "dfr4": {
     "prefix": "dfr4",
@@ -34,19 +53,13 @@
       "<div class=\"flex gap-4\">",
       "\t$1",
       "</div>"
-    ],
-    "luasnip": {
-      "autotrigger": false
-    }
+    ]
   },
   "fc2": {
     "prefix": "fc2",
     "body": [
       "flex flex-col gap-2"
-    ],
-    "luasnip": {
-      "autotrigger": false
-    }
+    ]
   },
   "dfc2": {
     "prefix": "dfc2",
@@ -54,19 +67,13 @@
       "<div class=\"flex flex-col gap-2\">",
       "\t$1",
       "</div>"
-    ],
-    "luasnip": {
-      "autotrigger": false
-    }
+    ]
   },
   "fr2": {
     "prefix": "fr2",
     "body": [
       "flex gap-2"
-    ],
-    "luasnip": {
-      "autotrigger": false
-    }
+    ]
   },
   "dfr2": {
     "prefix": "dfr2",
@@ -74,9 +81,6 @@
       "<div class=\"flex gap-2\">",
       "\t$1",
       "</div>"
-    ],
-    "luasnip": {
-      "autotrigger": false
-    }
+    ]
   }
 }
