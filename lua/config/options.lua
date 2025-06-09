@@ -34,7 +34,7 @@ vim.opt.expandtab = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.fileformat = "unix"
 vim.opt.fileformats = { "unix", "dos" }
-vim.opt.fillchars:append({ eob = " ", diff = " " })
+vim.opt.fillchars:append({ eob = " ", diff = " ", fold = " " })
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
