@@ -3,22 +3,8 @@ return {
   event = "VeryLazy",
 
   keys = {
-    {
-      "<C-i>",
-      function()
-        require("multicursor-nvim").jumpForward()
-      end,
-      mode = { "n", "v" },
-      desc = "Jump forward [multicursor]",
-    },
-    {
-      "<C-o>",
-      function()
-        require("multicursor-nvim").jumpBackward()
-      end,
-      mode = { "n", "v" },
-      desc = "Jump backward [multicursor]",
-    },
+    { "<C-i>", function() require("multicursor-nvim").jumpForward() end, mode = { "n", "v" }, desc = "Jump forward [multicursor]" },
+    { "<C-o>", function() require("multicursor-nvim").jumpBackward() end, mode = { "n", "v" }, desc = "Jump backward [multicursor]" },
     { "<C-n>", function() require("multicursor-nvim").matchAddCursor(1) end, mode = { "n", "x" }, desc = "Add match cursor [multicursor]" },
     { "g<C-n>", function() require("multicursor-nvim").matchAllAddCursors() end, mode = { "n", "x" }, desc = "Add all match cursors [multicursor]" },
     { "<C-Space>", function() require("multicursor-nvim").toggleCursor() end, mode = { "n", "x" }, desc = "Toggle cursor [multicursor]" },
@@ -39,18 +25,7 @@ return {
 
     mc.addKeymapLayer(
       function(layerSet)
-        layerSet(
-          { "n" },
-          "<Esc>",
-          function()
-            if not mc.cursorsEnabled() then
-              mc.enableCursors()
-            else
-              mc.clearCursors()
-            end
-          end,
-          { desc = "Exit [multicursor]" }
-        )
+        layerSet({ "n" }, "<Esc>", function() if mc.cursorsEnabled() then mc.clearCursors() else mc.enableCursors() end end)
         layerSet({ "n", "x" }, "<C-x>", function() mc.matchSkipCursor(1) end, { desc = "Skip match cursor [multicursor]" })
         layerSet({ "n", "x" }, "<C-p>", function() mc.deleteCursor() end, { desc = "Delete cursor [multicursor]" })
         layerSet({ "n", "x" }, "<C-j>", function() mc.nextCursor() end, { desc = "Next cursor [multicursor]" })
