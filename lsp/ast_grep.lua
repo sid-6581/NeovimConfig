@@ -1,0 +1,22 @@
+return {
+  filetypes = { -- https://ast-grep.github.io/reference/languages.html
+    "c",
+    "cpp",
+    "rust",
+    "go",
+    "java",
+    "python",
+    "javascript",
+    "javascriptreact",
+    "javascript.jsx",
+    "typescript",
+    "typescriptreact",
+    "typescript.tsx",
+    "html",
+    "css",
+    "kotlin",
+    "dart",
+    "lua",
+    "vue",
+  },
+}
