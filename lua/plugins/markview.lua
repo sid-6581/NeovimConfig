@@ -2,6 +2,10 @@ return {
   "OXY2DEV/markview.nvim",
 
   opts = {
+    experimental = {
+      check_rtp = false,
+      check_rtp_message = false,
+    },
     -- modes = { "n", "i", "no", "c", "s", "S" },
     -- hybrid_modes = { "n", "i", "v", "V", "s", "S" },
   },
