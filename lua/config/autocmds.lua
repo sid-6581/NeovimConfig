@@ -29,6 +29,17 @@ vim.api.nvim_create_autocmd(
   }
 )
 
+-- Turn off filetype indent for yaml.
+vim.api.nvim_create_autocmd(
+  { "FileType" },
+  {
+    pattern = { "yaml" },
+    callback = function()
+      vim.opt_local.indentkeys = nil
+    end,
+  }
+)
+
 -- Treat checkboxes as comments in markdown files for easy list continuation.
 vim.api.nvim_create_autocmd(
   { "FileType" },
