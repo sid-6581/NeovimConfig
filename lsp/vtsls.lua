@@ -8,6 +8,7 @@ return {
     "typescript.tsx",
     "vue",
   },
+
   settings = {
     vtsls = {
       autoUseWorkspaceTsdk = true,
@@ -15,7 +16,7 @@ return {
         globalPlugins = {
           {
             name = "@vue/typescript-plugin",
-            location = "",
+            location = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
             languages = { "vue" },
             configNamespace = "typescript",
             enableForWorkspaceTypeScriptVersions = true,
@@ -23,6 +24,7 @@ return {
         },
       },
     },
+
     typescript = {
       preferences = {
         importModuleSpecifier = "non-relative",
