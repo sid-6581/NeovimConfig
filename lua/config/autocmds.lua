@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd(
 
 -- Delete hidden no name buffers and checkhealth buffers every time a buffer is hidden.
 vim.api.nvim_create_autocmd(
-  { "BufHidden" },
+  { "BufHidden", "BufNew" },
   {
     callback = function()
       winbuf.buffers_run(
