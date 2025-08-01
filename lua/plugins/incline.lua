@@ -41,4 +41,18 @@ return {
       }
     end,
   },
+
+  config = function(_, opts)
+    require("incline").setup(opts)
+
+    require("snacks").toggle({
+      name = "Incline",
+      get = function()
+        return require("incline").is_enabled()
+      end,
+      set = function()
+        require("incline").toggle()
+      end,
+    }):map("<Leader>uI")
+  end,
 }
