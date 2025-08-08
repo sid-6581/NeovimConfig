@@ -18,6 +18,7 @@ vim.g.loaded_ruby_provider = 0
 vim.g.no_rust_maps = 1
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
+vim.g.clipboard = "osc52"
 
 vim.env.SHELL = vim.fn.has("win32") == 1 and "cmd.exe" or "sh"
 
