@@ -44,7 +44,7 @@ return {
     },
 
     explorer = {
-      enabled = true,
+      enabled = false,
       replace_netrw = false,
     },
 
