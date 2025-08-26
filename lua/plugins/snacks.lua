@@ -45,7 +45,7 @@ return {
 
     explorer = {
       enabled = true,
-      replace_netrw = true,
+      replace_netrw = false,
     },
 
     image = {

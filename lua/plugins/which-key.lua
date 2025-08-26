@@ -186,10 +186,10 @@ return {
       {
         mode = "n",
         { "<Leader>L", "<CMD>Lazy sync<CR>", desc = "Plugins [lazy]" },
-        { "<Leader>C", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration [which-key]" },
+        { "<Leader>C", "<CMD>edit $MYVIMRC<CR>", desc = "Edit configuration [which-key]" },
         { "<Leader>W", function() require("which-key").show({ keys = "<C-w>", loop = true }) end, desc = "Windows (hydra mode)" },
-        { "<Leader>O", "<CMD>:e ~/Vaults/Notes<CR>", desc = "Notes [obsidian]" },
-        { "<C-,>", "<CMD>:e $MYVIMRC<CR>", desc = "Edit configuration [which-key]" },
+        { "<Leader>O", "<CMD>edit ~/Vaults/Notes<CR>", desc = "Notes [obsidian]" },
+        { "<C-,>", "<CMD>edit $MYVIMRC<CR>", desc = "Edit configuration [which-key]" },
         { "<Leader>q", "<CMD>qa<CR>", desc = "Quit all [which-key]" },
         { "<BS>", '<CMD>noh | echon ""<CR>', desc = "Clear search highlighting [which-key]" },
         { "<Esc>", '<CMD>noh | echon ""<CR><Esc>', desc = "Clear search highlighting [which-key]" },
