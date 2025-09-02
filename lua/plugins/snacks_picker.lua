@@ -195,6 +195,7 @@ M.spec = {
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<F1>"] = { "toggle_help_input", mode = { "n", "i" } },
             ["<C-t>"] = { "edit_tab", mode = { "n", "i" } },
+            ["<C-c>"] = { "<Esc>", mode = { "i" }, expr = true, desc = "normal mode" },
           },
         },
         list = {
