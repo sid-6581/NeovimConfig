@@ -12,6 +12,7 @@ return {
               fileMatch = {
                 "*-workflowtemplate.yaml",
                 "*-workflow.yaml",
+                "*-cronworkflow.yaml",
               },
             },
             {
