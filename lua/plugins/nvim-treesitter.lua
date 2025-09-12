@@ -1,25 +1,18 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  branch = "master",
+  branch = "main",
   lazy = false,
   build = ":TSUpdate",
 
   dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-      branch = "master",
-    },
-
     -- markview needs to run before nvim-treesitter according to docs.
     "OXY2DEV/markview.nvim",
   },
 
-  keys = {
-    { "<CR>", "v<CR>", remap = true, desc = "Select node [treesitter-textsubjects]" },
-  },
+  config = function()
+    require("nvim-treesitter").setup()
 
-  opts = {
-    ensure_installed = {
+    require("nvim-treesitter").install({
       "bash",
       "c",
       "c_sharp",
@@ -68,33 +61,19 @@ return {
       "vue",
       "yaml",
       "zig",
-    },
+    })
 
-    highlight = {
-      enable = true,
-    },
+    vim.api.nvim_create_autocmd(
+      { "FileType" },
+      {
+        callback = function(event)
+          if vim.treesitter.get_parser(event.buf, nil, { error = false }) == nil then
+            return
+          end
 
-    indent = {
-      enable = true,
-    },
-
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<CR>",
-        node_decremental = "<S-CR>",
-        node_incremental = "<CR>",
-        scope_incremental = "<Tab>",
-      },
-    },
-  },
-
-  config = function(_, opts)
-    if vim.fn.has("win32") == 1 then
-      require("nvim-treesitter.install").compilers = { "clang" }
-    end
-
-    require("nvim-treesitter.install").prefer_git = false
-    require("nvim-treesitter.configs").setup(opts)
+          vim.treesitter.start(event.buf)
+          vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+        end,
+      })
   end,
 }
