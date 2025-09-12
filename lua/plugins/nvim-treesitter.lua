@@ -1,11 +1,17 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "master",
+  lazy = false,
   build = ":TSUpdate",
-  event = { "VeryLazy", "BufReadPre" },
-  cmd = { "TSUpdateSync" },
 
   dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      branch = "master",
+    },
+
+    -- markview needs to run before nvim-treesitter according to docs.
+    "OXY2DEV/markview.nvim",
   },
 
   keys = {
@@ -82,13 +88,4 @@ return {
       },
     },
   },
-
-  config = function(_, opts)
-    if vim.fn.has("win32") == 1 then
-      require("nvim-treesitter.install").compilers = { "clang" }
-    end
-
-    require("nvim-treesitter.install").prefer_git = false
-    require("nvim-treesitter.configs").setup(opts)
-  end,
 }
