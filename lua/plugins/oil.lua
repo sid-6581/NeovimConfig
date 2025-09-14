@@ -9,6 +9,10 @@ return {
   --- @module "oil"
   --- @type oil.SetupOpts
   opts = {
+    buf_options = {
+      buflisted = true,
+      bufhidden = "wipe",
+    },
     columns = {
       "permissions",
       "size",
