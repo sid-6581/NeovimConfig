@@ -27,15 +27,15 @@ return {
       preset = {
         keys = {
           { icon = " ", key = "n", desc = "New file", action = ":enew" },
-          { icon = " ", key = "c", desc = "Configuration", action = ":e $MYVIMRC" },
+          { icon = " ", key = "c", desc = "Configuration", action = ":e $MYVIMRC" },
           { icon = "󰙅 ", key = "b", desc = "Browse files", action = ":enew|call feedkeys(\"\\<M-1>\")" },
-          { icon = "󰙅 ", key = ".", desc = "Browse directory", action = ":e ." },
-          { icon = " ", key = "p", desc = "Project search", action = ":enew|call feedkeys(' fp')" },
+          { icon = " ", key = ".", desc = "Browse directory", action = ":e ." },
+          { icon = "󰺄 ", key = "p", desc = "Project search", action = ":enew|call feedkeys(' fp')" },
           { icon = "󰱼 ", key = "f", desc = "Search files", action = ":enew|call feedkeys(' ff')" },
           { icon = "󱎸 ", key = "s", desc = "Search text", action = ":enew|call feedkeys(' fs')" },
           { icon = "󰊢 ", key = "g", desc = "Git", action = ":enew|call feedkeys(' gg')" },
           { icon = "󰺿 ", key = "o", desc = "Obsidian", action = ":enew|call feedkeys(' O')" },
-          { icon = " ", key = "q", desc = "Quit", action = ":qall" },
+          { icon = " ", key = "q", desc = "Quit", action = ":qall" },
         },
 
         header = [[
