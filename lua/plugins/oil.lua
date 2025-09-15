@@ -3,16 +3,16 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<A-.>", "<CMD>Oil<CR>", desc = "Oil [oil]" },
+    { "<A-.>", "<CMD>Oil<CR>", desc = "Open Oil [oil]" },
   },
 
   --- @module "oil"
   --- @type oil.SetupOpts
   opts = {
-    buf_options = {
-      buflisted = true,
-      bufhidden = "wipe",
-    },
+    -- buf_options = {
+    --   buflisted = true,
+    --   bufhidden = "wipe",
+    -- },
     columns = {
       "permissions",
       "size",
