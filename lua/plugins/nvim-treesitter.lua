@@ -67,6 +67,10 @@ return {
       { "FileType" },
       {
         callback = function(event)
+          if not vim.api.nvim_buf_is_loaded(event.buf) then
+            return
+          end
+
           if vim.treesitter.get_parser(event.buf, nil, { error = false }) == nil then
             return
           end
