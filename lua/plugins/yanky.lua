@@ -19,6 +19,7 @@ return {
   opts = {
     ring = {
       sync_with_numbered_registers = false,
+      ignore_registers = { "_", "+", "*" },
     },
     system_clipboard = {
       sync_with_ring = false,
