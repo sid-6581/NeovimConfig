@@ -2,7 +2,9 @@ return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
   lazy = false,
 
-  cmd = { "MasonToolsUpdate", "MasonToolsUpdateSync", "MasonToolsClean" },
+  dependencies = {
+    "williamboman/mason.nvim",
+  },
 
   opts = {
     ensure_installed = {
@@ -12,6 +14,7 @@ return {
       "deno",
       "dockerfile-language-server",
       "eslint-lsp",
+      "gopls",
       "hadolint",
       "html-lsp",
       "jinja-lsp",
@@ -21,6 +24,7 @@ return {
       "markdown-oxide",
       "prettierd",
       "pyright",
+      "roslyn",
       "ruff",
       "rust-analyzer",
       "shellcheck",
@@ -31,7 +35,6 @@ return {
       "taplo",
       "tailwindcss-language-server",
       "terraform-ls",
-      "tree-sitter-cli",
       "vim-language-server",
       "vue-language-server",
       "vtsls",
