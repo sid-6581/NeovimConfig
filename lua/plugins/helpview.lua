@@ -1,7 +1,56 @@
 return {
   "OXY2DEV/helpview.nvim",
 
-  opts = {},
+  opts = {
+    vimdoc = {
+      arguments = {
+        default = {
+          padding_left = "",
+          padding_right = "",
+        },
+      },
+
+      inline_codes = {
+        padding_left = "",
+        padding_right = "",
+      },
+
+      keycodes = {
+        default = {
+          padding_left = "",
+          padding_right = "",
+        },
+      },
+
+      notes = {
+        default = {
+          padding_left = "",
+          padding_right = "",
+        },
+      },
+
+      optionlinks = {
+        default = {
+          padding_left = "",
+          padding_right = "",
+        },
+      },
+
+      tags = {
+        default = {
+          padding_left = "",
+          padding_right = "",
+        },
+      },
+
+      taglinks = {
+        default = {
+          padding_left = "",
+          padding_right = "",
+        },
+      },
+    },
+  },
 
   config = function(_, opts)
     require("helpview").setup(opts)
