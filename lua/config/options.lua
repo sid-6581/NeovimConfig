@@ -1,21 +1,9 @@
-vim.g.neovide_confirm_quit = false
-vim.g.neovide_cursor_animation_length = 0.0
-vim.g.neovide_cursor_vfx_mode = ""
-vim.g.neovide_hide_mouse_when_typing = true
-vim.g.neovide_position_animation_length = 0.0
-vim.g.neovide_remember_window_size = true
-vim.g.neovide_scroll_animation_far_lines = 0
-vim.g.neovide_scroll_animation_length = 0.0
-vim.g.neovide_floating_shadow = false
-vim.g.neovide_floating_z_height = 10
-vim.g.neovide_light_angle_degrees = 45
-vim.g.neovide_light_radius = 5
-
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.no_rust_maps = 1
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 vim.g.clipboard = "osc52"
@@ -57,13 +45,6 @@ vim.opt.report = 1000
 vim.opt.scrolloff = 10
 vim.opt.shada:append("r/mnt")
 vim.opt.shell = vim.env.SHELL
--- vim.opt.shell = "nu"
--- vim.opt.shellcmdflag = "-c"
--- vim.opt.shellpipe = "| table -e | save '%s'"
--- vim.opt.shellquote = ""
--- vim.opt.shellredir = "| table -e | save '%s'"
--- vim.opt.shellxescape = ""
--- vim.opt.shellxquote = ""
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 2
 vim.opt.shortmess:append({ c = true, I = true, s = true })
