@@ -8,6 +8,10 @@ local default_opts = {
       return false
     end
 
+    if client.name == "stylua" then
+      return false
+    end
+
     return true
   end,
 }
@@ -29,6 +33,7 @@ return {
       end
 
       local opts = vim.deepcopy(default_opts)
+
       opts.filter = function(client)
         if not default_opts.filter(client) then
           return false
@@ -40,6 +45,7 @@ return {
 
         return true
       end
+
       return opts
     end,
 
@@ -60,6 +66,7 @@ return {
 
         return true
       end
+
       return opts
     end,
 
@@ -86,7 +93,7 @@ return {
       lua = function(bufnr)
         return vim.api.nvim_buf_call(bufnr, function()
           return #vim.fs.find(
-            { ".stylua.toml" },
+            { "stylua.toml", ".stylua.toml" },
             {
               limit = 1,
               type = "file",
