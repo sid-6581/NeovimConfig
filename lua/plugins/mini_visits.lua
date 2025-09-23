@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.visits",
+  "nvim-mini/mini.visits",
   event = "VeryLazy",
 
   keys = {

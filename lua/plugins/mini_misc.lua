@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.misc",
+  "nvim-mini/mini.misc",
   priority = 1000,
 
   config = function()

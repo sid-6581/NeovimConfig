@@ -25,7 +25,7 @@ local smart_go_out = function()
 end
 
 return {
-  "echasnovski/mini.files",
+  "nvim-mini/mini.files",
   event = "VeryLazy",
 
   keys = {
