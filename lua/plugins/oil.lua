@@ -3,7 +3,8 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Space>.", "<CMD>Oil<CR>", desc = "Open Oil [oil]" },
+    { "<A-.>", "<CMD>Oil<CR>", desc = "Open Oil [oil]" },
+    { "<Space>.", "<CMD>Oil --float<CR>", desc = "Open Oil in a float [oil]" },
   },
 
   --- @module "oil"
@@ -13,19 +14,24 @@ return {
     --   buflisted = true,
     --   bufhidden = "wipe",
     -- },
+
     columns = {
       "permissions",
       "size",
       "mtime",
       "icon",
     },
+
     constrain_cursor = "name",
     default_file_explorer = true,
+
     float = {
       padding = 15,
     },
+
     keymaps = {
       ["-"] = "actions.parent",
+      ["<A-.>"] = "actions.close",
       ["<C-c>"] = "actions.close",
       ["<C-p>"] = "actions.preview",
       ["<C-r>"] = "actions.refresh",
@@ -41,15 +47,30 @@ return {
       ["g\\"] = "actions.toggle_trash",
       ["gs"] = "actions.change_sort",
       ["gx"] = "actions.open_external",
-      ["H"] = "actions.parent",
-      ["L"] = "actions.select",
+      ["h"] = { "actions.parent", mode = "n" },
+      ["l"] = { "actions.select", mode = "n" },
+      ["H"] = { "h", desc = "Cursor left" },
+      ["L"] = { "l", desc = "Cursor right" },
+      ["<A-h>"] = { "h", desc = "Cursor left" },
+      ["<A-l>"] = { "l", desc = "Cursor right" },
       ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory" },
     },
+
     skip_confirm_for_simple_edits = true,
     use_default_keymaps = false,
+
     view_options = {
+      is_always_hidden = function(name, _bufnr)
+        if name == ".." then
+          return true
+        end
+
+        return false
+      end,
+
       show_hidden = true,
     },
+
     watch_for_changes = true,
   },
 
