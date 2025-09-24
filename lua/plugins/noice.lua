@@ -112,7 +112,7 @@ return {
             { event = "msg_show", find = "^/" },
             { event = "msg_show", find = "B written" },
             -- Needed because roslyn doesn't follow the LSP spec, causing lualine LSP progress to fail.
-            { event = "msg_show", find = "Error in LspProgress Autocommands" },
+            { error = true, find = "Error in LspProgress Autocommands" },
             { error = true, find = "Pattern not found" },
             { error = true, find = "Error executing luv callback" },
             { error = true, find = "Invalid buffer id" },
