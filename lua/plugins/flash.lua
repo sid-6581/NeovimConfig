@@ -122,7 +122,7 @@ M.spec = {
     { "gia", function() M.gen_miniai("i", "a", false) end, desc = "Remote argument [flash]" },
 
     {
-      "<CR>",
+      "<Tab>",
       mode = { "n", "x", "o" },
       function()
         require("flash").treesitter({
@@ -131,12 +131,12 @@ M.spec = {
             after = false,
           },
           actions = {
-            ["<CR>"] = "next",
-            ["<S-CR>"] = "prev",
+            ["<Tab>"] = "next",
+            ["<S-Tab>"] = "prev",
           },
         })
       end,
-      { desc = "Treesitter incremental selection" },
+      { desc = "Treesitter incremental selection [flash]" },
     },
   },
 
