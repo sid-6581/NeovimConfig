@@ -26,7 +26,8 @@ return {
     default_file_explorer = true,
 
     float = {
-      padding = 15,
+      max_height = 0.9,
+      max_width = 0.9,
     },
 
     keymaps = {
