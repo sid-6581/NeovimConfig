@@ -23,8 +23,13 @@ return {
       },
       zindex = 1,
       options = {
-        winblend = 0,
+        winblend = 100,
       },
+    },
+
+    ignore = {
+      unlisted_buffers = false,
+      buftypes = {},
     },
 
     hide = {
@@ -32,8 +37,15 @@ return {
     },
 
     render = function(props)
-      local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":.")
+      local bufname = vim.api.nvim_buf_get_name(props.buf)
+
+      if bufname == "" then
+        return nil
+      end
+
+      local filename = vim.fn.fnamemodify(bufname, ":.")
       local icon, color = require("mini.icons").get("file", filename)
+
       return {
         { icon, group = color },
         { " " },
