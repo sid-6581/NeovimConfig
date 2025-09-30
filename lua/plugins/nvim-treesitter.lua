@@ -2,7 +2,13 @@ return {
   "nvim-treesitter/nvim-treesitter",
   branch = "main",
   lazy = false,
-  build = ":TSUpdate",
+  build = function()
+    if #vim.api.nvim_list_uis() == 0 then
+      require("nvim-treesitter").update():wait(300000)
+    else
+      require("nvim-treesitter").update()
+    end
+  end,
 
   dependencies = {
     -- markview needs to run before nvim-treesitter according to docs.
