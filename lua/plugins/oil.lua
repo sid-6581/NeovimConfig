@@ -15,6 +15,8 @@ return {
       bufhidden = "wipe",
     },
 
+    case_insensitive = true,
+
     columns = {
       "permissions",
       "size",
