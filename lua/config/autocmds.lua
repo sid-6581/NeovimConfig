@@ -82,3 +82,14 @@ vim.api.nvim_create_autocmd(
     end,
   }
 )
+
+-- Make sure <CR> isn't remapped in quickfix window.
+vim.api.nvim_create_autocmd(
+  { "FileType" },
+  {
+    pattern = { "qf" },
+    callback = function()
+      vim.keymap.set("n", "<CR>", "<CR>", { buffer = true })
+    end,
+  }
+)

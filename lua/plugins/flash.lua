@@ -122,7 +122,7 @@ M.spec = {
     { "gia", function() M.gen_miniai("i", "a", false) end, desc = "Remote argument [flash]" },
 
     {
-      "<Tab>",
+      "<CR>",
       mode = { "n", "x", "o" },
       function()
         require("flash").treesitter({
@@ -131,8 +131,8 @@ M.spec = {
             after = false,
           },
           actions = {
-            ["<Tab>"] = "next",
-            ["<S-Tab>"] = "prev",
+            ["<CR>"] = "next",
+            ["<S-CR>"] = "prev",
           },
         })
       end,
