@@ -40,10 +40,10 @@ M.spec = {
     picker = {
       enabled = true,
 
-      main = {
-        current = true,
-        file = false,
-      },
+      -- main = {
+      --   current = true,
+      --   file = false,
+      -- },
 
       formatters = {
         file = {
