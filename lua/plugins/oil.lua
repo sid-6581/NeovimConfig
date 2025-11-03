@@ -3,8 +3,8 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<A-.>", "<CMD>Oil<CR>", desc = "Open Oil [oil]" },
-    { "<Space>.", "<CMD>Oil --float<CR>", desc = "Open Oil in a float [oil]" },
+    { "<Space>.", "<CMD>Oil<CR>", desc = "Open Oil [oil]" },
+    { "<A-.>", "<CMD>Oil --float<CR>", desc = "Open Oil in a float [oil]" },
   },
 
   --- @module "oil"
