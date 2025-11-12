@@ -54,10 +54,6 @@ return {
         extraArgs = { "--no-deps" },
       },
 
-      files = {
-        watcher = "server",
-      },
-
       hover = {
         actions = {
           references = {
