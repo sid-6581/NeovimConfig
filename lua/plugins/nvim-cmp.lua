@@ -112,12 +112,12 @@ return {
         ghost_text = false,
       },
 
-      sorting = {
-        comparators = {
-          compare.exact,
-          compare.score,
-        },
-      },
+      -- sorting = {
+      --   comparators = {
+      --     compare.exact,
+      --     compare.score,
+      --   },
+      -- },
     }
 
     return opts
