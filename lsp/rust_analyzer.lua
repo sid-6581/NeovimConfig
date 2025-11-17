@@ -6,6 +6,9 @@ return {
       },
 
       completion = {
+        autoIter = {
+          enable = false,
+        },
         callable = {
           snippets = "none",
         },
