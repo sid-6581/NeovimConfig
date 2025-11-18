@@ -12,12 +12,10 @@ return {
     { "<C-Up>", function() require("multicursor-nvim").lineAddCursor(-1) end, desc = "Add cursor up [multicursor]" },
     { "<C-\\>", function() require("multicursor-nvim").splitCursors() end, mode = { "x" }, desc = "Split cursors [multicursor]" },
     { "<C-/>", function() require("multicursor-nvim").matchCursors() end, mode = { "x" }, desc = "Add regex cursors [multicursor]" },
+    { "gC", function() require("multicursor-nvim").addCursorOperator() end, desc = "Add cursor operator [multicursor]" },
   },
 
-  opts = {
-    signs = true,
-    shallowUndo = true,
-  },
+  opts = {},
 
   config = function(_, opts)
     local mc = require("multicursor-nvim")
