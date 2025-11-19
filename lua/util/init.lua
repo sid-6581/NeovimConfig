@@ -22,7 +22,7 @@ function M.close_text_object_folds(textobject)
   vim.api.nvim_win_set_cursor(0, { 1, 0 })
   while true do
     local cursor = vim.api.nvim_win_get_cursor(0)
-    vim.cmd.TSTextobjectGotoNextStart(textobject)
+    require("nvim-treesitter-textobjects.move").goto_next_start(textobject, "textobjects")
 
     if vim.deep_equal(cursor, vim.api.nvim_win_get_cursor(0)) then
       break
