@@ -1,16 +1,16 @@
 return {
   "folke/snacks.nvim",
 
-  keys = {
-    {
-      "Q",
-      function()
-        require("util.winbuf").buffers_run({}, function(bufnr) vim.api.nvim_buf_delete(bufnr, {}) end)
-        require("snacks").dashboard({ win = vim.api.nvim_get_current_win(), buf = vim.api.nvim_get_current_buf() })
-      end,
-      desc = "Show dashboard and delete all buffers [snacks]",
-    },
-  },
+  -- keys = {
+  --   {
+  --     "Q",
+  --     function()
+  --       require("util.winbuf").buffers_run({}, function(bufnr) vim.api.nvim_buf_delete(bufnr, {}) end)
+  --       require("snacks").dashboard({ win = vim.api.nvim_get_current_win(), buf = vim.api.nvim_get_current_buf() })
+  --     end,
+  --     desc = "Show dashboard and delete all buffers [snacks]",
+  --   },
+  -- },
 
   --- @type snacks.Config
   opts = {
