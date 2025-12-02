@@ -40,7 +40,7 @@ return {
     },
 
     bigfile = {
-      enabled = false,
+      enabled = true,
     },
 
     explorer = {
