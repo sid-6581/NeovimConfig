@@ -134,7 +134,8 @@ end
 
 -- Smart buffer closing.
 function M.close_window_or_buffer()
-  local function notify(_msg)
+  --- @diagnostic disable-next-line: unused-local
+  local function notify(msg)
     -- vim.notify(msg)
   end
 
@@ -144,18 +145,16 @@ function M.close_window_or_buffer()
   local normal_buffer_window_count = #M.windows({ tabpage = 0, normal = true, buf = { normal = true } })
 
   if not is_normal_buffer or not is_normal_window then
-    notify("Closing non-normal window/buffer")
-    vim.cmd.quit()
-    -- if normal_window_count > 1 then
-    --   notify("Closing non-normal window/buffer (multiple windows)")
-    --   -- If this isn't a normal buffer or a normal window, we just close the window.
-    --   -- This should cover all splits with non-normal buffers, as well as floats with or without a normal buffer.
-    --   vim.cmd.quit()
-    -- else
-    --   notify("Closing non-normal window/buffer (single window)")
-    --   -- This is needed if a non-normal buffer is the only window.
-    --   vim.cmd.bdelete()
-    -- end
+    if normal_window_count > 1 then
+      notify("Closing non-normal window/buffer (multiple windows)")
+      -- If this isn't a normal buffer or a normal window, we just close the window.
+      -- This should cover all splits with non-normal buffers, as well as floats with or without a normal buffer.
+      vim.cmd.quit()
+    else
+      notify("Closing non-normal window/buffer (single window)")
+      -- This is needed if a non-normal buffer is the only window.
+      vim.cmd.bdelete()
+    end
 
     return
   end
