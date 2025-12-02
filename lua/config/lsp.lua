@@ -75,6 +75,10 @@ vim.diagnostic.config({
 })
 
 -- Enable all language servers we have configurations for.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 for _, file in ipairs(vim.fn.readdir(vim.fn.stdpath("config") .. "/lsp")) do
-  vim.lsp.enable(file:gsub("%.lua$", ""))
+  local server = file:gsub("%.lua$", "")
+
+  vim.lsp.config(server, { capabilities = capabilities })
+  vim.lsp.enable(server)
 end
