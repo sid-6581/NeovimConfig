@@ -82,7 +82,6 @@ return {
           end
 
           vim.treesitter.start(event.buf)
-          vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
         end,
       })
   end,
