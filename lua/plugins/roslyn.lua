@@ -1,7 +1,9 @@
 return {
   "seblyng/roslyn.nvim",
-  event = "VeryLazy",
-  ft = "cs",
 
-  opts = {},
+  --- @module 'roslyn.config'
+  --- @type RoslynNvimConfig
+  opts = {
+    silent = true,
+  },
 }
