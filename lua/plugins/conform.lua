@@ -1,27 +1,11 @@
-local default_opts = {
-  timeout_ms = 500,
-  lsp_format = "fallback",
-  undojoin = false,
+local M = {}
 
-  filter = function(client)
-    if client.name == "vue_ls" then
-      return false
-    end
-
-    if client.name == "stylua" then
-      return false
-    end
-
-    return true
-  end,
-}
-
-return {
+M.spec = {
   "stevearc/conform.nvim",
   event = "VeryLazy",
 
   keys = {
-    { "<Leader>cf", function() require("conform").format() end, mode = { "n", "x" }, desc = "Format document [conform]" },
+    { "<Leader>cf", function() require("conform").format(M.default_opts) end, mode = { "n", "x" }, desc = "Format document [conform]" },
   },
 
   --- @type conform.setupOpts
@@ -32,18 +16,14 @@ return {
         return
       end
 
-      local opts = vim.deepcopy(default_opts)
+      local opts = vim.deepcopy(M.default_opts)
 
       opts.filter = function(client)
-        if not default_opts.filter(client) then
-          return false
-        end
-
         if client.name == "eslint" then
           return false
         end
 
-        return true
+        return M.default_opts.filter(client)
       end
 
       return opts
@@ -55,7 +35,7 @@ return {
         return
       end
 
-      local opts = vim.deepcopy(default_opts)
+      local opts = vim.deepcopy(M.default_opts)
       opts.async = true
       opts.timeout_ms = nil
 
@@ -64,13 +44,11 @@ return {
           return false
         end
 
-        return true
+        return M.default_opts.filter(client)
       end
 
       return opts
     end,
-
-    default_format_opts = default_opts,
 
     formatters = {
       indent_buffer = {
@@ -79,10 +57,6 @@ return {
           callback()
         end,
       },
-      -- latexindent = {
-      --   inherit = true,
-      --   append_args = { "-m" },
-      -- },
     },
 
     formatters_by_ft = {
@@ -107,8 +81,28 @@ return {
       nu = { "indent_buffer" },
       sh = { "shellharden" },
       sql = { "sqlfluff" },
-      -- tex = { "latexindent" },
       yaml = { "yamlfmt" },
     },
   },
 }
+
+--- @type conform.FormatOpts
+M.default_opts = {
+  timeout_ms = 500,
+  lsp_format = "fallback",
+  undojoin = false,
+
+  filter = function(client)
+    if client.name == "vue_ls" then
+      return false
+    end
+
+    if client.name == "stylua" then
+      return false
+    end
+
+    return true
+  end,
+}
+
+return M.spec
