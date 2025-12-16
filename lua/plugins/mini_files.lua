@@ -102,4 +102,4 @@ M.smart_go_out = function()
   end
 end
 
-return M
+return M.spec
