@@ -8,11 +8,6 @@ return {
 
   opts = {
     sortables = {
-      jsonc = {
-        keys = {
-          node = "pair",
-        },
-      },
       yaml = {
         keys = {
           node = "block_mapping_pair",

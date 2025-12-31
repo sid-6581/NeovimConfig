@@ -78,7 +78,4 @@ vim.filetype.add({
     props = "xml",
     container = "systemd",
   },
-  pattern = {
-    ["appsettings*.json"] = "jsonc",
-  },
 })
