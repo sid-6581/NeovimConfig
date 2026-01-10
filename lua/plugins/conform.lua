@@ -90,7 +90,7 @@ M.spec = {
 M.default_opts = {
   timeout_ms = 500,
   lsp_format = "fallback",
-  undojoin = false,
+  undojoin = true,
 
   filter = function(client)
     if client.name == "vue_ls" then
