@@ -23,7 +23,7 @@ return {
       },
       zindex = 1,
       options = {
-        winblend = 100,
+        winblend = 0,
       },
     },
 
