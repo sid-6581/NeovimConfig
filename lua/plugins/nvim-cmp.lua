@@ -105,8 +105,8 @@ return {
       }),
 
       window = {
-        completion = cmp.config.window.bordered({ border = "rounded", winhighlight = "" }),
-        documentation = cmp.config.window.bordered({ border = "rounded", winhighlight = "" }),
+        completion = cmp.config.window.bordered({ winhighlight = "" }),
+        documentation = cmp.config.window.bordered({ winhighlight = "" }),
       },
 
       experimental = {

@@ -9,7 +9,6 @@ return {
   opts = {
     popupWin = {
       title = "Search/Replace",
-      border = "rounded",
       position = "bottom",
     },
     keymaps = {

@@ -69,6 +69,7 @@ vim.opt.updatetime = 250
 vim.opt.virtualedit = { "block" }
 vim.opt.wildmode = { "longest", "list:full" }
 vim.opt.wildoptions = { "pum", "fuzzy" }
+vim.opt.winborder = "rounded"
 vim.opt.wrap = false
 vim.opt.writebackup = false
 
