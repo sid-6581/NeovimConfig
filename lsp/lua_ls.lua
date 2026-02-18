@@ -1,6 +1,9 @@
 return {
   settings = {
     Lua = {
+      codeLens = {
+        enable = false,
+      },
       completion = {
         workspaceWord = false,
         postfix = ".",

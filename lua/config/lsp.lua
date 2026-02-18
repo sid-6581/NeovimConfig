@@ -47,7 +47,7 @@ vim.diagnostic.config({
   virtual_text = { spacing = 4 },
 })
 
--- vim.lsp.codelens.enable(true)
+vim.lsp.codelens.enable(true)
 
 -- Enable all language servers we have configurations for.
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
