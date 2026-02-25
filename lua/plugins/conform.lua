@@ -97,6 +97,10 @@ M.default_opts = {
       return false
     end
 
+    if client.name == "vtsls" then
+      return false
+    end
+
     if client.name == "stylua" then
       return false
     end
