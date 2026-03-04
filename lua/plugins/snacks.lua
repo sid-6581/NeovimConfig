@@ -91,7 +91,7 @@ return {
         hl = "GruvboxBg4",
       },
 
-      filter = function(buf, win)
+      filter = function(buf, _win)
         return (
           vim.g.snacks_indent ~= false and
           vim.b[buf].snacks_indent ~= false and
