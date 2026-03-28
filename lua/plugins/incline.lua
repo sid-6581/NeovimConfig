@@ -39,7 +39,7 @@ return {
     render = function(props)
       local bufname = vim.api.nvim_buf_get_name(props.buf)
 
-      if bufname == "" then
+      if bufname == "" or vim.startswith(bufname, "term://") then
         return nil
       end
 
