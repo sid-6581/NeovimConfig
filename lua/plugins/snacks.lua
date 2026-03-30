@@ -303,7 +303,7 @@ return {
     snacks.toggle({
       name = "codelens (global)",
       get = function() return vim.lsp.codelens.is_enabled() end,
-      set = function(state) vim.lsp.codelens.enable(not state) end,
+      set = function(state) vim.lsp.codelens.enable(state) end,
     }):map("<Leader>uL")
 
     vim.api.nvim_set_hl(0, "SnacksPickerBorder", { link = "FloatBorder" })
