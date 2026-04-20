@@ -16,6 +16,7 @@ return {
       "eslint-lsp",
       "gopls",
       "hadolint",
+      "helm-ls",
       "html-lsp",
       "jinja-lsp",
       "json-lsp",
