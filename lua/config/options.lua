@@ -75,8 +75,14 @@ vim.opt.writebackup = false
 
 vim.filetype.add({
   extension = {
+    container = "systemd",
+    gotmpl = "gotmpl",
     nomad = "hcl",
     props = "xml",
-    container = "systemd",
+  },
+  pattern = {
+    [".*/templates/.*%.tpl"] = "helm",
+    [".*/templates/.*%.ya?ml"] = "helm",
+    ["helmfile.*%.ya?ml"] = "helm",
   },
 })
