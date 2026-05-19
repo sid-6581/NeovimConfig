@@ -47,7 +47,7 @@ M.spec = {
 
       formatters = {
         file = {
-          truncate = 80,
+          truncate = "left",
         },
       },
 
@@ -91,7 +91,6 @@ M.spec = {
         },
 
         select = {
-          preview = false,
           layout = {
             relative = "cursor",
             row = 1,
@@ -111,7 +110,6 @@ M.spec = {
         },
 
         vscode = {
-          preview = false,
           layout = {
             relative = "cursor",
             row = 1,
