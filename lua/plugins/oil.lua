@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
 
   keys = {
-    { "<Space>.", "<CMD>Oil<CR>", desc = "Open Oil [oil]" },
+    { "+", "<CMD>Oil<CR>", desc = "Open Oil [oil]" },
     { "<A-.>", "<CMD>Oil --float<CR>", desc = "Open Oil in a float [oil]" },
   },
 
